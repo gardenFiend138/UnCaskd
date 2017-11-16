@@ -8,6 +8,7 @@ MVP List--(* indicates bonus)
   *venues
   *badges
 
+
 Database Schema:
   -users have many checkins
   -users have many friends(users)
@@ -21,9 +22,10 @@ Database Schema:
   -whiskeys belong to distilleries
   -whiskies have many checkins
   -checkins belong to whiskies
-  
+
   ? checkins have many cheers
   ? cheers belong to a checkin
+
 
 Routes:
   -new session(home page--not logged in)
@@ -35,6 +37,7 @@ Routes:
   -user profile
   -whiskey/ distillery show page
   -whiskey/ distillery index page
+
 
 Sample State:
   {
@@ -60,7 +63,17 @@ Sample State:
       comments: {
         id,
         checkin-id,
+        user_id,
         body
+      },
+      distilleries: {
+        id,
+        whiskey_id,
+        image_url
+      },
+      whiskies: {
+        id,
+        image_url
       }
     },
     ui: {
