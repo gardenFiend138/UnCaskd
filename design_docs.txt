@@ -1,0 +1,108 @@
+MVP List--(* indicates bonus)
+  -drinks CRUD
+  -check-ins
+  -check-in feed ('the lounge')
+  -profile
+  *friends
+  *search (whiskey, venues, friends)
+  *venues
+  *badges
+
+Database Schema:
+  -users have many checkins
+  -users have many friends(users)
+  -users belong to many friends(users)
+  -checkins belong to a user
+  -checkins have many comments
+  -comments belong to a checkin
+  -comments have many tags
+  -tags belong to checkins
+  -distilleries have many whiskeys
+  -whiskeys belong to distilleries
+  -whiskies have many checkins
+  -checkins belong to whiskies
+  
+  ? checkins have many cheers
+  ? cheers belong to a checkin
+
+Routes:
+  -new session(home page--not logged in)
+  -check-in index (home page--when logged in)
+  -check-in create
+  -check-in edit
+  -check-in delete
+  -check-in show
+  -user profile
+  -whiskey/ distillery show page
+  -whiskey/ distillery index page
+
+Sample State:
+  {
+    entities: {
+      check-in: {
+        id,
+        body,
+        author,
+        cheers,
+        flavor-profile(tags),
+        photo_url,
+        type,
+        brand,
+        rating,
+        location(bonus),
+        timestamp
+      },
+      users: {
+        id,
+        username,
+        image_url
+      },
+      comments: {
+        id,
+        checkin-id,
+        body
+      }
+    },
+    ui: {
+      loading(boolean)
+    },
+    errors: {
+      login,
+      checkin,
+      comment
+    },
+    session: {
+      id,
+      username,
+      image_url
+    }
+  };
+
+Component Hierarchy:
+  +App
+    -navbar
+    -main page
+    -footer
+  +Session Form Container
+    -session form
+  +Profile
+    -checkin feed(index; button to edit own)
+    -navbar
+    -footer
+    -search bar(friends, whiskies)
+  +Checkin show
+    -checkin(edit, delete)
+    -navbar
+    -footer
+  +New Checkin
+  -type/ brand (title)
+    -rating
+    -body
+    -photo_url
+    -flavor profile (tags)
+    *location (bonus)
+  *Search (bonus)
+    -navbar
+    -user search
+    -whiskey search
+    -footer
