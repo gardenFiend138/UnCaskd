@@ -78,11 +78,20 @@ Columns | Data Type | Notes
 id | integer| not null, primary key
 checkin_id | integer | not null, foreign key, indexed
 author_id | integer | not null, foreign key, indexed
-body | string| not null
+body | string | not null
 created_at | datetime | not null
 updated_at | datetime | not null
 
   * `author_id` references `users`
+
+****
+
+### `cheers`
+Columns | Data Type | Notes
+--- | --- | ---
+id | integer | primary key, not null
+checkin_id | integer | foreign key, indexed, not null
+user_id | integer | foreign key, indexed, not null
 
 ****
 
@@ -133,7 +142,7 @@ updated_at | datetime | not null
 Columns | Data Type| Notes
 --- | --- | ---
 id | integer | not null, primary key
-name | string | not null
+type | string | not null
 description | text | not null
 created_at | datetime | not null
 updated_at | datetime | not null
