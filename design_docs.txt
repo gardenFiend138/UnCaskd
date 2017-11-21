@@ -1,12 +1,27 @@
-MVP List--(* indicates bonus)
-  -drinks CRUD
-  -check-ins
-  -check-in feed ('the lounge')
-  -profile
-  *friends
-  *search (whiskey, venues, friends)
-  *venues
-  *badges
+##MVP List--(* indicates bonus)
+1. New account creation, login, and guest/demo login
+2. A production README
+3. Hosting on Heroku
+4. drinks CRUD
+  * Users can create, view (index and show), and edit whiskies
+  * Adequate styling
+  * Smooth, bug-free navigation
+  * Adequate and appropriate seeds to demonstrate this feature
+5. check-ins
+  * Users can create, view (index and show), edit, and delete checkins
+  * Adequate styling
+  * Smooth, bug-free navigation
+  * Adequate and appropriate seeds to demonstrate this feature
+6. check-in feed ('the lounge')
+  * Feed will display all user checkins
+  * Users can 'cheers' checkins, with the 'cheers' count being displayed for each checkin
+  *
+7. profile
+*friends  *
+*search (whiskey, venues, friends) (bonus)
+*venues (with Google Maps API) (bonus)
+*flavor profile tags (bonus)
+*badges (bonus)
 
 
 Database Schema:
@@ -26,6 +41,109 @@ Database Schema:
   ? checkins have many cheers
   ? cheers belong to a checkin
 
+##Tables:
+
+###`users`
+
+Column | Data Type | Notes
+--- | --- | ---
+id | integer | not null, primary key
+username | string | not null, unique, indexed
+email_address | string | not null, unique
+password_digest | string | not null
+session_token | string | not null, unique, indexed
+image_url | string | not null; default image
+created_at | datetime | not null
+updated_at | datetime | not null
+
+****
+
+###`checkins`
+
+Columns | Data Type | Notes
+--- | --- | ---
+id | integer | not null, primary key
+user_id | integer | not null, indexed, foreign key
+body | text| optional
+rating | float | not null
+created_at | datetime | not null
+updated_at | datetime | not null
+
+****
+
+###`comments`
+
+Columns | Data Type | Notes
+--- | --- | ---
+id | integer| not null, primary key
+checkin_id | integer | not null, foreign key, indexed
+author_id | integer | not null, foreign key, indexed
+body | string| not null
+created_at | datetime | not null
+updated_at | datetime | not null
+
+  * `author_id` references `users`
+
+****
+
+###`friends`
+
+Columns | Data Type | Notes
+--- | --- | ---
+user_id | integer | not null, foreign key, indexed
+friend_id | integer | not null, foreign key, indexed
+created_at | datetime | not null
+updated_at | datetime | not null
+
+  * `user_id` references `users` (user that sent the friend request)
+  * `friend_id` references `users` (user that accepted the friend request)
+
+****
+
+###`whiskeys`
+
+Columns | Data Type | Notes
+--- | --- | ---
+id | integer | not null, primary_key
+name | string | not null, unique
+abv | float | not null (possibly optional?)
+distillery_id | integer | optional, foreign key, indexed
+style_id | integer | not null, foreign key, indexed
+photo_url | string | not null (default picture)
+created_at | datetime | not null
+updated_at | datetime | not null
+
+****
+
+###`distilleries`
+
+Columns | Data Type | Notes
+--- | --- | ---
+id | integer | not null, primary key
+name | string | not null
+location | string | not null
+image_url | string | not null (default image)
+created_at | datetime | not null
+updated_at | datetime | not null
+
+****
+
+###`styles`
+
+Columns | Data Type| Notes
+--- | --- | ---
+id | integer | not null, primary key
+name | string | not null
+description | text | not null
+created_at | datetime | not null
+updated_at | datetime | not null
+
+  * My MVP tables are: users, checkins, whiskeys, distilleries, styles.
+  * My bonus tables are: friends, comments, cheers, tags (not listed here--need to figure out implementation)
+
+
+
+
 
 Routes:
   -new session(home page--not logged in)
@@ -38,84 +156,183 @@ Routes:
   -whiskey/ distillery show page
   -whiskey/ distillery index page
 
+##Frontend Routes
+* `/login`
+* `/signup`
+* `/home` friend checkins
+* `/lounge` all user checkins
+* `/whiskies` whiskey index
+* `/whiskies/new` add a new whiskey
+* `/whiskies/:whiskey_id` whiskey show page
+* `/whiskies/:whiskey_id/edit` edit a whiskey profile
+* `/distilleries` distillery index page
+* `/distilleries/:distillery_id` distillery show page
+* `/distilleries/:distillery_id/edit` edit a distillery page
+* `/users/:user_id` user profile
+* `/checkins/new` create a new checkin
+* `/checkins/:checkin_id` checkin show page
+* `/checkins/:checkin_id/edit` edit a checkin
+* `/checkins/:checkin_id/comment` comment on a checkin
+* `/users/friends` friends index
 
-Sample State:
+
+
+## API Endpoints
+###`users`
+* `GET /api/users` user show page (profile)
+* `POST /api/users` sign up
+
+###`whiskies`
+* `GET /api/whiskies` returns relevant whiskies (filtered by `params` /`data`)
+* `POST /api/whiskies` adds a new whiskey
+* `GET /api/whiskies/:id` returns a whiskey show page
+* `PATCH /api/whiskies/:id` edits a whiskey
+
+###`distilleries`
+* `GET /api/distilleries` returns relevant distilleries (filtered by `params` /`data`)
+* `POST /api/distilleries` adds a new distillery
+* `GET /api/distilleries/:id` returns a distillery show page
+* `PATCH /api/distilleries/:id` edits a distillery
+
+###`checkins`
+* `GET /api/checkins` returns relevant checkins (filtered by `params` /`data`)
+* `POST /api/checkins` adds a new checkin
+* `GET /api/checkins/:id` returns a checkin show page
+* `PATCH /api/checkins/:id` edits a checkin
+* `DELETE /api/checkins/:id` deletes a checkin
+
+###`comments`
+* `GET /api/checkins/:id` returns checkin show page, along with comments
+* `POST /api/checkins/:id/comments` creates a new comment on a checkin
+* `PATCH /api/checkins/:id/comments` edits a checkin
+* `DELETE /api/checkins/:id/comments` deletes a checkin
+
+###`friends`
+* `GET /api/users/:id/friends` shows a user's friends
+* `POST /api/users/:id/friends` send friend request
+* `DELETE /api/users/:id/friends` deletes a user's friend
+
+###`cheers`
+* `POST /api/cheers` cheers a checkin
+* `DELETE /api/cheers` delete a cheers on a checkin
+
+
+
+
+##Sample State:
+```javascript
   {
     entities: {
       check-in: {
-        id,
-        body,
-        author,
-        cheers,
-        flavor-profile(tags),
-        photo_url,
-        type,
-        brand,
-        rating,
-        location(bonus),
-        timestamp
+        id: 5,
+        body: 'Such a great whiskey!',
+        author_id: 1,
+        cheers: (not sure on how to do this...),
+        flavor-profile(tags): ['oaky', 'smooth'] (bonus--not sure on implementation yet),
+        photo_url: 'www.somewhiskeyphoto.com',
+        whiskey_id: 3,
+        rating: 3,
+        location(bonus): 'San Jose, CA',
+        timestamp:
       },
       users: {
-        id,
-        username,
-        image_url
+        id: 1,
+        username: 'gardenfiend',
+        email_address: 'email@email.com',
+        image_url: 'www.someotherimage.com',
+        timestamp:
       },
       comments: {
-        id,
-        checkin-id,
-        user_id,
-        body
+        id: 4,
+        checkin_id: 5,
+        user_id: 1,
+        body: 'Ohh, nice one!',
+        timestamp:
       },
-      distilleries: {
-        id,
-        whiskey_id,
-        image_url
+      friends: {
+        friend_id: 1,
+        user_id: 2
+      },
+      cheers: {
+        checkin_id: 5,
+        user_id: 2
       },
       whiskies: {
-        id,
-        image_url
+        id: 1,
+        name: 'Jim Beam',
+        abv: 45,
+        distillery_id: 1,
+        style_id: 1,
+        image_url: 'www.yetsomeotherimage.com'
+      },
+      distilleries: {
+        id: 1,
+        name: 'Jim Beam',
+        location: 'Louisville, Kentucky'
       }
     },
     ui: {
-      loading(boolean)
+      loading(boolean): true/false
     },
     errors: {
-      login,
-      checkin,
-      comment
+      login: ['Username or password incorrect'],
+      checkin: ['Checkin rating cannot be empty'],
+      comment:
     },
     session: {
-      id,
-      username,
-      image_url
+      id: 5,
+      username: 'gardenfiend',
+      image_url: 'www.image.come'
     }
   };
+  ```
 
 Component Hierarchy:
-  +App
-    -navbar
-    -main page
-    -footer
-  +Session Form Container
-    -session form
-  +Profile
-    -checkin feed(index; button to edit own)
-    -navbar
-    -footer
-    -search bar(friends, whiskies)
-  +Checkin show
-    -checkin(edit, delete)
-    -navbar
-    -footer
-  +New Checkin
-  -type/ brand (title)
-    -rating
-    -body
-    -photo_url
-    -flavor profile (tags)
-    *location (bonus)
-  *Search (bonus)
-    -navbar
-    -user search
-    -whiskey search
-    -footer
+### App
+
+  * navbar
+  * main page
+  * footer
+
+****
+
+### Session Form Container
+
+  * session form
+
+****
+
+### Profile
+
+  * checkin feed(index; button to edit own)
+  * navbar
+  * footer
+
+  * Bonus: search bar(friends, whiskies)
+
+****
+
+### Checkin show
+
+  * checkin(edit, delete)
+  * navbar
+  * footer
+
+****
+
+### New Checkin
+
+  * type/ brand
+  * rating
+  * body
+  * photo_url
+
+  * Bonus: flavor profile (tags), location
+****
+
+### Search (bonus)
+
+  * navbar
+  * user search
+  * whiskey search
+  * footer
