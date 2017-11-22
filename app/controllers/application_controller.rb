@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?
 
   private
-  # Neat ruby metaprogramming going on with method_missing
+  # Neat ruby metaprogramming going on under the hood with method_missing
   # in the find_by_session_token method
   def current_user
     return nil unless session[:session_token]

@@ -20,11 +20,12 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   attr_reader :password
-  
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
-    return nil unless user && user.is_password?(password)
-    user
+    (user && user.is_password?(password)) ? user : nil
+    # return nil unless user && user.is_password?(password)
+    # user
   end
 
   def password=(password)

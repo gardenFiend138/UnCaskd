@@ -11,9 +11,11 @@ To do:
   * review what you did today, look up:
     * Provider
     * HashRouter
+    * jbuilder
     * ...?
 
   * Tomorrow:
+    * backend views
     * ajax requests
     * actions
     * reducers
