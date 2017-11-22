@@ -13,15 +13,25 @@
   * Smooth, bug-free navigation
   * Adequate and appropriate seeds to demonstrate this feature
 6. check-in feed ('the lounge')
-  * Feed will display all user checkins
-  * Users can 'cheers' checkins, with the 'cheers' count being displayed for each checkin
-  *
+  * Feed will display most recent checkins
+  * Users can 'cheers' checkins, whether or not they are friends with the other
+    user, with the 'cheers' count being displayed for each checkin
+  * Users can remove their 'cheers' from a checkin.
+  * 'Cheers' icon renders differently whether or not the current user has
+    liked a post
 7. profile
-*friends  *
-*search (whiskey, venues, friends) (bonus)
-*venues (with Google Maps API) (bonus)
-*flavor profile tags (bonus)
-*badges (bonus)
+  * Users have their own profile page which displays their total checkins,
+    their unique checkins, and serves as an index of all of their checkins
+  * Adequate styling
+  * Smooth, bug free navigation
+  * Adequate and appropriate seeds to demonstrate the feature
+
+### Bonus Features
+
+  * search (whiskey, venues, friends)
+  * venues (with Google Maps API)
+  * flavor profile tags (bonus)
+  * badges (bonus)
 
 
 Database Schema:
@@ -188,7 +198,7 @@ Routes:
 
 ## API Endpoints
 ###`users`
-* `GET /api/users` user show page (profile)
+* `GET /api/users` user index page (profile)
 * `POST /api/users` sign up
 
 ###`whiskies`
@@ -249,6 +259,7 @@ Routes:
         username: 'gardenfiend',
         email_address: 'email@email.com',
         image_url: 'www.someotherimage.com',
+        current_users_friend: boolean,
         timestamp:
       },
       comments: {
@@ -257,10 +268,6 @@ Routes:
         user_id: 1,
         body: 'Ohh, nice one!',
         timestamp:
-      },
-      friends: {
-        friend_id: 1,
-        user_id: 2
       },
       cheers: {
         checkin_id: 5,
