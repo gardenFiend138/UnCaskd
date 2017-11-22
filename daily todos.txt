@@ -1,0 +1,24 @@
+Day 0-- 11.21.17
+  * setup backend auth
+    * tables
+    * user models
+    * user, session, and application controllers
+  * start frontend auth
+    * entry file
+    * store
+
+To do:
+  * review what you did today, look up:
+    * Provider
+    * HashRouter
+    * ...?
+
+  * Tomorrow:
+    * ajax requests
+    * actions
+    * reducers
+    * revisit store and entry files
+    * components
+
+  * By the end of the day 11.22.17 (Day 1):
+    * Be done with auth (including styling)

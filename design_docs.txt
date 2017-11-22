@@ -1,25 +1,25 @@
-##MVP List--(* indicates bonus)
-1. New account creation, login, and guest/demo login
-2. A production README
-3. Hosting on Heroku
-4. drinks CRUD
+## MVP List
+### 1. New account creation, login, and guest/demo login
+### 2. A production README
+### 3. Hosting on Heroku
+### 4. drinks CRUD
   * Users can create, view (index and show), and edit whiskies
   * Adequate styling
   * Smooth, bug-free navigation
   * Adequate and appropriate seeds to demonstrate this feature
-5. check-ins
+### 5. check-ins
   * Users can create, view (index and show), edit, and delete checkins
   * Adequate styling
   * Smooth, bug-free navigation
   * Adequate and appropriate seeds to demonstrate this feature
-6. check-in feed ('the lounge')
+### 6. check-in feed ('the lounge')
   * Feed will display most recent checkins
   * Users can 'cheers' checkins, whether or not they are friends with the other
     user, with the 'cheers' count being displayed for each checkin
   * Users can remove their 'cheers' from a checkin.
   * 'Cheers' icon renders differently whether or not the current user has
     liked a post
-7. profile
+### 7. profile
   * Users have their own profile page which displays their total checkins,
     their unique checkins, and serves as an index of all of their checkins
   * Adequate styling
@@ -30,8 +30,8 @@
 
   * search (whiskey, venues, friends)
   * venues (with Google Maps API)
-  * flavor profile tags (bonus)
-  * badges (bonus)
+  * flavor profile tags (for users to select from when checking in)
+  * badges (earned for various checkin 'accomplishments')
 
 
 Database Schema:
@@ -157,10 +157,6 @@ description | text | not null
 created_at | datetime | not null
 updated_at | datetime | not null
 
-  * My MVP tables are: users, checkins, whiskeys, distilleries, styles.
-  * My bonus tables are: friends, comments, cheers, tags (not listed here--need to figure out implementation)
-
-
 
 
 
@@ -175,7 +171,7 @@ Routes:
   -whiskey/ distillery show page
   -whiskey/ distillery index page
 
-##Frontend Routes
+## Frontend Routes
 * `/login`
 * `/signup`
 * `/home` friend checkins
@@ -197,41 +193,41 @@ Routes:
 
 
 ## API Endpoints
-###`users`
+### `users`
 * `GET /api/users` user index page (profile)
 * `POST /api/users` sign up
 
-###`whiskies`
+### `whiskies`
 * `GET /api/whiskies` returns relevant whiskies (filtered by `params` /`data`)
 * `POST /api/whiskies` adds a new whiskey
 * `GET /api/whiskies/:id` returns a whiskey show page
 * `PATCH /api/whiskies/:id` edits a whiskey
 
-###`distilleries`
+### `distilleries`
 * `GET /api/distilleries` returns relevant distilleries (filtered by `params` /`data`)
 * `POST /api/distilleries` adds a new distillery
 * `GET /api/distilleries/:id` returns a distillery show page
 * `PATCH /api/distilleries/:id` edits a distillery
 
-###`checkins`
+### `checkins`
 * `GET /api/checkins` returns relevant checkins (filtered by `params` /`data`)
 * `POST /api/checkins` adds a new checkin
 * `GET /api/checkins/:id` returns a checkin show page
 * `PATCH /api/checkins/:id` edits a checkin
 * `DELETE /api/checkins/:id` deletes a checkin
 
-###`comments`
+### `comments`
 * `GET /api/checkins/:id` returns checkin show page, along with comments
 * `POST /api/checkins/:id/comments` creates a new comment on a checkin
 * `PATCH /api/checkins/:id/comments` edits a checkin
 * `DELETE /api/checkins/:id/comments` deletes a checkin
 
-###`friends`
+### `friends`
 * `GET /api/users/:id/friends` shows a user's friends
 * `POST /api/users/:id/friends` send friend request
 * `DELETE /api/users/:id/friends` deletes a user's friend
 
-###`cheers`
+### `cheers`
 * `POST /api/cheers` cheers a checkin
 * `DELETE /api/cheers` delete a cheers on a checkin
 
