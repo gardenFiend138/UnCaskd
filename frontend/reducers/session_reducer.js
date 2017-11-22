@@ -3,7 +3,7 @@ import { merge } from 'lodash';
 import RECEIVE_CURRENT_USER from '../actions/session_actions';
 
 const _nullUser = Object.freeze({
-  currentUseruser: null
+  currentUser: null
 });
 
 export const sessionReducer = (state = _nullUser, action) => {

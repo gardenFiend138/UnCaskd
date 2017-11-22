@@ -8,12 +8,15 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+import SessionFormContainer from './session_form/session_form_container';
+
 const App = () => (
   <div>
     <header>
       <h1>Welcome to UnCaskd!</h1>
     </header>
     <Switch>
+      <Route path='/login' component={SessionFormContainer} />
 
     </Switch>
   </div>
