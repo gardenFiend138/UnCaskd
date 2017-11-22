@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :logged_in?
 
   private
   # Neat ruby metaprogramming going on under the hood with method_missing
