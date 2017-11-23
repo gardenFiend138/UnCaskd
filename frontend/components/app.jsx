@@ -10,7 +10,7 @@ import {
 
 import SessionFormContainer from './session_form/session_form_container';
 import SplashPageContainer from './splash_page/splash_page_container';
-import Navbar from './navbar/navbar_container';
+import Greeting from './greeting/greeting_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -19,7 +19,7 @@ const App = () => (
       <Link to="/" className="header-link">
         <h1>Welcome to UnCaskd!</h1>
       </Link>
-      <Navbar />
+      <Greeting />
     </header>
     <Switch>
       <AuthRoute path='/login' component={SessionFormContainer} />

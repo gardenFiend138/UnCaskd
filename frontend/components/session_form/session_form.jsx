@@ -6,7 +6,8 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      currentUser: window.currentUser
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,6 +53,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    // console.log(this.state.username);
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
