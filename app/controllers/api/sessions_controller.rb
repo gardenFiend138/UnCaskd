@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
-      render 'api/checkins'
+      render 'api/users/show'
     else
       render :json ['Looks like your username or password wasn\'t quite right...'],
       status: 401
@@ -21,7 +21,7 @@ class Api::SessionsController < ApplicationController
     @user = current_user
     if @user
       logout
-      render 'api/session'
+      render 'api/users/show'
     else
       render json: ['No one is currently logged in'], status: 404
     end

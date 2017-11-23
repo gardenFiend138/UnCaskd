@@ -1,12 +1,12 @@
-import { merge } from 'lodash';
+import merge from 'lodash';
 
-import RECEIVE_CURRENT_USER from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const _nullUser = Object.freeze({
   currentUser: null
 });
 
-export const sessionReducer = (state = _nullUser, action) => {
+const sessionReducer = (state = _nullUser, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action: require_logged_in
+  before_action :require_logged_in
 
   def new
     @user = User.new(user_params)
@@ -11,9 +11,9 @@ class UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      render 'api/home'
+      render 'api/users/show'
     else
-      flash json: @user.errors.full_messages, status: 422
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
