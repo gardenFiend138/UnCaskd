@@ -21,6 +21,22 @@
     background-size: 100%;
   }
 
+  footer {
+    background-color: white;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // padding-left: 100px;
+    // padding-right: 100px;
+    left: 0;
+    bottom: 0;
+    height: 39px;
+    width: 100%;
+
+
+  }
+
  .greeting-container {
    color: #FFFFF0;
    height: 69px;
@@ -46,14 +62,13 @@
    background-color: inherit;
    color: white;
    border-radius: 7px;
-   font-size: 24px;
+   font-size: 18px;
    font-weight: 700;
-   padding: 11px 17px 11px 17px;
+   padding: 13px 23px 13px 23px;
    margin: 11px;
    border: 2px solid white;
    box-shadow: 0px 2px 2px black;
-   transition: .5s;
-
+   transition: .3s;
  }
 
  .greeting-container button:hover {
@@ -73,4 +88,13 @@
 
  .splash-page {
    background-image: 'https://static.pexels.com/photos/33686/beer-barrel-keg-cask-oak.jpg';
+ }
+
+ //////// signup/ login (session form) /////////
+ .login-form-container {
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   width: 300px;
  }

@@ -24,6 +24,20 @@ const App = () => (
       <AuthRoute path='/signup' component={SessionFormContainer} />
       <Route path='/home' component={SplashPageContainer} />
     </Switch>
+    <footer>
+      <a
+        href="https://github.com/gardenFiend138/UnCaskd">
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/guy-wassather-678740b7">
+        LinkedIn
+      </a>
+      <a
+        href="https://www.codewars.com/users/gardenfiend138">
+        CodeWars
+      </a>
+    </footer>
   </div>
 );
 
