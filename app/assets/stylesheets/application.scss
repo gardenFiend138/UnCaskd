@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// be sure to download the images and have them in a folder in this project directory
+  body {
+    // background-image: url('https://static.pexels.com/photos/33686/beer-barrel-keg-cask-oak.jpg');
+    background-image: url('https://pixabay.com/get/ec37b80c2ce90021d85a5840981318c3fe76e7d418b5174791f1c5/barrel-52934_1280.jpg');
+    background-size: 100%;
+  }
+
+ .greeting-container {
+   color: #FFFFF0;
+   height: 69px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .guest {
+   display: flex;
+   justify-content: flex-start;
+   margin-left: 23px;
+ }
+
+ .member {
+   display: flex;
+   justify-content: flex-end;
+   margin: 23px;
+ }
+
+ .greeting-container button {
+   flex-direction: row;
+   background-color: inherit;
+   color: white;
+   border-radius: 7px;
+   font-size: 24px;
+   font-weight: 700;
+   padding: 11px 17px 11px 17px;
+   margin: 11px;
+   border: 2px solid white;
+   box-shadow: 0px 2px 2px black;
+   transition: .5s;
+
+ }
+
+ .greeting-container button:hover {
+   background-color: white;
+   color: black;
+   cursor: pointer;
+ }
+
+ .greeting-container button:active {
+   box-shadow: none;
+   margin-top: 17px;
+ }
+
+ button:focus {
+   outline: none;
+ }
+
+ .splash-page {
+   background-image: 'https://static.pexels.com/photos/33686/beer-barrel-keg-cask-oak.jpg';
+ }

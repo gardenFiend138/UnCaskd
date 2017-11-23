@@ -16,9 +16,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
-      <Link to="/" className="header-link">
-        <h1>Welcome to UnCaskd!</h1>
-      </Link>
+      <Link to="/" className="header-link"></Link>
       <Greeting />
     </header>
     <Switch>
