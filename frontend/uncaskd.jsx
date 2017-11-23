@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+// delete below
+import { login  } from './util/session_api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
  /// DELETE BEFORE PRODUCTION ///
+  window.login = login;
   window.store = store;
   /// DELETE BEFORE PRODUCTION ///
 

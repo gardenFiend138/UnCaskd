@@ -27,12 +27,12 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.props.processForm(user);
   }
 
   navLink() {
     if (this.props.formType === 'login') {
-      return <Link to="/signup">Create an Acount!</Link>;
+      return <Link to="/signup">Create an Account!</Link>;
     } else {
       return <Link to="/login">Log Me In!</Link>;
     }

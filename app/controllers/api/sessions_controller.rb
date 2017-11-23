@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render 'api/users/show'
     else
-      render :json ['Looks like your username or password wasn\'t quite right...'],
+      render json: ['Looks like your username or password wasn\'t quite right...'],
              status: 401
     end
   end

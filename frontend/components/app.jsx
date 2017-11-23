@@ -18,7 +18,7 @@ const App = () => (
     <Switch>
       <Route path='/login' component={SessionFormContainer} />
       <Route path='/signup' component={SessionFormContainer} />
-      <Route path='/home' component={SplashPageContainer} />
+      <Route path='/users/show' component={SplashPageContainer} />
     </Switch>
   </div>
 );

@@ -1,5 +1,4 @@
-class UsersController < ApplicationController
-  before_action :require_logged_in
+class Api::UsersController < ApplicationController
 
   def new
     @user = User.new(user_params)
