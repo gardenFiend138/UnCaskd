@@ -1,1 +1,1 @@
-web: node frontend/uncasked.jsx
+web: node ./frontend/uncasked.jsx
