@@ -27,6 +27,26 @@ To do:
     * Be done with auth (including styling)
 
 ## Day 1--11.22.17
+* setup backend auth
+  * continue with auth
+  * struggle with auth
+  * got sign in/ sign up working
+
+To do:
+* review what you did today, look up:
+  * containers
+  * rendering with react
+  * auth in general...
+  * ...?
+
+* Tomorrow:
+  * figure out why currentUser prop isn't getting passed down in navbar container
+  * finish auth
+  * style auth
+
+
+* By the end of the day 11.23.17 (Day 2):
+  * Be done with auth (including styling)
 
 
 ## Day 2--11.23.17
