@@ -12,7 +12,7 @@ class Api::SessionsController < ApplicationController
       render 'api/users/show'
     else
       render :json ['Looks like your username or password wasn\'t quite right...'],
-      status: 401
+             status: 401
     end
   end
 
