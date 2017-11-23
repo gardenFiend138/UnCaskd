@@ -25,17 +25,14 @@ const App = () => (
       <Route path='/home' component={SplashPageContainer} />
     </Switch>
     <footer>
-      <a
-        href="https://github.com/gardenFiend138/UnCaskd">
-        GitHub
+      <a href="https://github.com/gardenFiend138/UnCaskd" target="_blank">
+        <i className="fa fa-github" aria-hidden="true"></i>
       </a>
-      <a
-        href="https://www.linkedin.com/in/guy-wassather-678740b7">
-        LinkedIn
+      <a href="https://www.linkedin.com/in/guy-wassather-678740b7" target="_blank">
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
       </a>
-      <a
-        href="https://www.codewars.com/users/gardenfiend138">
-        CodeWars
+      <a href="https://www.codewars.com/users/gardenfiend138" target="_blank">
+        <i class="fa fa-code" aria-hidden="true"></i>
       </a>
     </footer>
   </div>

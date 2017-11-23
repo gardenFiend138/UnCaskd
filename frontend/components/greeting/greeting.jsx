@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../actions/session_actions';
 
-
-const loginGuest = () => (
+const loginGuest = (login) => (
   login({'username': 'guest', 'password': 'password'})
 );
 
-const sessionLinks = (currentUser) => (
+const sessionLinks = (login) => (
     <div>
       <nav className='greeting-container'>
 
         <div className="guest">
           <Link to="/">
-            <button onClick={loginGuest}>
+            <button onClick={() => loginGuest(login)}>
               Guest Login
             </button>
           </Link>
@@ -40,8 +38,8 @@ const personalGreeting = (currentUser, logout) => (
   </hgroup>
 );
 
-const Greeting = ({ currentUser, logout }) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
+const Greeting = ({ currentUser, logout, login }) => (
+  currentUser ? personalGreeting(currentUser, logout) : sessionLinks(login)
 );
 
 export default Greeting;
