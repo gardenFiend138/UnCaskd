@@ -21,7 +21,7 @@ const sessionLinks = (login) => (
           <Link to="/login">
             <button>Login</button>
           </Link>
-
+      
           <Link to="/signup">
             <button>Sign Up!</button>
           </Link>
@@ -37,7 +37,7 @@ const personalGreeting = (currentUser, logout) => (
     <button className='header-button' onClick={logout}>Log Out</button>
   </hgroup>
 );
-
+// We pass in login here so we have access to it in session links for our guest login
 const Greeting = ({ currentUser, logout, login }) => (
   currentUser ? personalGreeting(currentUser, logout) : sessionLinks(login)
 );

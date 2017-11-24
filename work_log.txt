@@ -50,9 +50,47 @@ To do:
 
 
 ## Day 2--11.23.17
+* finish auth
+* style splash page, greeting header, and footer
+* get guest login working
+* figure out why full functionality is not available when hosting
+  on heroku
+
+To do:
+* Review work done, make sure it makes sense and looks good
+* Start thinking about organizing css/ sass files
+* Style signup/ login form (modal?)
+* Create functional navbar for logged in user
+* Finish whiskey backend
+
+This weekend:
+* Figure out style specs
+  * color theme
+  * fonts
+  * font sizes
+  * MAke FA icons bigger
+  * make favicon
 
 
 ## Day 3--11.24.17
+* Add logo and motto to splash page
+* Add favicon
+* Fix button position on member buttons
+* Style signup/ login form
+* Create functional navbar
+* Finish backend for whiskey, start frontend
+  * whiskey creation
+  * whiskey edit
+  * whiskey show
+
+
+By Monday:
+* login, signup completely finished
+  * styled, bug free navigation
+* have whiskey frontend done
+  * be able to create a new whiskey, edit a whiskey page,
+  have a whiskey show page, and a whiskey index
+* Finish checkin backend, start checkin frontend
 
 
 ## Day 4--11.25.17

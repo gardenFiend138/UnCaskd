@@ -51,37 +51,53 @@ class SessionForm extends React.Component {
     );
   }
 
-  render() {
-    return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-
-          Please {this.props.formType} or {this.navLink()}
-          {this.renderErrors()}
-          <div className="login-form">
-            <br/>
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
+  loginBox() {
+    return(
+      <div className="login-form">
+        <br/>
+        <Link to='/'>X</Link>
+          <label>Email:<br/>
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              className="login-input"
+            />
+          </label><br/>
+        <label>Username:<br/>
+          <input type="text"
+            value={this.state.username}
+            onChange={this.update('username')}
+            className="login-input"
+          />
+        </label><br/>
+        <br/>
+        <label>Password:<br/>
+          <input type="password"
+            value={this.state.password}
+            onChange={this.update('password')}
+            className="login-input"
+          />
+        </label><br/>
+        <br/>
+        <button><input type="submit" value="Submit" /></button>
       </div>
+    );
+  }
 
+
+
+  render() {
+    return(
+      <div className="login-form-container modal is-open">
+        <form onSubmit={this.handleSubmit} className="login-form-box modal-form">
+          <span className="session-box modal-close js-modal-close">
+            Please {this.props.formType} or {this.navLink()}
+            {this.renderErrors()}
+            {this.loginBox()}
+          </span>
+        </form>
+        <div className="modal-screen js-modal-close"></div>
+      </div>
     );
   }
 }
