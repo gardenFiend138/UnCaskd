@@ -88,15 +88,14 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="login-form-container modal is-open">
-        <form onSubmit={this.handleSubmit} className="login-form-box modal-form">
-          <span className="session-box modal-close js-modal-close">
+      <div className="login-form-container">
+        <form onSubmit={this.handleSubmit} className="login-form-box">
+          <span className="session-box">
             Please {this.props.formType} or {this.navLink()}
             {this.renderErrors()}
             {this.loginBox()}
           </span>
         </form>
-        <div className="modal-screen js-modal-close"></div>
       </div>
     );
   }

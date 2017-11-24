@@ -6,7 +6,7 @@ const loginGuest = (login) => (
 );
 
 const sessionLinks = (login) => (
-    <div>
+    <header>
       <nav className='greeting-container'>
 
         <div className="guest">
@@ -21,13 +21,13 @@ const sessionLinks = (login) => (
           <Link to="/login">
             <button>Login</button>
           </Link>
-      
+
           <Link to="/signup">
             <button>Sign Up!</button>
           </Link>
         </div>
       </nav>
-    </div>
+    </header>
   );
 
 
