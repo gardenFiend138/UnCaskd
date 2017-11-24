@@ -78,6 +78,7 @@ This weekend:
 * Fix button position on member buttons
 * Style signup/ login form
 * Create functional navbar
+* 
 * Finish backend for whiskey, start frontend
   * whiskey creation
   * whiskey edit

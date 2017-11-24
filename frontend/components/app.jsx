@@ -9,20 +9,23 @@ import {
 } from 'react-router-dom';
 
 import SessionFormContainer from './session_form/session_form_container';
-import SplashPageContainer from './splash_page/splash_page_container';
+import Motto from './splash_page/motto';
 import Greeting from './greeting/greeting_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+    </head>
     <header>
-      <Link to="/" className="header-link"></Link>
+      // <Link to="/" className="header-link"></Link>
       <Greeting />
     </header>
+    <Route path='/' component={Motto} />
     <Switch>
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
-      <Route path='/home' component={SplashPageContainer} />
     </Switch>
     <footer>
       <a href="https://github.com/gardenFiend138/UnCaskd" target="_blank">
