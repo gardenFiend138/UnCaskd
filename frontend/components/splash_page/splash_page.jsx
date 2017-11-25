@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Greeting from '../greeting/greeting';
+import Greeting from '../greeting/greeting_container';
 import Footer from '../footer/footer';
 
   const motto = () => {
@@ -16,9 +16,9 @@ import Footer from '../footer/footer';
 
     return(
         <div>
-          <Greeting />
+          
           {motto()}
-          <Footer />
+
         </div>
     );
   };

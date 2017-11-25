@@ -34,14 +34,14 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'login') {
       return <Link to="/signup">Create an Account!</Link>;
     } else {
-      return <Link to="/login">Log Me In!</Link>;
+      return <Link to="/login">Log me In!</Link>;
     }
   }
 
   renderErrors() {
 
     return(
-      <ul>
+      <ul className='errors'>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -51,35 +51,81 @@ class SessionForm extends React.Component {
     );
   }
 
+  newUserEmail() {
+    if (this.props.formType === 'signup') {
+      return(
+        <input type="email"
+          className="login-input"
+          placeholder='e-mail'
+          onChange={this.update('email')}
+        />
+      );
+    }
+  }
+
+  loginBoxMessage() {
+    if (this.props.formType === 'login') {
+      return <h1>Welcome Back!</h1>;
+    } else {
+      return <h1>Welcome to UnCaskd!</h1>;
+    }
+  }
+
+  loginBoxAction() {
+    if (this.props.formType === 'login') {
+      return <h5 class='login-box-action'>Sign In</h5>;
+    } else {
+      return <h5 className='login-box-action'>Create a New Account</h5>;
+    }
+  }
+
+  loginBoxLowerMessage() {
+    if (this.props.formType === 'login') {
+      return(
+        <p className='login-form login-lower-message'>Not a member yet? {this.navLink()}</p>
+      );
+    } else {
+      return(
+        <p className='login-form login-lower-message'>Already have an account?
+          <Link to="/login"> Sign In</Link>
+        </p>
+      );
+    }
+  }
+
   loginBox() {
     return(
-      <div className="login-form">
-        <br/>
-        <Link to='/'>X</Link>
-          <label>Email:<br/>
+      <div>
+        <div className="login-form">
+          <br/>
+          <Link to='/' className='close-login-form'>&times;</Link>
+            {this.renderErrors()}
+            {this.loginBoxMessage()}
+            {this.loginBoxAction()}
+
+            {this.newUserEmail()}
+
+
             <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
+
+              placeholder='Username'
+              onChange={this.update('username')}
               className="login-input"
             />
-          </label><br/>
-        <label>Username:<br/>
-          <input type="text"
-            value={this.state.username}
-            onChange={this.update('username')}
-            className="login-input"
-          />
-        </label><br/>
-        <br/>
-        <label>Password:<br/>
-          <input type="password"
-            value={this.state.password}
-            onChange={this.update('password')}
-            className="login-input"
-          />
-        </label><br/>
-        <br/>
-        <button><input type="submit" value="Submit" /></button>
+
+
+
+            <input type="password"
+
+              placeholder='Password'
+              onChange={this.update('password')}
+              className="login-input"
+            />
+
+          <br/>
+          <button onClick={this.handleSubmit}>On With it Now</button>
+
+        </div>
       </div>
     );
   }
@@ -88,14 +134,25 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <span className="session-box">
-            Please {this.props.formType} or {this.navLink()}
-            {this.renderErrors()}
-            {this.loginBox()}
-          </span>
-        </form>
+      <div>
+        <div className='motto-container'>
+          <div className='motto'>
+            <h1>UnCaskd</h1>
+            <h5>DISCOVER THE BEST</h5>
+          </div>
+        </div>
+        <div className="login-form-container">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            <span className="session-box">
+
+              <div className='login-message'>
+                {this.loginBox()}
+                {this.loginBoxLowerMessage()}
+              </div>
+
+            </span>
+          </form>
+        </div>
       </div>
     );
   }

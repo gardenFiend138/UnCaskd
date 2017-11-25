@@ -12,18 +12,18 @@ const sessionLinks = (login) => (
         <div className="guest">
           <Link to="/">
             <button onClick={() => loginGuest(login)}>
-              Guest Login
+              GUEST LOGIN
             </button>
           </Link>
         </div>
 
         <div className="member">
           <Link to="/login">
-            <button>Login</button>
+            <button>LOGIN</button>
           </Link>
 
           <Link to="/signup">
-            <button>Sign Up!</button>
+            <button>SIGN UP</button>
           </Link>
         </div>
       </nav>
