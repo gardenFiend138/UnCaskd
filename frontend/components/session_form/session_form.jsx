@@ -73,9 +73,9 @@ class SessionForm extends React.Component {
 
   loginBoxAction() {
     if (this.props.formType === 'login') {
-      return <h5 class='login-box-action'>Sign In</h5>;
+      return <h3 class='login-box-action'>Sign In</h3>;
     } else {
-      return <h5 className='login-box-action'>Create a New Account</h5>;
+      return <h3 className='login-box-action'>Create a New Account</h3>;
     }
   }
 

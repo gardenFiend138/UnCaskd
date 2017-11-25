@@ -20,12 +20,12 @@ const App = () => (
     <head>
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
     </head>
-    <Greeting />
+    
+      <AuthRoute path='/' component={SplashPage} />
     <Switch>
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
       <ProtectedRoute path='/home' component={Home} />
-      <AuthRoute exact path='/' component={SplashPage} />
     </Switch>
     <Footer />
   </div>

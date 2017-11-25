@@ -15,7 +15,8 @@ import Footer from '../footer/footer';
   const SplashPage = () =>{
 
     return(
-        <div>
+        <div className="splash-page">
+          <Greeting />
           {motto()}
         </div>
     );

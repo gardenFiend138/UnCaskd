@@ -1,11 +1,17 @@
 
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Navbar from '../navbar/navbar_container';
+import Greeting from '../greeting/greeting_container';
 
 const HomePage = () => {
   return(
-    <div>
-      <h1>Home Page</h1>
+    <div className="home-page">
+      <Navbar />
+      <div>
+        <Greeting />
+        <h1>Home Page</h1>
+      </div>
     </div>
   );
 };
