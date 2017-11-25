@@ -16,9 +16,7 @@ import Footer from '../footer/footer';
 
     return(
         <div>
-          
           {motto()}
-
         </div>
     );
   };
