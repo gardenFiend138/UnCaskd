@@ -82,7 +82,9 @@ class SessionForm extends React.Component {
   loginBoxLowerMessage() {
     if (this.props.formType === 'login') {
       return(
-        <p className='login-form login-lower-message'>Not a member yet? {this.navLink()}</p>
+        <p className='login-form login-lower-message'>
+          Not a member yet? {this.navLink()}
+        </p>
       );
     } else {
       return(
@@ -124,7 +126,7 @@ class SessionForm extends React.Component {
 
           <br/>
           <button onClick={this.handleSubmit}>On With it Now</button>
-
+            {this.loginBoxLowerMessage()}
         </div>
       </div>
     );
@@ -141,18 +143,20 @@ class SessionForm extends React.Component {
             <h5>DISCOVER THE BEST</h5>
           </div>
         </div>
-        <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <span className="session-box">
+        <div className='login-form-container-parent'>
+          <div className="login-form-container">
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              <span className="session-box">
 
-              <div className='login-message'>
-                {this.loginBox()}
-                {this.loginBoxLowerMessage()}
-              </div>
+                <div className='login-message'>
+                  {this.loginBox()}
 
-            </span>
-          </form>
-        </div>
+                </div>
+
+              </span>
+            </form>
+          </div>
+      </div>
       </div>
     );
   }

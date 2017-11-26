@@ -253,7 +253,7 @@ Routes:
       users: {
         id: 1,
         username: 'gardenfiend',
-        email_address: 'email@email.com',
+        email_address: '',
         image_url: 'www.someotherimage.com',
         current_users_friend: boolean,
         timestamp:
