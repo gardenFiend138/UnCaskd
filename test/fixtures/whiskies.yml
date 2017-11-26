@@ -4,6 +4,7 @@
 #
 #  id            :integer          not null, primary key
 #  name          :string           not null
+#  description   :text             not null
 #  image_url     :string           not null
 #  abv           :float            not null
 #  style_id      :integer          not null

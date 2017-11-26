@@ -4,6 +4,7 @@
 #
 #  id            :integer          not null, primary key
 #  name          :string           not null
+#  description   :text             not null
 #  image_url     :string           not null
 #  abv           :float            not null
 #  style_id      :integer          not null
@@ -13,4 +14,6 @@
 #
 
 class Whisky < ApplicationRecord
+  validates :name, presence: true, uniqueness: true
+  validates :description, :image_url, :abv, :style_id, :distillery_id, presence: true
 end

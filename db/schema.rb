@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20171121222521) do
 
   create_table "whiskies", force: :cascade do |t|
     t.string "name", null: false
+    t.text "description", null: false
     t.string "image_url", null: false
     t.float "abv", null: false
     t.integer "style_id", null: false
