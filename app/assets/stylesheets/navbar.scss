@@ -1,6 +1,6 @@
 .navbar {
   display: inline-flex;
-  // position: relative;
+  position: relative;
   justify-content: space-between;
   background-color: yellow;
   width: 100%;
@@ -14,7 +14,6 @@
   text-align: center;
   align-items: center;
   font-weight: 700;
-  // font-size: 23px;
 }
 
 .navbar li h3 {
@@ -23,6 +22,7 @@
 
 .navbar li h5 {
   margin: 5px auto;
+  font-size: 12px;
 }
 
 .nav-logo {
@@ -41,6 +41,7 @@
 
 .nav-right {
   display: flex;
+  position: relative;
   margin: 17px 37px 0 0;
 }
 
@@ -58,14 +59,35 @@
 }
 
 .profile-pic {
-  display: flex;
+  // display: inline-block;
   width: 47px;
   height: 47px;
   border-radius: 29px;
 }
 
-.profile-pic:hover {
+.dropdown:hover {
   cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 53px;
+  right: 190px;
+  background-color: red;
+  text-align: center;
+  display: none;
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  padding: 7px 5px 7px 5px;
+  display: block;
+  border: 1px solid black;
+  border-top: none;
 }
 
 .nav-right input {

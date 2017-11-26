@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 const dropDown = ({currentUser, logout }) => {
   return(
-    <div className='dropdown-menu'><ul>
+
+    <ul className='dropdown-menu'>
       <li>Profile</li>
       <li>Friends</li>
       <li><Link onClick={() => logout()}>Sign Out</Link></li>
-    </ul></div>
+    </ul>
   );
 };
 
@@ -28,8 +29,16 @@ const navbarLinks = ({ currentUser, logout }) => {
 
         <ul className='nav-right'>
           <li className='user-greeting'>Welcome back, {currentUser.username}!</li>
-          <li><img className='profile-pic' src='/assets/barrel-52934_1280.jpg' alt="photo"></img>
-            {dropDown}
+          <li className='dropdown'><img className='profile-pic' src='/assets/barrel-52934_1280.jpg' alt="photo"></img>
+            <div className='dropdown-menu'>
+              <ul>
+                <li>Profile</li>
+                <li>Friends</li>
+                <li><button onClick={logout}>Log Out</button></li>
+
+
+              </ul>
+          </div>
           </li>
 
           <li><input type='text' placeholder='Search...' /></li>
