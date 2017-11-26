@@ -8,7 +8,7 @@ class Api::WhiskiesController < ApplicationController
     @whiskey = Whiskey.new(whiskey_params)
 
     if @whiskey.save
-      render :show
+      render 'api/whiskies/show'
     else
       render json: @whiskey.errors.full_messages, status: 422
     end

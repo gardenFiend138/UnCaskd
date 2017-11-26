@@ -1,4 +1,4 @@
-export const create = whiskey => (
+export const addWhiskey = whiskey => (
   $.ajax({
     method: 'POST',
     url: 'api/whiskies',
@@ -6,7 +6,7 @@ export const create = whiskey => (
   })
 );
 
-export const update = whiskey => (
+export const updateWhiskey = whiskey => (
   $.ajax({
     method: 'PATCH',
     url: `api/whiskies/${whiskey.id}`,
@@ -14,16 +14,17 @@ export const update = whiskey => (
   })
 );
 
-export const show = whiskeyId => (
+export const fetchWhiskey = whiskeyId => (
   $.ajax({
     method: 'GET',
     url: `api/whiskies/${whiskeyId}`
   })
 );
 
-export const index = () => (
+export const fetchWhiskies = data => (
   $.ajax({
     method: 'GET',
-    url: 'api/whiskies'
+    url: 'api/whiskies',
+    data
   })
 );
