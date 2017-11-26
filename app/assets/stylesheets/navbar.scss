@@ -59,7 +59,6 @@
 }
 
 .profile-pic {
-  // display: inline-block;
   width: 47px;
   height: 47px;
   border-radius: 29px;
@@ -75,19 +74,22 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 53px;
+  top: 51px;
   right: 190px;
-  background-color: red;
+  background-color: black;
+  opacity: .7;
   text-align: center;
   display: none;
   z-index: 1;
+  box-shadow: 3px 2px 3px black;
 }
 
 .dropdown-menu li {
-  padding: 7px 5px 7px 5px;
+  color: white;
+  padding: 11px 13px 11px 13px;
   display: block;
-  border: 1px solid black;
-  border-top: none;
+  border-bottom: 1px solid gray;
+  // border-top: none;
 }
 
 .nav-right input {
