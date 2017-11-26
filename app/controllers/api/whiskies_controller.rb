@@ -1,11 +1,11 @@
 class Api::WhiskiesController < ApplicationController
   def new
-    @whiskey = Whiskey.new(whiskey_params)
+    @whiskey = Whisky.new(whiskey_params)
     render :new
   end
 
   def create
-    @whiskey = Whiskey.new(whiskey_params)
+    @whiskey = Whisky.new(whiskey_params)
 
     if @whiskey.save
       render :show
@@ -15,22 +15,22 @@ class Api::WhiskiesController < ApplicationController
   end
 
   def show
-    @whiskey = Whiskey.find(params[:id])
+    @whiskey = Whisky.find(params[:id])
     render :show
   end
 
   def index
-    @whiskies = Whiskey.all
+    @whiskies = Whisky.all
     render :index
   end
 
   def edit
-    @whiskey = Whiskey.find(params[:id])
+    @whiskey = Whisky.find(params[:id])
     render :edit
   end
 
   def update
-    @whiskey = Whiskey.find(params[:id])
+    @whiskey = Whisky.find(params[:id])
 
     if @whiskey.update_attributes(whiskey_params)
       render :show

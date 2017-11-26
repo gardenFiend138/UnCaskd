@@ -42,13 +42,13 @@ class WhiskeyForm extends React.Component{
 
       <label>ABV:
         <input type='text'
-          onChange={this.update('name')}
+          onChange={this.update('abv')}
           />
         </label>
 
       <label>Description:
         <input type='text'
-          onChange={this.update('name')}
+          onChange={this.update('description')}
           />
       </label>
 
