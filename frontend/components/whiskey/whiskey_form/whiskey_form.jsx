@@ -29,6 +29,18 @@ class WhiskeyForm extends React.Component{
     console.log(this.state);
   }
 
+  renderErrors() {
+    return(
+      <ul className='errors'>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   newWhiskeyForm() {
     return(
     <div>
