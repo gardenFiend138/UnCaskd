@@ -25,6 +25,7 @@ const navbarLinks = ({ currentUser, logout }) => {
           </li>
           <li><Link to='/lounge'>The Lounge</Link></li>
           <li><Link to='/whiskies'>Top Rated</Link></li>
+          <li><Link to='/whiskies'>All Whiskies</Link></li>
         </ul>
 
         <ul className='nav-right'>

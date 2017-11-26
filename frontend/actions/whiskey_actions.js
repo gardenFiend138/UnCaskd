@@ -1,4 +1,4 @@
-import * as APIUtil from '.../util/whiskey_api_util';
+import * as APIUtil from '../util/whiskey_api_util';
 
 export const RECEIVE_WHISKEY = 'RECEIVE_WHISKEY';
 export const RECEIVE_ALL_WHISKIES = 'RECEIVE_ALL_WHISKIES';

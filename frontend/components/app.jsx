@@ -13,6 +13,8 @@ import SplashPage from './splash_page/splash_page';
 import Greeting from './greeting/greeting_container';
 import Home from './home/home_page';
 import Footer from './footer/footer';
+import WhiskeyForm from './whiskey/whiskey_form/whiskey_form_container';
+import WhiskeyIndex from './whiskey/whiskey_index/whiskey_index';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -20,12 +22,14 @@ const App = () => (
     <head>
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
     </head>
-    
+
       <AuthRoute path='/' component={SplashPage} />
     <Switch>
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
       <ProtectedRoute path='/home' component={Home} />
+      <ProtectedRoute path='/whiskies/new' component={WhiskeyForm} />
+      <ProtectedRoute path='/whiskies' component={WhiskeyIndex} />
     </Switch>
     <Footer />
   </div>
