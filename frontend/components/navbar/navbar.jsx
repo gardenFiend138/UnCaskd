@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const dropDown = ({ currentUser, logout }) => {
+const dropDown = ({currentUser, logout }) => {
   return(
     <div className='dropdown-menu'><ul>
       <li>Profile</li>
@@ -11,7 +11,7 @@ const dropDown = ({ currentUser, logout }) => {
   );
 };
 
-const navbarLinks = ({ currentUser }) => {
+const navbarLinks = ({ currentUser, logout }) => {
   return(
     <header className='navbar'>
 
@@ -28,7 +28,10 @@ const navbarLinks = ({ currentUser }) => {
 
         <ul className='nav-right'>
           <li className='user-greeting'>Welcome back, {currentUser.username}!</li>
-          <li><img className='profile-pic' src='/assets/barrel-52934_1280.jpg' alt="photo"></img></li>
+          <li><img className='profile-pic' src='/assets/barrel-52934_1280.jpg' alt="photo"></img>
+            {dropDown}
+          </li>
+
           <li><input type='text' placeholder='Search...' /></li>
 
         </ul>
