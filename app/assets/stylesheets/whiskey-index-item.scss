@@ -1,0 +1,76 @@
+.whiskey-index-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.whiskey-index-header Link:hover {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+.whiskey-index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-color: red;
+}
+
+.whiskey-index-item-container {
+  display: inline-flex;
+  position: relative;
+  justify-content: space-between;
+  // background-color: blue;
+}
+
+.whiskey-index-item {
+  // display: inline-flex;
+  // background-color: yellow;
+  width: 47%;
+  height: 47%;
+  padding: 37px;
+  margin: 29px;
+  // border-bottom: 1px solid black;
+  box-shadow: 0px 1px 7px #888888;
+}
+
+.whiskey-index-item ul {
+  display: flex;
+  // width: 95%;
+}
+
+.whiskey-index-item ul:last-child {
+  justify-content: flex-end;
+}
+
+.whiskey-photo {
+  display: flex;
+  height: 73px;
+  width: 73px;
+}
+
+.whiskey-info-container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: flex-start;
+  // background-color: green;
+  width: 300px;
+  height: 101px;
+}
+
+.style-abv-line {
+
+}
+
+.edit-button {
+  display: flex;
+  align-items: baseline;
+  // justify-content: flex-end;
+  padding-left: 50px;
+}
+
+.whiskey-index-item p {
+  border-top: 1px solid black;
+}

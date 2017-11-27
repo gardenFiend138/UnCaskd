@@ -1,0 +1,16 @@
+footer {
+  background-color: black;
+  opacity: .7;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  height: 39px;
+  width: 100%;
+}
+
+.fa {
+  color: white;
+}
