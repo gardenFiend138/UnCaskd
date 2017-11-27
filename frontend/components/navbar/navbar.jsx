@@ -33,7 +33,7 @@ const navbarLinks = ({ currentUser, logout }) => {
           <li className='dropdown'><img className='profile-pic' src='/assets/barrel-52934_1280.jpg' alt="photo"></img>
             <div className='dropdown-menu'>
               <ul>
-                <li>Profile</li>
+                <li><Link to={`/users/${currentUser.id}`}>Profile</Link></li>
                 <li>Friends</li>
                 <li><button onClick={logout}>Log Out</button></li>
 
