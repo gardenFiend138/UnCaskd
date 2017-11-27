@@ -30,7 +30,7 @@ const navbarLinks = ({ currentUser, logout }) => {
 
         <ul className='nav-right'>
           <li className='user-greeting'>Welcome back, {currentUser.username}!</li>
-          <li className='dropdown'><img className='profile-pic' src='/assets/barrel-52934_1280.jpg' alt="photo"></img>
+          <li className='dropdown'><img className='profile-pic' src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg' alt="photo"></img>
             <div className='dropdown-menu'>
               <ul>
                 <li><Link to={`/users/${currentUser.id}`}>Profile</Link></li>

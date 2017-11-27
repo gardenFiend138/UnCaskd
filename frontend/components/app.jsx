@@ -16,6 +16,7 @@ import Footer from './footer/footer';
 import WhiskeyForm from './whiskey/whiskey_form/whiskey_form_container';
 import WhiskeyIndex from './whiskey/whiskey_index/whiskey_index_container';
 import UserProfile from './users/user_profile_container';
+import WhiskeyShow from './whiskey/whiskey_show/whiskey_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
       <AuthRoute path='/signup' component={SessionFormContainer} />
       <ProtectedRoute path='/home' component={Home} />
       <ProtectedRoute path='/whiskies/new' component={WhiskeyForm} />
+      <ProtectedRoute path='/whiskies/:id' component={WhiskeyShow} />
       <ProtectedRoute path='/whiskies' component={WhiskeyIndex} />
       <ProtectedRoute path='/users/:id' component={UserProfile} />
     </Switch>

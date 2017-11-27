@@ -1,7 +1,24 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history}) => {
+const WhiskeyShowPageButtons = ({ whiskey }) => {
+  return(
+    <li className='edit-button'>
+      <button>
+        <Link to={`/whiskies/${whiskey.id}/edit`}>
+          Edit
+        </Link>
+      </button>
+      <button>
+        <Link to={`/checkins/new`}>
+          Check In This Whiskey!
+        </Link>
+      </button>
+    </li>
+  );
+};
+
+const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history, showPage = false }) => {
   return (
     <div className='whiskey-index-item'>
       <ul>
@@ -30,13 +47,7 @@ const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history}) => {
           </div>
           </ul>
         </li>
-        <li className='edit-button'>
-          <button>
-            <Link to={`/whiskies/${whiskey.id}/edit`}>
-              Edit
-            </Link>
-          </button>
-        </li>
+
       </ul>
       <p>Description: <br/> {whiskey.description}</p>
     </div>
@@ -44,3 +55,11 @@ const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history}) => {
 };
 
 export default withRouter(WhiskeyIndexItem);
+
+// <li className='edit-button'>
+//   <button>
+//     <Link to={`/whiskies/${whiskey.id}/edit`}>
+//       Edit
+//     </Link>
+//   </button>
+// </li>
