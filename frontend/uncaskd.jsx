@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  /// DELETE BEFORE PRODUCTION ///
   // window.login = login;
-  // window.store = store;
+  window.store = store;
   /// DELETE BEFORE PRODUCTION ///
 
   ReactDOM.render(<Root store={store} />, root);

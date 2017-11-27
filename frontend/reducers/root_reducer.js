@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 
 import session from './session_reducer';
 import errors from './errors_reducer';
-import whiskey from './whiskey_reducer';
+import entities from './entities_reducer';
 
 
 const rootReducer = combineReducers({
   session,
   errors,
-  whiskey
+  entities
 });
 
 export default rootReducer;
