@@ -15,7 +15,7 @@ class WhiskeyIndex extends React.Component {
 
 
   render() {
-
+  console.log(this.props)
     return(
       <div className="whiskey-index">
         <Navbar />
@@ -27,15 +27,15 @@ class WhiskeyIndex extends React.Component {
                 <Link to='whiskies/new'>Add Whiskey</Link>
               </button>
               <ul>
-                  {
-                    this.props.whiskies.map(whiskey => (
-                      <WhiskeyIndexItem
-                        key={whiskey.id}
-                        editPost={this.props.updatePost}
-                        whiskey={whiskey}
-                      />
-                    ))
-                  }
+                {
+                  this.props.whiskies.map(whiskey => (
+                    <WhiskeyIndexItem
+                      key={whiskey.id}
+                      editPost={this.props.updatePost}
+                      whiskey={whiskey}
+                    />
+                  ))
+                }
                 </ul>
           </div>
         </div>

@@ -3,14 +3,18 @@ import { Link, withRouter } from 'react-router-dom';
 
 const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history}) => {
   return (
-    <li>
-      <Link to={`/whiskies/${whiskey.id}`}>
-        {whiskey.name}
-      </Link>
-      <Link to={`/whiskies/${whiskey.id}/edit`}>
-        Edit
-      </Link>
-    </li>
+    <div>
+    <ul>
+      <li>
+        <Link to={`/whiskies/${whiskey.id}`}>
+          {whiskey.name}
+        </Link>
+        <Link to={`/whiskies/${whiskey.id}/edit`}>
+          Edit
+        </Link>
+      </li>
+    </ul>
+    </div>
   );
 };
 

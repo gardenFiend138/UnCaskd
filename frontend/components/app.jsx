@@ -14,7 +14,7 @@ import Greeting from './greeting/greeting_container';
 import Home from './home/home_page';
 import Footer from './footer/footer';
 import WhiskeyForm from './whiskey/whiskey_form/whiskey_form_container';
-import WhiskeyIndex from './whiskey/whiskey_index/whiskey_index';
+import WhiskeyIndex from './whiskey/whiskey_index/whiskey_index_container';
 import UserProfile from './users/user_profile_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
