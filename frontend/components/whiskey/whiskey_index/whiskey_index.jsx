@@ -10,6 +10,7 @@ class WhiskeyIndex extends React.Component {
 
 
   render() {
+debugger;
     return(
       <div className="whiskey-index">
         <Navbar />
@@ -17,7 +18,7 @@ class WhiskeyIndex extends React.Component {
             <h1>Whiskies</h1>
               <div>
                 Don't see your whiskey here?
-
+                <div>{this.props.whiskies}</div>
               <button>
                 <Link to='whiskies/new'>Add Whiskey</Link>
               </button>

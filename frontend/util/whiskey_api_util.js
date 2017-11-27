@@ -1,7 +1,7 @@
 export const addWhiskey = whiskey => (
   $.ajax({
     method: 'POST',
-    url: 'api/whiskies',
+    url: '/api/whiskies',
     data: { whiskey }
   })
 );
@@ -9,7 +9,7 @@ export const addWhiskey = whiskey => (
 export const updateWhiskey = whiskey => (
   $.ajax({
     method: 'PATCH',
-    url: `api/whiskies/${whiskey.id}`,
+    url: `/api/whiskies/${whiskey.id}`,
     data: { whiskey }
   })
 );
@@ -17,14 +17,13 @@ export const updateWhiskey = whiskey => (
 export const fetchWhiskey = whiskeyId => (
   $.ajax({
     method: 'GET',
-    url: `api/whiskies/${whiskeyId}`
+    url: `/api/whiskies/${whiskeyId}`
   })
 );
 
-export const fetchWhiskies = data => (
+export const fetchWhiskies = () => (
   $.ajax({
     method: 'GET',
-    url: 'api/whiskies',
-    data
+    url: '/api/whiskies'
   })
 );

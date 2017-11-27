@@ -11,10 +11,11 @@ const whiskeyReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_WHISKEY:
+    debugger;
       const whiskey = {[action.whiskey.id]: action.whiskey};
       return merge({}, state, whiskey);
     case RECEIVE_ALL_WHISKIES:
-      return action.whiskies;
+      return merge({}, action.whiskies);
     default:
       return state;
   }

@@ -1,4 +1,5 @@
 json.extract! whiskey,
+              :id,
               :name,
               :description,
               :image_url,

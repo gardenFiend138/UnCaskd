@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 // delete below before production
 import { login, logout  } from './util/session_api_util';
+import { fetchWhiskies  } from './util/whiskey_api_util';
 // delete above before production
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
  /// DELETE BEFORE PRODUCTION ///
   // window.login = login;
   window.store = store;
+  window.fetchWhiskies = fetchWhiskies;
   /// DELETE BEFORE PRODUCTION ///
 
   ReactDOM.render(<Root store={store} />, root);
