@@ -1,1 +1,1 @@
-json.partial! '/api/whiskies/whiskey', whiskey: @whiskey, whiskies: @whiskies
+json.partial! 'whiskey', whiskey: @whiskey, whiskies: @whiskies

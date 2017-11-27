@@ -6,12 +6,11 @@ import {
   RECEIVE_WHISKEY_ERRORS
 } from '../actions/whiskey_actions';
 
-const whiskeyReducer = (state = {}, action) => {
+const WhiskeyReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_WHISKEY:
-    debugger;
       const whiskey = {[action.whiskey.id]: action.whiskey};
       return merge({}, state, whiskey);
     case RECEIVE_ALL_WHISKIES:
@@ -21,4 +20,4 @@ const whiskeyReducer = (state = {}, action) => {
   }
 };
 
-export default whiskeyReducer;
+export default WhiskeyReducer;
