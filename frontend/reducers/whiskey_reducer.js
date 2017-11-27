@@ -19,3 +19,5 @@ const whiskeyReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export default whiskeyReducer;

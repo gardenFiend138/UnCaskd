@@ -10,7 +10,6 @@ class WhiskeyIndex extends React.Component {
 
 
   render() {
-  
     return(
       <div className="whiskey-index">
         <Navbar />
