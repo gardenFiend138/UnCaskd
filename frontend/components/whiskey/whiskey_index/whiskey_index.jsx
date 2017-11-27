@@ -3,8 +3,9 @@ import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../../navbar/navbar_container';
 
 
-const WhiskeyIndex = () => {
-  debugger;
+const WhiskeyIndex = ({ fetchWhiskies }) => {
+
+  console.log(fetchWhiskies());
   return(
     <div className="whiskey-index">
       <Navbar />
@@ -14,11 +15,6 @@ const WhiskeyIndex = () => {
           Don't see your whiskey here?
           <div>
 
-            <ul>
-              <li>
-
-              </li>
-            </ul>
           </div>
           <button>
           <Link to='whiskies/new'>Add Whiskey</Link>

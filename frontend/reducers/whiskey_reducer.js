@@ -1,6 +1,10 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_WHISKEY, RECEIVE_ALL_WHISKIES, RECEIVE_WHISKEY_ERRORS } from '../actions/whiskey_actions';
+import {
+  RECEIVE_WHISKEY,
+  RECEIVE_ALL_WHISKIES,
+  RECEIVE_WHISKEY_ERRORS
+} from '../actions/whiskey_actions';
 
 const whiskeyReducer = (state = {}, action) => {
   Object.freeze(state);

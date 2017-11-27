@@ -19,10 +19,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <head>
-      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
-    </head>
-
       <AuthRoute path='/' component={SplashPage} />
     <Switch>
       <AuthRoute path='/login' component={SessionFormContainer} />
