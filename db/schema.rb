@@ -16,12 +16,14 @@ ActiveRecord::Schema.define(version: 20171121222521) do
   enable_extension "plpgsql"
 
   create_table "checkins", force: :cascade do |t|
-    t.text "body"
+    t.text "body", null: false
     t.float "rating", null: false
     t.integer "user_id", null: false
+    t.integer "whiskey_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_checkins_on_user_id"
+    t.index ["whiskey_id"], name: "index_checkins_on_whiskey_id"
   end
 
   create_table "cheers", force: :cascade do |t|
