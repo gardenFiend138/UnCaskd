@@ -51,6 +51,10 @@ class SessionForm extends React.Component {
     );
   }
 
+  clearErrors() {
+    this.props.errors = [];
+  }
+
   newUserEmail() {
     if (this.props.formType === 'signup') {
       return(

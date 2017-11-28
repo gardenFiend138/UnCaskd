@@ -44,7 +44,7 @@ console.log(document.getElementsByClassName('modal'));
 
     return(
       <div className="whiskey-show-page">
-
+        
 
         <div className='whiskey-index-item'>
           <ul>
@@ -74,6 +74,7 @@ console.log(document.getElementsByClassName('modal'));
               </ul>
             </li>
             <li >
+
             <CheckinPopover {...this.props}/>
 
             </li>

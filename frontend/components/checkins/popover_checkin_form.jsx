@@ -57,6 +57,10 @@ class CheckinPopover extends React.Component {
     this.handleClick();
   }
 
+  clearErrors() {
+    this.props.errors = [];
+  }
+
   renderErrors() {
     return(
       <ul className='errors'>

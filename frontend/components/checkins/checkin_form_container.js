@@ -17,11 +17,11 @@ const mapDispatchToProps = (dispatch, { location }) => {
 
   // const formType = location.pathname.slice(1);
   // const processForm = (formType === 'checkins/new') ? createCheckin : updateCheckin;
-  return {
+  return ({
     createCheckin: checkin => dispatch(createCheckin(checkin))
     // processForm: checkin => dispatch(createCheckin(checkin))
     // formType
-  };
+  });
 };
 
 export default connect(
