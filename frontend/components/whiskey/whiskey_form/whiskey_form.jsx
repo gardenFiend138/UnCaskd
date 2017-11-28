@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, Redirect } from 'react-router';
 
 class WhiskeyForm extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
       name: '',
       abv: '',
       description: '',
       image_url: 'null',
       style_id: '1',
-      distillery_id: '1'
+      distillery_id: '1',
+      redirect: false
 
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +27,11 @@ class WhiskeyForm extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     const whiskey = this.state;
-    this.props.processForm(whiskey);
+    this.props.processForm(whiskey).then(
+      (res) => {
+
+        this.setState({redirect: true, id: res.whiskey.id});
+    });
     console.log(this.state);
   }
 
@@ -67,9 +73,9 @@ class WhiskeyForm extends React.Component{
           />
       </label>
 
-      <button onClick={this.handleSubmit}>
-         Add Whiskey
 
+        <button onClick={this.handleSubmit}>
+           Add Whiskey
         </button>
 
       </form>
@@ -78,6 +84,9 @@ class WhiskeyForm extends React.Component{
   }
 
   render() {
+    if (this.state.redirect) {
+      return  <Redirect to={`/whiskies/${this.state.id}`} />;
+    }
     return(
       <div>
         {this.newWhiskeyForm()}

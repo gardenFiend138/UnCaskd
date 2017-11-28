@@ -22,7 +22,7 @@ class WhiskeyShow extends React.Component {
     return(
       <div className="whiskey-show-page">
         <Navbar />
-<WhiskeyIndexItem whiskey={whiskey} showPage={true} />
+
         <div className='whiskey-index-item'>
           <ul>
             <li className='whiskey-photo'>
