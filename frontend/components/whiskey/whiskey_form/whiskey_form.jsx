@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router';
 
-class WhiskeyForm extends React.Component{
+class WhiskeyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,37 +49,45 @@ class WhiskeyForm extends React.Component{
 
   newWhiskeyForm() {
     return(
-    <div>
-      <form>
+    <div className='new-whiskey-form'>
+      <div>
+        <form>
 
-      <label>Whiskey Name:
-        <input type='text'
-          onChange={this.update('name')}
-          value={this.state.name}
-          />
-        </label>
+          <div>
+            <label>Whiskey Name:
+              <input type='text'
+                onChange={this.update('name')}
+                value={this.state.name}
+                />
+              </label>
+          </div>
 
-      <label>ABV:
-        <input type='text'
-          onChange={this.update('abv')}
-          value={this.state.abv}
-          />
-        </label>
+          <div>
+            <label>Abv:<br/>
+              <input type='text'
+                onChange={this.update('abv')}
+                value={this.state.abv}
+                />
+              </label>
+          </div>
 
-      <label>Description:
-        <input type='text'
-          onChange={this.update('description')}
-          value={this.state.description}
-          />
-      </label>
+          <div>
+            <label>Description:
+              <input type='text'
+                onChange={this.update('description')}
+                value={this.state.description}
+                />
+            </label>
+          </div>
 
 
-        <button onClick={this.handleSubmit}>
-           Add Whiskey
-        </button>
+            <button onClick={this.handleSubmit}>
+               Add Whiskey
+            </button>
 
-      </form>
+        </form>
       </div>
+    </div>
     );
   }
 

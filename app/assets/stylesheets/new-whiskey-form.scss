@@ -1,0 +1,32 @@
+.new-whiskey-form {
+ background-color: white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 369px;
+ height: 443px;
+ position: absolute;
+ left: 35%;
+ top: 10%;
+ opacity: .95;
+ border-radius: 29px;
+}
+
+.new-whiskey-form form {
+   display: flex;
+   width: 350px;
+   flex-direction: column;
+   background-color: white;
+   border-radius: 5px;
+   align-items: center;
+}
+
+.new-whiskey-form input {
+  autofill: 'off';
+  width: 279px;
+  text-align: center;
+  font-size: 16px;
+  margin: 19px 0 19px 0;
+  height: 31px;
+  border-radius: 7px;
+}

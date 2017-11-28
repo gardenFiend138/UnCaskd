@@ -50,17 +50,13 @@ class WhiskeyShow extends React.Component {
               </div>
               </ul>
             </li>
-            <li className='edit-button'>
-              <button>
-                <Link to={`/whiskies/${whiskey.id}/edit`}>
-                  Edit
-                </Link>
-              </button>
-              <button>
+            <li >
+              <button className='checkin-button'>
                 <Link to={`/checkins/new`}>
                   Check In This Whiskey!
                 </Link>
               </button>
+
             </li>
           </ul>
           <p>Description: <br/> {whiskey.description}</p>

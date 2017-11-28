@@ -49,7 +49,7 @@ const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history }) => {
         </li>
 
       </ul>
-      <p>Description: <br/> {whiskey.description}</p>
+      
     </div>
   );
 };
