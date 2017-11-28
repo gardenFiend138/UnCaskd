@@ -4,12 +4,8 @@ import { addWhiskey, updateWhiskey } from '../../../actions/whiskey_actions';
 import WhiskeyForm from './whiskey_form';
 
 const mapStateToProps = (state) => {
-  const numberOfWhiskies = Object.keys(state.entities.whiskies);
-  console.log(numberOfWhiskies.length);
   return({
-    errors: state.errors.whiskey,
-    newIndex: numberOfWhiskies + 1
-
+    errors: state.errors.whiskey
   });
 };
 
