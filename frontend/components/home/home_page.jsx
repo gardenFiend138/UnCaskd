@@ -7,7 +7,7 @@ import Greeting from '../greeting/greeting_container';
 const HomePage = () => {
   return(
     <div className="home-page">
-      <Navbar />
+      
       <div>
         <h1>Home Page</h1>
       </div>

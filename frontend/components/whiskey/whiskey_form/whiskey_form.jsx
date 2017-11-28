@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router';
+import Navbar from '../../navbar/navbar_container';
 
 class WhiskeyForm extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class WhiskeyForm extends React.Component {
   newWhiskeyForm() {
     return(
     <div className='new-whiskey-form'>
+      
       <div>
         <form>
 

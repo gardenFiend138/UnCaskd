@@ -18,7 +18,7 @@ class WhiskeyIndex extends React.Component {
 
     return(
       <div className="whiskey-index">
-        <Navbar />
+
         <div>
           <div className='whiskey-index-header'>
             <h1>Whiskies</h1>

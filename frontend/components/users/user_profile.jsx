@@ -4,7 +4,7 @@ import Navbar from '../navbar/navbar_container';
 
 const UserProfile = ({ currentUser }) => (
   <div className="user-profile-container" >
-    <Navbar />
+    
     <div className='user-profile'>
       <div className='user-personal-info'>
         <img src="http://cdn.hiconsumption.com/wp-content/uploads/2016/06/Glencairn-Crystal-Whiskey-Glass-.jpg"
