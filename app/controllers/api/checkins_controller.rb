@@ -1,3 +1,4 @@
+
 class Api::CheckinsController < ApplicationController
 
   def new
@@ -9,14 +10,17 @@ class Api::CheckinsController < ApplicationController
   # see what's available through debugger in window console
   # not sure about render path either...should it go to the feed?
   # or the whiskey show page?
-
+  # look at params, figure out how to access whiskey_id
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id
-    @checkin.whiskey_id = params[:whiskeyId]
+    # @checkin.whiskey_id = params[:whiskey_id]
 
     if @checkin.save
-      render "/whiskies/#{@checkin.whiskeyId}"
+      # render json: @checkin
+      render :show
+      #alternatively make a checkin json jbuilder file and render that.
+      # render "/whiskies/#{@checkin.whiskey_id}"
     else
       render json: @checkin.errors.full_messages, status: 422
     end
@@ -52,10 +56,10 @@ class Api::CheckinsController < ApplicationController
     checkin.destroy
     render "api/whiskey/#{@checkin.whiskey_id}"
   end
-  
+
   private
 
   def checkin_params
-    params.permit(:checkin).permit(:body, :rating)
+    params.require(:checkin).permit(:body, :rating, :whiskey_id)
   end
 end

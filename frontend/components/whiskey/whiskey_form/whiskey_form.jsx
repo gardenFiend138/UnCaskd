@@ -33,7 +33,7 @@ class WhiskeyForm extends React.Component {
 
         this.setState({redirect: true, id: res.whiskey.id});
     });
-    console.log(this.state);
+    
   }
 
   renderErrors() {
@@ -51,7 +51,7 @@ class WhiskeyForm extends React.Component {
   newWhiskeyForm() {
     return(
     <div className='new-whiskey-form'>
-      
+
       <div>
         <form>
 

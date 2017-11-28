@@ -3,13 +3,35 @@ import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../../navbar/navbar_container';
 import WhiskeyForm from '../whiskey_form/whiskey_form_container';
 import WhiskeyIndexItem from '../whiskey_index/whiskey_index_item';
+import CheckinForm from '../../checkins/checkin_form_container';
+import CheckinPopover from '../../checkins/popover_checkin_form_container';
 
 class WhiskeyShow extends React.Component {
-  componentDidMount() {
-    this.props.fetchWhiskey(this.props.match.params.id);
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeModal: false
+    };
+    this.setState = this.setState.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
   }
 
+  toggleClass() {
+    const currentState = this.state.activeModal;
+console.log(document.getElementsByClassName('modal'));
+    this.setState({ activeModal: !currentState });
+    console.log(this.state);
+  }
 
+  componentWillReceiveProps() {
+    console.log('will receive props', this.props);
+  }
+
+  componentDidMount() {
+
+    this.props.fetchWhiskey(this.props.match.params.id);
+
+  }
 
   render() {
 
@@ -18,6 +40,7 @@ class WhiskeyShow extends React.Component {
       return <div>Loading...</div>;
     }
     const showPage = true;
+
 
     return(
       <div className="whiskey-show-page">
@@ -51,11 +74,7 @@ class WhiskeyShow extends React.Component {
               </ul>
             </li>
             <li >
-              <button className='checkin-button'>
-                <Link to={`/checkins/new`}>
-                  Check In This Whiskey!
-                </Link>
-              </button>
+            <CheckinPopover {...this.props}/>
 
             </li>
           </ul>
@@ -69,6 +88,8 @@ class WhiskeyShow extends React.Component {
     );
   }
 }
+
+
 
 export default WhiskeyShow;
 

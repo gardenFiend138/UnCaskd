@@ -5,7 +5,7 @@ import {
   updateCheckin,
   deleteCheckin
 } from '../../actions/checkin_actions';
-import CheckinForm from './checkin_form';
+import CheckinPopover from './popover_checkin_form';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -14,12 +14,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, { location }) => {
-
   // const formType = location.pathname.slice(1);
   // const processForm = (formType === 'checkins/new') ? createCheckin : updateCheckin;
   return {
-    createCheckin: checkin => dispatch(createCheckin(checkin))
-    // processForm: checkin => dispatch(createCheckin(checkin))
+    processForm: (checkin) => dispatch(createCheckin(checkin))
     // formType
   };
 };
@@ -27,4 +25,4 @@ const mapDispatchToProps = (dispatch, { location }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CheckinForm);
+)(CheckinPopover);

@@ -6,12 +6,14 @@ class CheckinForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
       body: '',
-      rating: 'null',
-      redirect: false
+      rating: 1.0,
+      redirect: false,
+      activeModal: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   update(field) {
@@ -23,8 +25,13 @@ class CheckinForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const checkin = this.state;
-    this.props.processForm(checkin);
-    console.log(this.state);
+    this.props.createCheckin(checkin);
+
+  }
+
+  toggleClass() {
+    const currentState = this.state.activeModal;
+    this.setState({ activeModal: !currentState});
   }
 
   renderErrors() {
@@ -47,6 +54,7 @@ class CheckinForm extends React.Component {
         <form>
 
           <div>
+
             <label>Body<br/>
               <input type='text'
                 onChange={this.update('body')}
@@ -75,11 +83,39 @@ class CheckinForm extends React.Component {
     );
   }
 
+  checkinModalForm() {
+    return(
+      <div className="modal popover-container">
+        <form className="modal-form">
+          {this.renderErrors()}
+
+          <span className="modal-close js-modal-close" onClick={this.toggleClass}>&times;</span>
+            <label>Check In
+              <input type="text"
+                value={this.state.body}
+                placeholder='Why not say something about your whiskey?'
+                onChange={this.update('body')}
+              />
+            </label>
+
+          <div className="submit">
+            <button onClick={this.handleSubmit}>Check In!</button>
+
+          </div>
+
+          </form>
+        <div className="modal-screen js-modal-close"></div>
+      </div>
+    );
+  }
+
+
   render() {
 
     return(
       <div>
-        {this.newCheckinForm()}
+
+        {this.checkinModalForm()}
       </div>
 
     );

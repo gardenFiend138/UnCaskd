@@ -21,6 +21,8 @@ const CheckinReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.checkinId];
       return newState;
+    case RECEIVE_CHECKIN_ERRORS:
+      return state;
     default:
       return state;
   }

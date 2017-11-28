@@ -1,9 +1,11 @@
 import merge from 'lodash/merge';
 
 import {
-  RECEIVE_CHECKIN_ERRORS
+  RECEIVE_CHECKIN,
+  RECEIVE_ALL_CHECKINS,
+  RECEIVE_CHECKIN_ERRORS,
+  REMOVE_CHECKIN
 } from '../actions/checkin_actions';
-// do I need another case in here???
 
 const _nullErrors = [];
 
@@ -14,6 +16,12 @@ export default (state = [], action) => {
   switch(action.type) {
     case RECEIVE_CHECKIN_ERRORS:
       return action.errors;
+    case RECEIVE_ALL_CHECKINS:
+     return _nullErrors;
+    case RECEIVE_CHECKIN:
+      return _nullErrors;
+    case REMOVE_CHECKIN:
+      return _nullErrors;
     default:
       return state;
   }

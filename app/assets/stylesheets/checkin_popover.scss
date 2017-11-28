@@ -1,0 +1,43 @@
+.popover-container {
+  // background-color: #blue;
+}
+
+.popover-container button {
+  background: #34495e;
+  border: 0;
+  color: #fff;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  line-height: 40px;
+  margin-top: 13px;
+}
+
+.popover-container input {
+  font-size: 16px;
+  width: 90%;
+  height: 30%;
+}
+
+.rating-slider {
+  height: 69px;
+  background-color: yellow;
+}
+
+.popover {
+  background: #fff;
+  border-radius: 4px;
+  width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  position: absolute;
+  top: 100%;
+  left: -50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popover-container {
+  width: 200px;
+  margin: 50px auto;
+  position: relative;
+}

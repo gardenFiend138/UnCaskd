@@ -25,11 +25,11 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :checkins,
-  primary_key: :id,
-  foreign_key: :user_id,
-  class_name: 'Checkin'
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Checkin'
 
-  
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     # (user && user.is_password?(password)) ? user : nil

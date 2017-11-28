@@ -1,4 +1,4 @@
-export const createCheckin = checkin => (
+export const createCheckin = (checkin) => (
   $.ajax({
     method: 'POST',
     url: '/api/checkins',
