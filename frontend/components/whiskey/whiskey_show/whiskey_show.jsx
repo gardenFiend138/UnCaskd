@@ -5,6 +5,7 @@ import WhiskeyForm from '../whiskey_form/whiskey_form_container';
 import WhiskeyIndexItem from '../whiskey_index/whiskey_index_item';
 import CheckinForm from '../../checkins/checkin_form_container';
 import CheckinPopover from '../../checkins/popover_checkin_form_container';
+import CircularProgressbar from 'react-circular-progressbar';
 
 class WhiskeyShow extends React.Component {
   constructor(props) {
@@ -43,53 +44,64 @@ console.log(document.getElementsByClassName('modal'));
 
 
     return(
-      <div className="whiskey-show-page">
-        
+      <div class='whiskey-show-container'>
+      <div className='whiskey-show'>
+      <div className='whiskey-index-item'>
 
-        <div className='whiskey-index-item'>
-          <ul>
-            <li className='whiskey-photo'>
-              <Link to={`/whiskies/${whiskey.id}`}>
-                <img src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
-                  alt='whiskey_default_image'
-                  />
-              </Link>
-            </li>
-            <li>
-              <ul className='whiskey-info-container'>
-                <div className='whiskey-info'>
-                  <li>
-                    <Link to={`/whiskies/${whiskey.id}`}>
-                      {whiskey.name}
-                    </Link>
-                  </li>
-                  <li>Distillery: </li>
-                  <li>
-
-                  <li>Style: </li>
-                  <li>ABV: {whiskey.abv}</li>
-
-                  </li>
-              </div>
-              </ul>
-            </li>
-            <li >
-
-            <CheckinPopover {...this.props}/>
-
-            </li>
-          </ul>
-          <p>Description: <br/> {whiskey.description}</p>
+        <div className='whiskey-photo-checkins'>
+          <Link to={`/whiskies/${whiskey.id}`}>
+            <img
+              src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
+              alt='whiskey_default_image'
+            />
+          </Link>
+          <div className='checkins'>Total Checkins</div>
         </div>
 
 
-
+        <div className='whiskey-info'>
+          <li>
+            <Link to={`/whiskies/${whiskey.id}`}>
+              {whiskey.name}
+            </Link>
+          </li>
+          <li>Distillery: </li>
+          <li>Style: </li>
+          <li>ABV: {whiskey.abv}%</li>
         </div>
+
+        <div className='whiskey-stats'>
+          <div className='rating'>
+            <CircularProgressbar percentage={88} />
+          </div>
+          Average Rating (XXX Reviews)
+        </div>
+
+      </div>
+    </div>
+  </div>
 
     );
   }
 }
-
+// <div>
+//   <div>
+//   (possible div)
+//     <div>
+//       picture
+//     </div>
+//     <div>
+//       name, style, abv, total checkins, average rating
+//     </div>
+//
+//     <div>
+//       checkin button
+//     </div>
+//   </div>
+//   <div>
+//     description
+//   </div>
+// </div>
 
 
 export default WhiskeyShow;
@@ -102,3 +114,46 @@ export default WhiskeyShow;
 //     <li>{whiskey.description}</li>
 //   </ul>
 // </div>
+
+// <div className="whiskey-show-page">
+//
+//
+//   <div className='whiskey-index-item'>
+//     <ul>
+//       <li className='whiskey-photo'>
+//         <Link to={`/whiskies/${whiskey.id}`}>
+//           <img src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
+//             alt='whiskey_default_image'
+//             />
+//         </Link>
+//       </li>
+//       <li>
+//         <ul className='whiskey-info-container'>
+//           <div className='whiskey-info'>
+//             <li>
+//               <Link to={`/whiskies/${whiskey.id}`}>
+//                 {whiskey.name}
+//               </Link>
+//             </li>
+//             <li>Distillery: </li>
+//             <li>
+//
+//             <li>Style: </li>
+//             <li>ABV: {whiskey.abv}</li>
+//
+//             </li>
+//         </div>
+//         </ul>
+//       </li>
+//       <li >
+//
+//       <CheckinPopover {...this.props}/>
+//
+//       </li>
+//     </ul>
+//     <p>Description: <br/> {whiskey.description}</p>
+//   </div>
+//
+//
+//
+//   </div>

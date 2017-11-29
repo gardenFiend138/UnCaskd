@@ -1,4 +1,6 @@
 import React from 'react';
+import Slider from 'react-rangeslider';
+
 import { Link, withRouter, Redirect } from 'react-router';
 
 class CheckinPopover extends React.Component {
@@ -10,12 +12,26 @@ class CheckinPopover extends React.Component {
       rating: 1.0,
       whiskey_id: this.props.match.params.id,
       redirect: false,
+      sliderValue: 50
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.setState = this.setState.bind(this);
+  }
+
+  handleChangeStart() {
+
+    console.log('Change event started');
+  }
+
+  handleChange(value) {
+    console.log('change event entered');
+    this.setState({
+      sliderValue: value
+    });
   }
 
   update(field) {
@@ -26,19 +42,13 @@ class CheckinPopover extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('current props', this.props);
-
     const checkin = this.state;
-    console.log('checkin: ', checkin);
-    // where is our whiskey Id?
     this.props.processForm(checkin);
     this.handleClick();
-    // this.props.history.push('/whiskies');
   }
 
   handleClick() {
     if (!this.state.popupVisible) {
-
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
@@ -75,6 +85,7 @@ class CheckinPopover extends React.Component {
   }
 
   render() {
+    let { rating } = this.state.sliderValue
     return (
       <div className="popover-container" ref={node => { this.node = node; }}>
         <button onClick={this.handleClick} >
@@ -97,7 +108,16 @@ class CheckinPopover extends React.Component {
                     />
 
 
-                  <div className='rating-slider'>Rating Slider Goes Here</div>
+                  <div>
+                    <Slider
+                      min={0}
+                      max={100}
+                      value={rating}
+                      onChangeStart={this.handleChangeStart.bind(this)}
+                      orientation="horizontal"
+                      onChange={this.handleChange.bind(this)}
+                    />
+                  </div>
 
                 <div className="submit">
                   <button onClick={this.handleSubmit}>Check In!</button>

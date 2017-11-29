@@ -23,11 +23,9 @@ class WhiskeyIndex extends React.Component {
           <div className='whiskey-index-header'>
             <h1>Whiskies</h1>
 
-            <h3>Don't see your whiskey?&nbsp;
+            <h3>Don't see your whiskey?</h3>
 
-            <Link to='whiskies/new'>  Add New Whiskey</Link>
-
-            </h3>
+            <h3><Link to='whiskies/new'>Add New Whiskey</Link></h3>
           </div>
           <ul className='whiskey-index-container'>
             {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const dropDown = ({currentUser, logout }) => {
   return(
 
@@ -14,6 +15,7 @@ const dropDown = ({currentUser, logout }) => {
 
 const navbarLinks = ({ currentUser, logout }) => {
   return(
+    
     <header className='navbar'>
 
         <ul className='nav-left'>
@@ -47,6 +49,8 @@ const navbarLinks = ({ currentUser, logout }) => {
         </ul>
 
     </header>
+
+
   );
 };
 

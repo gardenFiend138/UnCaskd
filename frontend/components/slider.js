@@ -1,10 +1,8 @@
-// import { connect } from 'react-redux';
-// import { logout, login } from '../../actions/session_actions';
-
 import React, { Component } from 'react'
-import Slider from 'react-rangeslider'
+import Slider from 'react-rangeslider';
 
-class HomePage extends Component {
+
+class RatingSlider extends React.Component {
 
   constructor (props, context) {
     super(props, context)
@@ -14,8 +12,8 @@ class HomePage extends Component {
   }
 
   handleChangeStart() {
-    console.log('Change event started')
-  };
+    console.log('Change event started');
+  }
 
   handleChange(value) {
     this.setState({
@@ -31,13 +29,13 @@ class HomePage extends Component {
     const { value } = this.state
     return (
       <div className='slider'>
-        <Slider
+        <Slider className="test-slider"
           min={0}
           max={100}
           value={value}
-          onChangeStart={this.handleChangeStart}
-          onChange={this.handleChange}
-          onChangeComplete={this.handleChangeComplete}
+          onChangeStart={this.handleChangeStart.bind(this)}
+          onChange={this.handleChange.bind(this)}
+          onChangeComplete={this.handleChangeComplete.bind(this)}
         />
         <div className='value'>{value}</div>
       </div>
@@ -45,4 +43,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default RatingSlider;
