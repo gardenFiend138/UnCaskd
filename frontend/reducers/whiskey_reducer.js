@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_WHISKEY,
   RECEIVE_ALL_WHISKIES,
-  RECEIVE_WHISKEY_ERRORS
+  RECEIVE_WHISKEY_ERRORS,
+  CLEAR_WHISKEY_ERRORS
 } from '../actions/whiskey_actions';
 
 const WhiskeyReducer = (state = {}, action) => {
@@ -15,6 +16,8 @@ const WhiskeyReducer = (state = {}, action) => {
       return merge({}, state, whiskey);
     case RECEIVE_ALL_WHISKIES:
       return merge({}, action.whiskies);
+    case RECEIVE_WHISKEY_ERRORS:
+    case CLEAR_WHISKEY_ERRORS:
     default:
       return state;
   }

@@ -8,5 +8,4 @@ json.extract! whiskey,
               :distillery_id
 
 # get all of the checkins associated with a whiskey
-json.set! :total_checkins, whiskey.checkins.length
-json.set! :ratings, whiskey.checkins.rating
+json.set! :total_checkins, whiskey.checkins
