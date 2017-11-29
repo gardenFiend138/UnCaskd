@@ -4,6 +4,11 @@ export const RECEIVE_CHECKIN = 'RECEIVE_CHECKIN';
 export const RECEIVE_ALL_CHECKINS = 'RECEIVE_ALL_CHECKINS';
 export const RECEIVE_CHECKIN_ERRORS = 'RECEIVE_CHECKIN_ERRORS';
 export const REMOVE_CHECKIN = 'REMOVE_CHECKIN';
+export const CLEAR_CHECKIN_ERRORS = 'CLEAR_CHECKIN_ERRORS';
+
+export const clearCheckinErrors = () => ({
+  type: CLEAR_CHECKIN_ERRORS
+});
 
 export const receiveCheckin = checkin => ({
   type: RECEIVE_CHECKIN,

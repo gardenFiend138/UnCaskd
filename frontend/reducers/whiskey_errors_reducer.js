@@ -1,7 +1,8 @@
 import {
   RECEIVE_WHISKEY_ERRORS,
   RECEIVE_WHISKEY,
-  RECEIVE_ALL_WHISKIES
+  RECEIVE_ALL_WHISKIES,
+  CLEAR_WHISKEY_ERRORS
 } from '../actions/whiskey_actions';
 
 const _nullErrors = [];
@@ -14,7 +15,7 @@ export default (state = [], action) => {
     case RECEIVE_WHISKEY_ERRORS:
       return action.errors;
     case RECEIVE_WHISKEY:
-      return _nullErrors;
+    case CLEAR_WHISKEY_ERRORS:
     case RECEIVE_ALL_WHISKIES:
       return _nullErrors;
     default:

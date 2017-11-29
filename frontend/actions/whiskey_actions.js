@@ -3,6 +3,11 @@ import * as APIUtil from '../util/whiskey_api_util';
 export const RECEIVE_WHISKEY = 'RECEIVE_WHISKEY';
 export const RECEIVE_ALL_WHISKIES = 'RECEIVE_ALL_WHISKIES';
 export const RECEIVE_WHISKEY_ERRORS = 'RECEIVE_WHISKEY_ERRORS';
+export const CLEAR_WHISKEY_ERRORS = 'CLEAR_WHISKEY_ERRORS';
+
+export const clearWhiskeyErrors = () => ({
+  type: CLEAR_WHISKEY_ERRORS
+});
 
 export const receiveWhiskey = whiskey => ({
   type: RECEIVE_WHISKEY,

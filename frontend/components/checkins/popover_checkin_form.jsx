@@ -32,7 +32,8 @@ class CheckinPopover extends React.Component {
     console.log('checkin: ', checkin);
     // where is our whiskey Id?
     this.props.processForm(checkin);
-    this.props.history.push('/whiskies');
+    this.handleClick();
+    // this.props.history.push('/whiskies');
   }
 
   handleClick() {
@@ -85,7 +86,7 @@ class CheckinPopover extends React.Component {
             <div className="modal is-open">
               <form className="modal-form">
 
-                <span className="modal-close js-modal-close">&times;</span>
+                <span className="modal-close js-modal-close" onClick={this.handleSubmit}>&times;</span>
                   {this.renderErrors()}
 
                   <label>Comment
@@ -98,7 +99,7 @@ class CheckinPopover extends React.Component {
                   <div className='rating-slider'>Rating Slider Goes Here</div>
 
                 <div className="submit">
-                  <button onClick={e => this.handleSubmit(e)}>Check In!</button>
+                  <button onClick={this.handleSubmit}>Check In!</button>
 
                 </div>
 
