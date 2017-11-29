@@ -44,7 +44,7 @@ console.log(document.getElementsByClassName('modal'));
 
 
     return(
-      <div class='whiskey-show-container'>
+
       <div className='whiskey-show'>
       <div className='whiskey-index-item'>
 
@@ -78,8 +78,9 @@ console.log(document.getElementsByClassName('modal'));
         </div>
 
       </div>
+      <CheckinPopover {...this.props}/>
     </div>
-  </div>
+
 
     );
   }

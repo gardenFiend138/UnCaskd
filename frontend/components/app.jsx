@@ -19,6 +19,7 @@ import WhiskeyIndex from './whiskey/whiskey_index/whiskey_index_container';
 import UserProfile from './users/user_profile_container';
 import WhiskeyShow from './whiskey/whiskey_show/whiskey_show_container';
 import CheckinForm from './checkins/checkin_form_container';
+import CheckinIndex from './checkins/checkins_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -28,7 +29,7 @@ const App = () => (
     <Switch>
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
-      <ProtectedRoute path='/home' component={Home} />
+      <ProtectedRoute path='/home' component={CheckinIndex} />
       <ProtectedRoute path='/whiskies/new' component={WhiskeyForm} />
       <ProtectedRoute path='/whiskies/:id' component={WhiskeyShow} />
       <ProtectedRoute path='/whiskies' component={WhiskeyIndex} />

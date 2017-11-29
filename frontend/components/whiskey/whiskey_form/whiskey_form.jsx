@@ -61,30 +61,30 @@ class WhiskeyForm extends React.Component {
         <form>
 
           <div>
-            <label>Whiskey Name:
+            <label>Whiskey Name:</label>
               <input type='text'
                 onChange={this.update('name')}
                 value={this.state.name}
                 />
-              </label>
+
           </div>
 
           <div>
-            <label>Abv:<br/>
+            <label>Abv:</label>
               <input type='text'
                 onChange={this.update('abv')}
                 value={this.state.abv}
                 />
-              </label>
+
           </div>
 
           <div>
-            <label>Description:
+            <label>Description:</label>
               <input type='text'
                 onChange={this.update('description')}
                 value={this.state.description}
                 />
-            </label>
+
           </div>
 
 

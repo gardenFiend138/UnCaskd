@@ -21,6 +21,7 @@ const WhiskeyShowPageButtons = ({ whiskey }) => {
 };
 
 const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history }) => {
+
   return (
     <div className='whiskey-index-item'>
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import Slider from 'react-rangeslider';
+// import RatingSlider from './slider';
+import ReactSimpleRange from 'react-simple-range';
 
 import { Link, withRouter, Redirect } from 'react-router';
 
@@ -9,7 +10,7 @@ class CheckinPopover extends React.Component {
     this.state = {
       popupVisible: false,
       body: '',
-      rating: 1.0,
+      rating: 50,
       whiskey_id: this.props.match.params.id,
       redirect: false,
       sliderValue: 50
@@ -30,8 +31,9 @@ class CheckinPopover extends React.Component {
   handleChange(value) {
     console.log('change event entered');
     this.setState({
-      sliderValue: value
+      rating: value
     });
+    console.log('current rating', this.state.rating);
   }
 
   update(field) {
@@ -109,14 +111,14 @@ class CheckinPopover extends React.Component {
 
 
                   <div>
-                    <Slider
-                      min={0}
+                    <ReactSimpleRange
+                      label
+                      min={1}
                       max={100}
-                      value={rating}
-                      onChangeStart={this.handleChangeStart.bind(this)}
-                      orientation="horizontal"
-                      onChange={this.handleChange.bind(this)}
-                    />
+                      defaultValue={this.state.rating}
+                      onChange={e => console.log(e.value)}
+                      onChangeComplete={e => this.handleChange(e.value)}
+                     />
                   </div>
 
                 <div className="submit">
