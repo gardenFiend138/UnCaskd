@@ -20,6 +20,10 @@ const WhiskeyShowPageButtons = ({ whiskey }) => {
   );
 };
 
+const averageRating = () => {
+  
+};
+
 const WhiskeyIndexItem = ({ whiskey, updateWhiskey, history }) => {
 
   return (

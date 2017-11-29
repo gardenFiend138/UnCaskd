@@ -7,7 +7,7 @@ class CheckinIndex extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps() {
+  componentDidMount() {
     this.props.fetchCheckins();
 
   }

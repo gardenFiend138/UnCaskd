@@ -11,6 +11,7 @@ class WhiskeyIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchWhiskies();
+    
   }
 
 

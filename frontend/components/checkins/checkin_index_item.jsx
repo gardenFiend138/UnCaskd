@@ -6,24 +6,39 @@ class CheckinIndexItem extends React.Component {
     super(props);
 
   }
+
+  formatDateTime() {
+    let time = this.props.checkin.time;
+    time = time.split('T');
+    return time[0];
+  }
+
   render ()  {
-    
+    let checkin = this.props.checkin
     return(
       <div className='checkin-index-item'>
 
-        <div className='whiskey-photo-checkins'>
+        <div>
 
-          <img
+          <img className='whiskey-photo-checkins'
             src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
             alt='user_default_image'
             />
-
           </div>
 
           <div>
-            Someone!
-            is drinking a glass of {this.props.checkin.whiskey_id}.
+            {checkin.username} is drinking a glass of {checkin.whiskey}.
+          </div>
 
+          <div>
+            {this.formatDateTime()}
+          </div>
+
+          <div>
+            <img className='whiskey-photo-checkins'
+              src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
+              alt='whiskey_default_image'
+              />
           </div>
 
         </div>
