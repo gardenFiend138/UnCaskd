@@ -86,15 +86,16 @@ class CheckinPopover extends React.Component {
             <div className="modal is-open">
               <form className="modal-form">
 
-                <span className="modal-close js-modal-close" onClick={this.handleSubmit}>&times;</span>
+                <span className="modal-close js-modal-close" onClick={this.handleClick}>&times;</span>
                   {this.renderErrors()}
 
-                  <label>Comment
-                    <input type="text"
+                  <label></label>
+                    <textarea type="text"
                       value={this.state.body}
                       onChange={this.update('body')}
+                      placeholder='So...how is it?'
                     />
-                  </label>
+
 
                   <div className='rating-slider'>Rating Slider Goes Here</div>
 

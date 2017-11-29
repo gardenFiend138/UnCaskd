@@ -7,8 +7,13 @@ const HomePage = () => {
   return(
     <div className="home-page">
 
-      <div>
-        <h1>Home Page</h1>
+      <div className='test'>
+        <form>
+          <label> Label for text area
+          <textarea>
+          </textarea>
+        </label>
+        </form>
       </div>
     </div>
   );
