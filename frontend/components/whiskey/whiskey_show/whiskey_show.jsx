@@ -34,6 +34,42 @@ console.log(document.getElementsByClassName('modal'));
 
   }
 
+  averageRating() {
+    const checkins = this.props.whiskey.total_checkins;
+    let ratings = [];
+    checkins.map( checkin => ratings.push(checkin.rating));
+
+    if (ratings.length > 0) {
+      ratings = ratings.reduce( (prev, curr) => prev + curr);
+      ratings = ratings / checkins.length;
+      return ratings;
+    } else {
+      return checkins.length;
+    }
+  }
+
+  totalCheckins() {
+     const checkins = this.props.whiskey.total_checkins;
+     return checkins.length;
+  }
+
+  ratingDisplay() {
+    return(
+      <div className='whiskey-stats'>
+        <div className='rating'>
+          <CircularProgressbar
+            percentage={this.averageRating()}
+            textForPercentage={ (WAT) => `${WAT}`}
+            />
+        </div>
+        <span className='rating-text'>
+          Average Rating<br/>({this.totalCheckins()} Reviews)
+        </span>
+      </div>
+    );
+  }
+
+
   render() {
 
     const whiskey = this.props.whiskey;
@@ -55,7 +91,7 @@ console.log(document.getElementsByClassName('modal'));
               alt='whiskey_default_image'
             />
           </Link>
-          <div className='checkins'>Total Checkins</div>
+          <span className='checkins'>{this.totalCheckins()} Total Checkins</span>
         </div>
 
 
@@ -70,12 +106,7 @@ console.log(document.getElementsByClassName('modal'));
           <li>ABV: {whiskey.abv}%</li>
         </div>
 
-        <div className='whiskey-stats'>
-          <div className='rating'>
-            <CircularProgressbar percentage={88} />
-          </div>
-          Average Rating (XXX Reviews)
-        </div>
+        {this.ratingDisplay()}
 
       </div>
       <CheckinPopover {...this.props}/>

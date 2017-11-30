@@ -47,7 +47,7 @@ class WhiskeyIndexItem extends React.Component {
       ratings = ratings / checkins.length;
       return ratings;
     } else {
-      return 'Be the first to check in!';
+      return checkins.length;
     }
   }
 
@@ -56,10 +56,26 @@ class WhiskeyIndexItem extends React.Component {
      return checkins.length;
   }
 
+  ratingDisplay() {
+    return(
+      <div className='whiskey-stats'>
+        <div className='rating'>
+          <CircularProgressbar
+            percentage={this.averageRating()}
+            textForPercentage={ (WAT) => `${WAT}`}
+            />
+        </div>
+        <span className='rating-text'>
+          Average Rating<br/>({this.totalCheckins()} Reviews)
+        </span>
+      </div>
+    );
+  }
+
   render() {
 
     const whiskey = this.props.whiskey
-    // const overallRating = this.averageRating();
+
     return (
       <div className='whiskey-index-item'>
 
@@ -70,7 +86,7 @@ class WhiskeyIndexItem extends React.Component {
               alt='whiskey_default_image'
             />
           </Link>
-          <div className='checkins'>{this.totalCheckins()} Total Checkins</div>
+          <span className='checkins'>{this.totalCheckins()} Total Checkins</span>
         </div>
 
 
@@ -85,12 +101,7 @@ class WhiskeyIndexItem extends React.Component {
           <li>ABV: {whiskey.abv}%</li>
         </div>
 
-        <div className='whiskey-stats'>
-          <div className='rating'>
-            <CircularProgressbar percentage={this.averageRating()} />
-          </div>
-          Average Rating (XXX Reviews)
-        </div>
+        {this.ratingDisplay()}
 
       </div>
     );
