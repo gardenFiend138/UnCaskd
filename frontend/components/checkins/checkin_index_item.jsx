@@ -9,12 +9,14 @@ class CheckinIndexItem extends React.Component {
     // this.state = {
     //   totalCheckins: this.state.entities.checkins
     // };
-  console.log('here are my props', this.props);
-  console.log('here is my state', this.state);
+
   }
 
   formatDateTime() {
-    let time = this.props.checkin.time;
+    let time = (this.props.checkin.time) ?
+                 this.props.checkin.time :
+                 this.props.checkin.updated_at;
+
     time = time.split('T');
     return time[0];
   }

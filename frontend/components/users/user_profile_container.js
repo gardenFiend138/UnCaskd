@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import UserProfile from './user_profile';
 
-const mapStateToProps = state => {
-  // debugger;
+const mapStateToProps = state => {  
   return({
   currentUser: state.session.currentUser
 });

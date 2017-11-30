@@ -5,6 +5,7 @@ import CheckinIndexItem from './checkin_index_item';
 class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
