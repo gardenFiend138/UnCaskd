@@ -7,8 +7,12 @@ import WhiskeyIndex from './whiskey_index';
 const mapStateToProps = state => {
   return ({
   whiskies: Object.keys(state.entities.whiskies)
-                  .map(id => state.entities.whiskies[id])
+                  .map(id => state.entities.whiskies[id]),
+  checkins: Object.keys(state.entities.checkins)
+                  .map(checkin => state.entities.checkins)
+
   });
+  debugger;
 };
 
 const mapDispatchToProps = dispatch => ({

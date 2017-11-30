@@ -42,7 +42,7 @@ console.log(document.getElementsByClassName('modal'));
     if (ratings.length > 0) {
       ratings = ratings.reduce( (prev, curr) => prev + curr);
       ratings = ratings / checkins.length;
-      return ratings;
+      return Math.round(ratings);
     } else {
       return checkins.length;
     }
@@ -105,13 +105,16 @@ console.log(document.getElementsByClassName('modal'));
             <li>Style: </li>
             <li>ABV: {whiskey.abv}%</li>
           </div>
+
           <div className='checkin-popover-container'>
             <CheckinPopover {...this.props}/>
-            </div>
+          </div>
 
-          {this.ratingDisplay()}
 
-        </div>
+            {this.ratingDisplay()}
+
+
+      </div>
     </div>
 
 

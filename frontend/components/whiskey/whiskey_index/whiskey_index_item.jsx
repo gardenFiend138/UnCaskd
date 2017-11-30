@@ -45,7 +45,7 @@ class WhiskeyIndexItem extends React.Component {
     if (ratings.length > 0) {
       ratings = ratings.reduce( (prev, curr) => prev + curr);
       ratings = ratings / checkins.length;
-      return ratings;
+      return Math.round(ratings);
     } else {
       return checkins.length;
     }
@@ -59,7 +59,7 @@ class WhiskeyIndexItem extends React.Component {
   ratingDisplay() {
     return(
       <div className='whiskey-stats'>
-        <div className='rating'>
+        <div className='rating checkin-rating-circle'>
           <CircularProgressbar
             percentage={this.averageRating()}
             textForPercentage={ (WAT) => `${WAT}`}

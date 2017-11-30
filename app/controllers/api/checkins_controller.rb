@@ -18,7 +18,7 @@ class Api::CheckinsController < ApplicationController
 
     if @checkin.save
       # render json: @checkin
-      render :show
+      render :index
       #alternatively make a checkin json jbuilder file and render that.
       # render "/whiskies/#{@checkin.whiskey_id}"
     else

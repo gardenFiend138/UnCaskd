@@ -15,22 +15,20 @@ class CheckinIndex extends React.Component {
   render() {
 
     return(
-      <div className='checkin-index'>
-
-        <ul className='whiskey-index-container'>
-        {
-          this.props.checkins.map(checkin => (
-            <CheckinIndexItem
-              checkin={checkin}
-              key={checkin.id}
-              editCheckin={this.props.updateCheckin}
-              deleteCheckin={this.props.deleteCheckin}
-            />
-          ))
-        }
-
-        </ul>
+      <div className='index-container-checkins'>
+      {
+        this.props.checkins.map(checkin => (
+          <CheckinIndexItem
+            checkin={checkin}
+            checkins={this.props.checkins}
+            key={checkin.id}
+            editCheckin={this.props.updateCheckin}
+            deleteCheckin={this.props.deleteCheckin}
+          />
+        ))
+      }
       </div>
+
     );
   }
 }

@@ -106,7 +106,7 @@ class CheckinPopover extends React.Component {
                     <textarea type="text"
                       value={this.state.body}
                       onChange={this.update('body')}
-                      placeholder='So...how is it?'
+                      placeholder='Tasting Notes: nose, palate, body, balance, finish, etc.'
                     />
 
 
@@ -118,12 +118,19 @@ class CheckinPopover extends React.Component {
                       defaultValue={this.state.rating}
                       onChange={e => console.log(e.value)}
                       onChangeComplete={e => this.handleChange(e.value)}
+                      sliderSize={6}
+                      thumbSize={18}
                      />
                   </div>
 
                 <div className="checkin-buttons">
-                  <button className='checkin-submit' onClick={this.handleSubmit}>Check In!</button>
-                  <button className='checkin-photo-upload'>Upload Photo</button>
+                  <button
+                    to='api/home'
+                    className='checkin-submit' onClick={this.handleSubmit}>Check In!</button>
+                  <button className='checkin-photo-upload'>
+                    <i class="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
+
+                  </button>
                 </div>
 
               </form>
