@@ -2,32 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
+  background-color: white;
+  margin: 69px 138px 0 138px;
+  border-bottom: 1px solid black;
+  background-image: url('https://static.pexels.com/photos/274192/pexels-photo-274192.jpeg');
+  background-size: cover;
+  opacity: .8;
+  font-size: 24px;
+  color: white;
 }
 
 .user-profile {
-  border-bottom: 5px solid black;
-  width: 61%;
-  // display: flex;
-  // align-items: center;
+  width: 83%;
 }
 
 .user-personal-info {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   padding-top: 101px;
-  padding-bottom: 37px;
+  
 }
 
 .user-checkin-info {
   display: flex;
-  // background-color: green;
 }
 
 .user-checkin-info li {
   display: inline;
-  padding: 13px;
+  padding: 23px;
 
 }
 

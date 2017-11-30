@@ -110,7 +110,7 @@ class CheckinPopover extends React.Component {
                     />
 
 
-                  <div>
+                  <div className='rating-slider'>
                     <ReactSimpleRange
                       label
                       min={1}
@@ -121,9 +121,9 @@ class CheckinPopover extends React.Component {
                      />
                   </div>
 
-                <div className="submit">
-                  <button onClick={this.handleSubmit}>Check In!</button>
-
+                <div className="checkin-buttons">
+                  <button className='checkin-submit' onClick={this.handleSubmit}>Check In!</button>
+                  <button className='checkin-photo-upload'>Upload Photo</button>
                 </div>
 
               </form>

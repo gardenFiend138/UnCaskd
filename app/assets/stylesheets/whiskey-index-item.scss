@@ -2,6 +2,18 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 11px 122px 0px 189px;
+}
+
+.whiskey-index-header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.add-whiskey {
+  justify-content: space-around;
 }
 
 .whiskey-index-header Link:hover {
@@ -26,7 +38,7 @@
 
 .whiskey-index-item {
   display: flex;
-  // background-color: yellow;
+  background-color: white;
   width: 47%;
   height: 47%;
   padding: 37px;

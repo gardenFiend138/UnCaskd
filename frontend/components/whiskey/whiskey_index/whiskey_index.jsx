@@ -11,7 +11,7 @@ class WhiskeyIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchWhiskies();
-    
+
   }
 
 
@@ -21,13 +21,18 @@ class WhiskeyIndex extends React.Component {
       <div className="whiskey-index">
 
         <div>
+
           <div className='whiskey-index-header'>
-            <h1>Whiskies</h1>
+            <div>
+              <h1>Whiskies</h1>
+            </div>
 
-            <h3>Don't see your whiskey?</h3>
-
-            <h3><Link to='whiskies/new'>Add New Whiskey</Link></h3>
+            <div className='add-whiskey'>
+              <h3>Don't see your whiskey?</h3>
+              <h3><Link to='whiskies/new'>+  Add New Whiskey</Link></h3>
+            </div>
           </div>
+
           <ul className='whiskey-index-container'>
             {
               this.props.whiskies.map(whiskey => (
