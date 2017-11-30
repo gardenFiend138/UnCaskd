@@ -82,34 +82,36 @@ console.log(document.getElementsByClassName('modal'));
     return(
 
       <div className='whiskey-show'>
-      <div className='whiskey-index-item'>
+        <div className='whiskey-index-item'>
 
-        <div className='whiskey-photo-checkins'>
-          <Link to={`/whiskies/${whiskey.id}`}>
-            <img
-              src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
-              alt='whiskey_default_image'
-            />
-          </Link>
-          <span className='checkins'>{this.totalCheckins()} Total Checkins</span>
-        </div>
-
-
-        <div className='whiskey-info'>
-          <li>
+          <div className='whiskey-photo-checkins'>
             <Link to={`/whiskies/${whiskey.id}`}>
-              {whiskey.name}
+              <img
+                src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
+                alt='whiskey_default_image'
+              />
             </Link>
-          </li>
-          <li>Distillery: </li>
-          <li>Style: </li>
-          <li>ABV: {whiskey.abv}%</li>
+            <span className='checkins'>{this.totalCheckins()} Total Checkins</span>
+          </div>
+
+
+          <div className='whiskey-info'>
+            <li>
+              <Link to={`/whiskies/${whiskey.id}`}>
+                {whiskey.name}
+              </Link>
+            </li>
+            <li>Distillery: </li>
+            <li>Style: </li>
+            <li>ABV: {whiskey.abv}%</li>
+          </div>
+          <div className='checkin-popover-container'>
+            <CheckinPopover {...this.props}/>
+            </div>
+
+          {this.ratingDisplay()}
+
         </div>
-
-        {this.ratingDisplay()}
-
-      </div>
-      <CheckinPopover {...this.props}/>
     </div>
 
 
