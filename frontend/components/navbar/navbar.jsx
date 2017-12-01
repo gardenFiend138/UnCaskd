@@ -36,7 +36,7 @@ const navbarLinks = ({ currentUser, logout }) => {
             <div className='dropdown-menu'>
               <ul>
                 <li><Link to={`/users/${currentUser.id}`}>Profile</Link></li>
-                <li>Friends</li>
+                <li><Link to={'/about'}>About</Link></li>
                 <li><button onClick={logout}>Log Out</button></li>
 
 

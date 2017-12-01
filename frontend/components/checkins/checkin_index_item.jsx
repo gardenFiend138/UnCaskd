@@ -72,7 +72,7 @@ class CheckinIndexItem extends React.Component {
          </div>
           <div className='checkin-overview'>
             <Link to={`users/${checkin.user_id}`}>
-              {username}
+              {username}&nbsp;
             </Link>
             is drinking a glass of
             <Link to={`whiskies/${checkin.whiskey_id}`} >

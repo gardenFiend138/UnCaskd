@@ -20,6 +20,7 @@ import UserProfile from './users/user_profile_container';
 import WhiskeyShow from './whiskey/whiskey_show/whiskey_show_container';
 import CheckinForm from './checkins/checkin_form_container';
 import CheckinIndex from './checkins/checkins_index_container';
+import About from './site_info/about';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -36,6 +37,7 @@ const App = () => (
       <ProtectedRoute path='/users/:id' component={UserProfile} />
       <ProtectedRoute path='/checkins/new' component={CheckinForm} />
       <ProtectedRoute path='/lounge' component={CheckinIndex} />
+      <ProtectedRoute path='/about' component={About} />
     </Switch>
     <Footer />
   </div>
