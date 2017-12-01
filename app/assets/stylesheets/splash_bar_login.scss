@@ -62,27 +62,23 @@ button:focus {
  justify-content: center;
  align-content: center;
  width: 469px;
- height: 543px;
+ // height: 587px;
  position: absolute;
  left: 35%;
  top: 10%;
  opacity: .95;
  border-radius: 29px;
  z-index: 2;
+ padding-bottom: 29px;
 }
 
 .login-form-container a:hover {
   text-decoration: none;
 }
 
-// .login-form-container-parent {
-//   display: flex;
-//   align-content: center;
-// }
-
 .login-form {
    display: flex;
-   width: 350px;
+   width: 383px;
    flex-direction: column;
    background-color: white;
    border-radius: 5px;
@@ -106,9 +102,7 @@ button:focus {
   height: 31px;
   border-radius: 7px;
 }
-// .splash-page > login-form-container {
-//   align-content: center;
-// }
+
 .login-input:focus {
   outline: none;
 }
@@ -138,7 +132,6 @@ button:focus {
 
 .login-lower-message a {
   text-decoration: underline;
-  // margin: 2px;
 }
 
 input:-webkit-autofill {

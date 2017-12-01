@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    @user.image_url ||= "http://tinygraphs.com/squares/UnCaskd?theme=duskfalling&numcolors=4&size=220&fmt=svg"
 
     if @user.save
       login(@user)
@@ -20,7 +20,7 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :email, :image_url)
   end
 
 end
