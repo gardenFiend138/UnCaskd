@@ -27,9 +27,14 @@ export default () => (
       </p>
 
       <h2>Please enjoy your stay and your whiskey responsibly.</h2>
-      <h5>
-        See those neat icons in the footer? I wonder what happens
-        if you... ooohhhh... nice...
+       <span>
+        *  In an effort to accurately represent each whiskey,
+        the description for each was taken directly from
+        the the distillery website.
+       </span>
+       <h5>
+       See those neat icons in the footer? I wonder what happens
+       if you... ooohhhh... nice...
        </h5>
     </div>
   </div>

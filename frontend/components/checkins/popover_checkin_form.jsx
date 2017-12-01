@@ -46,7 +46,7 @@ class CheckinPopover extends React.Component {
     e.preventDefault();
     const checkin = this.state;
     this.props.processForm(checkin);
-    this.handleClick();
+
   }
 
   handleClick() {
@@ -102,31 +102,33 @@ class CheckinPopover extends React.Component {
                 <span className="modal-close js-modal-close" onClick={this.handleClick}>&times;</span>
                   {this.renderErrors()}
 
-                  <label></label>
-                    <textarea type="text"
-                      value={this.state.body}
-                      onChange={this.update('body')}
-                      placeholder='Tasting Notes: nose, palate, body, balance, finish, etc.'
-                    />
+                <label></label>
+                <textarea type="text"
+                  value={this.state.body}
+                  onChange={this.update('body')}
+                  placeholder='Tasting Notes: nose, palate, body, balance, finish, etc.'
+                />
 
 
-                  <div className='rating-slider'>
-                    <ReactSimpleRange
-                      label
-                      min={1}
-                      max={100}
-                      defaultValue={this.state.rating}
-                      onChange={e => console.log(e.value)}
-                      onChangeComplete={e => this.handleChange(e.value)}
-                      sliderSize={6}
-                      thumbSize={18}
-                     />
-                  </div>
+                <div className='rating-slider'>
+                  <ReactSimpleRange
+                    label
+                    min={1}
+                    max={100}
+                    defaultValue={this.state.rating}
+                    onChange={e => console.log(e.value)}
+                    onChangeComplete={e => this.handleChange(e.value)}
+                    sliderSize={6}
+                    thumbSize={18}
+                   />
+                </div>
 
                 <div className="checkin-buttons">
-                  <button
-                    to='api/home'
-                    className='checkin-submit' onClick={this.handleSubmit}>Check In!</button>
+
+                  <button className='checkin-submit' onClick={this.handleSubmit}>
+                    Check In!
+                  </button>
+
                   <button className='checkin-photo-upload'>
                     <i className="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
 

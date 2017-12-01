@@ -24,3 +24,15 @@
   flex-direction: column;
   align-items: center;
 }
+
+.whiskey-description {
+  min-height: 100px;
+  margin-top: 0;
+  padding: 23px 11px;
+  flex-direction: column;
+}
+
+.whiskey-description span {
+  padding-bottom: 5px;
+  font-weight: 900;
+}

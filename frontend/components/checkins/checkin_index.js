@@ -14,16 +14,19 @@ class CheckinIndex extends React.Component {
   }
 
   render() {
-  console.log(this.props)
-  // console.log(this.props.checkins)
-  // console.log(this.props.checkins[0])
+
+    const checkins = this.props.checkins;
+    if (!checkins) {
+      return <div>Loading...</div>;
+    }
+
     return(
       <div className='index-container-checkins'>
       {
-        this.props.checkins.map(checkin => (
+        checkins.map(checkin => (
           <CheckinIndexItem
             checkin={checkin}
-            checkins={this.props.checkins}
+            checkins={checkins}
             key={checkin.id}
             whiskey={checkin.whiskey}
             editCheckin={this.props.updateCheckin}

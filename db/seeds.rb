@@ -10,9 +10,9 @@ require 'faker'
 
 # COMMENT OUT BEFORE PRODUCTION
 
-# Whisky.destroy_all
-# User.destroy_all
-# Checkin.destroy_all
+Whisky.destroy_all
+User.destroy_all
+Checkin.destroy_all
 
 
 
@@ -143,7 +143,7 @@ Whisky.create(
 #   image_url:
 # )
 
-50.times do
+20.times do
 
   theme = %w(frogideas sugarsweets heatwave daisygarden seascape summerwarmth
             bythepool duskfalling berrypie base).sample
@@ -362,7 +362,7 @@ Whisky.create(
     well-balanced
     well-integrated
     well-structured
-    zesty ) ## go to wordstouse.com
+    zesty )
 
   username = Faker::Name.unique.name
   email = username.gsub(/\s+/, "") + '@gmail.com'
@@ -377,16 +377,16 @@ Whisky.create(
     image_url: image_url
   )
 
-  10.times do
-
+  5.times do
+    num_description_words = Random.rand(4..8)
     body = []
-    5.times do
+    num_description_words.times do
       body << whiskey_notes.sample
     end
 
     Checkin.create(
       body: body.join(", "),
-      rating: Random.rand(20...100),
+      rating: Random.rand(50...100),
       user_id: user.id,
       whiskey_id: Random.rand(1..10)
     )

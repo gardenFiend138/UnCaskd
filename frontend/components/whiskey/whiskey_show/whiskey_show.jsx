@@ -6,6 +6,7 @@ import WhiskeyIndexItem from '../whiskey_index/whiskey_index_item';
 import CheckinForm from '../../checkins/checkin_form_container';
 import CheckinPopover from '../../checkins/popover_checkin_form_container';
 import CircularProgressbar from 'react-circular-progressbar';
+import CheckinIndexItem from '../../checkins/checkin_index_item';
 
 class WhiskeyShow extends React.Component {
   constructor(props) {
@@ -78,9 +79,7 @@ console.log(document.getElementsByClassName('modal'));
     }
     const showPage = true;
 
-
     return(
-
       <div className='whiskey-show'>
         <div className='whiskey-index-item'>
 
@@ -91,7 +90,9 @@ console.log(document.getElementsByClassName('modal'));
                 alt='whiskey_default_image'
               />
             </Link>
-            <span className='checkins'>{this.totalCheckins()} Total Checkins</span>
+            <span className='checkins'>
+              {this.totalCheckins()} Total Checkins
+            </span>
           </div>
 
 
@@ -109,87 +110,30 @@ console.log(document.getElementsByClassName('modal'));
             <CheckinPopover {...this.props}/>
           </div>
 
-
             {this.ratingDisplay()}
 
-
+        </div>
+        <div className='whiskey-description whiskey-index-item'>
+          <span>Description:*</span>
+          {whiskey.description}
+        </div>
       </div>
-    </div>
 
 
     );
   }
 }
-// <div>
-//   <div>
-//   (possible div)
-//     <div>
-//       picture
-//     </div>
-//     <div>
-//       name, style, abv, total checkins, average rating
-//     </div>
-//
-//     <div>
-//       checkin button
-//     </div>
-//   </div>
-//   <div>
-//     description
-//   </div>
-// </div>
-
 
 export default WhiskeyShow;
 
-// <div>
-//   <ul>
-//     <li>{whiskey.name}</li>
-//     <li>{whiskey.distillery}</li>
-//     <li>{whiskey.abv}</li>
-//     <li>{whiskey.description}</li>
-//   </ul>
-// </div>
-
-// <div className="whiskey-show-page">
+// {
+// this.props.whiskey.total_checkins.map(checkin => (
+//   <CheckinIndexItem
+//     checkin={checkin}
+//     checkins={this.props.whiskey.total_checkins}
+//     key={checkin.id}
+//     whiskey={this.props.whiskey}
+//   />
+// ))
 //
-//
-//   <div className='whiskey-index-item'>
-//     <ul>
-//       <li className='whiskey-photo'>
-//         <Link to={`/whiskies/${whiskey.id}`}>
-//           <img src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
-//             alt='whiskey_default_image'
-//             />
-//         </Link>
-//       </li>
-//       <li>
-//         <ul className='whiskey-info-container'>
-//           <div className='whiskey-info'>
-//             <li>
-//               <Link to={`/whiskies/${whiskey.id}`}>
-//                 {whiskey.name}
-//               </Link>
-//             </li>
-//             <li>Distillery: </li>
-//             <li>
-//
-//             <li>Style: </li>
-//             <li>ABV: {whiskey.abv}</li>
-//
-//             </li>
-//         </div>
-//         </ul>
-//       </li>
-//       <li >
-//
-//       <CheckinPopover {...this.props}/>
-//
-//       </li>
-//     </ul>
-//     <p>Description: <br/> {whiskey.description}</p>
-//   </div>
-//
-//
-//
-//   </div>
+// }
