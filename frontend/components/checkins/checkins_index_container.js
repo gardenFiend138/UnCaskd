@@ -4,11 +4,10 @@ import { fetchCheckins, fetchCheckin, updateCheckin, deleteCheckin } from '../..
 import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
-  
+
   return ({
   checkins: Object.values(state.entities.checkins)
-                  .map(checkin => checkin),
-
+                  .map(checkin => checkin)
   });
 };
 

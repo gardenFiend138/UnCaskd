@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
         <div className='user-profile-header'>
 
           <div className='user-personal-info'>
-            <img src="http://cdn.hiconsumption.com/wp-content/uploads/2016/06/Glencairn-Crystal-Whiskey-Glass-.jpg"
+            <img src={`${this.props.currentUser.image_url}`}
               alt="profile picture" />
             <h1>{this.props.currentUser.username}</h1>
           </div>

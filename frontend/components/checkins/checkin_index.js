@@ -14,7 +14,7 @@ class CheckinIndex extends React.Component {
   }
 
   render() {
-  // console.log(this.props)
+  console.log(this.props)
   // console.log(this.props.checkins)
   // console.log(this.props.checkins[0])
     return(
