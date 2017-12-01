@@ -14,11 +14,11 @@ class Api::CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id
-    # @checkin.whiskey_id = params[:whiskey_id]
+
 
     if @checkin.save
       # render json: @checkin
-      render :index
+      render :show
       #alternatively make a checkin json jbuilder file and render that.
 
     else
@@ -30,11 +30,6 @@ class Api::CheckinsController < ApplicationController
     @checkin = Checkin.find(params[:id])
     render :show
   end
-
-  # def show_user_checkins(user_id)
-  #   @checkins = Checkin.find_by(user_id: user_id)
-  #   render :show_user_checkins
-  # end
 
   def index
     @checkins = Checkin.all

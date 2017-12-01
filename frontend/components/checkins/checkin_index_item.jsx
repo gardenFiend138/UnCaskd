@@ -67,7 +67,7 @@ class CheckinIndexItem extends React.Component {
           <div >
             <img className='checkin-user-photo'
               src={`${checkin.image_url}`}
-              alt='user_default_image'
+              alt=''
             />
          </div>
           <div className='checkin-overview'>
@@ -82,7 +82,7 @@ class CheckinIndexItem extends React.Component {
           <div >
             <img className='checkin-whiskey-photo'
               src={`${checkin.whiskey_image_url}`}
-              alt='whiskey_default_image'
+              alt=''
             />
           </div>
         </div>

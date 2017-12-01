@@ -10,9 +10,9 @@ require 'faker'
 
 # COMMENT OUT BEFORE PRODUCTION
 
-Whisky.destroy_all
-User.destroy_all
-Checkin.destroy_all
+# Whisky.destroy_all
+# User.destroy_all
+# Checkin.destroy_all
 
 
 

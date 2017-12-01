@@ -27,7 +27,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    
+
     const checkins = this.props.currentUser.checkins;
 
 

@@ -46,7 +46,7 @@ class CheckinPopover extends React.Component {
     e.preventDefault();
     const checkin = this.state;
     this.props.processForm(checkin);
-
+    this.props.history.push('/home');
   }
 
   handleClick() {
@@ -125,7 +125,7 @@ class CheckinPopover extends React.Component {
 
                 <div className="checkin-buttons">
 
-                  <button className='checkin-submit' onClick={this.handleSubmit}>
+                  <button to='/api/checkins' className='checkin-submit' onClick={this.handleSubmit}>
                     Check In!
                   </button>
 
