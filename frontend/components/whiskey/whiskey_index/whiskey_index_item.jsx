@@ -13,30 +13,6 @@ class WhiskeyIndexItem extends React.Component {
 
   }
 
-  // whiskeyShowPageButtons({ whiskey }) {
-  //   return(
-  //     <li className='edit-button'>
-  //       <button>
-  //         <Link to={`/whiskies/${whiskey.id}/edit`}>
-  //           Edit
-  //         </Link>
-  //       </button>
-  //       <button>
-  //         <Link to={`/checkins/new`}>
-  //           Check In This Whiskey!
-  //         </Link>
-  //       </button>
-  //     </li>
-  //   );
-  // }
-
-  // componentDidMount()  {
-  //   let prevState = this.state;
-  //   this.setState((prevState, this.averageRating()) => {
-  //     return{averageRating: prevState.averageRating}
-  //   });
-  // }
-
   averageRating() {
     const checkins = this.props.whiskey.total_checkins;
     let ratings = [];
@@ -85,9 +61,10 @@ class WhiskeyIndexItem extends React.Component {
               alt='whiskey_default_image'
             />
           </Link>
-          <span className='checkins'>{this.totalCheckins()} Total Checkins</span>
+          <span className='checkins'>
+            {this.totalCheckins()} Total Checkins
+          </span>
         </div>
-
 
         <div className='whiskey-info'>
           <li>

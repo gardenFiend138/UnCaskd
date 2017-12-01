@@ -6,9 +6,6 @@ class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   totalCheckins: this.state.entities.checkins
-    // };
     this.checkins = (this.props.checkins) ?
                       this.props.checkins :
                       this.props.currentUser.checkins;
@@ -40,14 +37,12 @@ class CheckinIndexItem extends React.Component {
 
   UserRatingDisplay() {
     return(
-      // <div className='whiskey-stats'>
-        <div className='rating'>
-          <CircularProgressbar
-            percentage={this.props.checkin.rating}
-            textForPercentage={ (WAT) => `${WAT}`}
-            />
-        </div>
-      // </div>
+      <div className='rating'>
+        <CircularProgressbar
+          percentage={this.props.checkin.rating}
+          textForPercentage={ (WAT) => `${WAT}`}
+          />
+      </div>
     );
   }
 
@@ -55,18 +50,19 @@ class CheckinIndexItem extends React.Component {
     const checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
-    const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin
+    const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
 
     return(
       <div className='checkin-index-item'>
-
         <div className='checkin-info'>
+
           <div >
             <img className='checkin-user-photo'
               src={`${checkin.image_url}`}
               alt=''
             />
-         </div>
+          </div>
+
           <div className='checkin-overview'>
             <Link to={`users/${checkin.user_id}`}>
               {username}&nbsp;
@@ -76,6 +72,7 @@ class CheckinIndexItem extends React.Component {
               {whiskey}.
             </Link>
           </div>
+
           <div >
             <img className='checkin-whiskey-photo'
               src={`${checkin.whiskey_image_url}`}
@@ -105,10 +102,8 @@ class CheckinIndexItem extends React.Component {
             <div>
               <button className='cheers-button'>CHEERS!</button>
             </div>
-
           </div>
         </div>
-
       </div>
       );
     }
