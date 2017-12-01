@@ -9,7 +9,9 @@ class CheckinIndexItem extends React.Component {
     // this.state = {
     //   totalCheckins: this.state.entities.checkins
     // };
-    this.checkins = (this.props.checkins) ? this.props.checkins : this.props.currentUser.checkins
+    this.checkins = (this.props.checkins) ?
+                      this.props.checkins :
+                      this.props.currentUser.checkins;
 
   }
 
@@ -23,11 +25,8 @@ class CheckinIndexItem extends React.Component {
   }
 
   averageRating() {
-  // console.log('these are your checkin props: ', this.props)
-    // const checkins = this.props.checkins;
-
     let ratings = [];
-    // console.log(checkins)
+
     this.checkins.map( checkin => ratings.push(checkin.rating));
 
     if (ratings.length > 0) {
@@ -57,8 +56,6 @@ class CheckinIndexItem extends React.Component {
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin
-
-    console.log(this.props);
 
     return(
       <div className='checkin-index-item'>

@@ -6,11 +6,6 @@ class Api::CheckinsController < ApplicationController
     render :new
   end
 
-  # not sure about the whiskey ID getting to the checkin;
-  # see what's available through debugger in window console
-  # not sure about render path either...should it go to the feed?
-  # or the whiskey show page?
-  # look at params, figure out how to access whiskey_id
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id

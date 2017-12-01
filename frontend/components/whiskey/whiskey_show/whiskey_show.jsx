@@ -20,19 +20,11 @@ class WhiskeyShow extends React.Component {
 
   toggleClass() {
     const currentState = this.state.activeModal;
-console.log(document.getElementsByClassName('modal'));
     this.setState({ activeModal: !currentState });
-    console.log(this.state);
-  }
-
-  componentWillReceiveProps() {
-    console.log('will receive props', this.props);
   }
 
   componentDidMount() {
-
     this.props.fetchWhiskey(this.props.match.params.id);
-
   }
 
   averageRating() {

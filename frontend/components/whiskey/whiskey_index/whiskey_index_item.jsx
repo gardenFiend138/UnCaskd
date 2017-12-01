@@ -73,9 +73,8 @@ class WhiskeyIndexItem extends React.Component {
   }
 
   render() {
-
     const whiskey = this.props.whiskey
-console.log('WHISKEY:  ', whiskey);
+
     return (
       <div className='whiskey-index-item'>
 

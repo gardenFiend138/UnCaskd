@@ -23,17 +23,10 @@ class CheckinPopover extends React.Component {
     this.setState = this.setState.bind(this);
   }
 
-  handleChangeStart() {
-
-    console.log('Change event started');
-  }
-
   handleChange(value) {
-    console.log('change event entered');
     this.setState({
       rating: value
     });
-    console.log('current rating', this.state.rating);
   }
 
   update(field) {
@@ -116,7 +109,6 @@ class CheckinPopover extends React.Component {
                     min={1}
                     max={100}
                     defaultValue={this.state.rating}
-                    onChange={e => console.log(e.value)}
                     onChangeComplete={e => this.handleChange(e.value)}
                     sliderSize={6}
                     thumbSize={18}

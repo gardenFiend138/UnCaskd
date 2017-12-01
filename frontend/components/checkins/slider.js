@@ -15,11 +15,9 @@ class RatingSlider extends React.Component {
     return (
       <ReactSimpleRange
         label
-
         min={1}
         max={100}
         defaultValue={50}
-        onChange={e => console.log(e.value)}
        />
     );
   }
