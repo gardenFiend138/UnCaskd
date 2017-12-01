@@ -22,9 +22,9 @@ class UserProfile extends React.Component {
     return result.length;
   }
   render() {
+    debugger;
     const checkins = this.props.currentUser.checkins;
     console.log(this.props)
-
     return(
       <div className="user-profile-container" >
 

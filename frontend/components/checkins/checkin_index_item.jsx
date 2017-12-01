@@ -53,14 +53,13 @@ class CheckinIndexItem extends React.Component {
   }
 
   render ()  {
-    console.log('these are your checkin props: ', this.props);
-    // console.log('these are your checkin props: ', this.props.whiskey);
-    let checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
+
+    const checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin
-    debugger;
-    
+
+
     return(
       <div className='checkin-index-item'>
 

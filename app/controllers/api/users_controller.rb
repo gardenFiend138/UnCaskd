@@ -17,6 +17,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show_user_checkins
+    @checkins = Checkin.find_by(user_id: params[:id])
+    render :fetch_user_checkins
+  end
+
   private
 
   def user_params

@@ -30,6 +30,8 @@ export const removeCheckin = checkinId => ({
   checkinId
 });
 
+
+
 export const createCheckin = (checkin) => dispatch => (
   APIUtil.createCheckin(checkin).then(checkin => (
     dispatch(receiveCheckin(checkin))

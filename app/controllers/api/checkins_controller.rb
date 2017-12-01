@@ -20,7 +20,7 @@ class Api::CheckinsController < ApplicationController
       # render json: @checkin
       render :index
       #alternatively make a checkin json jbuilder file and render that.
-      # render "/whiskies/#{@checkin.whiskey_id}"
+
     else
       render json: @checkin.errors.full_messages, status: 422
     end
@@ -30,6 +30,11 @@ class Api::CheckinsController < ApplicationController
     @checkin = Checkin.find(params[:id])
     render :show
   end
+
+  # def show_user_checkins(user_id)
+  #   @checkins = Checkin.find_by(user_id: user_id)
+  #   render :show_user_checkins
+  # end
 
   def index
     @checkins = Checkin.all
