@@ -12,7 +12,7 @@ const mapStateToProps = state => {
                   .map(checkin => state.entities.checkins)
 
   });
-  debugger;
+  
 };
 
 const mapDispatchToProps = dispatch => ({

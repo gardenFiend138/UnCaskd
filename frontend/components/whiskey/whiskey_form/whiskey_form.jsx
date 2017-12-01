@@ -88,7 +88,7 @@ class WhiskeyForm extends React.Component {
           </div>
 
 
-            <button onClick={this.handleSubmit}>
+            <button onClick={this.handleSubmit} className='add-whiskey-button'>
                Add Whiskey
             </button>
 

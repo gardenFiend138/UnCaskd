@@ -53,22 +53,31 @@ class CheckinIndexItem extends React.Component {
   }
 
   render ()  {
-    // console.log('these are your checkin props: ', this.props);
+    console.log('these are your checkin props: ', this.props);
     // console.log('these are your checkin props: ', this.props.whiskey);
     let checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin
-debugger;
+    // const
     return(
       <div className='checkin-index-item'>
 
         <div className='checkin-info'>
           <div >
-
+            <img className='checkin-user-photo'
+              src={`${checkin.image_url}`}
+              alt='user_default_image'
+            />
          </div>
           <div className='checkin-overview'>
-            {username} is drinking a glass of {whiskey}.
+            <Link to={`users/${checkin.user_id}`}>
+              {username}
+            </Link>
+            is drinking a glass of
+            <Link to={`whiskies/${checkin.whiskey_id}`} >
+              {whiskey}.
+            </Link>
           </div>
           <div >
             <img className='checkin-whiskey-photo'
@@ -99,14 +108,7 @@ debugger;
             <div>
               <button className='cheers-button'>CHEERS!</button>
             </div>
-            <div>
-              <button className='delete-button' >
-                <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-              </button>
-              <button className='edit-button'>
-                <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-              </button>
-            </div>
+
           </div>
         </div>
 
@@ -116,3 +118,12 @@ debugger;
 }
 
 export default withRouter(CheckinIndexItem);
+// below cheers-button closing div tag
+// <div>
+//   <button className='delete-button' >
+//     <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+//   </button>
+//   <button className='edit-button'>
+//     <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+//   </button>
+// </div>
