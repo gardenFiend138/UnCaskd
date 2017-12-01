@@ -4,10 +4,11 @@ class CreateWhiskies < ActiveRecord::Migration[5.1]
     create_table :whiskies do |t|
       t.string :name, null: false
       t.text :description, null: false
-      t.string :image_url, null: false
+      t.string :image_url
       t.float :abv, null: false
-      t.integer :style_id, null: false
-      t.integer :distillery_id, null: false
+      t.string :style
+      t.integer :style_id
+      t.integer :distillery_id
 
       t.timestamps
     end

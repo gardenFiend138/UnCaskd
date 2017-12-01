@@ -6,8 +6,8 @@ class Api::WhiskiesController < ApplicationController
 
   def create
     @whiskey = Whisky.new(whiskey_params)
-    @whiskey.image_url ||= "http://cdn.hiconsumption.com/wp-content/uploads/2016/06/Glencairn-Crystal-Whiskey-Glass-.jpg"
-    
+    # @whiskey.image_url ||= "https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg"
+
     if @whiskey.save
       render :show
     else
@@ -48,8 +48,7 @@ class Api::WhiskiesController < ApplicationController
       :description,
       :image_url,
       :abv,
-      :style_id,
-      :distillery_id
+      :style
     )
   end
 

@@ -53,12 +53,12 @@ class CheckinIndexItem extends React.Component {
   }
 
   render ()  {
-
     const checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin
 
+    console.log(this.props);
 
     return(
       <div className='checkin-index-item'>
@@ -81,7 +81,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div >
             <img className='checkin-whiskey-photo'
-              src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
+              src={`${checkin.whiskey_image_url}`}
               alt='whiskey_default_image'
             />
           </div>

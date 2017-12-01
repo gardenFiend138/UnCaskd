@@ -89,9 +89,10 @@ Whisky.create(
     of vanilla, toffee and candied fruit. The smooth finish lingers on
     the palate. This will never change",
   abv: 40,
-  style: 'Bourbon'
+  style: 'Bourbon',
   image_url: "https://www.chartonhobbs.com/wp-content/uploads/2013/08/logos3_Buffalo-on-White.png"
 )
+
 Whisky.create(
   name: 'Pappy Van Winkle 15 Year',
   description: "This very rare, limited edition bourbon takes
@@ -104,6 +105,7 @@ Whisky.create(
   style: 'Bourbon',
   image_url: "https://schaefers.com/wp-content/uploads/2014/12/23ylabel1.jpg"
 )
+
 Whisky.create(
   name: 'Chivas Regal 12 Year',
   description: "Chivas Regal 12 is a blend of many different malt and
@@ -116,10 +118,13 @@ Whisky.create(
 
 Whisky.create(
   name: 'Jim Beam',
-  description: "",
+  description: "220 years of experience goes into every bottle. Along
+    with corn, rye, malted barley, water, time, pride, and, of course,
+    true passion. Isn’t it good to know some things never go out of
+    style? Take a sip and you'll know what we mean.",
   abv: 40,
-  style: 'Bourbon'
-  image_url:
+  style: 'Bourbon',
+  image_url: 'https://images-na.ssl-images-amazon.com/images/I/81bVvHPWE4L._SX355_.jpg'
 )
 
 # Whisky.create(
@@ -130,11 +135,226 @@ Whisky.create(
 #   image_url:
 # )
 
-100.times do
+50.times do
 
-  name_choices = %w(Zelda, RickAndMorty, DragonBall).sample
-  theme = %w(frogideas sugarsweets heatwave daisygarden seascape summerwarmth bythepool duskfalling berrypie base).sample
-  whiskey_notes = %w(smokey sweet savory maple coffee oak strong burn smooth ) ## go to wordstouse.com
+  theme = %w(frogideas sugarsweets heatwave daisygarden seascape summerwarmth
+            bythepool duskfalling berrypie base).sample
+  whiskey_notes = %w(smokey sweet savory maple coffee oak strong burn smooth adaptable
+    aged
+    alcoholic
+    ambrosial
+    approachable
+    aromatic
+    aromatized
+    assertive
+    award-winning
+    balanced
+    barrel-aged
+    benchmark
+    best-tasting
+    bitter
+    blended
+    bold
+    buttery
+    caramel
+    charcoal-filtered
+    cheek-puckering
+    chewy
+    classic
+    classical
+    classically-styled
+    clean
+    clean-tasting
+    clear
+    cloudy
+    cloying
+    coarse
+    cold
+    complex
+    conversational
+    cool
+    creamy
+    crisp
+    crystal-clear
+    cutting-edge
+    delectable
+    delicate
+    delicious
+    delightful
+    dense
+    distilled
+    distinct
+    distinctive
+    divine
+    domestic
+    double
+    double-distilled
+    dreamy
+    dry
+    easy-drinking
+    effervescent
+    electrifying
+    elegant
+    enhanced
+    exceptional
+    exhilarating
+    exotic
+    extra-dry
+    extracted
+    eye-opening
+    famous
+    filtered
+    finest
+    fizzy
+    flavorful
+    flavorsome
+    floral
+    fortified
+    fractional-distilled
+    fragrant
+    fresh
+    frigid
+    fruit-forward
+    fruity
+    full-bodied
+    fun-to-drink
+    generous
+    glacial
+    golden
+    hand-crafted
+    hard
+    harmonious
+    heavy
+    high-proof
+    high-quality
+    ice-cold
+    iced
+    ideal-for-mixing
+    intense
+    internationally-popular
+    intoxicating
+    invigorating
+    inviting
+    irresistible
+    juicy
+    legendary
+    light
+    light-bodied
+    lighter
+    likeable
+    limited-edition
+    lingering
+    low-in-impurities
+    lush
+    luxurious
+    medicinal
+    medium-sweet
+    mellow
+    mild
+    most popular
+    mouth-warming
+    mouthfillilng
+    naturally-flavored
+    neat
+    neutral
+    no after-burn
+    notable
+    numbing
+    nutty
+    oaky
+    old-fashioned
+    on the rocks
+    one-of-a-kind
+    original
+    palatable
+    peppery
+    perfumed
+    perfumy
+    piquant
+    pithy
+    pleasant
+    pleasing
+    poignant
+    popular
+    preferred
+    premium
+    prized
+    pronounced
+    pungent
+    pure
+    quality
+    quartz-filtered
+    rare
+    rarest
+    refined
+    refreshing
+    rejuvenating
+    restorative
+    revitalizing
+    revivifying
+    reviving
+    revolutionary
+    rich
+    robust
+    romantic
+    rough
+    round
+    rousing
+    satisfying
+    savory
+    select
+    self-indulgent
+    sensational
+    sensuous
+    sharp
+    signature
+    silken
+    silky
+    simple
+    sipping
+    small batch
+    smooth
+    social
+    soft
+    soothing
+    spicy
+    spirity
+    steely
+    stiff
+    straight
+    straight-up
+    straightforward
+    strong
+    stylish
+    subtle
+    superb
+    superior
+    supple
+    surprisingly sweet
+    sweet
+    tangy
+    tantalizing
+    tart
+    tasty
+    tempting
+    tingly
+    traditional
+    triple-distilled
+    ultra-crisp
+    ultra-premium
+    ultra-smooth
+    unbelievably smooth
+    unequaled
+    unique
+    uniquely
+    uniquely-aged
+    versatile
+    viscous
+    warming
+    well-balanced
+    well-integrated
+    well-structured
+    zesty ) ## go to wordstouse.com
 
   username = Faker::Name.unique.name
   email = username.gsub(/\s+/, "") + '@gmail.com'
@@ -151,8 +371,13 @@ Whisky.create(
 
   10.times do
 
+    body = []
+    5.times do
+      body << whiskey_notes.sample
+    end
+
     Checkin.create(
-      body: Faker::Coffee.notes,
+      body: body.join(", "),
       rating: Random.rand(20...100),
       user_id: user.id,
       whiskey_id: Random.rand(1..10)
