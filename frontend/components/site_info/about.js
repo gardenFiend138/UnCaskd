@@ -1,11 +1,11 @@
 
 import React from 'react';
+import Link from 'react-router';
 
 export default () => (
 
-  <div>
-    <h1>About UnCaskd</h1>
-    <h3>(a tribute to <Link to='untappd.com'> UNTAPPD </Link>)</h3>
+  <div className="about-page">
+    <h1>About UnCaskd</h1><h3>(a tribute to  UNTAPPD)</h3>
     <div>
       <strong><h3>The Beginning</h3></strong>
       <p>
@@ -27,7 +27,10 @@ export default () => (
       </p>
 
       <h2>Please enjoy your stay and your whiskey responsibly.</h2>
-
+      <h5>
+        See those neat icons in the footer? I wonder what happens
+        if you... ooohhhh... nice...
+       </h5>
     </div>
   </div>
 
