@@ -10,98 +10,137 @@ require 'faker'
 
 Whisky.create(
   name: "Jack Daniels's Old No.7",
-  description: "Mellowed drop by drop through 10-feet of sugar maple charcoal, then matured in handcrafted barrels of our own making. And our Tennessee Whiskey doesn’t follow a calendar. It’s only ready when our tasters say it is. We judge it by the way it looks. By its aroma. And of course, by the way it tastes. It’s how Jack Daniel himself did it over a century ago. And how we still do it today.",
-  abv: 45,
+  description: "Mellowed drop by drop through 10-feet of sugar maple
+    charcoal, then matured in handcrafted barrels of our own making.
+    And our Tennessee Whiskey doesn’t follow a calendar. It’s only ready
+    when our tasters say it is. We judge it by the way it looks. By its
+    aroma. And of course, by the way it tastes. It’s how Jack Daniel
+    himself did it over a century ago. And how we still do it today.",
+  abv: 40,
   style: "Tennessee Whiskey",
   image_url: "https://i.pinimg.com/736x/67/62/d9/6762d93553e90fd20ad26080d644b4e1--jack-daniels-labels-jack-daniels-poster.jpg"
 )
 
 Whisky.create(
-  name: 'Jim Beam',
-  description:
-  abv:
-  style: 'Bourbon'
-  image_url:
-)
-
-Whisky.create(
-  name: 'Wild Turkey',
-  description:
-  abv:
+  name: 'Wild Turkey 101',
+  description: "For more than 60 years, legendary Master Distiller
+    Jimmy Russell has been crafting Wild Turkey 101 the right way. With
+    a high rye content, this iconic bourbon is perfectly aged in American
+    White Oak barrels with the deepest char for more character.",
+  abv: 50.5,
   style: 'Bourbon',
   image_url: "https://seeklogo.com/images/J/Jim_Beam-logo-EEAE69F83E-seeklogo.com.png"
 )
 
 Whisky.create(
   name: 'Basil Hayden',
-  description:
+  description: "To preserve the subtle sophistication that makes it so
+    sharable, Basil Hayden’s is aged to the perfect expression of its
+    novel, spicy-sweet flavor profile.",
   abv: 49.5,
   style: 'Bourbon',
-  image_url:
+  image_url: 'http://whiskeylofts.com/wp-content/uploads/2016/04/image-6.jpeg'
 )
 
 Whisky.create(
-  name: 'Glenfiddich',
-  description:
-  abv:
+  name: 'Glenfiddich 12 Year',
+  description: "Carefully matured in the finest American oak and European
+    oak sherry casks for at least 12 years, it is mellowed in oak marrying
+    tuns to create its sweet and subtle oak flavours.",
+  abv: 40,
+  style: 'Speyside Single Malt Scotch Whiskey',
+  image_url: "https://www.glenfiddich.com/themes/gf-main-v2/images/glenfiddich_logo_fb.png"
+)
+
+Whisky.create(
+  name: 'Laphroig 10 Year',
+  description: "Our 10 Year Old is the original Laphroaig, distilled the
+    same way today as when Ian Hunter invented it more than 75 years ago.
+    It is the foundation of all other Laphroaig expressions. In making
+    Laphroaig, malted barley is dried over a peat fire. The smoke from
+    this peat, found only on Islay, gives Laphroaig its particularly
+    rich flavour. Those enjoying the 10 Year Old will first notice the
+    bold, smoky taste, followed by a hint of seaweed and a surprising
+    sweetness. This full-bodied variant is the foundation of all
+    Laphroaig expressions and comes with a long finish.",
+  abv: 40,
   style: 'Scotch Whiskey',
-  image_url:
-)
-
-Whisky.create(
-  name: 'Laphroig',
-  description:
-  abv:
-  style: 'Scotch Whiskey'
-  image_url:
+  image_url: "http://static.wixstatic.com/media/45c952_9debeece6ecf4a869fd152842c39502e.jpg/v1/fill/w_630,h_468,al_c,q_80,usm_0.66_1.00_0.01/45c952_9debeece6ecf4a869fd152842c39502e.webp"
 )
 
 Whisky.create(
   name: 'Bulleit Rye',
-  description:
-  abv:
+  description: "Bulleit Rye is an award-winning, straight rye whiskey
+    with a character of unparalleled spice and complexity. Released in
+    2011, it continues to enjoy recognition as one of the highest quality
+    ryes available.",
+  abv: 40,
   style: 'Rye Whiskey',
-  image_url:
+  image_url: "https://i2.wp.com/www.bourbonblog.com/wp-content/uploads/2011/03/Bulleit-Rye-Logo.jpg"
 )
 
 Whisky.create(
-  name:
-  description:
-  abv:
-  style:
-  image_url:
+  name: 'Buffalo Trace Bourbon',
+  description: "Buffalo Trace Kentucky Straight Bourbon Whiskey is
+    distilled, aged and bottled at the most award-winning distillery in
+    the world. Made from the finest corn, rye and barley malt, this
+    whiskey ages in new oak barrels for years in century old warehouses
+    until the peak of maturity. The taste is rich and complex, with hints
+    of vanilla, toffee and candied fruit. The smooth finish lingers on
+    the palate. This will never change",
+  abv: 40,
+  style: 'Bourbon'
+  image_url: "https://www.chartonhobbs.com/wp-content/uploads/2013/08/logos3_Buffalo-on-White.png"
 )
 Whisky.create(
-  name:
-  description:
-  abv:
-  style:
-  image_url:
+  name: 'Pappy Van Winkle 15 Year',
+  description: "This very rare, limited edition bourbon takes
+    generations of distilling know-how to produce. Only the most
+    careful and expensive distilling method can be used to create
+    a whiskey as special as this one. Each barrel ages for 23 years
+    and is carefully selected from the heart of the warehouse. This
+    whiskey should be enjoyed neat.",
+  abv: 53.5,
+  style: 'Bourbon',
+  image_url: "https://schaefers.com/wp-content/uploads/2014/12/23ylabel1.jpg"
 )
 Whisky.create(
-  name:
-  description:
-  abv:
-  style:
-  image_url:
+  name: 'Chivas Regal 12 Year',
+  description: "Chivas Regal 12 is a blend of many different malt and
+    grain Scotch whiskies, matured for at least 12 years. This rich,
+    smooth blend combines style with substance and tradition.",
+  abv: 40,
+  style: 'Blended Scotch Whiskey',
+  image_url: "https://i.pinimg.com/originals/cc/3b/17/cc3b172c20a2e2a50699f12e9d3e196b.jpg"
 )
+
 Whisky.create(
-  name:
-  description:
-  abv:
-  style:
+  name: 'Jim Beam',
+  description: "",
+  abv: 40,
+  style: 'Bourbon'
   image_url:
 )
+
+# Whisky.create(
+#   name:
+#   description:
+#   abv:
+#   style:
+#   image_url:
+# )
 
 100.times do
 
   name_choices = %w(Zelda, RickAndMorty, DragonBall).sample
-  theme = %w(frogideas, sugarsweets, heatwave, daisygarden, seascape, summerwarmth, bythepool, duskfalling, berrypie, base).sample
+  theme = %w(frogideas sugarsweets heatwave daisygarden seascape summerwarmth bythepool duskfalling berrypie base).sample
+  whiskey_notes = %w(smokey sweet savory maple coffee oak strong burn smooth ) ## go to wordstouse.com
 
   username = Faker::Name.unique.name
   email = username.gsub(/\s+/, "") + '@gmail.com'
   password = 'password'
   image_url = "http://tinygraphs.com/squares/#{username}?theme=#{theme}&numcolors=4&size=220&fmt=svg"
+
 
   user = User.create(
     username: username,
