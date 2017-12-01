@@ -44,8 +44,9 @@
   padding: 37px;
   margin: 29px;
   align-items: flex-start;
-  // border-bottom: 1px solid black;
   box-shadow: 0px 1px 7px #888888;
+  min-height: 200px;
+  min-width: 700px;
 }
 
 .whiskey-index-item ul {
@@ -85,6 +86,7 @@
 .whiskey-info li {
   border-bottom: 1px solid black;
   padding: 7px;
+  min-width: 200px;
 }
 
 .whiskey-info li:last-of-type {

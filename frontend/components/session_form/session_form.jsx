@@ -18,8 +18,7 @@ class SessionForm extends React.Component {
     if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
-    console.log(this.props);
-    console.log('next props: ', nextProps);
+
     if (nextProps.formType !== this.props.formType) {
       this.props.clearSessionErrors();
     }

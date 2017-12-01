@@ -4,6 +4,7 @@ json.extract! whiskey,
               :description,
               :image_url,
               :abv,
+              :style,
               :style_id,
               :distillery_id
 

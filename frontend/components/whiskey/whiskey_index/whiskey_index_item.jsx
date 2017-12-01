@@ -75,7 +75,7 @@ class WhiskeyIndexItem extends React.Component {
   render() {
 
     const whiskey = this.props.whiskey
-
+console.log('WHISKEY:  ', whiskey);
     return (
       <div className='whiskey-index-item'>
 
@@ -96,8 +96,7 @@ class WhiskeyIndexItem extends React.Component {
               {whiskey.name}
             </Link>
           </li>
-          <li>Distillery: </li>
-          <li>Style: </li>
+          <li>{whiskey.style}</li>
           <li>ABV: {whiskey.abv}%</li>
         </div>
 

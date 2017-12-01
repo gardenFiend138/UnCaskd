@@ -87,7 +87,7 @@ console.log(document.getElementsByClassName('modal'));
           <div className='whiskey-photo-checkins'>
             <Link to={`/whiskies/${whiskey.id}`}>
               <img
-                src='https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg'
+                src={`${whiskey.image_url}`}
                 alt='whiskey_default_image'
               />
             </Link>
@@ -101,8 +101,7 @@ console.log(document.getElementsByClassName('modal'));
                 {whiskey.name}
               </Link>
             </li>
-            <li>Distillery: </li>
-            <li>Style: </li>
+            <li>{whiskey.style}</li>
             <li>ABV: {whiskey.abv}%</li>
           </div>
 

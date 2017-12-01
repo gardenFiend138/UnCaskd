@@ -128,7 +128,7 @@ class CheckinPopover extends React.Component {
                     to='api/home'
                     className='checkin-submit' onClick={this.handleSubmit}>Check In!</button>
                   <button className='checkin-photo-upload'>
-                    <i class="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
+                    <i className="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
 
                   </button>
                 </div>

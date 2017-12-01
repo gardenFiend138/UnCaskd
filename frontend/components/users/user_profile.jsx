@@ -11,6 +11,10 @@ class UserProfile extends React.Component {
     this.checkins = this.props.currentUser.checkins;
   }
 
+  // componentWillMount() {
+  //   const allCheckins = this.props.fetchCheckins();
+  // }
+
   uniqueCheckins() {
     let result = [];
     this.checkins.forEach( checkin => {
@@ -22,9 +26,10 @@ class UserProfile extends React.Component {
     return result.length;
   }
   render() {
-    debugger;
+
     const checkins = this.props.currentUser.checkins;
-    console.log(this.props)
+    console.log('all checkins:  ', this.allCheckins);
+
     return(
       <div className="user-profile-container" >
 

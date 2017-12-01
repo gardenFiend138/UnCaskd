@@ -8,6 +8,14 @@
 
 require 'faker'
 
+# COMMENT OUT BEFORE PRODUCTION
+
+# Whisky.destroy_all
+# User.destroy_all
+# Checkin.destroy_all
+
+
+
 Whisky.create(
   name: "Jack Daniels's Old No.7",
   description: "Mellowed drop by drop through 10-feet of sugar maple

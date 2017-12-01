@@ -1,6 +1,6 @@
 json.extract! user, :id, :username, :image_url
 
-# json.set! :checkins, user.checkins
+
 json.set! :whiskey do
   user.whiskey.each do |whiskey|
     json.set! whiskey.id, whiskey.name
