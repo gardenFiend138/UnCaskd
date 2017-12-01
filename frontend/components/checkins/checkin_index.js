@@ -14,7 +14,9 @@ class CheckinIndex extends React.Component {
   }
 
   render() {
-
+  // console.log(this.props)
+  // console.log(this.props.checkins)
+  // console.log(this.props.checkins[0])
     return(
       <div className='index-container-checkins'>
       {
@@ -23,6 +25,7 @@ class CheckinIndex extends React.Component {
             checkin={checkin}
             checkins={this.props.checkins}
             key={checkin.id}
+            whiskey={checkin.whiskey}
             editCheckin={this.props.updateCheckin}
             deleteCheckin={this.props.deleteCheckin}
           />

@@ -9,6 +9,7 @@ class CheckinIndexItem extends React.Component {
     // this.state = {
     //   totalCheckins: this.state.entities.checkins
     // };
+    this.checkins = (this.props.checkins) ? this.props.checkins : this.props.currentUser.checkins
 
   }
 
@@ -22,17 +23,19 @@ class CheckinIndexItem extends React.Component {
   }
 
   averageRating() {
+  // console.log('these are your checkin props: ', this.props)
+    // const checkins = this.props.checkins;
 
-    const checkins = this.props.checkins;
     let ratings = [];
-    checkins.map( checkin => ratings.push(checkin.rating));
+    // console.log(checkins)
+    this.checkins.map( checkin => ratings.push(checkin.rating));
 
     if (ratings.length > 0) {
       ratings = ratings.reduce( (prev, curr) => prev + curr);
-      ratings = ratings / checkins.length;
+      ratings = ratings / this.checkins.length;
       return Math.round(ratings);
     } else {
-      return checkins.length;
+      return this.checkins.length;
     }
   }
 
@@ -50,8 +53,11 @@ class CheckinIndexItem extends React.Component {
   }
 
   render ()  {
-    let checkin = this.props.checkin;
-
+    // console.log('these are your checkin props: ', this.props);
+    // console.log('these are your checkin props: ', this.props.whiskey);
+    let checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
+    const username = (checkin.username) ? checkin.username : this.props.userName;
+    const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     return(
       <div className='checkin-index-item'>
 
@@ -63,7 +69,7 @@ class CheckinIndexItem extends React.Component {
             />
          </div>
           <div className='checkin-overview'>
-            {checkin.username} is drinking a glass of {checkin.whiskey}.
+            {username} is drinking a glass of {whiskey}.
           </div>
           <div >
             <img className='checkin-whiskey-photo'

@@ -8,13 +8,23 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log('my proooooops', this.props);
+    this.checkins = this.props.currentUser.checkins;
+  }
 
+  uniqueCheckins() {
+    let result = [];
+    this.checkins.forEach( checkin => {
+      if (!result.includes(checkin.whiskey_id)) {
+        result.push(checkin.whiskey_id);
+      }
+    });
 
+    return result.length;
   }
   render() {
     const checkins = this.props.currentUser.checkins;
-
+    console.log(this.props)
+// debugger;
     return(
       <div className="user-profile-container" >
 
@@ -28,8 +38,8 @@ class UserProfile extends React.Component {
 
           <div className="user-checkin-info">
             <ul>
-              <li>XX Check Ins </li>
-              <li>XX Unique</li>
+              <li>{checkins.length} Check Ins </li>
+              <li>{this.uniqueCheckins()} Unique</li>
             </ul>
           </div>
         </div>
@@ -37,11 +47,15 @@ class UserProfile extends React.Component {
           <div className='index-container-checkins'>
             {
               checkins.map(checkin => (
+
                 <CheckinIndexItem
                   checkin={checkin}
                   checkins={checkins}
+                  userName={this.props.currentUser.username}
+                  whiskey={checkin.name}
                   key={checkin.id}
                 />
+
               ))
             }
           </div>

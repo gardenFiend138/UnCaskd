@@ -35,6 +35,7 @@ const App = () => (
       <ProtectedRoute path='/whiskies' component={WhiskeyIndex} />
       <ProtectedRoute path='/users/:id' component={UserProfile} />
       <ProtectedRoute path='/checkins/new' component={CheckinForm} />
+      <ProtectedRoute path='/lounge' component={CheckinIndex} />
     </Switch>
     <Footer />
   </div>
