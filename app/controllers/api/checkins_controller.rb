@@ -27,7 +27,7 @@ class Api::CheckinsController < ApplicationController
   end
 
   def index
-    @checkins = Checkin.all
+    @checkins = Checkin.all.reverse
     render :index
   end
 
