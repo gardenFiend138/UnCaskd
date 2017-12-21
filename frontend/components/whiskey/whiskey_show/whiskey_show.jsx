@@ -53,6 +53,7 @@ class WhiskeyShow extends React.Component {
         <div className='rating'>
           <CircularProgressbar
             percentage={this.averageRating()}
+            initialAnimation={true}
             textForPercentage={ (WAT) => `${WAT}`}
             />
         </div>

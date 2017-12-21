@@ -40,6 +40,7 @@ class CheckinIndexItem extends React.Component {
       <div className='rating'>
         <CircularProgressbar
           percentage={this.props.checkin.rating}
+          initialAnimation={true}
           textForPercentage={ (WAT) => `${WAT}`}
           />
       </div>

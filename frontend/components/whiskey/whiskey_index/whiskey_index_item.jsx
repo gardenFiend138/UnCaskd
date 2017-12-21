@@ -38,6 +38,7 @@ class WhiskeyIndexItem extends React.Component {
         <div className='rating checkin-rating-circle'>
           <CircularProgressbar
             percentage={this.averageRating()}
+            initialAnimation={true}
             textForPercentage={ (WAT) => `${WAT}`}
             />
         </div>
