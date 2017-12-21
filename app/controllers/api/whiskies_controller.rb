@@ -6,7 +6,7 @@ class Api::WhiskiesController < ApplicationController
 
   def create
     @whiskey = Whisky.new(whiskey_params)
-    # @whiskey.image_url ||= "https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg"
+    @whiskey.image_url ||= "https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg"
 
     if @whiskey.save
       render :show
