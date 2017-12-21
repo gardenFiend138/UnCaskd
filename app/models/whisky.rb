@@ -15,7 +15,7 @@
 
 class Whisky < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :description, :style, :abv, presence: true
+  validates :description, :style, :abv, :style, presence: true
 
   has_many :checkins,
     primary_key: :id,

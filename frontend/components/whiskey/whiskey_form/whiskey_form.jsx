@@ -11,7 +11,7 @@ class WhiskeyForm extends React.Component {
       abv: '',
       description: '',
       image_url: 'null',
-      style_id: '1',
+      style: '',
       distillery_id: '1',
       redirect: false
 
@@ -59,7 +59,7 @@ class WhiskeyForm extends React.Component {
       <div>
         {this.renderErrors()}
         <form>
-          
+
 
           <div>
             <label>Whiskey Name:</label>
@@ -67,7 +67,6 @@ class WhiskeyForm extends React.Component {
                 onChange={this.update('name')}
                 value={this.state.name}
                 />
-
           </div>
 
           <div>
@@ -76,7 +75,14 @@ class WhiskeyForm extends React.Component {
                 onChange={this.update('abv')}
                 value={this.state.abv}
                 />
+          </div>
 
+          <div>
+            <label>Style:</label>
+              <input type='text'
+                onChange={this.update('style')}
+                value={this.state.style}
+                />
           </div>
 
           <div>
@@ -85,7 +91,6 @@ class WhiskeyForm extends React.Component {
                 onChange={this.update('description')}
                 value={this.state.description}
                 />
-
           </div>
 
 

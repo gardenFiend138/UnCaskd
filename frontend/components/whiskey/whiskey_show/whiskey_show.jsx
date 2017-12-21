@@ -70,7 +70,7 @@ class WhiskeyShow extends React.Component {
       return <div>Loading...</div>;
     }
     const showPage = true;
-
+    console.log('current whiskey: ', whiskey)
     return(
       <div className='whiskey-show'>
         <div className='whiskey-index-item'>
