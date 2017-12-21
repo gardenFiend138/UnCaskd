@@ -10,7 +10,6 @@ class Api::CheckinsController < ApplicationController
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id
 
-
     if @checkin.save
       # render json: @checkin
       render :show
@@ -29,6 +28,11 @@ class Api::CheckinsController < ApplicationController
   def index
     @checkins = Checkin.order(updated_at: :desc).limit(20)
     render :index
+  end
+
+  def checkins_by_user
+    @checkins_by_user = Checkin.where(user_id: params[:id])
+    render :checkins_by_user
   end
 
   def edit

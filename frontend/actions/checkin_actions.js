@@ -71,3 +71,11 @@ export const deleteCheckin = checkinId => dispatch => (
     dispatch(receiveCheckinErrors(err.responseJSON))
   ))
 );
+
+export const checkinsByUser = userId => dispatch => (
+  APIUtil.checkinsByUser(userId).then(checkins => (
+    dispatch(receiveAllCheckins(checkins))
+  ), err => (
+    dispatch(receiveCheckinErrors(err.responseJSON))
+  ))
+);

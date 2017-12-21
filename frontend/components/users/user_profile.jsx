@@ -12,8 +12,21 @@ class UserProfile extends React.Component {
 
   }
 
+
   componentDidMount() {
+    this.props.checkinsByUser(this.props.match.params.id); // not working
   }
+
+  // checkinsByUser() {
+  //   let userCheckins = [];
+  //
+  //   this.props.allCheckins.values().forEach( checkin => {
+  //     if (checkin.user_id === this.props.match.params.id) {
+  //       checkins.push(checkin);
+  //     }
+  //   });
+  //   return checkins;
+  // }
 
   uniqueCheckins() {
     let result = [];
@@ -28,8 +41,9 @@ class UserProfile extends React.Component {
 
   render() {
 
-    const checkins = this.props.currentUser.checkins;
+console.log('proooooops: ', this.props);
 
+    const checkins = this.checkins;
 
     return(
       <div className="user-profile-container" >

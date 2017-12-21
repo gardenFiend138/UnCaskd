@@ -1,6 +1,12 @@
 import { connect } from 'react-redux';
 
-import { fetchCheckins, fetchCheckin, updateCheckin, deleteCheckin } from '../../actions/checkin_actions';
+import {
+  fetchCheckins,
+  fetchCheckin,
+  updateCheckin,
+  deleteCheckin,
+  checkinsByUser
+} from '../../actions/checkin_actions';
 import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
@@ -15,7 +21,8 @@ const mapDispatchToProps = dispatch => ({
   fetchCheckins: () => dispatch(fetchCheckins()),
   fetchCheckin: id => dispatch(fetchCheckin(id)),
   updateCheckin: checkin => dispatch(updateCheckin(checkin)),
-  deleteCheckin: id => dispatch(deleteCheckin(id))
+  deleteCheckin: id => dispatch(deleteCheckin(id)),
+  checkinsByUser: id => dispatch(checkinsByUser(id))
 
 });
 

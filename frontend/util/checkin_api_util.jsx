@@ -35,10 +35,17 @@ export const deleteCheckin = checkinId => (
   })
 );
 
+export const checkinsByUser = userId => (
+  $.ajax({
+    method: 'GET',
+    url: `api/users/${userId}/checkins`
+  })
+);
+
 // export const fetchUserCheckins = userId => (
 //   $.ajax({
 //     method: 'GET',
-//     url: '/api/checkins',
+//     url: `/api/users/${userId}`,
 //     data: {  }
 //   })
 // );
