@@ -15,7 +15,9 @@ class CheckinIndex extends React.Component {
 
   render() {
 
-    const checkins = this.props.checkins;
+    let checkins = this.props.checkins;
+    checkins = checkins.reverse();
+    
     if (!checkins) {
       return <div>Loading...</div>;
     }

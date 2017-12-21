@@ -6,6 +6,7 @@ json.set! :whiskey do
     json.set! whiskey.id, whiskey.name
   end
 end
+
 json.set! :checkins do
   json.array! user.checkins do |checkin|
     json.set! :name, checkin.whiskey.name

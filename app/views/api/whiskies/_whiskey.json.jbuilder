@@ -10,3 +10,11 @@ json.extract! whiskey,
 
 # get all of the checkins associated with a whiskey
 json.set! :total_checkins, whiskey.checkins
+
+# json.users do
+#   @users.each do |user|
+#     json.set! user.id do
+#       json.extract! user, :username, :image_url
+#     end
+#   end
+# end

@@ -5,6 +5,11 @@ class Api::UsersController < ApplicationController
     render :new
   end
 
+  def index
+    @users = User.all
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
     @user.image_url ||= "http://tinygraphs.com/squares/UnCaskd?theme=duskfalling&numcolors=4&size=220&fmt=svg"

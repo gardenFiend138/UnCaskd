@@ -7,6 +7,7 @@ import CheckinForm from '../../checkins/checkin_form_container';
 import CheckinPopover from '../../checkins/popover_checkin_form_container';
 import CircularProgressbar from 'react-circular-progressbar';
 import CheckinIndexItem from '../../checkins/checkin_index_item';
+import CheckinIndex from '../../checkins/checkin_index';
 
 class WhiskeyShow extends React.Component {
   constructor(props) {
@@ -62,6 +63,30 @@ class WhiskeyShow extends React.Component {
     );
   }
 
+  whiskeyCheckins() {
+    console.log('checkins: ', this.props.whiskey.total_checkins)
+    const checkins = this.props.whiskey.total_checkins;
+    return(
+      <div className='index-container-checkins'>
+      {
+        checkins.map(checkin => (
+          <CheckinIndexItem
+            checkin={checkin}
+            checkins={checkins}
+            username={checkin.username}
+            key={checkin.id}
+            whiskey={checkin.whiskey}
+            editCheckin={this.props.updateCheckin}
+            deleteCheckin={this.props.deleteCheckin}
+          />
+        ))
+      }
+      </div>
+    );
+  }
+
+
+
 
   render() {
 
@@ -70,7 +95,7 @@ class WhiskeyShow extends React.Component {
       return <div>Loading...</div>;
     }
     const showPage = true;
-    console.log('current whiskey: ', whiskey)
+    console.log('these are the whiskey show page props: ', this.props)
     return(
       <div className='whiskey-show'>
         <div className='whiskey-index-item'>
@@ -109,6 +134,9 @@ class WhiskeyShow extends React.Component {
           <span>Description:*</span>
           {whiskey.description}
         </div>
+        <div>
+        </div>
+        {this.whiskeyCheckins()}
       </div>
 
 
