@@ -8,24 +8,28 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      userCheckins: [],
+    };
+
     this.checkins = this.props.currentUser.checkins;
 
   }
 
 
-  componentDidMount() {
-    this.props.checkinsByUser(this.props.match.params.id); // not working
-  }
+  // componentDidMount() {
+  //   console.log(this.checkinsByUserId());
+  // }
 
-  // checkinsByUser() {
+  // checkinsByUserId = () => {
   //   let userCheckins = [];
   //
-  //   this.props.allCheckins.values().forEach( checkin => {
+  //   Object.values(this.state.entities.checkins).forEach( (checkin) => {
   //     if (checkin.user_id === this.props.match.params.id) {
-  //       checkins.push(checkin);
+  //       userCheckins.push(checkin);
   //     }
   //   });
-  //   return checkins;
+  //   return userCheckins;
   // }
 
   uniqueCheckins() {
@@ -41,8 +45,12 @@ class UserProfile extends React.Component {
 
   render() {
 
-console.log('proooooops: ', this.props);
-
+console.log('Profile screen props: ', this.props);
+// debugger
+// this.props.checkinsByUser(this.props.match.params.id).then( res => console.log('checkins by user: ', res));
+// if (this.props.allCheckins) {
+//   console.log('user checkins: ', this.checkinsByUser());
+// }
     const checkins = this.checkins;
 
     return(

@@ -4,6 +4,7 @@ import {
   RECEIVE_CHECKIN,
   RECEIVE_ALL_CHECKINS,
   RECEIVE_CHECKIN_ERRORS,
+  RECEIVE_USER_CHECKINS,
   REMOVE_CHECKIN
 } from '../actions/checkin_actions';
 
@@ -18,6 +19,8 @@ export default (state = [], action) => {
       return action.errors;
     case RECEIVE_ALL_CHECKINS:
      return _nullErrors;
+    case RECEIVE_USER_CHECKINS:
+      return _nullErrors;
     case RECEIVE_CHECKIN:
       return _nullErrors;
     case REMOVE_CHECKIN:

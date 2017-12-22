@@ -2,6 +2,7 @@ import * as APIUtil from '../util/checkin_api_util';
 
 export const RECEIVE_CHECKIN = 'RECEIVE_CHECKIN';
 export const RECEIVE_ALL_CHECKINS = 'RECEIVE_ALL_CHECKINS';
+export const RECEIVE_USER_CHECKINS = 'RECEIVE_USER_CHECKINS';
 export const RECEIVE_CHECKIN_ERRORS = 'RECEIVE_CHECKIN_ERRORS';
 export const REMOVE_CHECKIN = 'REMOVE_CHECKIN';
 export const CLEAR_CHECKIN_ERRORS = 'CLEAR_CHECKIN_ERRORS';
@@ -17,6 +18,11 @@ export const receiveCheckin = checkin => ({
 
 export const receiveAllCheckins = checkins => ({
   type: RECEIVE_ALL_CHECKINS,
+  checkins
+});
+
+export const receiveUserCheckins = checkins => ({
+  type: RECEIVE_USER_CHECKINS,
   checkins
 });
 
@@ -74,7 +80,7 @@ export const deleteCheckin = checkinId => dispatch => (
 
 export const checkinsByUser = userId => dispatch => (
   APIUtil.checkinsByUser(userId).then(checkins => (
-    dispatch(receiveAllCheckins(checkins))
+    dispatch(receiveUserCheckins(checkins))
   ), err => (
     dispatch(receiveCheckinErrors(err.responseJSON))
   ))
