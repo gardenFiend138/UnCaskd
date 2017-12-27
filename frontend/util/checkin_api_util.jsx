@@ -38,7 +38,7 @@ export const deleteCheckin = checkinId => (
 export const checkinsByUser = userId => (
   $.ajax({
     method: 'GET',
-    url: `api/users/${userId}/checkins`
+    url: `api/users/${userId}`
   })
 );
 
