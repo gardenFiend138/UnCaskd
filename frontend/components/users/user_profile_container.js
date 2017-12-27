@@ -6,9 +6,8 @@ import UserProfile from './user_profile';
 
 const mapStateToProps = state => {
   return({
-  currentUser: state.session.currentUser,
-  allCheckins: state.entities.checkins
-
+    currentUser: state.session.currentUser,
+    allCheckins: Object.values(state.entities.checkins).map(checkin => checkin)
 });
 };
 
