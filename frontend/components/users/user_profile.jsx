@@ -17,10 +17,15 @@ class UserProfile extends React.Component {
   }
 
 
-  componentDidMount() {
+  componentWillUpdate() {
     // const userCheckins = this.props.checkinsByUser(this.props.match.params.id);
     // console.log('user checkins here: ', userCheckins);
     // console.log(this.checkinsByUserId());
+    this.props.checkinsByUser();
+    // this.props.fetchCheckins();
+
+
+
   }
 
   checkinsByUserId() {
@@ -47,13 +52,12 @@ class UserProfile extends React.Component {
 
   render() {
 
-console.log('Profile screen props: ', this.props);
-console.log(this.props);
-// debugger
-// this.props.checkinsByUser(this.props.match.params.id).then( res => console.log('checkins by user: ', res));
-// if (this.props.allCheckins) {
-//   console.log('user checkins: ', this.checkinsByUser());
-// }
+  console.log('Profile screen props: ', this.props);
+  console.log(this.props);
+
+
+
+
     const checkins = this.checkins;
 
     return(
