@@ -12,23 +12,33 @@ class UserProfile extends React.Component {
       userCheckins: [],
     };
 
-    this.checkins = this.props.currentUser.checkins;
-
   }
 
 
   componentDidMount() {
-    this.props.checkinsByUser();
+    // this.props.checkinsByUser();
+
+  }
+
+  componentDidMount() {
+    console.log('checkins by user: ', this.checkinsByUserId());
   }
 
   checkinsByUserId() {
     let userCheckins = [];
-
-    Object.values(this.state.entities.checkins).forEach( (checkin) => {
-      if (checkin.user_id === this.props.match.params.id) {
+// debugger
+    this.props.allCheckins.forEach( checkin => {
+      if (checkin.user_id == this.props.match.params.id) {
+        console.log(checkin);
         userCheckins.push(checkin);
       }
     });
+    // Object.values(this.props.allCheckins).forEach( (checkin) => {
+    //   if (checkin.user_id === this.props.match.params.id) {
+    //     userCheckins.push(checkin);
+    //   }
+    // });
+    this.setState({userCheckins: userCheckins});
     return userCheckins;
   }
 
@@ -48,6 +58,9 @@ class UserProfile extends React.Component {
   console.log('Profile screen props: ', this.props);
   console.log(this.props);
 
+  this.checkins = this.props.currentUser.id == this.props.match.params.id ?
+                this.props.currentUser.checkins :
+                this.state.userCheckins;
 
 
 

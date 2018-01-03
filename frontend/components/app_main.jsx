@@ -8,9 +8,9 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-import SessionFormContainer from './session_form/session_form_container';
-import SplashPage from './splash_page/splash_page';
-import Greeting from './greeting/greeting_container';
+// import SessionFormContainer from './session_form/session_form_container';
+// import SplashPage from './splash_page/splash_page';
+// import Greeting from './greeting/greeting_container';
 import Home from './home/home_page';
 import Footer from './footer/footer';
 import Navbar from './navbar/navbar_container';
