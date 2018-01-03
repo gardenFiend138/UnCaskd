@@ -21,4 +21,8 @@ class Whisky < ApplicationRecord
     primary_key: :id,
     foreign_key: :whiskey_id,
     class_name: 'Checkin'
+
+  # has_many :users,
+  #   through: :checkins,
+  #   source: :user
 end

@@ -47,7 +47,7 @@ class WhiskeyIndex extends React.Component {
 
         </div>
       </div>
-          );
+    );
   }
 }
 export default WhiskeyIndex;

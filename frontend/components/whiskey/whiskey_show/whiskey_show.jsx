@@ -15,6 +15,7 @@ class WhiskeyShow extends React.Component {
     this.state = {
       activeModal: false
     };
+
     this.setState = this.setState.bind(this);
     this.toggleClass = this.toggleClass.bind(this);
   }
@@ -65,7 +66,8 @@ class WhiskeyShow extends React.Component {
   }
 
   whiskeyCheckins() {
-    console.log('checkins: ', this.props.whiskey.total_checkins)
+console.log('checkins: ', this.props.whiskey.total_checkins)
+console.log('whiskey show props: ', this.props)
     const checkins = this.props.whiskey.total_checkins;
     return(
       <div className='index-container-checkins'>
@@ -86,9 +88,6 @@ class WhiskeyShow extends React.Component {
     );
   }
 
-
-
-
   render() {
 
     const whiskey = this.props.whiskey;
@@ -96,7 +95,7 @@ class WhiskeyShow extends React.Component {
       return <div>Loading...</div>;
     }
     const showPage = true;
-    console.log('these are the whiskey show page props: ', this.props)
+console.log('these are the whiskey show page props: ', this.props);
     return(
       <div className='whiskey-show'>
         <div className='whiskey-index-item'>

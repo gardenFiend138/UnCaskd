@@ -23,4 +23,5 @@ class Checkin < ApplicationRecord
     primary_key: :id,
     foreign_key: :whiskey_id,
     class_name: 'Whisky'
+ 
 end

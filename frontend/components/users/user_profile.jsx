@@ -16,11 +16,10 @@ class UserProfile extends React.Component {
     this.checkins = this.props.currentUser.id == this.props.match.params.id ?
               this.props.currentUser.checkins :
               this.state.userCheckins;
-
+    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
-    console.log('checkins by user: ', this.checkinsByUserId());
     this.checkinsByUserId();
   }
 
@@ -42,7 +41,6 @@ class UserProfile extends React.Component {
   uniqueCheckins() {
     let result = [];
 
-    console.log('uique checkins: ', this.checkins);
     this.state.userCheckins.forEach( checkin => {
       if (!result.includes(checkin.whiskey_id)) {
         result.push(checkin.whiskey_id);
@@ -56,16 +54,6 @@ class UserProfile extends React.Component {
 
     const checkins = this.state.userCheckins;
     const userCheckin = this.state.userCheckin;
-console.log('first checkin: ', checkins[0]);
-    // const user = this.props.currentUser.id == this.props.match.params.id ?
-    //           this.props.currentUser :
-    //           this.userCheckins;
-
-    // <div className='user-personal-info'>
-    //   <img src={`${checkin.image_url}`}
-    //     alt="profile picture" />
-    //   <h1>{checkin.username}</h1>
-    // </div>
 
     return(
       <div className="user-profile-container" >
@@ -89,7 +77,6 @@ console.log('first checkin: ', checkins[0]);
           <div className='index-container-checkins'>
             {
               checkins.map(checkin => (
-
                 <CheckinIndexItem
                   checkin={checkin}
                   checkins={checkins}
@@ -97,14 +84,13 @@ console.log('first checkin: ', checkins[0]);
                   whiskey={checkin.name}
                   key={checkin.id}
                 />
-
               ))
             }
           </div>
       </div>
-            );
-          }
+    );
   }
+}
 
 
 export default UserProfile;

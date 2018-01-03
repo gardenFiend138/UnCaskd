@@ -10,7 +10,6 @@ class WhiskeyIndexItem extends React.Component {
       averageRating: 0
     };
 
-
   }
 
   averageRating() {
