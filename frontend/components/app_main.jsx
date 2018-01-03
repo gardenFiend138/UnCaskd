@@ -22,19 +22,20 @@ import CheckinForm from './checkins/checkin_form_container';
 import CheckinIndex from './checkins/checkins_index_container';
 import About from './site_info/about';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Main from './app_main';
 
-const App = () => (
+const Main = () => (
   <div>
-      <AuthRoute path='/' component={SplashPage} />
-      <ProtectedRoute path='/' component={Navbar} />
     <Switch>
-      <AuthRoute path='/login' component={SessionFormContainer} />
-      <AuthRoute path='/signup' component={SessionFormContainer} />
-      <Main />
+      <ProtectedRoute path='/home' component={CheckinIndex} />
+      <ProtectedRoute path='/whiskies/new' component={WhiskeyForm} />
+      <ProtectedRoute path='/whiskies/:id' component={WhiskeyShow} />
+      <ProtectedRoute path='/whiskies' component={WhiskeyIndex} />
+      <ProtectedRoute path='/users/:id' component={UserProfile} />
+      <ProtectedRoute path='/checkins/new' component={CheckinForm} />
+      <ProtectedRoute path='/lounge' component={CheckinIndex} />
+      <ProtectedRoute path='/about' component={About} />
     </Switch>
-    <Footer />
   </div>
 );
 
-export default App;
+export default Main;

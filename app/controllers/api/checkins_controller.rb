@@ -30,11 +30,11 @@ class Api::CheckinsController < ApplicationController
     render :index
   end
 
-  # def checkins_by_user
-  #   @checkins_by_user = Checkin.where(user_id: params[:user_id])
-  #   # render json: @checkins_by_user
-  #   render :checkins_by_user
-  # end
+  def checkins_by_user
+    @checkins_by_user = Checkin.where(user_id: params[:user_id])
+    # render json: @checkins_by_user
+    render :checkins_by_user
+  end
 
   def edit
     @checkin = Checkin.find(params[:id])

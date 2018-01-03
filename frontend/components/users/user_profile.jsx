@@ -17,15 +17,8 @@ class UserProfile extends React.Component {
   }
 
 
-  componentWillUpdate() {
-    // const userCheckins = this.props.checkinsByUser(this.props.match.params.id);
-    // console.log('user checkins here: ', userCheckins);
-    // console.log(this.checkinsByUserId());
+  componentDidMount() {
     this.props.checkinsByUser();
-    // this.props.fetchCheckins();
-
-
-
   }
 
   checkinsByUserId() {
