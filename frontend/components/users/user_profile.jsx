@@ -21,6 +21,13 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     this.checkinsByUserId();
+    window.scrollTo(0,0);
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.match.params.id !== this.state.userCheckin.user_id) {
+      this.checkinsByUserId();
+    }
   }
 
   checkinsByUserId() {
@@ -51,7 +58,6 @@ class UserProfile extends React.Component {
   }
 
   render() {
-
     const checkins = this.state.userCheckins;
     const userCheckin = this.state.userCheckin;
 
