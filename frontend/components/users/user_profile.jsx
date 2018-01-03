@@ -12,16 +12,15 @@ class UserProfile extends React.Component {
       userCheckins: [],
     };
 
-  }
-
-
-  componentDidMount() {
-    // this.props.checkinsByUser();
+    this.checkins = this.props.currentUser.id == this.props.match.params.id ?
+              this.props.currentUser.checkins :
+              this.state.userCheckins;
 
   }
 
   componentDidMount() {
     console.log('checkins by user: ', this.checkinsByUserId());
+    this.checkinsByUserId();
   }
 
   checkinsByUserId() {
@@ -55,27 +54,22 @@ class UserProfile extends React.Component {
 
   render() {
 
-  console.log('Profile screen props: ', this.props);
-  console.log(this.props);
+    const checkins = this.state.userCheckins;
 
-  this.checkins = this.props.currentUser.id == this.props.match.params.id ?
-                this.props.currentUser.checkins :
-                this.state.userCheckins;
-
-
-
-    const checkins = this.checkins;
+    // const user = this.props.currentUser.id == this.props.match.params.id ?
+    //           this.props.currentUser :
+    //           this.userCheckins;
+    // <div className='user-personal-info'>
+    //   <img src={`${user.image_url}`}
+    //     alt="profile picture" />
+    //     <h1>{user.username}</h1>
+    //     </div>
 
     return(
       <div className="user-profile-container" >
 
         <div className='user-profile-header'>
 
-          <div className='user-personal-info'>
-            <img src={`${this.props.currentUser.image_url}`}
-              alt="profile picture" />
-            <h1>{this.props.currentUser.username}</h1>
-          </div>
 
           <div className="user-checkin-info">
             <ul>
