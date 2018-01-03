@@ -25,25 +25,23 @@ class UserProfile extends React.Component {
 
   checkinsByUserId() {
     let userCheckins = [];
-// debugger
+
     this.props.allCheckins.forEach( checkin => {
       if (checkin.user_id == this.props.match.params.id) {
         console.log(checkin);
         userCheckins.push(checkin);
       }
     });
-    // Object.values(this.props.allCheckins).forEach( (checkin) => {
-    //   if (checkin.user_id === this.props.match.params.id) {
-    //     userCheckins.push(checkin);
-    //   }
-    // });
+
     this.setState({userCheckins: userCheckins});
     return userCheckins;
   }
 
   uniqueCheckins() {
     let result = [];
-    this.checkins.forEach( checkin => {
+
+    console.log('uique checkins: ', this.checkins);
+    this.state.userCheckins.forEach( checkin => {
       if (!result.includes(checkin.whiskey_id)) {
         result.push(checkin.whiskey_id);
       }
@@ -56,19 +54,22 @@ class UserProfile extends React.Component {
 
     const checkins = this.state.userCheckins;
 
+console.log('first checkin: ', checkins[0]);
     // const user = this.props.currentUser.id == this.props.match.params.id ?
     //           this.props.currentUser :
     //           this.userCheckins;
+
     // <div className='user-personal-info'>
-    //   <img src={`${user.image_url}`}
+    //   <img src={`${checkin.image_url}`}
     //     alt="profile picture" />
-    //     <h1>{user.username}</h1>
-    //     </div>
+    //   <h1>{checkin.username}</h1>
+    // </div>
 
     return(
       <div className="user-profile-container" >
 
         <div className='user-profile-header'>
+
 
 
           <div className="user-checkin-info">

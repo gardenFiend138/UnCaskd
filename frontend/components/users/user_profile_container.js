@@ -7,10 +7,8 @@ import UserProfile from './user_profile';
 const mapStateToProps = state => {
   return({
     currentUser: state.session.currentUser,
-    // allCheckins: Object.values(state.entities.checkins)
-    //                 .map(checkin => state.entities.checkins),
     allCheckins: Object.values(state.entities.checkins).map(checkin => checkin)
-});
+  });
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -26,14 +26,14 @@ class Api::CheckinsController < ApplicationController
   end
 
   def index
-    @checkins = Checkin.order(updated_at: :desc).limit(20)
+    @checkins = Checkin.order(updated_at: :desc)
     render :index
   end
 
   def checkins_by_user
     @checkins_by_user = Checkin.where(user_id: params[:user_id])
     # render json: @checkins_by_user
-    render :checkins_by_user
+    render :json
   end
 
   def edit
