@@ -10,6 +10,7 @@ class UserProfile extends React.Component {
 
     this.state = {
       userCheckins: [],
+      userCheckin: []
     };
 
     this.checkins = this.props.currentUser.id == this.props.match.params.id ?
@@ -34,6 +35,7 @@ class UserProfile extends React.Component {
     });
 
     this.setState({userCheckins: userCheckins});
+    this.setState({userCheckin: userCheckins[0]});
     return userCheckins;
   }
 
@@ -53,7 +55,7 @@ class UserProfile extends React.Component {
   render() {
 
     const checkins = this.state.userCheckins;
-
+    const userCheckin = this.state.userCheckin;
 console.log('first checkin: ', checkins[0]);
     // const user = this.props.currentUser.id == this.props.match.params.id ?
     //           this.props.currentUser :
@@ -70,7 +72,11 @@ console.log('first checkin: ', checkins[0]);
 
         <div className='user-profile-header'>
 
-
+          <div className='user-personal-info'>
+            <img src={`${userCheckin.image_url}`}
+              alt="profile picture" />
+            <h1>{userCheckin.username}</h1>
+          </div>
 
           <div className="user-checkin-info">
             <ul>
