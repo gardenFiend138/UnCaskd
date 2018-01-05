@@ -2,6 +2,7 @@ import * as APIUtil from '../util/whiskey_api_util';
 
 export const RECEIVE_WHISKEY = 'RECEIVE_WHISKEY';
 export const RECEIVE_ALL_WHISKIES = 'RECEIVE_ALL_WHISKIES';
+export const RECEIVE_TOP_WHISKIES = 'RECEIVE_TOP_WHISKIES';
 export const RECEIVE_WHISKEY_ERRORS = 'RECEIVE_WHISKEY_ERRORS';
 export const CLEAR_WHISKEY_ERRORS = 'CLEAR_WHISKEY_ERRORS';
 
@@ -17,6 +18,11 @@ export const receiveWhiskey = whiskey => ({
 export const receiveAllWhiskies = whiskies => ({
   type: RECEIVE_ALL_WHISKIES,
   whiskies
+});
+
+export const receiveTopWhiskies = topWhiskies => ({
+  type: RECEIVE_TOP_WHISKIES,
+  topWhiskies
 });
 
 export const receiveErrors = errors => ({
@@ -57,8 +63,8 @@ export const fetchWhiskies = () => dispatch => (
 );
 
 export const fetchTopRatedWhiskies = () => dispatch => (
-  APIUtil.fetchTopRatedWhiskies().then( whiskies => (
-    dispatch(receiveAllWhiskies(whiskies))
+  APIUtil.fetchTopRatedWhiskies().then( topWhiskies => (
+    dispatch(receiveTopWhiskies(topWhiskies))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
