@@ -55,3 +55,11 @@ export const fetchWhiskies = () => dispatch => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
+
+export const fetchTopRatedWhiskies = () => dispatch => (
+  APIUtil.fetchTopRatedWhiskies().then( whiskies => (
+    dispatch(receiveAllWhiskies(whiskies))
+  ), err => (
+    dispatch(receiveErrors(err.responseJSON))
+  ))
+);

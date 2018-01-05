@@ -27,3 +27,10 @@ export const fetchWhiskies = () => (
     url: 'api/whiskies'
   })
 );
+
+export const fetchTopRatedWhiskies = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/whiskies'
+  })
+);
