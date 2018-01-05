@@ -25,6 +25,11 @@ class Api::WhiskiesController < ApplicationController
     render :index
   end
 
+  def top_rated
+    @whiskies = Whisky.all.order(rating: :asc)
+    render :index
+  end
+
   def edit
     @whiskey = Whisky.find(params[:id])
     render :edit
