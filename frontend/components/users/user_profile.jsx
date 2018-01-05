@@ -24,7 +24,7 @@ class UserProfile extends React.Component {
     window.scrollTo(0,0);
   }
 
-  componentWillReceiveProps() {
+  componentDidMount() {
     if (this.props.match.params.id !== this.state.userCheckin.user_id) {
       this.checkinsByUserId();
     }

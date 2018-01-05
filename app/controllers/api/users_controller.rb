@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.image_url ||= "http://tinygraphs.com/squares/UnCaskd?theme=duskfalling&numcolors=4&size=220&fmt=svg"
+    @user.image_url ||= "http://tinygraphs.com/squares/#{user_params[:username]}?theme=duskfalling&numcolors=4&size=220&fmt=svg"
 
     if @user.save
       login(@user)
