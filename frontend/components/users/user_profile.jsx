@@ -57,6 +57,7 @@ class UserProfile extends React.Component {
     return result.length;
   }
 
+// new bug -- when a user has no checkins, their profile page won't display
   render() {
     const checkins = this.state.userCheckins;
     const userCheckin = this.state.userCheckin;

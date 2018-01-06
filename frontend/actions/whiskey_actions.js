@@ -25,7 +25,7 @@ export const receiveTopWhiskies = topWhiskies => ({
   topWhiskies
 });
 
-export const receiveErrors = errors => ({
+export const receiveWhiskeyErrors = errors => ({
   type: RECEIVE_WHISKEY_ERRORS,
   errors
 });
@@ -34,7 +34,7 @@ export const addWhiskey = whiskey => dispatch => (
   APIUtil.addWhiskey(whiskey).then(whiskey => (
     dispatch(receiveWhiskey(whiskey))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON))
+    dispatch(receiveWhiskeyErrors(err.responseJSON))
   ))
 );
 
@@ -42,7 +42,7 @@ export const updateWhiskey = whiskey => dispatch => (
   APIUtil.updateWhiskey(whiskey).then(whiskey => (
     dispatch(receiveWhiskey(whiskey))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON))
+    dispatch(receiveWhiskeyErrors(err.responseJSON))
   ))
 );
 
@@ -50,7 +50,7 @@ export const fetchWhiskey = whiskeyId => dispatch => (
   APIUtil.fetchWhiskey(whiskeyId).then(whiskey => (
     dispatch(receiveWhiskey(whiskey))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON))
+    dispatch(receiveWhiskeyErrors(err.responseJSON))
   ))
 );
 
@@ -58,7 +58,7 @@ export const fetchWhiskies = () => dispatch => (
   APIUtil.fetchWhiskies().then(whiskies => (
     dispatch(receiveAllWhiskies(whiskies))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON))
+    dispatch(receiveWhiskeyErrors(err.responseJSON))
   ))
 );
 
@@ -66,6 +66,6 @@ export const fetchTopRatedWhiskies = () => dispatch => (
   APIUtil.fetchTopRatedWhiskies().then( topWhiskies => (
     dispatch(receiveTopWhiskies(topWhiskies))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON))
+    dispatch(receiveWhiskeyErrors(err.responseJSON))
   ))
 );
