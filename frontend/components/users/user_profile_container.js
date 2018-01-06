@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
+import { fetchAllUsers } from '../../actions/users_actions';
 import { fetchCheckins, checkinsByUser } from '../../actions/checkin_actions';
 import UserProfile from './user_profile';
 
 const mapStateToProps = state => {
   return({
     currentUser: state.session.currentUser,
-    allCheckins: Object.values(state.entities.checkins).map(checkin => checkin)
+    allCheckins: Object.values(state.entities.checkins).map(checkin => checkin),
   });
 };
 
