@@ -10,6 +10,11 @@ class Api::UsersController < ApplicationController
     render :index
   end
 
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
+
   def create
     @user = User.new(user_params)
     @user.image_url ||= "http://tinygraphs.com/squares/#{user_params[:username]}?theme=duskfalling&numcolors=4&size=220&fmt=svg"

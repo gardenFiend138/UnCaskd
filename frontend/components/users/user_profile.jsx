@@ -20,7 +20,8 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.checkinsByUserId();
+    // this.checkinsByUserId();
+    this.props.fetchAllUsers();
     window.scrollTo(0,0);
   }
 

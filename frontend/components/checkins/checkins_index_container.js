@@ -7,6 +7,7 @@ import {
   deleteCheckin,
   checkinsByUser
 } from '../../actions/checkin_actions';
+import { fetchAllUsers } from '../../actions/users_actions';
 import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
@@ -22,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
   fetchCheckin: id => dispatch(fetchCheckin(id)),
   updateCheckin: checkin => dispatch(updateCheckin(checkin)),
   deleteCheckin: id => dispatch(deleteCheckin(id)),
-  checkinsByUser: id => dispatch(checkinsByUser(id))
+  checkinsByUser: id => dispatch(checkinsByUser(id)),
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
 
 });
 

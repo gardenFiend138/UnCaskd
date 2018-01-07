@@ -10,6 +10,7 @@ class CheckinIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchCheckins();
+    this.props.fetchAllUsers();
   }
 
   render() {

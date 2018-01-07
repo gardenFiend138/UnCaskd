@@ -6,6 +6,7 @@ import configureStore from './store/store';
 import { login, logout  } from './util/session_api_util';
 import { fetchWhiskies  } from './util/whiskey_api_util';
 import { checkinsByUser  } from './util/checkin_api_util';
+import { fetchAllUsers } from './util/users_api_util';
 // delete above before production
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
   window.fetchWhiskies = fetchWhiskies;
   window.checkinsByUser = checkinsByUser;
+  window.fetchAllUsers = fetchAllUsers;
   /// DELETE BEFORE PRODUCTION ///
 
   ReactDOM.render(<Root store={store} />, root);
