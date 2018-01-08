@@ -13,7 +13,7 @@ class WhiskeyIndexItem extends React.Component {
   }
 
   averageRating() {
-    const checkins = this.props.whiskey.total_checkins;
+    const checkins = this.props.whiskey.checkins;
     let ratings = [];
     checkins.map( checkin => ratings.push(checkin.rating));
 
@@ -27,7 +27,7 @@ class WhiskeyIndexItem extends React.Component {
   }
 
   totalCheckins() {
-     const checkins = this.props.whiskey.total_checkins;
+     const checkins = this.props.whiskey.checkins;
      return checkins.length;
   }
 

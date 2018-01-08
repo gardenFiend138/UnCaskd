@@ -50,7 +50,9 @@ class UserProfile extends React.Component {
   render() {
     const user = this.props.allUsers[this.props.match.params.id]
     const checkins = user.checkins;
-
+    console.log('props: ', this.props);
+    console.log('all users: ', this.props.allUsers);
+console.log('user: ', user);
     return(
       <div className="user-profile-container" >
 
