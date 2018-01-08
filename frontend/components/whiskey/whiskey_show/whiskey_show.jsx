@@ -27,10 +27,11 @@ class WhiskeyShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchWhiskey(this.props.match.params.id);
+    window.scrollTo(0,0);
   }
 
   averageRating() {
-    const checkins = this.props.whiskey.total_checkins;
+    const checkins = this.props.whiskey.checkins;
     let ratings = [];
     checkins.map( checkin => ratings.push(checkin.rating));
 
@@ -44,7 +45,7 @@ class WhiskeyShow extends React.Component {
   }
 
   totalCheckins() {
-     const checkins = this.props.whiskey.total_checkins;
+     const checkins = this.props.whiskey.checkins;
      return checkins.length;
   }
 
@@ -66,9 +67,8 @@ class WhiskeyShow extends React.Component {
   }
 
   whiskeyCheckins() {
-console.log('checkins: ', this.props.whiskey.total_checkins)
-console.log('whiskey show props: ', this.props)
-    const checkins = this.props.whiskey.total_checkins;
+
+    const checkins = this.props.whiskey.checkins;
     return(
       <div className='index-container-checkins'>
       {
@@ -78,7 +78,7 @@ console.log('whiskey show props: ', this.props)
             checkins={checkins}
             username={checkin.username}
             key={checkin.id}
-            whiskey={checkin.whiskey}
+            whiskey={this.props.whiskey.name}
             editCheckin={this.props.updateCheckin}
             deleteCheckin={this.props.deleteCheckin}
           />
@@ -95,7 +95,7 @@ console.log('whiskey show props: ', this.props)
       return <div>Loading...</div>;
     }
     const showPage = true;
-console.log('these are the whiskey show page props: ', this.props);
+
     return(
       <div className='whiskey-show'>
         <div className='whiskey-index-item'>
