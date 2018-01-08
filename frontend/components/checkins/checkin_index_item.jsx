@@ -52,11 +52,7 @@ class CheckinIndexItem extends React.Component {
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
-    console.log(checkin);
-    console.log(username);
-    console.log(whiskey);
-    console.log('--------------');
-// debugger
+
     return(
       <div className='checkin-index-item'>
         <div className='checkin-info'>
@@ -103,11 +99,7 @@ class CheckinIndexItem extends React.Component {
             {this.formatDateTime()}
           </span>
 
-          <div className='checkin-index-buttons'>
-            <div>
-              <button className='cheers-button'>CHEERS!</button>
-            </div>
-          </div>
+
         </div>
       </div>
       );
@@ -115,6 +107,13 @@ class CheckinIndexItem extends React.Component {
 }
 
 export default withRouter(CheckinIndexItem);
+
+// cheers button, once implemented
+// <div className='checkin-index-buttons'>
+//   <div>
+//     <button className='cheers-button'>CHEERS!</button>
+//   </div>
+// </div>
 // below cheers-button closing div tag
 // <div>
 //   <button className='delete-button' >
