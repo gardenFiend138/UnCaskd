@@ -25,9 +25,9 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.match.params.id !== this.state.currentUser.id) {
+    // if (this.props.match.params.id !== this.state.currentUser.id) {
       this.getCurrentUser();
-    }
+    // }
   }
 
   getCurrentUser() {
