@@ -25,9 +25,7 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps() {
-    // if (this.props.match.params.id !== this.state.currentUser.id) {
-      this.getCurrentUser();
-    // }
+    this.getCurrentUser();
   }
 
   getCurrentUser() {
@@ -46,13 +44,10 @@ class UserProfile extends React.Component {
     return result.length;
   }
 
-// new bug: when you click profile when viewing another user's profile, it breaks
   render() {
     const user = this.props.allUsers[this.props.match.params.id]
     const checkins = user.checkins;
-    console.log('props: ', this.props);
-    console.log('all users: ', this.props.allUsers);
-console.log('user: ', user);
+
     return(
       <div className="user-profile-container" >
 

@@ -70,7 +70,7 @@ class WhiskeyShow extends React.Component {
 
     const checkins = this.props.whiskey.checkins;
     return(
-      <div className='index-container-checkins'>
+      <div className='index-container-checkins-whiskey-show'>
       {
         checkins.map(checkin => (
           <CheckinIndexItem

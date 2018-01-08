@@ -11,8 +11,18 @@
   border-radius: 37px;
   margin: 23px;
   font-size: 18px;
+}
 
+.index-container-checkins-whiskey-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
 
+.index-container-checkins-whiskey-show > div {
+  margin: 30px;
+  padding: 20px;
 }
 
 .checkin-button:hover {
