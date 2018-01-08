@@ -9,47 +9,35 @@ class UserProfile extends React.Component {
     super(props);
 
     this.state = {
-      userCheckins: [],
-      userCheckin: []
+      user: this.props.allUsers[this.props.match.params.id]
     };
 
-    this.checkins = this.props.currentUser.id == this.props.match.params.id ?
-              this.props.currentUser.checkins :
-              this.state.userCheckins;
-    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
+    // this.props.fetchAllUsers();
+    // this.fetchUser(this.props.match.params.id);
     // this.checkinsByUserId();
-    this.props.fetchAllUsers();
+    // if (this.props.match.params.id !== this.state.currentUser.id) {
+    //   this.getCurrentUser();
+    // }
     window.scrollTo(0,0);
   }
 
-  componentDidMount() {
-    if (this.props.match.params.id !== this.state.userCheckin.user_id) {
-      this.checkinsByUserId();
+  componentWillReceiveProps() {
+    if (this.props.match.params.id !== this.state.currentUser.id) {
+      this.getCurrentUser();
     }
   }
 
-  checkinsByUserId() {
-    let userCheckins = [];
-
-    this.props.allCheckins.forEach( checkin => {
-      if (checkin.user_id == this.props.match.params.id) {
-        console.log(checkin);
-        userCheckins.push(checkin);
-      }
-    });
-
-    this.setState({userCheckins: userCheckins});
-    this.setState({userCheckin: userCheckins[0]});
-    return userCheckins;
+  getCurrentUser() {
+    this.setState({user: this.props.allUsers[this.props.match.params.id]});
   }
 
   uniqueCheckins() {
     let result = [];
 
-    this.state.userCheckins.forEach( checkin => {
+    this.state.user.checkins.forEach( checkin => {
       if (!result.includes(checkin.whiskey_id)) {
         result.push(checkin.whiskey_id);
       }
@@ -58,10 +46,10 @@ class UserProfile extends React.Component {
     return result.length;
   }
 
-// new bug -- when a user has no checkins, their profile page won't display
+// new bug: when you click profile when viewing another user's profile, it breaks
   render() {
-    const checkins = this.state.userCheckins;
-    const userCheckin = this.state.userCheckin;
+    const user = this.props.allUsers[this.props.match.params.id]
+    const checkins = user.checkins;
 
     return(
       <div className="user-profile-container" >
@@ -69,9 +57,9 @@ class UserProfile extends React.Component {
         <div className='user-profile-header'>
 
           <div className='user-personal-info'>
-            <img src={`${userCheckin.image_url}`}
+            <img src={`${user.image_url}`}
               alt="profile picture" />
-            <h1>{userCheckin.username}</h1>
+            <h1>{user.username}</h1>
           </div>
 
           <div className="user-checkin-info">
@@ -88,7 +76,7 @@ class UserProfile extends React.Component {
                 <CheckinIndexItem
                   checkin={checkin}
                   checkins={checkins}
-                  userName={this.props.currentUser.username}
+                  userName={user.username}
                   whiskey={checkin.name}
                   key={checkin.id}
                 />
@@ -102,3 +90,38 @@ class UserProfile extends React.Component {
 
 
 export default UserProfile;
+
+// return(
+//   <div className="user-profile-container" >
+//
+//     <div className='user-profile-header'>
+//
+//       <div className='user-personal-info'>
+//         <img src={`${userCheckin.image_url}`}
+//           alt="profile picture" />
+//         <h1>{userCheckin.username}</h1>
+//       </div>
+//
+//       <div className="user-checkin-info">
+//         <ul>
+//           <li>{checkins.length} Check Ins </li>
+//           <li>{this.uniqueCheckins()} Unique</li>
+//         </ul>
+//       </div>
+//     </div>
+//
+//       <div className='index-container-checkins'>
+//         {
+//           checkins.map(checkin => (
+//             <CheckinIndexItem
+//               checkin={checkin}
+//               checkins={checkins}
+//               userName={this.props.currentUser.username}
+//               whiskey={checkin.name}
+//               key={checkin.id}
+//             />
+//           ))
+//         }
+//       </div>
+//   </div>
+// );
