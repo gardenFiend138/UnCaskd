@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
           </div>
         </div>
 
-          <div className='index-container-checkins'>
+          <div className='index-container-checkins-user-show'>
             {
               checkins.map(checkin => (
                 <CheckinIndexItem

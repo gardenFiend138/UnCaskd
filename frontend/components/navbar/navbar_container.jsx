@@ -6,7 +6,7 @@ import Navbar from './navbar';
 // Destructuring session here so we have direct access to currentUser
 // when we map the state to props
 const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+  currentUser: session.currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({

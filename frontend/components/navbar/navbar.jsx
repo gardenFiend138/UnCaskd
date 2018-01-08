@@ -12,6 +12,16 @@ const dropDown = ({currentUser, logout }) => {
     </ul>
   );
 };
+// need currentUser to have checkins for this;
+// call in the greeting in navbar
+const returningUserGreeting = ({ currentUser }) => {
+  if (currentUser.checkins) {
+    return 'Welcome, ';
+  }
+
+  return 'Welcome back, ';
+};
+
 
 const navbarLinks = ({ currentUser, logout }) => {
   return(

@@ -4,7 +4,6 @@
   align-items: center;
   margin: 69px 138px 0 138px;
   font-size: 24px;
-
 }
 
 .user-profile-header {
@@ -35,6 +34,18 @@
 
 .user-checkin-info li:first-of-type {
   border-right: 2px solid white;
+}
+
+.index-container-checkins-user-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 138%;
+}
+
+.index-container-checkins-user-show > div {
+  margin: 30px;
+  padding: 20px;
 }
 
 .user-profile-header img {
