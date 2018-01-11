@@ -143,16 +143,16 @@ class SessionForm extends React.Component {
   }
 
 
+  // <div className='motto-container'>
+  //   <div className='motto'>
+  //     <h1>UnCaskd</h1>
+  //       <h5>DISCOVER THE BEST</h5>
+  //       </div>
+  //     </div>
 
   render() {
     return(
       <div>
-        <div className='motto-container'>
-          <div className='motto'>
-            <h1>UnCaskd</h1>
-            <h5>DISCOVER THE BEST</h5>
-          </div>
-        </div>
         <div className='login-form-container-parent'>
           <div className="login-form-container">
             <form onSubmit={this.handleSubmit} className="login-form-box">
