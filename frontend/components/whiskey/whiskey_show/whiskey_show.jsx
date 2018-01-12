@@ -131,8 +131,8 @@ class WhiskeyShow extends React.Component {
 
         </div>
         <div className='whiskey-description whiskey-index-item'>
-          <span>Description:*</span>
-          {whiskey.description}
+          <span>*From the Distiller:</span>
+          <span>"{whiskey.description}"</span>
         </div>
         <div>
         </div>

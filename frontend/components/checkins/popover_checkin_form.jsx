@@ -116,26 +116,29 @@ class CheckinPopover extends React.Component {
                 </div>
 
                 <div className="checkin-buttons">
-
                   <button to='/api/checkins' className='checkin-submit' onClick={this.handleSubmit}>
                     Check In!
                   </button>
-
-                  <button className='checkin-photo-upload'>
-                    <i className="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
-
-                  </button>
+                  <div className='rating-preview-container'>
+                    <label>Your Rating</label>
+                    <span className='rating-preview'>{this.state.rating}</span>
+                  </div>
                 </div>
+
 
               </form>
               <div className="modal-screen js-modal-close"></div>
             </div>
           </div>
-
-
-         )}
+        )}
       </div>
     );
   }
 }
 export default withRouter(CheckinPopover);
+
+// for the 'add photo button' once that is implemented
+// <button className='checkin-photo-upload'>
+//   <i className="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
+//
+//   </button>

@@ -47,6 +47,24 @@
   // background-color: yellow;
 }
 
+.rating-preview {
+  // width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 36px;
+  padding-top: 10px;
+}
+
+.rating-preview-container {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
 .popover {
   background: #fff;
   border-radius: 4px;

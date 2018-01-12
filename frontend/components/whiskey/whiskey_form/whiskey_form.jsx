@@ -64,44 +64,40 @@ class WhiskeyForm extends React.Component {
       <form>
 
         <div>
-
-            <input type='text'
-              onChange={this.update('name')}
-              value={this.state.name}
-              placeholder='Whiskey Name'
-              />
-
-              <input type='text'
-                onChange={this.update('abv')}
-                value={this.state.abv}
-                placeholder='ABV (ex.- 45%)'
-                />
-
+          <input type='text'
+            onChange={this.update('name')}
+            value={this.state.name}
+            placeholder='Whiskey Name'
+          />
         </div>
 
-        <div>
-          
+        <div classnName='abv-style-row'>
+          <input type='text'
+            onChange={this.update('abv')}
+            value={this.state.abv}
+            placeholder='ABV (ex: 45)'
+            />
+
             <input type='text'
               onChange={this.update('style')}
               value={this.state.style}
               placeholder='Style (i.e.- Scotch, Bourbon)'
             />
-          
-          
-
-            <input type='text'
-              onChange={this.update('image_url')}
-              value={this.state.image_url}
-              placeholder='URL for photo of whiskey logo'
-              />
-            
         </div>
 
         <div>
           <input type='text'
-            onChange={this.update('description')}
+            onChange={this.update('image_url')}
+            value={this.state.image_url}
+            placeholder='URL for photo of whiskey logo'
+          />
+        </div>
+
+        <div>
+          <textarea type="text"
             value={this.state.description}
-            placeholder='Description'
+            onChange={this.update('description')}
+            placeholder="Description -- Please use the official description from the distiller's website."
           />
         </div>
 
