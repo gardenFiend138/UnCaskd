@@ -33,6 +33,11 @@ class User < ApplicationRecord
     through: :checkins,
     source: :whiskey
 
+  has_many :cheers,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Cheer'
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
