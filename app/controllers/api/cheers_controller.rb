@@ -13,12 +13,11 @@ class Api::CheersController < ApplicationController
     else
       render json: @cheer.errors.full_messages, status: 422
     end
-
   end
 
   def destroy
     @cheer = Cheer.find_by(params[:id])
-    
+
     if @cheer.user_id == @current_user.id
       @cheer.destroy
     else
