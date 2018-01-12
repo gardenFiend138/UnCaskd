@@ -60,62 +60,56 @@ class WhiskeyForm extends React.Component {
     return(
     <div className='new-whiskey-form'>
 
-      <div>
-        {this.renderErrors()}
-        <form>
+      {this.renderErrors()}
+      <form>
 
-          <div>
+        <div>
 
-              <input type='text'
-                onChange={this.update('name')}
-                value={this.state.name}
-                placeholder='Whiskey Name'
-                />
-          </div>
-
-          <div>
+            <input type='text'
+              onChange={this.update('name')}
+              value={this.state.name}
+              placeholder='Whiskey Name'
+              />
 
               <input type='text'
                 onChange={this.update('abv')}
                 value={this.state.abv}
                 placeholder='ABV (ex.- 45%)'
                 />
-          </div>
 
-          <div>
+        </div>
 
-              <input type='text'
-                onChange={this.update('style')}
-                value={this.state.style}
-                placeholder='Style (i.e.- Scotch, Bourbon)'
-                />
-          </div>
+        <div>
+          
+            <input type='text'
+              onChange={this.update('style')}
+              value={this.state.style}
+              placeholder='Style (i.e.- Scotch, Bourbon)'
+            />
+          
+          
 
-          <div>
+            <input type='text'
+              onChange={this.update('image_url')}
+              value={this.state.image_url}
+              placeholder='URL for photo of whiskey logo'
+              />
+            
+        </div>
 
-              <input type='text'
-                onChange={this.update('description')}
-                value={this.state.description}
-                placeholder='Description'
-                />
-          </div>
+        <div>
+          <input type='text'
+            onChange={this.update('description')}
+            value={this.state.description}
+            placeholder='Description'
+          />
+        </div>
 
-          <div>
+          <button onClick={this.handleSubmit} className='add-whiskey-button'>
+             Add Whiskey
+          </button>
 
-              <input type='text'
-                onChange={this.update('image_url')}
-                value={this.state.image_url}
-                placeholder='URL for photo of whiskey logo'
-                />
-          </div>
-
-
-            <button onClick={this.handleSubmit} className='add-whiskey-button'>
-               Add Whiskey
-            </button>
-
-        </form>
-      </div>
+      </form>
     </div>
     );
   }
@@ -125,7 +119,7 @@ class WhiskeyForm extends React.Component {
       return  <Redirect to={`/whiskies/${this.state.id}`} />;
     }
     return(
-      <div>
+      <div className='new-whiskey-form-container'>
         {this.newWhiskeyForm()}
       </div>
 
