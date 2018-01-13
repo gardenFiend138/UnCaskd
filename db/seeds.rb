@@ -37,7 +37,7 @@ Whisky.create(
     White Oak barrels with the deepest char for more character.",
   abv: 50.5,
   style: 'Bourbon',
-  image_url: "https://seeklogo.com/images/J/Jim_Beam-logo-EEAE69F83E-seeklogo.com.png"
+  image_url: "https://en.wikipedia.org/wiki/Wild_Turkey_(bourbon)#/media/File:Wild_Turkey_(bourbon)_logo.png"
 )
 
 Whisky.create(
