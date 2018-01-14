@@ -7,6 +7,7 @@ import {
   deleteCheckin,
   checkinsByUser
 } from '../../actions/checkin_actions';
+import { createCheer } from '../../actions/cheers_actions';
 import { fetchAllUsers } from '../../actions/users_actions';
 import CheckinIndex from './checkin_index';
 
@@ -14,7 +15,8 @@ const mapStateToProps = state => {
 
   return ({
   checkins: Object.values(state.entities.checkins)
-                  .map(checkin => checkin)
+                  .map(checkin => checkin),
+  currentUser: state.session.currentUser,
   });
 };
 
@@ -25,6 +27,7 @@ const mapDispatchToProps = dispatch => ({
   deleteCheckin: id => dispatch(deleteCheckin(id)),
   checkinsByUser: id => dispatch(checkinsByUser(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
+  createCheer: cheer => dispatch(createCheer(cheer)),
 
 });
 

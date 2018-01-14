@@ -47,7 +47,15 @@ class CheckinIndexItem extends React.Component {
     );
   }
 
+  toggleCheers() {
+    console.log('current user id', this.props.currentUser.id);
+    console.log('current checkin id', this.props.checkin.id);
+
+    this.props.createCheer({ user_id: this.props.currentUser.id, checkin_id: this.props.checkin.id})
+  }
+
   render ()  {
+// debugger;
     const checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
@@ -99,7 +107,14 @@ class CheckinIndexItem extends React.Component {
             {this.formatDateTime()}
           </span>
 
-
+          <div className='checkin-index-buttons'>
+            <div>
+              <button
+                className='cheers-button'
+                onClick={ () => this.props.createCheer({ user_id: this.props.currentUser.id, checkin_id: this.props.checkin.id})}
+                >CHEERS!</button>
+            </div>
+          </div>
         </div>
       </div>
       );

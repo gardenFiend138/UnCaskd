@@ -7,7 +7,7 @@ import{
   RECEIVE_CHECKIN_ERRORS,
   REMOVE_CHECKIN
 } from '../actions/checkin_actions';
-
+// import { RECEIVE_NEW_CHEERS } from '../actions/cheers_actions';
 
 const CheckinReducer = (state = {}, action) => {
   Object.freeze(state);
