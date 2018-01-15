@@ -7,7 +7,7 @@ import {
   deleteCheckin,
   checkinsByUser
 } from '../../actions/checkin_actions';
-import { createCheer } from '../../actions/cheers_actions';
+import { createCheer, deleteCheer } from '../../actions/cheers_actions';
 import { fetchAllUsers } from '../../actions/users_actions';
 import CheckinIndex from './checkin_index';
 
@@ -29,6 +29,7 @@ const mapDispatchToProps = dispatch => ({
   checkinsByUser: id => dispatch(checkinsByUser(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   createCheer: cheer => dispatch(createCheer(cheer)),
+  deleteCheer: cheerId => dispatch(deleteCheer(cheerId)),
 
 });
 

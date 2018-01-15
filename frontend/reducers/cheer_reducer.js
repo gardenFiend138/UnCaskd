@@ -7,7 +7,7 @@ import {
 
 const CheerReducer = (state = {}, action) => {
   Object.freeze(state);
-
+console.log('here is the state in the cheer reducer', state);
   switch (action.type) {
     case RECEIVE_NEW_CHEERS:
       return merge({}, state, action.cheer);

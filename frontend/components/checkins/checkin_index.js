@@ -34,6 +34,7 @@ class CheckinIndex extends React.Component {
             editCheckin={this.props.updateCheckin}
             deleteCheckin={this.props.deleteCheckin}
             createCheer={this.props.createCheer}
+            deleteCheer={this.props.deleteCheer}
             currentUser={this.props.currentUser}
           />
         ))
