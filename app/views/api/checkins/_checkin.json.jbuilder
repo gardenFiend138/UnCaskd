@@ -3,7 +3,8 @@ json.extract! checkin,
               :body,
               :rating,
               :user_id,
-              :whiskey_id
+              :whiskey_id,
+              :cheers
 
 # json.extract! checkin.whiskey, :name, :image_url
 
