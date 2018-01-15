@@ -2,16 +2,16 @@ import * as APIUtil from '../util/cheers_util';
 
 export const RECEIVE_NEW_CHEERS = 'RECEIVE_NEW_CHEERS';
 
-export const receiveNewCheer = cheer => ({
-  type: RECEIVE_NEW_CHEERS,
-  cheer
-});
-
-export const createCheer = cheer => dispatch => {
-console.log('heres the cheer in the action', cheer);
-  return(
-    APIUtil.createCheer(cheer).then( cheer => (
-      dispatch(receiveNewCheer(cheer))
-    ))
-  );
+export const receiveNewCheer = cheer => {
+console.log('cheer in the action creator', cheer);
+  return ({
+    type: RECEIVE_NEW_CHEERS,
+    cheer
+  });
 };
+
+export const createCheer = cheer => dispatch => (
+  APIUtil.createCheer(cheer).then( cheer => (
+    dispatch(receiveNewCheer(cheer))
+  ))
+);

@@ -6,6 +6,10 @@ class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      cheer: {}
+    };
+
     this.checkins = (this.props.checkins) ?
                       this.props.checkins :
                       this.props.currentUser.checkins;
@@ -50,11 +54,19 @@ class CheckinIndexItem extends React.Component {
   toggleCheers() {
     console.log('current user id', this.props.currentUser.id);
     console.log('current checkin id', this.props.checkin.id);
-    
-    this.props.createCheer({
+    // e.preventDefault();
+
+    this.setState({ cheer: {
       user_id: this.props.currentUser.id,
-      checkin_id: this.props.checkin.id
-    });
+      checkin_id: this.props.checkin.id}}, () => this.props.createCheer(this.state.cheer));
+
+// debugger
+// () => console.log('heres the state', this.state)
+// () => this.props.createCheer(this.state.cheer));
+    //   this.props.createCheer({
+    //   user_id: this.props.currentUser.id,
+    //   checkin_id: this.props.checkin.id
+    // }).bind(this);
   }
 
   render ()  {
@@ -114,7 +126,7 @@ class CheckinIndexItem extends React.Component {
             <div>
               <button
                 className='cheers-button'
-                onClick={() => this.toggleCheers()}
+                onClick={ this.toggleCheers.bind(this)}
                 >CHEERS!</button>
             </div>
           </div>

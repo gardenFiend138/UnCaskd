@@ -1,4 +1,4 @@
-json.partial! 'cheers', cheer: @cheer
+json.partial! 'cheer', cheer: @cheer
 
 # if @cheer.checkin
 #   json.checkin_id @cheer.checkin.id

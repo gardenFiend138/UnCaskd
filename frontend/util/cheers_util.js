@@ -1,4 +1,4 @@
-export const createCheer = (cheer) => (
+export const createCheer = cheer => (
   $.ajax({
     method: 'POST',
     url: 'api/cheers',
