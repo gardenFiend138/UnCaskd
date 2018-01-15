@@ -6,9 +6,9 @@ export const createCheer = cheer => (
   })
 );
 
-export const deleteCheer = (id) => (
+export const deleteCheer = cheerId => (
   $.ajax({
     method: 'DELETE',
-    url: `api/cheers/${id}`,
+    url: `api/cheers/${cheerId}`,
   })
 );

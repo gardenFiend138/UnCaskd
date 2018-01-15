@@ -9,8 +9,7 @@ class Api::CheersController < ApplicationController
 
     @cheer.checkin_id = params[:cheer][:checkin_id]
     @cheer.user_id = params[:cheer][:user_id]
-    # @cheer.save!
-    # render 'api/checkins'
+
     if @cheer.save
       render :show
     end
@@ -22,7 +21,7 @@ class Api::CheersController < ApplicationController
   end
 
   def destroy
-    @cheer = Cheer.find_by(params[:id])
+    @cheer = Cheer.find_by(params[:cheer][:id])
 
     if @cheer.user_id == @current_user.id
       @cheer.destroy

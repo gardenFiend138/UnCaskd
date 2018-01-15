@@ -1,15 +1,20 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_NEW_CHEERS } from '../actions/cheers_actions';
-// import{ RECEIVE_ALL_CHECKINS } from '../actions/checkin_actions';
+import {
+  RECEIVE_NEW_CHEERS,
+  REMOVE_CHEER
+} from '../actions/cheers_actions';
 
 const CheerReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_NEW_CHEERS:
-    console.log('heres the action', action);
       return merge({}, state, action.cheer);
+    case REMOVE_CHEER:
+      let newState = merge({}, state);
+      delete newState[action.cheerId];
+      return newState;
     default:
       return state;
   }
