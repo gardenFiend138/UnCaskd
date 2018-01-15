@@ -24,9 +24,9 @@ class Checkin < ApplicationRecord
     foreign_key: :whiskey_id,
     class_name: 'Whisky'
 
-    has_many :cheers,
-      primary_key: :id,
-      foreign_key: :checkin_id,
-      class_name: 'Cheer'
+  has_many :cheers,
+    primary_key: :id,
+    foreign_key: :checkin_id,
+    class_name: 'Cheer'
 
 end

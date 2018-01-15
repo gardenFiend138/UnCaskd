@@ -10,7 +10,7 @@
 #
 
 class Cheer < ApplicationRecord
-  validates :checkin_id, :user_id, presence: true
+  # validates :checkin_id, :user_id, presence: true
 
 
   belongs_to :checkin,

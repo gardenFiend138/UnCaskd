@@ -1,7 +1,7 @@
 export const createCheer = (cheer) => (
   $.ajax({
     method: 'POST',
-    url: '/api/cheers',
+    url: 'api/cheers',
     data: { cheer }
   })
 );
@@ -9,6 +9,6 @@ export const createCheer = (cheer) => (
 export const deleteCheer = (id) => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/cheers/${id}`,
+    url: `api/cheers/${id}`,
   })
 );

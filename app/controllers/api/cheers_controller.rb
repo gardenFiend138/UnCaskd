@@ -1,18 +1,20 @@
 class Api::CheersController < ApplicationController
   def new
     @cheer = Cheer.new
+    render :new
   end
 
   def create
     @cheer = Cheer.new(cheers_params)
     p cheers_params
+
     @cheer.checkin_id = params[:checkin_id]
     @cheer.user_id = params[:user_id]
-    @cheer.save!
+    # @cheer.save!
     # render '/api/checkins'
-    # if @cheer.save
+    if @cheer.save
       render :show
-    # end
+    end
   end
 
   def show
