@@ -52,12 +52,30 @@ class CheckinIndexItem extends React.Component {
   }
 
   toggleCheers() {
+    let cheeredUsers = [];
+    let cheerId;
 
-    this.setState({ cheer: {
-      user_id: this.props.currentUser.id,
-      checkin_id: this.props.checkin.id}}, () => {
-        this.props.createCheer(this.state.cheer);
-      });
+    this.props.checkin.cheers.forEach( cheer => {
+      cheeredUsers.push(cheer.user_id)
+
+      if (cheer.user_id === this.props.currentUser.id) {
+        cheerId = cheer.id;
+        console.log('cheer id here', cheerId);
+      }
+    })
+
+    if (cheeredUsers.includes(this.props.currentUser.id)) {
+      this.setState({cheer: {}}, () => {
+        this.props.deleteCheer(cheerId)
+      })
+
+    } else {
+      this.setState({ cheer: {
+        user_id: this.props.currentUser.id,
+        checkin_id: this.props.checkin.id}}, () => {
+          this.props.createCheer(this.state.cheer);
+        });
+    }
   }
 
   render ()  {
@@ -65,7 +83,7 @@ class CheckinIndexItem extends React.Component {
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
     const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
-debugger
+
     return(
       <div className='checkin-index-item'>
         <div className='checkin-info'>
