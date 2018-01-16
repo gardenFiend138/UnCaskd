@@ -82,6 +82,8 @@ class WhiskeyShow extends React.Component {
             whiskey={this.props.whiskey.name}
             editCheckin={this.props.updateCheckin}
             deleteCheckin={this.props.deleteCheckin}
+            createCheer={this.props.createCheer}
+            deleteCheer={this.props.deleteCheer}
           />
         ))
       }

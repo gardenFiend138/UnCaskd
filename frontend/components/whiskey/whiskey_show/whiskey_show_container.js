@@ -6,7 +6,8 @@ import {
   fetchWhiskies,
   updateWhiskey
 } from '../../../actions/whiskey_actions';
-
+import { fetchCheckins } from '../../../actions/checkin_actions';
+import { createCheer, deleteCheer } from '../../../actions/cheers_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -18,7 +19,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   updateWhiskey: whiskey => dispatch(updateWhiskey(whiskey)),
-  fetchWhiskey: id => dispatch(fetchWhiskey(id))
+  fetchWhiskey: id => dispatch(fetchWhiskey(id)),
+  createCheer: cheer => dispatch(createCheer(cheer))
+    .then(dispatch(fetchCheckins())),
+  deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
+    .then(dispatch(fetchCheckins())),
 });
 
 export default connect(

@@ -180,7 +180,10 @@ class CheckinIndexItem extends React.Component {
               <button
                 onClick={ this.toggleCheers.bind(this) }
                 className={ this.state.buttonClass }
-                >CHEERS!</button>
+              >
+              <i class="fa fa-glass" aria-hidden="true"></i>
+                CHEERS!
+              </button>
             </div>
           </div>
         </div>

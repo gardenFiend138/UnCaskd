@@ -146,6 +146,15 @@ Whisky.create(
 
 all_users = []
 
+guest = User.create(
+  username: 'guest',
+  email: 'guest@gmail.com',
+  password: 'password',
+  image_url: "http://tinygraphs.com/squares/guest?theme=base&numcolors=4&size=220&fmt=svg"
+)
+
+all_users << guest
+
 10.times do
   theme = %w(frogideas sugarsweets heatwave daisygarden seascape summerwarmth
     bythepool duskfalling berrypie base).sample
