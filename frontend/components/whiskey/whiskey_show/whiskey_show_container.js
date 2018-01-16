@@ -11,7 +11,8 @@ import {
 const mapStateToProps = (state, ownProps) => {
 
   return ({
-  whiskey: state.entities.whiskies[ownProps.match.params.id]
+  whiskey: state.entities.whiskies[ownProps.match.params.id],
+  currentUser: state.session.currentUser,
   });
 };
 

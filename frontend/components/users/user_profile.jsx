@@ -21,6 +21,7 @@ class UserProfile extends React.Component {
     // if (this.props.match.params.id !== this.state.currentUser.id) {
     //   this.getCurrentUser();
     // }
+    // this.props.fetchCheckins();
     window.scrollTo(0,0);
   }
 
@@ -45,9 +46,15 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const user = this.props.allUsers[this.props.match.params.id]
+// debugger
+console.log('user id', this.state.user.id);
+    const user = this.props.allUsers[this.state.user.id]
+    console.log('users in the profile', this.props.allUsers);
+    console.log('props in the profile', this.props);
+    console.log('user in the user profile: ', user);
     const checkins = user.checkins;
-
+    checkins.reverse();
+    console.log('checkins in the user profile: ', checkins);
     return(
       <div className="user-profile-container" >
 
@@ -73,9 +80,12 @@ class UserProfile extends React.Component {
                 <CheckinIndexItem
                   checkin={checkin}
                   checkins={checkins}
+                  currentUser={user}
                   userName={user.username}
                   whiskey={checkin.name}
                   key={checkin.id}
+                  createCheer={this.props.createCheer}
+                  deleteCheer={this.props.deleteCheer}
                 />
               ))
             }

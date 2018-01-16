@@ -37,7 +37,7 @@ Whisky.create(
     White Oak barrels with the deepest char for more character.",
   abv: 50.5,
   style: 'Bourbon',
-  image_url: "https://en.wikipedia.org/wiki/Wild_Turkey_(bourbon)#/media/File:Wild_Turkey_(bourbon)_logo.png"
+  image_url: "https://upload.wikimedia.org/wikipedia/en/c/c7/Wild_Turkey_%28bourbon%29_logo.png"
 )
 
 Whisky.create(
@@ -399,6 +399,11 @@ end
       rating: Random.rand(50...100),
       user_id: user.id,
       whiskey_id: Random.rand(1..10)
+    )
+
+    Cheer.create(
+      checkin_id: Random.rand(1..100),
+      user_id: user.id
     )
   end
 end

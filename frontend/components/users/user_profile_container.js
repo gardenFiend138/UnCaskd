@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { fetchAllUsers, fetchUser } from '../../actions/users_actions';
 import { fetchCheckins, checkinsByUser } from '../../actions/checkin_actions';
+import { createCheer, deleteCheer } from '../../actions/cheers_actions';
 import UserProfile from './user_profile';
 
 const mapStateToProps = state => {
@@ -19,6 +20,10 @@ const mapDispatchToProps = dispatch => ({
   checkinsByUser: (userId) => dispatch(checkinsByUser(userId)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   fetchUser: (userId) => dispatch(fetchUser(userId)),
+  createCheer: cheer => dispatch(createCheer(cheer))
+    .then(dispatch(fetchCheckins())),
+  deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
+    .then(dispatch(fetchCheckins())),
 });
 
 export default connect(

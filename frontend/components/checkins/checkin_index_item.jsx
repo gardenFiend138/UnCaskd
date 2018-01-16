@@ -18,8 +18,14 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component did mount: ', this.props.checkin);
-     if (this.props.checkin.cheers.length > 0) {
+    let cheeredUsers = [];
+
+    this.props.checkin.cheers.forEach( cheer => {
+      cheeredUsers.push(cheer.user_id);
+    });
+
+    console.log('component did mount: ', this.props);
+     if (cheeredUsers.includes(this.props.currentUser.id) && this.props.checkin.cheers.length > 0) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
       this.setState({buttonClass: 'cheers-button'});
@@ -68,7 +74,8 @@ class CheckinIndexItem extends React.Component {
 
     this.props.checkin.cheers.forEach( cheer => {
       cheeredUsers.push(cheer.user_id);
-
+      console.log('cheer in the index item: ', cheer);
+      console.log('currentuser in the index item: ', this.props.currentUser);
       // check to see if the currentUser has liked a checkin;
       // if they have,
       if (cheer.user_id === this.props.currentUser.id) {

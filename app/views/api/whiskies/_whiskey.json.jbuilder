@@ -17,7 +17,7 @@ json.set! :checkins do
     json.set! :image_url, checkin.user.image_url
     json.set! :user_id, checkin.user.id
     # json.set! :image_url, checkin.whiskey.image_url
-    json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id
+    json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id, :cheers
   end
 end
 
