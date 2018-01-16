@@ -18,12 +18,12 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentDidMount() {
+    console.log('component did mount: ', this.props.checkin);
      if (this.props.checkin.cheers.length > 0) {
-      this.setState({buttonClass: 'cheers-button cheers'}); 
-     }
-    // this.toggleCheers.bind(this);
-    // this.cheersClass();
-    // this.props.fetchCheckins();
+      this.setState({buttonClass: 'cheers-button cheers'});
+    } else {
+      this.setState({buttonClass: 'cheers-button'});
+    }
   }
 
   formatDateTime() {
