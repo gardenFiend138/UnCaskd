@@ -7,13 +7,23 @@ class CheckinIndexItem extends React.Component {
     super(props);
 
     this.state = {
-      cheer: {}
+      cheer: {},
+      buttonClass: 'cheers-button',
     };
 
     this.checkins = (this.props.checkins) ?
                       this.props.checkins :
                       this.props.currentUser.checkins;
 
+  }
+
+  componentDidMount() {
+     if (this.props.checkin.cheers.length > 0) {
+      this.setState({buttonClass: 'cheers-button cheers'}); 
+     }
+    // this.toggleCheers.bind(this);
+    // this.cheersClass();
+    // this.props.fetchCheckins();
   }
 
   formatDateTime() {
@@ -54,35 +64,63 @@ class CheckinIndexItem extends React.Component {
   toggleCheers() {
     let cheeredUsers = [];
     let cheerId;
+    // e.preventDefault();
 
     this.props.checkin.cheers.forEach( cheer => {
-      cheeredUsers.push(cheer.user_id)
+      cheeredUsers.push(cheer.user_id);
 
+      // check to see if the currentUser has liked a checkin;
+      // if they have,
       if (cheer.user_id === this.props.currentUser.id) {
         cheerId = cheer.id;
         console.log('cheer id here', cheerId);
       }
-    })
+    });
 
     if (cheeredUsers.includes(this.props.currentUser.id)) {
-      this.setState({cheer: {}}, () => {
-        this.props.deleteCheer(cheerId)
-      })
-
+      console.log('hit the cheered users fn');
+      this.setState({cheer: {}, buttonClass: 'cheers-button'}, () => {
+        this.props.deleteCheer(cheerId);
+        this.forceUpdate();
+        console.log('here is the state in the toggle cheers already cheered', this.state);
+      });
     } else {
       this.setState({ cheer: {
         user_id: this.props.currentUser.id,
-        checkin_id: this.props.checkin.id}}, () => {
+        checkin_id: this.props.checkin.id}, buttonClass: 'cheers-button cheers'}, () => {
           this.props.createCheer(this.state.cheer);
+          this.forceUpdate();
+          console.log('here is the state in the toggle cheers new cheers', this.state);
         });
     }
+
+    // console.log('cheers class cheers', this.props.checkin);
+    // if (cheeredUsers.includes(this.props.currentUser.id)) {
+    //   console.log('they cheersed it');
+    //   return 'cheers';
+    // }
   }
 
+  // this will toggle the class for the cheers button;
+  // if the currentUser has cheersed the checkin, it will
+  // return a string, which will be used as the className
+  // for the button
+//   cheersClass() {
+//     console.log('cheers class cheers', this.props.checkin);
+//     if (Object.keys(this.state.cheer).length > 0) {
+//       console.log('they cheersed it');
+//       return 'cheers-button cheers';
+//     }
+// console.log('they did not cheers it');
+//     return 'cheers-button';
+//   }
+
+// fix how checkins are passed from profile page to do away with ternaries
   render ()  {
-    const checkin = (this.props.checkin) ? this.props.checkin : this.props.checkin
+    const checkin = this.props.checkin;
     const username = (checkin.username) ? checkin.username : this.props.userName;
     const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
-    const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
+    // const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
 
     return(
       <div className='checkin-index-item'>
@@ -130,11 +168,11 @@ class CheckinIndexItem extends React.Component {
             {this.formatDateTime()}
           </span>
 
-          <div className='checkin-index-buttons'>
+          <div className='checkin-index-buttons '>
             <div>
               <button
-                className='cheers-button'
-                onClick={ this.toggleCheers.bind(this)}
+                onClick={ this.toggleCheers.bind(this) }
+                className={ this.state.buttonClass }
                 >CHEERS!</button>
             </div>
           </div>

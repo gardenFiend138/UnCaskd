@@ -1,1 +1,1 @@
-json.extract! cheer, :user_id, :checkin_id
+json.extract! cheer, :id, :user_id, :checkin_id
