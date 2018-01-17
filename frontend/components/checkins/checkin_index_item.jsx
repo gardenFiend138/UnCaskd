@@ -69,7 +69,7 @@ class CheckinIndexItem extends React.Component {
 
   toggleCheers() {
     let cheeredUsers = [];
-    let cheerId;
+    let cheerId = null;
     // e.preventDefault();
 
     this.props.checkin.cheers.forEach( cheer => {
