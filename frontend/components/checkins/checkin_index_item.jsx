@@ -24,7 +24,7 @@ class CheckinIndexItem extends React.Component {
       this.state);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     console.log('current cheer in index item: ', this.props.checkin);
     let cheeredUsers = [];
 // debugger
@@ -102,15 +102,15 @@ class CheckinIndexItem extends React.Component {
 // debugger
     if (cheeredUsers.includes(this.props.currentUser.id)) {
 
-      this.setState({cheer: {}, buttonClass: 'cheers-button'}, () => {
+      this.setState({buttonClass: 'cheers-button'}, () => {
         this.props.deleteCheer(cheerId);
         this.forceUpdate();
       });
     } else {
-      this.setState({ cheer: {
-        user_id: this.props.currentUser.id,
-        checkin_id: this.props.checkin.id}, buttonClass: 'cheers-button cheers'}, () => {
-          this.props.createCheer(this.state.cheer);
+      this.setState({buttonClass: 'cheers-button cheers'}, () => {
+          this.props.createCheer({
+            user_id: this.props.currentUser.id,
+            checkin_id: this.props.checkin.id});
           this.forceUpdate();
         });
     }
@@ -120,8 +120,8 @@ class CheckinIndexItem extends React.Component {
 // fix how checkins are passed from profile page to do away with ternaries
   render ()  {
     const checkin = this.props.checkin;
-    const username = (checkin.username) ? checkin.username : this.props.userName;
-    const whiskey = (checkin.whiskey) ? checkin.whiskey : this.props.whiskey;
+    const username = checkin.username ? checkin.username : this.props.userName;
+    const whiskey = checkin.whiskey ? checkin.whiskey : this.props.whiskey;
     // const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
 
     // maybe call toggleCheers with this.props.checkin as an argument?

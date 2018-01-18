@@ -29,9 +29,9 @@ const mapDispatchToProps = dispatch => ({
   fetchWhiskey: id => dispatch(fetchCheckins())
     .then(dispatch(fetchWhiskey(id))),
   createCheer: cheer => dispatch(createCheer(cheer))
-    .then(dispatch(fetchCheckins())),
+    .then(dispatch(fetchWhiskies())),
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
-    .then(dispatch(fetchCheckins())),
+    .then(dispatch(fetchWhiskies())),
 });
 
 export default connect(

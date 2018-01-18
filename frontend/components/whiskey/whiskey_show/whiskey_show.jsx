@@ -26,7 +26,7 @@ class WhiskeyShow extends React.Component {
   }
 
   componentDidMount() {
-debugger
+// debugger
     this.props.fetchWhiskey(this.props.match.params.id);
     window.scrollTo(0,0);
   }
