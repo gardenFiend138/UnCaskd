@@ -39,6 +39,20 @@ class CheckinIndexItem extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    let cheeredUsers = [];
+// debugger
+    nextProps.checkin.cheers.forEach( cheer => {
+      cheeredUsers.push(cheer.user_id);
+    });
+// debugger
+     if (cheeredUsers.includes(this.props.currentUser.id) && nextProps.checkin.cheers.length > 0) {
+      this.setState({buttonClass: 'cheers-button cheers'});
+    } else {
+      this.setState({buttonClass: 'cheers-button'});
+    }
+  }
+
   formatDateTime() {
     let time = (this.props.checkin.time) ?
                  this.props.checkin.time :
