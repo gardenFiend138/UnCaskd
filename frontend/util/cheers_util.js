@@ -12,3 +12,10 @@ export const deleteCheer = cheerId => (
     url: `api/cheers/${cheerId}`,
   })
 );
+
+export const fetchAllCheers = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/cheers',
+  })
+);

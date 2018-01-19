@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :distilleries, only: [:create, :new, :update]
     resources :whiskies, only: [:index, :create, :show, :update]
     resources :checkins
-    resources :cheers, only: [:new, :create, :destroy]
+    resources :cheers, only: [:new, :create, :destroy, :index]
     resources :comments, only: [:create, :show, :update, :destroy]
     resource :session, only: [:create, :destroy, :show]
   end

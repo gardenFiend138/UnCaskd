@@ -2,7 +2,8 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_NEW_CHEERS,
-  REMOVE_CHEER
+  REMOVE_CHEER,
+  RECEIVE_ALL_CHEERS,
 } from '../actions/cheers_actions';
 
 const CheerReducer = (state = {}, action) => {
@@ -15,6 +16,8 @@ const CheerReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.cheerId.id];
       return newState;
+    case RECEIVE_ALL_CHEERS:
+      return merge({}, state, action.cheers);
     default:
       return state;
   }

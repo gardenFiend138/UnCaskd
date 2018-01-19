@@ -18,8 +18,13 @@ class Api::CheersController < ApplicationController
     end
   end
 
-  def show
+  def index
     @cheers = Cheer.all
+    render :index
+  end
+
+  def show
+    @cheers = Cheer.find(params[:id])
     render :show
   end
 

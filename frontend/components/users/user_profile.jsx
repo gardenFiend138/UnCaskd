@@ -22,15 +22,21 @@ class UserProfile extends React.Component {
     //   this.getCurrentUser();
     // }
     // this.props.fetchCheckins();
+    this.props.fetchAllUsers();
     window.scrollTo(0,0);
   }
 
-  componentWillReceiveProps() {
-    this.getCurrentUser();
+  componentWillReceiveProps(nextProps) {
+    console.log('here are the next props', nextProps);
+    // this.props.fetchAllUsers();
+    this.getCurrentUser(nextProps);
   }
 
-  getCurrentUser() {
-    this.setState({user: this.props.allUsers[this.props.match.params.id]});
+  getCurrentUser(nextProps) {
+
+    this.setState(
+      {user: nextProps.allUsers[this.props.match.params.id]}
+    );
   }
 
   uniqueCheckins() {
