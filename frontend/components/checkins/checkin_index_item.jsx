@@ -111,12 +111,12 @@ console.log('props in checkin index item', this.props);
       cheeredUsers.push(cheer.user_id);
       // check to see if the currentUser has liked a checkin;
       // if they have,
-      if (cheer.user_id === this.props.currentUser.id) {
+      if (cheer.user_id === this.props.currentLoggedInUser.id) {
         cheerId = cheer.id;
       }
     });
 // debugger
-    if (cheeredUsers.includes(this.props.currentUser.id)) {
+    if (cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
 
       this.setState({buttonClass: 'cheers-button'}, () => {
         this.props.deleteCheer(cheerId);
@@ -125,7 +125,7 @@ console.log('props in checkin index item', this.props);
     } else {
       this.setState({buttonClass: 'cheers-button cheers'}, () => {
           this.props.createCheer({
-            user_id: this.props.currentUser.id,
+            user_id: this.props.currentLoggedInUser.id,
             checkin_id: this.props.checkin.id});
           this.forceUpdate();
         });

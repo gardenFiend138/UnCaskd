@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return ({
   whiskey: state.entities.whiskies[ownProps.match.params.id],
-  currentUser: state.session.currentUser,
+  currentLoggedInUser: state.session.currentUser,
   });
 };
 

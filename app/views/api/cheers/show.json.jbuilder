@@ -1,1 +1,1 @@
-json.partial! 'cheer', cheer: @cheer
+json.partial! 'cheer', cheer: @cheer.id

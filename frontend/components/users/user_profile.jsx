@@ -27,7 +27,7 @@ class UserProfile extends React.Component {
     console.log('here are the current props', this.props);
     console.log('here are the next props', nextProps);
     console.log('here is the current user profile', this.state.user);
-    this.props.fetchAllUsers();
+    // this.props.fetchAllUsers();
     this.getCurrentUserProfile(nextProps);
   }
 

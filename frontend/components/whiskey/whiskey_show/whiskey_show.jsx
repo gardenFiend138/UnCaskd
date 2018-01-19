@@ -78,7 +78,7 @@ class WhiskeyShow extends React.Component {
             checkin={checkin}
             checkins={checkins}
             username={checkin.username}
-            currentUser={this.props.currentUser}
+            currentLoggedInUser={this.props.currentLoggedInUser}
             key={checkin.id}
             whiskey={this.props.whiskey.name}
             editCheckin={this.props.updateCheckin}
