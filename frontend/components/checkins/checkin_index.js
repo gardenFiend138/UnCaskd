@@ -8,7 +8,7 @@ class CheckinIndex extends React.Component {
 
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchCheckins();
     this.props.fetchAllUsers();
   }
