@@ -47,14 +47,15 @@ class UserProfile extends React.Component {
 
   render() {
 // debugger
-console.log('user id', this.state.user.id);
     const user = this.props.allUsers[this.state.user.id]
-    console.log('users in the profile', this.props.allUsers);
-    console.log('props in the profile', this.props);
-    console.log('user in the user profile: ', user);
     const checkins = user.checkins;
+
+    // do this in the jBuilder instead; send over an array of IDs in
+    // the order you want, and use that to get the order; just using
+    // order in controller doesn't carry over since jBuilder returns
+    // JSON object (order not preserved in hash -- duh);
     checkins.reverse();
-    console.log('checkins in the user profile: ', checkins);
+
     return(
       <div className="user-profile-container" >
 

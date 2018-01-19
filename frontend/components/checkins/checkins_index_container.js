@@ -30,11 +30,11 @@ const mapDispatchToProps = dispatch => ({
   checkinsByUser: id => dispatch(checkinsByUser(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   createCheer: cheer => dispatch(createCheer(cheer))
-    .then(dispatch(fetchCheckins()))
-    .then(dispatch(fetchWhiskies())),
+    .then(dispatch(fetchCheckins())),
+    // .then(dispatch(fetchWhiskies())),
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
-    .then(dispatch(fetchCheckins()))
-    .then(dispatch(fetchWhiskies())),
+    .then(dispatch(fetchCheckins())),
+    // .then(dispatch(fetchWhiskies())),
 
 });
 
