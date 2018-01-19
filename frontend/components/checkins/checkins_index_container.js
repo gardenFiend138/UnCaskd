@@ -17,7 +17,7 @@ const mapStateToProps = state => {
   return ({
   checkins: Object.values(state.entities.checkins)
                   .map(checkin => checkin),
-  currentUser: state.session.currentUser,
+  currentLoggedInUser: state.session.currentUser,
   cheers: state.entities.cheers,
   });
 };

@@ -9,33 +9,32 @@ class UserProfile extends React.Component {
     super(props);
 
     this.state = {
-      user: this.props.allUsers[this.props.match.params.id]
+      user: null,
     };
 
   }
 
   componentDidMount() {
-    // this.props.fetchAllUsers();
-    // this.fetchUser(this.props.match.params.id);
-    // this.checkinsByUserId();
-    // if (this.props.match.params.id !== this.state.currentUser.id) {
-    //   this.getCurrentUser();
-    // }
-    // this.props.fetchCheckins();
-    this.props.fetchAllUsers();
     window.scrollTo(0,0);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('here are the next props', nextProps);
-    // this.props.fetchAllUsers();
-    this.getCurrentUser(nextProps);
+  componentWillMount() {
+    this.props.fetchAllUsers();
+    this.getCurrentUserProfile(this.props);
   }
 
-  getCurrentUser(nextProps) {
+  componentWillReceiveProps(nextProps) {
+    console.log('here are the current props', this.props);
+    console.log('here are the next props', nextProps);
+    console.log('here is the current user profile', this.state.user);
+    this.props.fetchAllUsers();
+    this.getCurrentUserProfile(nextProps);
+  }
+
+  getCurrentUserProfile(someProps) {
 
     this.setState(
-      {user: nextProps.allUsers[this.props.match.params.id]}
+      {user: someProps.allUsers[this.props.match.params.id]}
     );
   }
 
@@ -53,9 +52,10 @@ class UserProfile extends React.Component {
 
   render() {
 // debugger
-    const user = this.props.allUsers[this.state.user.id]
+    const user = this.state.user;
+    // const user = this.props.allUsers[this.state.user.id]
     const checkins = user.checkins;
-
+console.log('checkins in user profile', checkins)
     // do this in the jBuilder instead; send over an array of IDs in
     // the order you want, and use that to get the order; just using
     // order in controller doesn't carry over since jBuilder returns
@@ -88,6 +88,7 @@ class UserProfile extends React.Component {
                   checkin={checkin}
                   checkins={checkins}
                   currentUser={user}
+                  currentLoggedInUser={this.props.currentUser}
                   userName={user.username}
                   whiskey={checkin.name}
                   key={checkin.id}

@@ -32,7 +32,9 @@ class CheckinIndexItem extends React.Component {
       cheeredUsers.push(cheer.user_id);
     });
 // debugger
-     if (cheeredUsers.includes(this.props.currentUser.id) && this.props.checkin.cheers.length > 0) {
+console.log('currentlogged in user', this.props.currentLoggedInUser);
+console.log('props in checkin index item', this.props);
+     if (cheeredUsers.includes(this.props.currentLoggedInUser.id) && this.props.checkin.cheers.length > 0) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
       this.setState({buttonClass: 'cheers-button'});
@@ -46,7 +48,7 @@ class CheckinIndexItem extends React.Component {
       cheeredUsers.push(cheer.user_id);
     });
 // debugger
-     if (cheeredUsers.includes(this.props.currentUser.id) && nextProps.checkin.cheers.length > 0) {
+     if (cheeredUsers.includes(this.props.currentLoggedInUser.id) && nextProps.checkin.cheers.length > 0) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
       this.setState({buttonClass: 'cheers-button'});
@@ -140,7 +142,7 @@ class CheckinIndexItem extends React.Component {
 
     // maybe call toggleCheers with this.props.checkin as an argument?
 
-
+    console.log('checkin in the index item: ', checkin);
     return(
       <div className='checkin-index-item'>
         <div className='checkin-info'>
