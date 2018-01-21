@@ -75,22 +75,26 @@
 }
 
 .cheers-button {
-  background-color: lightgrey;
+  border: .5px solid black;
   opacity: 1;
+  box-sizing: border-box;
   height: 39px;
-  width: 283px;
+  width: 184px;
   border-radius: 23px;
   text-align: center;
   font-weight: 900;
   font-size: 24px;
 }
 
-.cheers-button:hover {
-  background-color: gold;
-}
+// .cheers-button:hover {
+//   background-color: gold;
+// }
 
 .cheers {
   background-color: gold;
+  transition: background-color 1s, border .5s, opacity 1s;
+  border: none;
+  opacity: .8;
 }
 
 .fa-glass {

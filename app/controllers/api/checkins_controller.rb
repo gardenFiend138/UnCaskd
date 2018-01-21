@@ -27,7 +27,7 @@ class Api::CheckinsController < ApplicationController
 
   def index
     @checkins = Checkin.order(updated_at: :desc).limit(20)
-    render :index
+    render :index 
   end
 
   def checkins_by_user
