@@ -1,1 +1,1 @@
-json.partial! 'cheer', cheer: @cheer.id
+json.extract! cheer, :id, :user_id, :checkin_id
