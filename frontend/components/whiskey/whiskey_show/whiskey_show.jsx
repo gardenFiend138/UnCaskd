@@ -68,7 +68,7 @@ class WhiskeyShow extends React.Component {
   }
 
   whiskeyCheckins() {
-
+console.log('props in the whiskey show', this.props);
     const checkins = this.props.whiskey.checkins;
     return(
       <div className='index-container-checkins-whiskey-show'>
@@ -108,7 +108,7 @@ class WhiskeyShow extends React.Component {
             <Link to={`/whiskies/${whiskey.id}`}>
               <img
                 src={`${whiskey.image_url}`}
-                alt='whiskey_default_image'
+                alt='drink_img'
               />
             </Link>
             <span className='checkins'>

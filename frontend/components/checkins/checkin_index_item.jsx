@@ -25,6 +25,7 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentWillMount() {
+    console.log('current context in index item: ', this);
     console.log('current cheer in index item: ', this.props.checkin);
     let cheeredUsers = [];
 // debugger

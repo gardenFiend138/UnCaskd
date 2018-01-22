@@ -1,3 +1,5 @@
+# json.partial! 'whiskey', whiskey: @whiskey#, whiskies: @whiskies
+
 json.extract! whiskey,
               :id,
               :name,
@@ -18,6 +20,7 @@ json.set! :checkins do
     json.set! :user_id, checkin.user.id
     # json.set! :image_url, checkin.whiskey.image_url
     json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id, :cheers
+    json.cheers_ids checkin.cheers.pluck(:id)
   end
 end
 

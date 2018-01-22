@@ -58,7 +58,7 @@ class WhiskeyIndexItem extends React.Component {
           <Link to={`/whiskies/${whiskey.id}`}>
             <img
               src={`${whiskey.image_url}`}
-              alt='whiskey_default_image'
+              alt='whiskey_image'
             />
           </Link>
           <span className='checkins'>
