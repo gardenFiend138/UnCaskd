@@ -11,6 +11,7 @@ class CheckinIndex extends React.Component {
   componentWillMount() {
     this.props.fetchCheckins();
     this.props.fetchAllUsers();
+    this.props.fetchAllCheers();
   }
 
   render() {

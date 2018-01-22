@@ -20,21 +20,21 @@ class CheckinIndexItem extends React.Component {
   }
 
   checkState() {
-    console.log('here is the state in the checkin index item: ',
-      this.state);
+    // console.log('here is the state in the checkin index item: ',
+      // this.state);
   }
 
   componentWillMount() {
-    console.log('current context in index item: ', this);
-    console.log('current cheer in index item: ', this.props.checkin);
+    // console.log('current context in index item: ', this);
+    // console.log('current cheer in index item: ', this.props.checkin);
     let cheeredUsers = [];
 // debugger
     this.props.checkin.cheers.forEach( cheer => {
       cheeredUsers.push(cheer.user_id);
     });
 // debugger
-console.log('currentlogged in user', this.props.currentLoggedInUser);
-console.log('props in checkin index item', this.props);
+// console.log('currentlogged in user', this.props.currentLoggedInUser);
+// console.log('props in checkin index item', this.props);
      if (cheeredUsers.includes(this.props.currentLoggedInUser.id) && this.props.checkin.cheers.length > 0) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
@@ -143,7 +143,7 @@ console.log('props in checkin index item', this.props);
 
     // maybe call toggleCheers with this.props.checkin as an argument?
 
-    console.log('checkin in the index item: ', checkin);
+    // console.log('checkin in the index item: ', checkin);
     return(
       <div className='checkin-index-item'>
         <div className='checkin-info'>

@@ -22,7 +22,6 @@ class Api::WhiskiesController < ApplicationController
 
   def index
     @whiskies = Whisky.all
-    @top_rated_whiskies = Whisky.all.order(rating: :asc).limit(5)
     render :index
   end
 

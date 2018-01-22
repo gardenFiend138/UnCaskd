@@ -7,7 +7,11 @@ import {
   deleteCheckin,
   checkinsByUser
 } from '../../actions/checkin_actions';
-import { createCheer, deleteCheer } from '../../actions/cheers_actions';
+import {
+  createCheer,
+  deleteCheer,
+  fetchAllCheers,
+} from '../../actions/cheers_actions';
 import { fetchAllUsers } from '../../actions/users_actions';
 import { fetchWhiskies } from '../../actions/whiskey_actions';
 import CheckinIndex from './checkin_index';
@@ -31,10 +35,9 @@ const mapDispatchToProps = dispatch => ({
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   createCheer: cheer => dispatch(createCheer(cheer))
     .then(dispatch(fetchCheckins())),
-    // .then(dispatch(fetchWhiskies())),
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
     .then(dispatch(fetchCheckins())),
-    // .then(dispatch(fetchWhiskies())),
+  fetchAllCheers: () => dispatch(fetchAllCheers()),
 
 });
 
