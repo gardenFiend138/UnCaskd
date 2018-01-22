@@ -1,6 +1,5 @@
 @checkins.each do |checkin|
   json.set! checkin.id do
-    # json.partial! 'checkin', checkin: checkin
     json.id checkin.id
     json.body checkin.body
     json.rating checkin.rating
@@ -13,7 +12,7 @@
     json.whiskey_image_url checkin.whiskey.image_url
     json.time checkin.updated_at
     json.cheers checkin.cheers
-    json.cheers_id checkin.cheers.pluck(:id)
+    json.cheers_ids checkin.cheers.pluck(:id)
   end
 end
 

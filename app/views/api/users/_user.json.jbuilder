@@ -1,3 +1,5 @@
+# json.partial! 'users', users: @users #, users: @users
+
 json.extract! user, :id, :username, :image_url
 
 # json.set! :checkins do
