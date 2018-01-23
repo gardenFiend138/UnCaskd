@@ -9,6 +9,7 @@
         json.set! :user_id, checkin.user.id
 
         json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id, :cheers
+        json.cheered_users checkin.cheers.pluck(:user_id)
       end
     end
   end

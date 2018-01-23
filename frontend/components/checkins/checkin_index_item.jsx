@@ -25,17 +25,10 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentWillMount() {
-    // console.log('current context in index item: ', this);
-    // console.log('current cheer in index item: ', this.props.checkin);
-    let cheeredUsers = [];
-// debugger
-    this.props.checkin.cheers.forEach( cheer => {
-      cheeredUsers.push(cheer.user_id);
-    });
-// debugger
-// console.log('currentlogged in user', this.props.currentLoggedInUser);
-// console.log('props in checkin index item', this.props);
-     if (cheeredUsers.includes(this.props.currentLoggedInUser.id) && this.props.checkin.cheers.length > 0) {
+    let cheeredUsers = this.props.checkin.cheered_users;
+    let userId = this.props.currentLoggedInUser.id;
+
+     if (cheeredUsers && cheeredUsers.includes(userId)) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
       this.setState({buttonClass: 'cheers-button'});
@@ -43,13 +36,11 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let cheeredUsers = [];
-// debugger
-    nextProps.checkin.cheers.forEach( cheer => {
-      cheeredUsers.push(cheer.user_id);
-    });
-// debugger
-     if (cheeredUsers.includes(this.props.currentLoggedInUser.id) && nextProps.checkin.cheers.length > 0) {
+    console.log('heres the checkin', nextProps.checkin)
+    let cheeredUsers = nextProps.checkin.cheered_users;
+    let userId = nextProps.currentLoggedInUser.id;
+
+     if (cheeredUsers && cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
       this.setState({buttonClass: 'cheers-button'});
@@ -104,32 +95,34 @@ class CheckinIndexItem extends React.Component {
   // abstract this function out more; make sure each function does
   // exactly ONE thing!
   toggleCheers() {
-    let cheeredUsers = [];
+    let cheeredUsers = this.props.checkin.cheered_users;
+    let userId = this.props.currentLoggedInUser.id;
+    let cheered = false;
     let cheerId = null;
     // e.preventDefault();
 // debugger
     this.props.checkin.cheers.forEach( cheer => {
-      cheeredUsers.push(cheer.user_id);
+
       // check to see if the currentUser has liked a checkin;
       // if they have,
-      if (cheer.user_id === this.props.currentLoggedInUser.id) {
+      if (cheeredUsers.includes(userId)) {
         cheerId = cheer.id;
+        cheered = true;
       }
     });
 
 // debugger
-    if (cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
-
+    if (cheered) {
       this.setState({buttonClass: 'cheers-button'}, () => {
         this.props.deleteCheer(cheerId);
-        this.forceUpdate();
+
       });
     } else {
       this.setState({buttonClass: 'cheers-button cheers'}, () => {
           this.props.createCheer({
             user_id: this.props.currentLoggedInUser.id,
             checkin_id: this.props.checkin.id});
-          this.forceUpdate();
+
         });
     }
 // debugger

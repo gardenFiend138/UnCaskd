@@ -24,9 +24,6 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('here are the current props', this.props);
-    console.log('here are the next props', nextProps);
-    console.log('here is the current user profile', this.state.user);
     // this.props.fetchAllUsers();
     this.getCurrentUserProfile(nextProps);
   }

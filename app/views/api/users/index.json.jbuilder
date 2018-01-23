@@ -4,7 +4,7 @@
     json.set! :checkins do
       json.array! user.checkins do |checkin|
         json.set! :name, checkin.whiskey.name
-        json.set! :cheered_users, checkin.cheers.pluck(:user_id)
+        json.cheered_users checkin.cheers.pluck(:user_id)
         # json.set! :image_url, checkin.whiskey.image_url
         json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id, :cheers
       end
