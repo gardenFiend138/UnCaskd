@@ -16,6 +16,9 @@ class WhiskeyIndex extends React.Component {
 
 
   render() {
+  // to remove the array of indices indicating newest whiskies
+  let whiskies = this.props.whiskies;
+  whiskies.pop();
 
     return(
       <div className="whiskey-index">
@@ -35,7 +38,7 @@ class WhiskeyIndex extends React.Component {
 
           <ul className='whiskey-index-container'>
             {
-              this.props.whiskies.map(whiskey => (
+              whiskies.map(whiskey => (
                 <WhiskeyIndexItem
                   key={whiskey.id}
                   editPost={this.props.updatePost}
