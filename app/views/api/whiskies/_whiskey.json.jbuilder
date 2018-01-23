@@ -20,7 +20,7 @@ json.set! :checkins do
     json.set! :user_id, checkin.user.id
     # json.set! :image_url, checkin.whiskey.image_url
     json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id, :cheers
-    json.cheers_ids checkin.cheers.pluck(:id)
+    json.cheered_users checkin.cheers.pluck(:user_id)
   end
 end
 

@@ -21,12 +21,13 @@ class Api::WhiskiesController < ApplicationController
   end
 
   def index
+    @newest_whiskies = Whisky.order(created_at: :desc)
     @whiskies = Whisky.all
     render :index
   end
 
   def top_rated
-    @whiskies = Whisky.all.order(rating: :asc).limit(5)
+    @whiskies = Whisky.order(rating: :desc).limit(5)
     render :index
   end
 

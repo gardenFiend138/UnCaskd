@@ -116,6 +116,7 @@ class CheckinIndexItem extends React.Component {
         cheerId = cheer.id;
       }
     });
+
 // debugger
     if (cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
 

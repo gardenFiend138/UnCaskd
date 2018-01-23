@@ -12,7 +12,7 @@
     json.whiskey_image_url checkin.whiskey.image_url
     json.time checkin.updated_at
     json.cheers checkin.cheers
-    json.cheers_ids checkin.cheers.pluck(:id)
+    json.cheered_users checkin.cheers.pluck(:user_id)
   end
 end
 

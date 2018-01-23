@@ -14,6 +14,8 @@
   end
 end
 
+json.newest_whiskies @newest_whiskies.pluck(:id)
+
 # json.set! :checkins do
 #   json.array! whiskey.checkins do |checkin|
 #     json.set! :username, checkin.user.username
