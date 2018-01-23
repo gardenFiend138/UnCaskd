@@ -9,11 +9,11 @@ class Api::CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id
-
-    if @checkin.save
+    
+    if @checkin.save!
       render :show
-
     else
+
       render json: @checkin.errors.full_messages, status: 422
     end
   end
@@ -25,7 +25,7 @@ class Api::CheckinsController < ApplicationController
 
   def index
     @checkins = Checkin.all
-    # @recent_checkins = Checkin.order(updated_at: :desc).limit(20)
+    @recent_checkins = Checkin.order(updated_at: :desc).limit(20)
     render :index
   end
 

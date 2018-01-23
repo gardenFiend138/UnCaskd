@@ -31,6 +31,11 @@ class WhiskeyShow extends React.Component {
     window.scrollTo(0,0);
   }
 
+  componentWillMount() {
+    this.props.fetchAllCheers();
+    this.props.fetchAllUsers();
+  }
+
   averageRating() {
     const checkins = this.props.whiskey.checkins;
     let ratings = [];

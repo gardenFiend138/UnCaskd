@@ -1,1 +1,1 @@
-json.partial! 'checkin', checkin: checkin
+json.partial! 'checkin', checkin: @checkin, checkins: @checkins

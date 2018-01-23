@@ -8,6 +8,8 @@ import {
 } from '../../../actions/whiskey_actions';
 import { fetchCheckins } from '../../../actions/checkin_actions';
 import { createCheer, deleteCheer } from '../../../actions/cheers_actions';
+import { fetchAllUsers } from '../../../actions/users_actions';
+import { fetchAllCheers } from '../../../actions/cheers_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -32,6 +34,8 @@ const mapDispatchToProps = dispatch => ({
     .then(dispatch(fetchWhiskies())),
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
     .then(dispatch(fetchWhiskies())),
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  fetchAllCheers: () => dispatch(fetchAllCheers()),
 });
 
 export default connect(

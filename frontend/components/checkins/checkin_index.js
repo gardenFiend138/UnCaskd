@@ -8,10 +8,15 @@ class CheckinIndex extends React.Component {
 
   }
 
-  componentWillMount() {
+// had as 'will mount' and was rendering nerw checkin then not rendering it again
+  componentDidMount() {
     this.props.fetchCheckins();
+  }
+
+  componentWillMount() {
     this.props.fetchAllUsers();
     this.props.fetchAllCheers();
+
   }
 
   // componentDidUpdate() {
