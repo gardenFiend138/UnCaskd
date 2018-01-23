@@ -16,6 +16,8 @@
   end
 end
 
+json.recent_checkins @recent_checkins.pluck(:id)
+
 # json.array! checkin.cheers.each do |cheer|
 #   json.cheers_ids cheer.pluck(:id)
 # end

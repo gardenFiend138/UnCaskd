@@ -48,6 +48,7 @@ class CheckinIndexItem extends React.Component {
   }
 
   formatDateTime() {
+
     let time = (this.props.checkin.time) ?
                  this.props.checkin.time :
                  this.props.checkin.updated_at;
