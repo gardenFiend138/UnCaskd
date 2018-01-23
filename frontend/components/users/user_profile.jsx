@@ -49,10 +49,12 @@ class UserProfile extends React.Component {
 
   render() {
 // debugger
+
     const user = this.state.user;
     // const user = this.props.allUsers[this.state.user.id]
+    console.log('user in user profile', user)
+    console.log('props in user profile', this.props)
     const checkins = user.checkins;
-console.log('checkins in user profile', checkins)
     // do this in the jBuilder instead; send over an array of IDs in
     // the order you want, and use that to get the order; just using
     // order in controller doesn't carry over since jBuilder returns

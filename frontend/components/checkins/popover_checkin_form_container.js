@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   createCheckin,
   updateCheckin,
-  deleteCheckin
+  deleteCheckin,
 } from '../../actions/checkin_actions';
 import CheckinPopover from './popover_checkin_form';
 
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
   // const formType = location.pathname.slice(1);
   // const processForm = (formType === 'checkins/new') ? createCheckin : updateCheckin;
   return {
-    processForm: (checkin) => dispatch(createCheckin(checkin))
+    processForm: (checkin) => dispatch(createCheckin(checkin)),
     // formType
   };
 };

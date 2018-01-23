@@ -36,7 +36,7 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('heres the checkin', nextProps.checkin)
+    // console.log('heres the checkin', nextProps.checkin)
     let cheeredUsers = nextProps.checkin.cheered_users;
     let userId = nextProps.currentLoggedInUser.id;
 
@@ -48,7 +48,7 @@ class CheckinIndexItem extends React.Component {
   }
 
   formatDateTime() {
-
+// console.log('why you break', this.props);
     let time = (this.props.checkin.time) ?
                  this.props.checkin.time :
                  this.props.checkin.updated_at;

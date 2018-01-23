@@ -11,9 +11,7 @@ class Api::CheckinsController < ApplicationController
     @checkin.user_id = current_user.id
 
     if @checkin.save
-      # render json: @checkin
       render :show
-      #alternatively make a checkin json jbuilder file and render that.
 
     else
       render json: @checkin.errors.full_messages, status: 422
@@ -27,7 +25,7 @@ class Api::CheckinsController < ApplicationController
 
   def index
     @checkins = Checkin.all
-    @recent_checkins = Checkin.order(updated_at: :desc).limit(20)
+    # @recent_checkins = Checkin.order(updated_at: :desc).limit(20)
     render :index
   end
 

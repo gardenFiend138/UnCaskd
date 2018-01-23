@@ -37,7 +37,11 @@ class CheckinPopover extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const checkin = this.state;
+    const checkin = {
+      body: this.state.body,
+      rating: this.state.sliderValue,
+      whiskey_id: this.state.whiskey_id,
+    };
     this.props.processForm(checkin);
     this.props.history.push('/home');
   }
