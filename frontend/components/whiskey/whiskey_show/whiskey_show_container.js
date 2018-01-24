@@ -12,7 +12,7 @@ import { fetchAllUsers } from '../../../actions/users_actions';
 import { fetchAllCheers } from '../../../actions/cheers_actions';
 
 const mapStateToProps = (state, ownProps) => {
-
+console.log('whiskey in mstp', state.entities.whiskies[ownProps.match.params.id]);
   return ({
   whiskey: state.entities.whiskies[ownProps.match.params.id],
   currentLoggedInUser: state.session.currentUser,
@@ -36,6 +36,7 @@ const mapDispatchToProps = dispatch => ({
     .then(dispatch(fetchWhiskies())),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   fetchAllCheers: () => dispatch(fetchAllCheers()),
+  fetchCheckins: () => dispatch(fetchCheckins()),
 });
 
 export default connect(

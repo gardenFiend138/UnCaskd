@@ -46,6 +46,12 @@ class CheckinPopover extends React.Component {
     this.props.history.push('/home');
   }
 
+  updateRating(e) {
+    console.log(e);
+    // e.preventDefault();
+    this.setState({rating: e});
+  }
+
   handleClick() {
     if (!this.state.popupVisible) {
       document.addEventListener('click', this.handleOutsideClick, false);
@@ -113,6 +119,7 @@ class CheckinPopover extends React.Component {
                     min={1}
                     max={100}
                     defaultValue={this.state.rating}
+                    onChange={ e => this.updateRating(e.value)}
                     onChangeComplete={e => this.handleChange(e.value)}
                     sliderSize={6}
                     thumbSize={18}
