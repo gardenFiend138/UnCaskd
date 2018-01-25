@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../navbar/navbar_container';
 import CheckinIndexItem from '../checkins/checkin_index_item';
 import CheckinIndex from '../checkins/checkin_index';

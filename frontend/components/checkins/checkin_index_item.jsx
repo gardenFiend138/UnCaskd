@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CircularProgressbar from 'react-circular-progressbar';
+import CheckinPopover from './popover_checkin_form_container';
 
 class CheckinIndexItem extends React.Component {
   constructor(props) {
@@ -129,6 +130,17 @@ class CheckinIndexItem extends React.Component {
 // debugger
   }
 
+  editButton() {
+    if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
+      return(
+        <div className='checkin-popover-container'>
+          <CheckinPopover {...this.props}/>
+        </div>
+      );
+    }
+  }
+
+
 // fix how checkins are passed from profile page to do away with ternaries
   render ()  {
     const checkin = this.props.checkin;
@@ -186,6 +198,7 @@ class CheckinIndexItem extends React.Component {
           </span>
 
           <div className='checkin-index-buttons '>
+            
             <div>
               <button
                 onClick={ this.toggleCheers.bind(this) }

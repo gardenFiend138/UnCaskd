@@ -26,8 +26,6 @@ class WhiskeyShow extends React.Component {
   }
 
   componentDidMount() {
-// debugger
-    // this.props.fetchWhiskey(this.props.match.params.id);
     window.scrollTo(0,0);
   }
 
@@ -75,8 +73,9 @@ class WhiskeyShow extends React.Component {
   }
 
   whiskeyCheckins() {
-console.log('props in the whiskey show', this.props);
+// console.log('props in the whiskey show', this.props);
     const checkins = this.props.whiskey.checkins;
+
     return(
       <div className='index-container-checkins-whiskey-show'>
       {

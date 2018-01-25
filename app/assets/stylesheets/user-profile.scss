@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 69px 138px 0 138px;
+  margin: 0 138px;
   font-size: 24px;
 }
 
@@ -13,13 +13,13 @@
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
+  margin-top: 138px;
 }
 
 .user-personal-info {
   display: flex;
   align-items: baseline;
   padding-top: 101px;
-
 }
 
 .user-checkin-info {

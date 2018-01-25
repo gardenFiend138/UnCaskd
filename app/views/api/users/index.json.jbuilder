@@ -8,7 +8,6 @@
         # json.set! :image_url, checkin.whiskey.image_url
         json.extract! checkin, :id, :updated_at, :rating, :body, :whiskey_id, :cheers
       end
-
     end
   end
 end

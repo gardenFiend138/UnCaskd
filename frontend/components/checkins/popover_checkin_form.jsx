@@ -90,7 +90,9 @@ class CheckinPopover extends React.Component {
   }
 
   render() {
-    let { rating } = this.state.sliderValue
+    let { rating } = this.state.sliderValue;
+
+    console.log(this.props)
     return (
       <div className="popover-container" ref={node => { this.node = node; }}>
         <button onClick={this.handleClick} >
@@ -147,6 +149,20 @@ class CheckinPopover extends React.Component {
   }
 }
 export default withRouter(CheckinPopover);
+
+// add in 'label' and 'thumbSize' if you want the tooltip;
+// seems to look cleaner with the rating updating in the large
+// area below
+// <ReactSimpleRange
+//   label
+//   min={1}
+//   max={100}
+//   defaultValue={this.state.rating}
+//   onChange={ e => this.updateRating(e.value)}
+//   onChangeComplete={e => this.handleChange(e.value)}
+//   sliderSize={6}
+//   thumbSize={18}
+//  />
 
 // for the 'add photo button' once that is implemented
 // <button className='checkin-photo-upload'>
