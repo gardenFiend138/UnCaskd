@@ -13,8 +13,9 @@ class Api::CheersController < ApplicationController
     @cheer.user_id = params[:cheer][:user_id]
 
     if @cheer.save
-      # render 'api/checkins'
       render :show
+    else
+      render json: @cheer.errors.full_messages, status: 422
     end
   end
 
@@ -29,19 +30,14 @@ class Api::CheersController < ApplicationController
   end
 
   def destroy
-    # p 'destroy params here'
-    # p params[:id]
-    # p'----------------'
     @cheer = Cheer.find(params[:id])
-    # p @cheer
-    # p @cheer.user_id
-    # p @current_user.id
     @cheer.destroy
-    # if @cheer.user_id == @current_user.id
-    #   @cheer.destroy
-    # else
-    #   raise ['You can only delete your own cheers']
-    # end
+
+    if @cheer.user_id == @current_user.id
+      @cheer.destroy
+    else
+      raise ['You can only delete your own cheers']
+    end
     render :show
   end
 

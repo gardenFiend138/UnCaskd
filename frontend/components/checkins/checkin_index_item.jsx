@@ -198,7 +198,7 @@ class CheckinIndexItem extends React.Component {
           </span>
 
           <div className='checkin-index-buttons '>
-            
+
             <div>
               <button
                 onClick={ this.toggleCheers.bind(this) }

@@ -6,49 +6,47 @@ class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    window.getState = this.getState;
+
   }
 
 // had as 'will mount' and was rendering nerw checkin then not rendering it again
   componentDidMount() {
-    this.props.fetchCheckins();
   }
 
   componentWillMount() {
+    this.props.fetchCheckins();
     this.props.fetchAllUsers();
     this.props.fetchAllCheers();
-
   }
 
   // componentDidUpdate() {
   //   this.props.fetchCheckins();
-  //   // this.props.fetchAllUsers();
-  //   // this.props.fetchAllCheers();
+  //   this.props.fetchAllUsers();
+  //   this.props.fetchAllCheers();
   // }
 
   orderCheckins() {
-    console.log('props in the checkin index', this.props);
-    let checkins = this.props.checkins;
-    let order = this.props.recentCheckins;
-    let orderedCheckins = [];
-// debugger
-    order.forEach( place => {
-      orderedCheckins.push(checkins[place + 1]);
-    });
-    // debugger
-    return orderedCheckins;
+    if (this.props.checkins.length > 0) {
+      let checkins = this.props.checkins[0];
+      let order = this.props.recentCheckins;
+      let orderedCheckins = [];
+
+      order.forEach( place => {
+        orderedCheckins.push(checkins[place]);
+      });
+
+      return orderedCheckins;
+    }
   }
 
   render() {
-
-    // let checkins = this.orderCheckins().bind(this);
-    let checkins = this.props.checkins;
-    // checkins.pop();
-    checkins.reverse();
+    let checkins = this.orderCheckins();
 
     if (!checkins) {
       return <div>Loading...</div>;
     }
-console.log('props in the checkin index', this.props);
+
     return(
       <div className='index-container-checkins'>
       {

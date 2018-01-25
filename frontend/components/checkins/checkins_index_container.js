@@ -17,13 +17,13 @@ import { fetchWhiskies } from '../../actions/whiskey_actions';
 import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
-
+// debugger
   return ({
   checkins: Object.values(state.entities.checkins)
                   .map(checkin => checkin),
   currentLoggedInUser: state.session.currentUser,
   cheers: state.entities.cheers,
-  // recentCheckins: state.entities.checkins.recent_checkins,
+  recentCheckins: state.entities.checkins.recent_checkins,
   });
 };
 
