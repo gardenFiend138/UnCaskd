@@ -132,10 +132,12 @@ class CheckinIndexItem extends React.Component {
 
   editButton() {
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
+      console.log('the props passed to the checkin popover', this.props);
       return(
-        <div className='checkin-popover-container'>
-          <CheckinPopover {...this.props}/>
-        </div>
+          <div className='checkin-popover-container'>
+            <CheckinPopover {...this.props}/>
+          </div>
+
       );
     }
   }
@@ -199,7 +201,8 @@ class CheckinIndexItem extends React.Component {
 
           <div className='checkin-index-buttons '>
 
-            <div>
+            <div className='checkin-index-buttons '>
+              {this.editButton()}
               <button
                 onClick={ this.toggleCheers.bind(this) }
                 className={ this.state.buttonClass }

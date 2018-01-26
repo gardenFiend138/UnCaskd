@@ -9,7 +9,7 @@ class Api::CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id
-    
+
     if @checkin.save!
       render :show
     else
@@ -59,6 +59,6 @@ class Api::CheckinsController < ApplicationController
   private
 
   def checkin_params
-    params.require(:checkin).permit(:body, :rating, :whiskey_id)
+    params.require(:checkin).permit(:body, :rating, :whiskey_id, :id)
   end
 end

@@ -27,6 +27,7 @@ class CheckinIndex extends React.Component {
   // }
 
   orderCheckins() {
+    console.log('checkinsin the props', this.props.checkins);
     if (this.props.checkins.length > 0) {
       let checkins = this.props.checkins[0];
       let order = this.props.recentCheckins;
@@ -41,12 +42,13 @@ class CheckinIndex extends React.Component {
   }
 
   render() {
+    // debugger
     let checkins = this.orderCheckins();
 
     if (!checkins) {
       return <div>Loading...</div>;
     }
-
+console.log('heres your checkin in the index for error', checkins);
     return(
       <div className='index-container-checkins'>
       {

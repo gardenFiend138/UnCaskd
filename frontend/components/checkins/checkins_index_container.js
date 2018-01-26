@@ -17,6 +17,7 @@ import { fetchWhiskies } from '../../actions/whiskey_actions';
 import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
+  console.log('checkins in mstp', state.entities);
 // debugger
   return ({
   checkins: Object.values(state.entities.checkins)

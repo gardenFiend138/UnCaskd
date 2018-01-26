@@ -11,9 +11,10 @@ class CheckinPopover extends React.Component {
       popupVisible: false,
       body: '',
       rating: 50,
-      whiskey_id: this.props.match.params.id,
+      whiskeyId: this.props.match.params.id,
       redirect: false,
-      sliderValue: 50
+
+      update: false,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -21,6 +22,19 @@ class CheckinPopover extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.setState = this.setState.bind(this);
+  }
+
+  componentWillMount() {
+    if (this.props.checkin) {
+      let checkin = this.props.checkin;
+
+      this.setState({
+        body: checkin.body,
+        rating: checkin.rating,
+
+        update: true,
+      });
+    }
   }
 
   handleChange(value) {
@@ -39,10 +53,19 @@ class CheckinPopover extends React.Component {
     e.preventDefault();
     const checkin = {
       body: this.state.body,
-      rating: this.state.sliderValue,
-      whiskey_id: this.state.whiskey_id,
+      rating: this.state.rating,
+      whiskey_id: this.state.whiskeyId,
+      id: this.props.checkin.id
     };
-    this.props.processForm(checkin);
+
+    this.state.update ?
+      this.props.updateCheckin(checkin).bind(this) :
+      this.props.createCheckin(checkin).bind(this);
+    // if (this.state.update) {
+    //   this.props.updateCheckin(checkin);
+    // } else {
+    //   this.props.createCheckin(checkin);
+    // }
     this.props.history.push('/home');
   }
 
@@ -90,9 +113,9 @@ class CheckinPopover extends React.Component {
   }
 
   render() {
-    let { rating } = this.state.sliderValue;
+    let { rating } = this.state.rating;
 
-    console.log(this.props)
+    console.log('here ua props', this.props)
     return (
       <div className="popover-container" ref={node => { this.node = node; }}>
         <button onClick={this.handleClick} >

@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch, { location }) => {
   // const formType = location.pathname.slice(1);
   // const processForm = (formType === 'checkins/new') ? createCheckin : updateCheckin;
   return {
-    processForm: (checkin) => dispatch(createCheckin(checkin)),
-    // formType
+    createCheckin: (checkin) => dispatch(createCheckin(checkin)),
+    updateCheckin: (checkin) => dispatch(updateCheckin(checkin)),
   };
 };
 
