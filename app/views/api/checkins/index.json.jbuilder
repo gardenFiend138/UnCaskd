@@ -21,4 +21,4 @@ json.checkins do
   end
 
 end
-json.recent_checkins @recent_checkins.pluck(:id)
+json.recentCheckins @recent_checkins.pluck(:id)

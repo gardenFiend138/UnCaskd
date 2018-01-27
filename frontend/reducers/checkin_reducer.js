@@ -14,15 +14,14 @@ import { RECEIVE_ALL_USERS } from '../actions/users_actions';
 
 const CheckinReducer = (state = {}, action) => {
   Object.freeze(state);
-console.log('action in the checkin reducer', action);
-console.log('state in the checkin reducer', state);
-// debugger
+
   switch (action.type) {
     case RECEIVE_CHECKIN:
       const checkin = {[action.checkin.id]: action.checkin};
-      const recent_checkins = state.recent_checkins;
+      const recentCheckins = state.recentCheckins;
       const checkins = merge({}, state.checkins, checkin);
-      return {recent_checkins, checkins};
+      
+      return {checkins, recentCheckins};
     case RECEIVE_ALL_CHECKINS:
       return merge({}, action.checkins);
     case RECEIVE_USER_CHECKINS:

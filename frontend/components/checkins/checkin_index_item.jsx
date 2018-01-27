@@ -113,7 +113,6 @@ class CheckinIndexItem extends React.Component {
       }
     });
 
-// debugger
     if (cheered) {
       this.setState({buttonClass: 'cheers-button'}, () => {
         this.props.deleteCheer(cheerId);
@@ -127,7 +126,6 @@ class CheckinIndexItem extends React.Component {
 
         });
     }
-// debugger
   }
 
   editButton() {
