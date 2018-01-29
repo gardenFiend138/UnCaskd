@@ -49,7 +49,7 @@ class WhiskeyShow extends React.Component {
       return checkins.length;
     }
   }
-
+ 
   totalCheckins() {
      const checkins = this.props.whiskey.checkins;
      return checkins.length;

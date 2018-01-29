@@ -14,12 +14,11 @@ class CheckinPopover extends React.Component {
       rating: 50,
       whiskeyId: this.props.match.params.id,
       redirect: false,
-
       update: false,
     };
 
     this.handleClick = this.handleClick.bind(this);
-    // this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.setState = this.setState.bind(this);
@@ -67,6 +66,8 @@ class CheckinPopover extends React.Component {
       };
 
       this.props.updateCheckin(checkin);
+      // this.setState({popupVisible: false});
+      this.handleClick();
         // new Promise( () => this.props.updateCheckin(checkin))
         //   .then(this.setState({popupVisible: false},
         //     () => this.props.history.push('/home'));
@@ -80,6 +81,8 @@ class CheckinPopover extends React.Component {
       };
 
       this.props.createCheckin(checkin);
+      this.setState({popupVisible: false});
+      this.props.history.push('/home');
       // new Promise( () => this.props.createCheckin(checkin))
       // .then(this.setState({popupVisible: false},
       //   () => this.props.history.push('/home'));
@@ -117,14 +120,14 @@ class CheckinPopover extends React.Component {
     }));
   }
 
-  // handleOutsideClick(e) {
-  //   // ignore clicks on the component itself
-  //   if (this.node.contains(e.target)) {
-  //     return;
-  //   }
-  //
-  //   this.handleClick();
-  // }
+  handleOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.handleClick();
+  }
 
   clearErrors() {
     this.props.errors = [];
