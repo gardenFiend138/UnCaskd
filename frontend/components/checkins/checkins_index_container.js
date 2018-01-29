@@ -18,15 +18,21 @@ import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
 
-  const checkins = state.entities.checkins.checkins ?
+  const checkinsKey = state.entities.checkins.checkins ?
     state.entities.checkins.checkins :
     state.entities.checkins;
+
+    console.log('entities in the container MSTPs', state.entities);
+    console.log('checkins in the container MSTPs', state.entities.checkins);
+    console.log('checkins', checkinsKey);
+    console.log('checkins', checkinsKey);
   return ({
   checkins: Object.values(state.entities.checkins)
                   .map(checkin => checkin),
   currentLoggedInUser: state.session.currentUser,
   cheers: state.entities.cheers,
   recentCheckins: state.entities.checkins.recentCheckins,
+  whiskies: state.entities.whiskies,
   });
 };
 
@@ -42,6 +48,7 @@ const mapDispatchToProps = dispatch => ({
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
     .then(dispatch(fetchCheckins())),
   fetchAllCheers: () => dispatch(fetchAllCheers()),
+  fetchWhiskies: () => dispatch(fetchWhiskies()),
 
 });
 

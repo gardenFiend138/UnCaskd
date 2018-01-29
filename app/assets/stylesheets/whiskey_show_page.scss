@@ -5,12 +5,20 @@
 }
 
 .checkin-button {
-  background-color: green;
-  padding: 23px;
   color: white;
-  border-radius: 37px;
-  margin: 23px;
   font-size: 18px;
+  width: 200px;
+  background: #34495e;
+  color: #fff;
+  // display: block;
+  line-height: 40px;
+  text-align: center;
+  padding: 0 7px;
+  margin-top: 66%;
+  // margin-top: 66%;
+  // margin-left: 20px;
+  // margin-top: 155px;
+  // background-color: #3A0505;
 }
 
 .index-container-checkins-whiskey-show {
@@ -25,9 +33,16 @@
   padding: 20px;
 }
 
-.checkin-button:hover {
-  background-color: limegreen;
+.edit-button {
+  font-size: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
+
+// .checkin-button:hover {
+//   background-color: limegreen;
+// }
 
 .whiskey-show {
   display: flex;

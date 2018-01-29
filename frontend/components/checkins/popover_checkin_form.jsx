@@ -81,7 +81,8 @@ class CheckinPopover extends React.Component {
       };
 
       this.props.createCheckin(checkin);
-      this.setState({popupVisible: false});
+      // this.setState({popupVisible: false});
+      this.handleClick();
       this.props.history.push('/home');
       // new Promise( () => this.props.createCheckin(checkin))
       // .then(this.setState({popupVisible: false},
@@ -103,7 +104,7 @@ class CheckinPopover extends React.Component {
   // }
 
   updateRating(e) {
-    console.log(e);
+    // console.log(e);
     // e.preventDefault();
     this.setState({rating: e});
   }
@@ -145,14 +146,24 @@ class CheckinPopover extends React.Component {
     );
   }
 
+  toggleButton() {
+    console.log('update? ', this.state.update);
+    if (this.state.update) {
+      return(<div className='edit-button' onClick={() => window.scrollTo(0,0)}>Edit</div>);
+    }
+
+    return(<div className="checkin-button">Checkin this Whiskey!</div>);
+  }
+
+// now working on getting button styling applied conditionally
   render() {
     let { rating } = this.state.rating;
 
-    console.log('here ua props', this.props)
+    // console.log('here ua props', this.props)
     return (
       <div className="popover-container" ref={node => { this.node = node; }}>
-        <button onClick={this.handleClick} >
-          Checkin In This Whiskey!
+        <button onClick={this.handleClick}>
+          {this.toggleButton()}
         </button>
         {this.state.popupVisible && (
 

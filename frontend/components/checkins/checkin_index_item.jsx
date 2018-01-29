@@ -130,7 +130,7 @@ class CheckinIndexItem extends React.Component {
 
   editButton() {
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
-      console.log('the props passed to the checkin popover', this.props);
+      // console.log('the props passed to the checkin popover', this.props);
       return(
           <div className='checkin-popover-container'>
             <CheckinPopover {...this.props}/>
@@ -143,9 +143,11 @@ class CheckinIndexItem extends React.Component {
 
 // fix how checkins are passed from profile page to do away with ternaries
   render ()  {
-    const checkin = this.props.checkin;
-    const username = checkin.username ? checkin.username : this.props.userName;
-    const whiskey = checkin.whiskey ? checkin.whiskey : this.props.whiskey;
+    console.log('props in the checkin index item', this.props);
+       const checkin = this.props.checkin;
+       const username = checkin.username ? checkin.username : this.props.userName;
+       const whiskey = checkin.whiskey ? checkin.whiskey : this.props.whiskey;
+       // const whiskey = this.props.whiskies[checkin.whiskey_id];
     // const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
 
     // maybe call toggleCheers with this.props.checkin as an argument?
