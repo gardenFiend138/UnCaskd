@@ -134,7 +134,12 @@ class CheckinIndexItem extends React.Component {
       return(
           <div className='checkin-popover-container'>
             <CheckinPopover {...this.props}/>
+            <button onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
+            .then(window.scrollTo(0,0))}>
+              DELETE
+            </button>
           </div>
+
 
       );
     }

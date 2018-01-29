@@ -53,7 +53,9 @@ class Api::CheckinsController < ApplicationController
   def destroy
     checkin = Checkin.find(params[:id])
     checkin.destroy
-    render "api/whiskey/#{@checkin.whiskey_id}"
+    # render :show
+
+    # render "api/whiskey/#{@checkin.whiskey_id}"
   end
 
   private

@@ -25,6 +25,7 @@ class CheckinIndex extends React.Component {
     this.props.fetchWhiskies();
   }
 
+
   // componentDidUpdate() {
   //   this.props.fetchCheckins();
   //   this.props.fetchAllUsers();

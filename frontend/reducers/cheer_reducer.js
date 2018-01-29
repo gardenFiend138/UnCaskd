@@ -9,9 +9,11 @@ import {
 const CheerReducer = (state = {}, action) => {
   Object.freeze(state);
 
+// look into how receive new cheers is being merged in state;
   switch (action.type) {
     case RECEIVE_NEW_CHEERS:
-      return merge({}, state, action.cheer);
+      let newCheer = {[action.cheer.id]: action.cheer};
+      return merge({}, state, newCheer);
     case REMOVE_CHEER:
       let newState = merge({}, state);
       delete newState[action.cheerId.id];

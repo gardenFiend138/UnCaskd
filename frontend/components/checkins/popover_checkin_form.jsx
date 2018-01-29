@@ -149,7 +149,13 @@ class CheckinPopover extends React.Component {
   toggleButton() {
     console.log('update? ', this.state.update);
     if (this.state.update) {
-      return(<div className='edit-button' onClick={() => window.scrollTo(0,0)}>Edit</div>);
+      return(
+        <div className='edit-button' onClick={
+          () => window.scrollTo(0,0)}
+        >
+          Edit
+        </div>
+      );
     }
 
     return(<div className="checkin-button">Checkin this Whiskey!</div>);
