@@ -124,6 +124,7 @@
   display: flex;
   font-size: 10px;
   text-align: center;
+  font-size: 20px;
 }
 
 .edit-button {
@@ -131,6 +132,10 @@
   width: 39px;
   border-radius: 23px;
   text-align: center;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .checkin-description {

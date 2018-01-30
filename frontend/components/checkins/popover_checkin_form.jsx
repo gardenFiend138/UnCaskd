@@ -37,6 +37,18 @@ class CheckinPopover extends React.Component {
     }
   }
 
+  // componentWillMount() {
+  //   if (this.props.checkin) {
+  //     let checkin = this.props.checkin;
+  //
+  //     this.setState({
+  //       body: checkin.body,
+  //       rating: checkin.rating,
+  //       update: true,
+  //     });
+  //   }
+  // }
+
   handleChange(value) {
     this.setState({
       rating: value
@@ -146,6 +158,10 @@ class CheckinPopover extends React.Component {
     );
   }
 
+  buttonText() {
+    return this.state.update? 'Update Checkin' : 'Check In!';
+  }
+
   toggleButton() {
     console.log('update? ', this.state.update);
     if (this.state.update) {
@@ -153,7 +169,7 @@ class CheckinPopover extends React.Component {
         <div className='edit-button' onClick={
           () => window.scrollTo(0,0)}
         >
-          Edit
+          <i class="fa fa-pencil" aria-hidden="true"></i>
         </div>
       );
     }
@@ -203,7 +219,7 @@ class CheckinPopover extends React.Component {
 
                 <div className="checkin-buttons">
                   <button to='/api/checkins' className='checkin-submit' onClick={this.handleSubmit}>
-                    Check In!
+                    {this.buttonText()}
                   </button>
                   <div className='rating-preview-container'>
                     <label>Your Rating</label>

@@ -146,7 +146,7 @@ class CheckinIndexItem extends React.Component {
           className='delete-button'
           onClick={ () => this.setState({deleteModal: 'delete-modal show'})}
         >
-          DELETE
+          <i class="fa fa-trash" aria-hidden="true"></i>
           {this.deleteModal()}
         </button>
       );
@@ -167,7 +167,8 @@ class CheckinIndexItem extends React.Component {
             DELETE
         </button>
         <button onClick={
-          () => this.setState({deleteModal: 'delete-modal'}, () => console.log('state here', this.state.deleteModal))
+          () => this.setState({deleteModal: 'delete-modal'},
+          () => console.log('state here', this.state.deleteModal))
         }>
           CANCEL
         </button>
