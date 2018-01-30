@@ -1,0 +1,14 @@
+.delete-modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: pink;
+  height: 200px;
+  width: 300px;
+}
+
+.show {
+  display: block;
+  position: absolute;
+  /* z-index: 1; */
+}

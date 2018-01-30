@@ -10,7 +10,7 @@ class CheckinIndexItem extends React.Component {
     this.state = {
       cheer: {},
       buttonClass: 'cheers-button',
-      deleteModal: 'delete-modal show',
+      deleteModal: 'delete-modal',
     };
 
     this.checkins = (this.props.checkins) ?
@@ -142,25 +142,38 @@ class CheckinIndexItem extends React.Component {
   deleteButton() {
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
       return(
-        <button className='delete-button'
-          onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
-            .then(window.scrollTo(0,0))}
-            >
-            DELETE
-          </button>
+        <button
+          className='delete-button'
+          onClick={ () => this.setState({deleteModal: 'delete-modal show'})}
+        >
+          DELETE
+          {this.deleteModal()}
+        </button>
       );
     }
   }
-  //
-  // deleteModal() {
-  //   return(
-  //     <div>
-  //       <span>Are you sure you want to delete this checkin?</span>
-  //       <span>This action can't be undone.</span>
-  //
-  //     </div>
-  //   )
-  // }
+
+  deleteModal() {
+    return(
+      <div className={ this.state.deleteModal }>
+        <span>Are you sure you want to delete this checkin?</span>
+        <span>This action can't be undone.</span>
+        <button className='delete-button'
+          onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
+            .then(window.scrollTo(0,0))
+            // .then(this.setState({deleteModal: 'delete-modal'}))
+          }
+            >
+            DELETE
+        </button>
+        <button onClick={
+          () => this.setState({deleteModal: 'delete-modal'}, () => console.log('state here', this.state.deleteModal))
+        }>
+          CANCEL
+        </button>
+      </div>
+    );
+  }
 
 
 // fix how checkins are passed from profile page to do away with ternaries
