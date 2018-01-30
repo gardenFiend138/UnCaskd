@@ -117,9 +117,12 @@
 // }
 
 .delete-button {
-  height: 39px;
-  width: 39px;
-  border-radius: 23px;
+  // height: 39px;
+  // width: 39px;
+  // border-radius: 23px;
+  padding: 10px;
+  display: flex;
+  font-size: 10px;
   text-align: center;
 }
 

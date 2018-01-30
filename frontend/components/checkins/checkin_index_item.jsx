@@ -10,6 +10,7 @@ class CheckinIndexItem extends React.Component {
     this.state = {
       cheer: {},
       buttonClass: 'cheers-button',
+      deleteModal: 'delete-modal show',
     };
 
     this.checkins = (this.props.checkins) ?
@@ -21,8 +22,8 @@ class CheckinIndexItem extends React.Component {
   }
 
   checkState() {
-    // console.log('here is the state in the checkin index item: ',
-      // this.state);
+    console.log('here is the state in the checkin index item: ',
+      this.state);
   }
 
   componentWillMount() {
@@ -130,20 +131,36 @@ class CheckinIndexItem extends React.Component {
 
   editButton() {
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
-      // console.log('the props passed to the checkin popover', this.props);
       return(
-          <div className='checkin-popover-container'>
-            <CheckinPopover {...this.props}/>
-            <button onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
-            .then(window.scrollTo(0,0))}>
-              DELETE
-            </button>
-          </div>
-
-
+        <div className='checkin-popover-container'>
+          <CheckinPopover {...this.props}/>
+        </div>
       );
     }
   }
+
+  deleteButton() {
+    if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
+      return(
+        <button className='delete-button'
+          onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
+            .then(window.scrollTo(0,0))}
+            >
+            DELETE
+          </button>
+      );
+    }
+  }
+  //
+  // deleteModal() {
+  //   return(
+  //     <div>
+  //       <span>Are you sure you want to delete this checkin?</span>
+  //       <span>This action can't be undone.</span>
+  //
+  //     </div>
+  //   )
+  // }
 
 
 // fix how checkins are passed from profile page to do away with ternaries
@@ -208,6 +225,7 @@ class CheckinIndexItem extends React.Component {
 
             <div className='checkin-index-buttons '>
               {this.editButton()}
+              {this.deleteButton()}
               <button
                 onClick={ this.toggleCheers.bind(this) }
                 className={ this.state.buttonClass }
