@@ -15,6 +15,8 @@ class WhiskeyIndex extends React.Component {
   }
 
 
+// possibly abstract out the 'here page' into it's own presentational
+// component
   render() {
   // to remove the array of indices indicating newest whiskies
   let whiskies = this.props.whiskies;
@@ -22,7 +24,6 @@ class WhiskeyIndex extends React.Component {
 
     return(
       <div className="whiskey-index">
-
         <div>
 
           <div className='whiskey-index-header'>

@@ -22,10 +22,10 @@ const mapStateToProps = state => {
     state.entities.checkins.checkins :
     state.entities.checkins;
 
-    console.log('entities in the container MSTPs', state.entities);
-    console.log('checkins in the container MSTPs', state.entities.checkins);
-    console.log('checkins', checkinsKey);
-    console.log('checkins', checkinsKey);
+    // console.log('entities in the container MSTPs', state.entities);
+    // console.log('checkins in the container MSTPs', state.entities.checkins);
+    // console.log('checkins', checkinsKey);
+    // console.log('checkins', checkinsKey);
   return ({
   checkins: Object.values(state.entities.checkins)
                   .map(checkin => checkin),

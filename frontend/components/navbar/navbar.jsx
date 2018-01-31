@@ -23,10 +23,19 @@ const returningUserGreeting = ({ currentUser }) => {
   return 'Welcome back, ';
 };
 
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+  if (scroll > 0) {
+    $('.navbar').addClass('active');
+  } else {
+    $('.navbar').removeClass('active');
+  }
+});
+
 
 const navbarLinks = ({ currentUser, logout }) => {
   return(
-
+    <div>
     <header className='navbar'>
       <ul className='nav-left'>
         <li className='nav-logo'>
@@ -55,6 +64,10 @@ const navbarLinks = ({ currentUser, logout }) => {
         </li>
       </ul>
     </header>
+
+      <div className='here-page'><span></span></div>
+
+    </div>
 
   );
 };

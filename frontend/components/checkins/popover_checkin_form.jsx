@@ -24,8 +24,19 @@ class CheckinPopover extends React.Component {
     this.setState = this.setState.bind(this);
   }
 
-
   componentWillMount() {
+    if (this.props.checkin) {
+      let checkin = this.props.checkin;
+
+      this.setState({
+        body: checkin.body,
+        rating: checkin.rating,
+        update: true,
+      });
+    }
+  }
+
+  componentWillReceiveProps() {
     if (this.props.checkin) {
       let checkin = this.props.checkin;
 
@@ -169,7 +180,7 @@ class CheckinPopover extends React.Component {
         <div className='edit-button' onClick={
           () => window.scrollTo(0,0)}
         >
-          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <i className="fa fa-pencil" aria-hidden="true"></i>
         </div>
       );
     }

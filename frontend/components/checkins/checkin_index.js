@@ -57,6 +57,7 @@ class CheckinIndex extends React.Component {
 console.log('heres your checkin in the index for error', checkins);
     return(
       <div className='index-container-checkins'>
+      
       {
         checkins.map(checkin => (
           <CheckinIndexItem

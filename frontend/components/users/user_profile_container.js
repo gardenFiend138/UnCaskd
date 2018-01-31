@@ -2,7 +2,12 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
 import { fetchAllUsers, fetchUser } from '../../actions/users_actions';
-import { fetchCheckins, checkinsByUser } from '../../actions/checkin_actions';
+import {
+  fetchCheckins,
+  checkinsByUser,
+  deleteCheckin,
+  updateCheckin,
+  } from '../../actions/checkin_actions';
 import {
   createCheer,
   deleteCheer,
@@ -29,6 +34,8 @@ const mapDispatchToProps = dispatch => ({
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId))
     .then(dispatch(fetchAllUsers()))
     .then(dispatch(fetchAllCheers())),
+  deleteCheckin: checkinId => dispatch(deleteCheckin(checkinId)),
+  updateCheckin: checkin => dispatch(updateCheckin(checkin)),
 });
 
 export default connect(

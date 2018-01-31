@@ -140,15 +140,18 @@ class CheckinIndexItem extends React.Component {
   }
 
   deleteButton() {
+    // debugger
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
       return(
-        <button
-          className='delete-button'
-          onClick={ () => this.setState({deleteModal: 'delete-modal show'})}
-        >
-          <i class="fa fa-trash" aria-hidden="true"></i>
+        <div>
+          <button
+            className='delete-button'
+            onClick={ () => this.setState({deleteModal: 'delete-modal show'})}
+          >
+            <i className="fa fa-trash" aria-hidden="true"></i>
+          </button>
           {this.deleteModal()}
-        </button>
+        </div>
       );
     }
   }
@@ -179,7 +182,7 @@ class CheckinIndexItem extends React.Component {
 
 // fix how checkins are passed from profile page to do away with ternaries
   render ()  {
-    console.log('props in the checkin index item', this.props);
+    // console.log('props in the checkin index item', this.props);
        const checkin = this.props.checkin;
        const username = checkin.username ? checkin.username : this.props.userName;
        const whiskey = checkin.whiskey ? checkin.whiskey : this.props.whiskey;
@@ -244,7 +247,7 @@ class CheckinIndexItem extends React.Component {
                 onClick={ this.toggleCheers.bind(this) }
                 className={ this.state.buttonClass }
               >
-              <i className="fa fa-glass" aria-hidden="true"></i>
+                <i className="fa fa-glass" aria-hidden="true"></i>
                 CHEERS!
               </button>
             </div>

@@ -93,6 +93,8 @@ class UserProfile extends React.Component {
                   key={checkin.id}
                   createCheer={this.props.createCheer}
                   deleteCheer={this.props.deleteCheer}
+                  deleteCheckin={this.props.deleteCheckin}
+                  updateCheckin={this.props.updateCheckin}
                 />
               ))
             }
