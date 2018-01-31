@@ -1,14 +1,28 @@
+.delete-modal-container {
+  /* height: 100%;
+  width: 100%;
+  display: flex;
+  opacity: .5; */
+}
+
 .delete-modal {
   display: none;
   align-items: center;
   justify-content: center;
-  background-color: pink;
-  height: 200px;
-  width: 300px;
+  background-color: red;
 }
 
 .show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  left: 0;
   position: absolute;
-  /* z-index: 1; */
+  right: 0;
+  /* top: 10px; */
+  margin: auto;
+  z-index: 3;
+  height: 200px;
+  width: 300px;
+  margin-top: -100px;
+  /* margin-left: -150px; */
 }

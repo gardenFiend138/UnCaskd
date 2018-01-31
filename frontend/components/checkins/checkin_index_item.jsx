@@ -49,6 +49,10 @@ class CheckinIndexItem extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevState) {
+  //   prevState.deleteModal === this.state.deleteModal;
+  // }
+
   formatDateTime() {
 // console.log('why you break', this.props);
     let time = (this.props.checkin.time) ?
@@ -158,23 +162,25 @@ class CheckinIndexItem extends React.Component {
 
   deleteModal() {
     return(
-      <div className={ this.state.deleteModal }>
-        <span>Are you sure you want to delete this checkin?</span>
-        <span>This action can't be undone.</span>
-        <button className='delete-button'
-          onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
-            .then(window.scrollTo(0,0))
-            // .then(this.setState({deleteModal: 'delete-modal'}))
-          }
-            >
-            DELETE
-        </button>
-        <button onClick={
-          () => this.setState({deleteModal: 'delete-modal'},
-          () => console.log('state here', this.state.deleteModal))
-        }>
-          CANCEL
-        </button>
+      <div className='delete-modal-container'>
+        <div className={ this.state.deleteModal }>
+          <span>Are you sure you want to delete this checkin?</span>
+          <span>This action can't be undone.</span>
+          <button className='delete-button'
+            onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
+              .then(window.scrollTo(0,0))
+              // .then(this.setState({deleteModal: 'delete-modal'}))
+            }
+              >
+              DELETE
+          </button>
+          <button onClick={
+            () => this.setState({deleteModal: 'delete-modal'},
+            () => console.log('state here', this.state.deleteModal))
+          }>
+            CANCEL
+          </button>
+        </div>
       </div>
     );
   }
