@@ -12,7 +12,7 @@ import { fetchAllUsers } from '../../../actions/users_actions';
 import { fetchAllCheers } from '../../../actions/cheers_actions';
 
 const mapStateToProps = (state, ownProps) => {
-console.log('whiskey in mstp', state.entities.whiskies[ownProps.match.params.id]);
+// console.log('whiskey in mstp', state.entities.whiskies[ownProps.match.params.id]);
   return ({
   whiskey: state.entities.whiskies[ownProps.match.params.id],
   currentLoggedInUser: state.session.currentUser,

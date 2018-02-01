@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :cheers, only: [:new, :create, :destroy, :index]
     resources :comments, only: [:create, :show, :update, :destroy]
     resource :session, only: [:create, :destroy, :show]
+    resources :whiskey_searches, only: [:index]
   end
 end
