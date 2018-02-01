@@ -13,9 +13,13 @@ class WhiskeySearch extends React.Component {
     this.searchWhiskeyDatabase = this.props.searchWhiskeyDatabase.bind(this);
   }
 
-  // componentDidUpdate() {
-  //   debugger
-  // }
+  componentWillMount() {
+    this.resetSearch();
+  }
+
+  resetSearch() {
+    this.setState({query: ''});
+  }
 
   handleChange(e) {
     e.preventDefault();
@@ -33,13 +37,37 @@ class WhiskeySearch extends React.Component {
   }
 
   render() {
+    let searchResults = this.props.searchResults;
+
     return(
-      <li><input
-        type='text'
-        placeholder='What are you drinking?'
-        onChange={this.update('query')}
-        value={this.state.query}
-        /></li>
+
+      <li className='search-container'>
+        <input
+          type='text'
+          placeholder='What are you drinking?'
+          onChange={this.update('query')}
+          value={this.state.query}
+        />
+        { this.state.query.length > 0 &&
+          <ul className='search-results'>
+            {
+              searchResults.map( result => (
+                <li>
+                  <Link to={`/whiskies/${result.id}`} className='search-result'>
+                    <img
+                      src={`${result.image_url}`}
+                      alt="whiskey_image"
+                      className='search-image'
+                      />
+                      {result.name}
+                    </Link>
+                  </li>
+                ))
+              }
+            </ul>
+
+        }
+      </li>
     );
   }
 }
