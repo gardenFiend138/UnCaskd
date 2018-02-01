@@ -4,7 +4,7 @@ import { searchWhiskeyDatabase }  from '../../actions/whiskey_actions';
 
 
 const mapStateToProps = ({ entities }) => ({
-  // searchResults: Object.keys(entities.searchResults).map(res => res),
+  searchResults: Object.keys(entities.search).map(res => res),
 });
 
 const mapDispatchToProps = dispatch => ({

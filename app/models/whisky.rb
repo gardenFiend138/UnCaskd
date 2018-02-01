@@ -23,7 +23,9 @@ class Whisky < ApplicationRecord
     class_name: 'Checkin'
 
   def self.top_five_results(query_param)
-    param = '%' + query_param.downcase + '%'
+    puts 'query param below'
+puts query_param
+    param = '%' + query_param.to_s.downcase + '%'
     Whisky.where('lower(name) LIKE ?', param).limit(5)
   end
 
