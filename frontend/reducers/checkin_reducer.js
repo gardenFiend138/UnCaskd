@@ -14,7 +14,7 @@ import { RECEIVE_ALL_USERS } from '../actions/users_actions';
 
 const CheckinReducer = (state = {}, action) => {
   Object.freeze(state);
-console.log('action in the checkin reducer', action);
+// console.log('action in the checkin reducer', action);
   switch (action.type) {
     case RECEIVE_CHECKIN:
       const checkin = {[action.checkin.id]: action.checkin};
