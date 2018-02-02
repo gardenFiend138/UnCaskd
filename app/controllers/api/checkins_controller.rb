@@ -54,7 +54,7 @@ class Api::CheckinsController < ApplicationController
     checkin = Checkin.find(params[:id])
     checkin.destroy
     # render :show
-
+    index
     # render "api/whiskey/#{@checkin.whiskey_id}"
   end
 

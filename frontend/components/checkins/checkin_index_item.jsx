@@ -169,14 +169,13 @@ class CheckinIndexItem extends React.Component {
           <button className='delete-button'
             onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
               .then(window.scrollTo(0,0))
-              // .then(this.setState({deleteModal: 'delete-modal'}))
+              .then(this.setState({deleteModal: 'delete-modal'}))
             }
               >
               DELETE
           </button>
           <button onClick={
-            () => this.setState({deleteModal: 'delete-modal'},
-            () => console.log('state here', this.state.deleteModal))
+            () => this.setState({deleteModal: 'delete-modal'})
           }>
             CANCEL
           </button>

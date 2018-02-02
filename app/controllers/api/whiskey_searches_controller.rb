@@ -1,6 +1,11 @@
 class Api::WhiskeySearchesController < ApplicationController
   def index
-    @whiskey_search = Whisky.top_five_results(params[:search][:query])
+    query = params[:search][:query]
+
+    if query != ' '
+      @whiskey_search = Whisky.top_five_results(query)
+    end
+    
     render :index
   end
 

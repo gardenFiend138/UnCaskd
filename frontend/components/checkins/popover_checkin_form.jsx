@@ -106,7 +106,7 @@ class CheckinPopover extends React.Component {
       this.props.createCheckin(checkin);
       // this.setState({popupVisible: false});
       this.handleClick();
-      this.props.history.push('/home');
+      this.props.history.push('/lounge');
       // new Promise( () => this.props.createCheckin(checkin))
       // .then(this.setState({popupVisible: false},
       //   () => this.props.history.push('/home'));
@@ -174,7 +174,7 @@ class CheckinPopover extends React.Component {
   }
 
   toggleButton() {
-    console.log('update? ', this.state.update);
+    
     if (this.state.update) {
       return(
         <div className='edit-button' onClick={

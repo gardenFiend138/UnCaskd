@@ -49,11 +49,11 @@ class UserProfile extends React.Component {
 
   render() {
 // debugger
-
+    if (!this.state.user) {
+      return <div>Loading...</div>
+    }
     const user = this.state.user;
     // const user = this.props.allUsers[this.state.user.id]
-    console.log('user in user profile', user)
-    console.log('props in user profile', this.props)
     const checkins = user.checkins;
     // do this in the jBuilder instead; send over an array of IDs in
     // the order you want, and use that to get the order; just using

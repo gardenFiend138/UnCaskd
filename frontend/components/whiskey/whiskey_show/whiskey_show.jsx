@@ -109,7 +109,7 @@ class WhiskeyShow extends React.Component {
 
     return(
       <div className='whiskey-show'>
-        <div className='whiskey-index-item'>
+        <div className='whiskey-overview'>
 
           <div className='whiskey-photo-checkins'>
             <Link to={`/whiskies/${whiskey.id}`}>
@@ -141,7 +141,7 @@ class WhiskeyShow extends React.Component {
             {this.ratingDisplay()}
 
         </div>
-        <div className='whiskey-description whiskey-index-item'>
+        <div className='whiskey-description whiskey-overview'>
           <span>*From the Distiller:</span>
           <span>"{whiskey.description}"</span>
         </div>

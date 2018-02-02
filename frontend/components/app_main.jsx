@@ -26,7 +26,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const Main = () => (
   <div>
     <Switch>
-      <ProtectedRoute path='/home' component={CheckinIndex} />
+      <ProtectedRoute path='/home' component={WhiskeyIndex} />
       <ProtectedRoute path='/whiskies/new' component={WhiskeyForm} />
       <ProtectedRoute path='/whiskies/:id' component={WhiskeyShow} />
       <ProtectedRoute path='/whiskies' component={WhiskeyIndex} />

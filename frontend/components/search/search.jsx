@@ -18,23 +18,9 @@ class WhiskeySearch extends React.Component {
     this.resetSearch = this.resetSearch.bind(this);
   }
 
-  // componentWillMount() {
-  //   this.resetSearch();
-  // }
-
   resetSearch() {
     this.setState({query: '', firstKeyDown: true});
   }
-
-  // handleChange(e) {
-  //   e.preventDefault();
-  //   console.log('value', e);
-  //
-  //   this.setState({
-  //     query: e,
-  //     firstKeyDown: false
-  //   }, () => this.searchWhiskeyDatabase(this.state.query));
-  // }
 
   update(field) {
     return e => this.setState({
@@ -59,18 +45,12 @@ class WhiskeySearch extends React.Component {
   }
 
   handleOutsideClick(e) {
-    // ignore clicks on the component itself
-    if (this.node.contains(e.target)) {
-      // this.resetSearch();
-      return;
-    }
-
     this.handleClick();
   }
 
   render() {
     let searchResults = this.props.searchResults;
-console.log('here ya are', this);
+
     return(
 
       <li className='search-container' ref={node => { this.node = node; }}>
@@ -85,7 +65,7 @@ console.log('here ya are', this);
           <ul className='search-results'>
             {
               searchResults.map( result => (
-                <li>
+                <li key={`${result.id}`}>
                   <Link to={`/whiskies/${result.id}`} className='search-result'>
                     <img
                       src={`${result.image_url}`}
