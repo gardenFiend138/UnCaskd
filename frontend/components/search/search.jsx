@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 
 
 class WhiskeySearch extends React.Component {
@@ -8,47 +8,80 @@ class WhiskeySearch extends React.Component {
 
     this.state = {
       query: '',
+      firstKeyDown: true,
+      searchVisible: false
     };
 
     this.searchWhiskeyDatabase = this.props.searchWhiskeyDatabase.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
 
-  componentWillMount() {
-    this.resetSearch();
-  }
+  // componentWillMount() {
+  //   this.resetSearch();
+  // }
 
   resetSearch() {
-    this.setState({query: ''});
+    this.setState({query: '', firstKeyDown: true});
   }
 
-  handleChange(e) {
-    e.preventDefault();
-    console.log('value', e);
-
-    this.setState({
-      query: e
-    }, () => this.searchWhiskeyDatabase(this.state.query));
-  }
+  // handleChange(e) {
+  //   e.preventDefault();
+  //   console.log('value', e);
+  //
+  //   this.setState({
+  //     query: e,
+  //     firstKeyDown: false
+  //   }, () => this.searchWhiskeyDatabase(this.state.query));
+  // }
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.currentTarget.value,
+      firstKeyDown: false
     }, () => this.searchWhiskeyDatabase(this.state.query));
+  }
+
+  handleClick() {
+    if (!this.state.searchVisible) {
+      // attach/remove event handler
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+       searchVisible: !prevState.searchVisible,
+    }));
+
+    this.resetSearch();
+  }
+
+  handleOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node.contains(e.target)) {
+      // this.resetSearch();
+      return;
+    }
+
+    this.handleClick();
   }
 
   render() {
     let searchResults = this.props.searchResults;
-
+console.log('here ya are', this);
     return(
 
-      <li className='search-container'>
+      <li className='search-container' ref={node => { this.node = node; }}>
         <input
           type='text'
           placeholder='What are you drinking?'
           onChange={this.update('query')}
           value={this.state.query}
+          onClick={this.handleClick}
         />
-        { this.state.query.length > 0 &&
+        { this.state.query.length > 0 && !this.state.firstKeyDown &&
           <ul className='search-results'>
             {
               searchResults.map( result => (
@@ -64,6 +97,15 @@ class WhiskeySearch extends React.Component {
                   </li>
                 ))
               }
+              {
+                searchResults.length < 1 &&
+                <li>
+                  <Link to={'/whiskies/new'} onClick={this.resetSearch}>
+                    <span>Don't see your drink?</span>
+                    <span>+ Add Whiskey</span>
+                  </Link>
+                </li>
+              }
             </ul>
 
         }
@@ -72,4 +114,4 @@ class WhiskeySearch extends React.Component {
   }
 }
 
-export default WhiskeySearch;
+export default withRouter(WhiskeySearch);

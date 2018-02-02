@@ -6,10 +6,10 @@ import {
 
 const SearchReducer = (state = {}, action) => {
   Object.freeze(state);
-console.log('search action in the reducer', action)
+
   switch (action.type) {
     case RECEIVE_SEARCH_RESULTS:
-      return merge({}, state, action.searchResults);
+      return action.searchResults;
     default:
       return state;
   }

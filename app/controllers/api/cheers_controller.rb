@@ -31,9 +31,8 @@ class Api::CheersController < ApplicationController
 
   def destroy
     @cheer = Cheer.find(params[:id])
-    @cheer.destroy
-
-    if @cheer.user_id == @current_user.id
+    
+    if @cheer.user_id == current_user.id
       @cheer.destroy
     else
       raise ['You can only delete your own cheers']
