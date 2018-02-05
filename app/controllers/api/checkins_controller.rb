@@ -11,7 +11,7 @@ class Api::CheckinsController < ApplicationController
     @checkin.user_id = current_user.id
 
     if @checkin.save!
-      render :show
+      index
     else
 
       render json: @checkin.errors.full_messages, status: 422
@@ -37,7 +37,7 @@ class Api::CheckinsController < ApplicationController
 
   def edit
     @checkin = Checkin.find(params[:id])
-    render :edit
+    render :show
   end
 
   def update

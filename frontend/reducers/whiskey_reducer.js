@@ -18,7 +18,7 @@ const WhiskeyReducer = (state = {}, action) => {
     case RECEIVE_ALL_WHISKIES:
       return merge({}, action.whiskies);
     case RECEIVE_TOP_WHISKIES:
-      return merge({}, action.topWhiskies)
+      return merge({}, action.topWhiskies);
     case RECEIVE_WHISKEY_ERRORS:
       return state;
     case CLEAR_WHISKEY_ERRORS:

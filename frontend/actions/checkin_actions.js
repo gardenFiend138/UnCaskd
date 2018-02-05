@@ -63,8 +63,8 @@ export const fetchCheckin = checkinId => dispatch => (
 );
 
 export const fetchCheckins = () => dispatch => (
-  APIUtil.fetchCheckins().then(checkin => (
-    dispatch(receiveAllCheckins(checkin))
+  APIUtil.fetchCheckins().then(checkins => (
+    dispatch(receiveAllCheckins(checkins))
   ), err => (
     dispatch(receiveCheckinErrors(err.responseJSON))
   ))

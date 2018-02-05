@@ -4,6 +4,7 @@ import {
   createCheckin,
   updateCheckin,
   deleteCheckin,
+  fetchCheckins,
 } from '../../actions/checkin_actions';
 import CheckinPopover from './popover_checkin_form';
 
@@ -17,8 +18,10 @@ const mapDispatchToProps = (dispatch, { location }) => {
   // const formType = location.pathname.slice(1);
   // const processForm = (formType === 'checkins/new') ? createCheckin : updateCheckin;
   return {
-    createCheckin: (checkin) => dispatch(createCheckin(checkin)),
-    updateCheckin: (checkin) => dispatch(updateCheckin(checkin)),
+    createCheckin: (checkin) => dispatch(createCheckin(checkin))
+      .then(dispatch(fetchCheckins())),
+    updateCheckin: (checkin) => dispatch(updateCheckin(checkin))
+      .then(dispatch(fetchCheckins())),
   };
 };
 

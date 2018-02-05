@@ -23,12 +23,12 @@ class CheckinIndex extends React.Component {
     this.props.fetchWhiskies();
   }
 
-  componentWillReceiveProps() {
-    this.props.fetchCheckins();
-    // this.props.fetchAllUsers();
-    // this.props.fetchAllCheers();
-    // this.props.fetchWhiskies();
-  }
+  // componentWillReceiveProps() {
+  //   this.props.fetchCheckins();
+  //   this.props.fetchAllUsers();
+  //   this.props.fetchAllCheers();
+  //   this.props.fetchWhiskies();
+  // }
 
   // shouldComponentUpdate(nextProps) {
   //    return nextProps.checkins !== this.props.checkins;
@@ -53,8 +53,9 @@ class CheckinIndex extends React.Component {
 
   render() {
     // debugger
+    console.log('checkins in the render of index:', this.props.checkins);
     let checkins = this.orderCheckins();
-
+console.log('checkins after calling order checkins:', checkins);
     if (!checkins) {
       return <div>Loading...</div>;
     }

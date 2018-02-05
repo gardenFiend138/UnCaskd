@@ -81,7 +81,6 @@ class WhiskeySearch extends React.Component {
                 searchResults.length < 1 &&
                 <li>
                   <Link to={'/whiskies/new'} onClick={this.resetSearch}>
-                    <span>Don't see your drink?</span>
                     <span>+ Add Whiskey</span>
                   </Link>
                 </li>

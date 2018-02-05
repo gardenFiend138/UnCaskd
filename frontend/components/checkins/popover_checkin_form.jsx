@@ -36,30 +36,6 @@ class CheckinPopover extends React.Component {
     }
   }
 
-  componentWillReceiveProps() {
-    if (this.props.checkin) {
-      let checkin = this.props.checkin;
-
-      this.setState({
-        body: checkin.body,
-        rating: checkin.rating,
-        update: true,
-      });
-    }
-  }
-
-  // componentWillMount() {
-  //   if (this.props.checkin) {
-  //     let checkin = this.props.checkin;
-  //
-  //     this.setState({
-  //       body: checkin.body,
-  //       rating: checkin.rating,
-  //       update: true,
-  //     });
-  //   }
-  // }
-
   handleChange(value) {
     this.setState({
       rating: value
@@ -87,13 +63,10 @@ class CheckinPopover extends React.Component {
         whiskey_id: this.state.whiskeyId,
         id: this.props.checkin.id
       };
-
+console.log('checkin in the popover', checkin);
       this.props.updateCheckin(checkin);
       // this.setState({popupVisible: false});
       this.handleClick();
-        // new Promise( () => this.props.updateCheckin(checkin))
-        //   .then(this.setState({popupVisible: false},
-        //     () => this.props.history.push('/home'));
 
     } else {
 
@@ -102,33 +75,15 @@ class CheckinPopover extends React.Component {
         rating: this.state.rating,
         whiskey_id: this.state.whiskeyId,
       };
-
+console.log('checkin in the popover', checkin);
       this.props.createCheckin(checkin);
       // this.setState({popupVisible: false});
       this.handleClick();
       this.props.history.push('/lounge');
-      // new Promise( () => this.props.createCheckin(checkin))
-      // .then(this.setState({popupVisible: false},
-      //   () => this.props.history.push('/home'));
     }
   }
 
-    // this.state.update ?
-    //   this.props.updateCheckin(checkin) :
-    //   this.props.createCheckin(checkin);
-    // if (this.state.update) {
-    //   this.props.updateCheckin(checkin);
-    // } else {
-    //   this.props.createCheckin(checkin);
-    // }
-    // this.setState({popupVisible: false}, () => this.props.history.push('/home'));
-    // this.props.history.push('/home');
-    // this.forecUpdate().bind(this);
-  // }
-
   updateRating(e) {
-    // console.log(e);
-    // e.preventDefault();
     this.setState({rating: e});
   }
 
@@ -174,7 +129,7 @@ class CheckinPopover extends React.Component {
   }
 
   toggleButton() {
-    
+
     if (this.state.update) {
       return(
         <div className='edit-button' onClick={
@@ -249,23 +204,3 @@ class CheckinPopover extends React.Component {
   }
 }
 export default withRouter(CheckinPopover);
-
-// add in 'label' and 'thumbSize' if you want the tooltip;
-// seems to look cleaner with the rating updating in the large
-// area below
-// <ReactSimpleRange
-//   label
-//   min={1}
-//   max={100}
-//   defaultValue={this.state.rating}
-//   onChange={ e => this.updateRating(e.value)}
-//   onChangeComplete={e => this.handleChange(e.value)}
-//   sliderSize={6}
-//   thumbSize={18}
-//  />
-
-// for the 'add photo button' once that is implemented
-// <button className='checkin-photo-upload'>
-//   <i className="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
-//
-//   </button>

@@ -9,6 +9,7 @@
   top: 41px;
   right: 75px;
   width: 230px;
+  align-items: center;
 }
 
 .search-results > li {
