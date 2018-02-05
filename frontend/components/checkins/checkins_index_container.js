@@ -17,7 +17,7 @@ import { fetchWhiskies } from '../../actions/whiskey_actions';
 import CheckinIndex from './checkin_index';
 
 const mapStateToProps = state => {
-console.log('in the checkins index contianer', state.entities)
+// console.log('in the checkins index contianer', state.entities)
   const checkinsKey = state.entities.checkins.checkins ?
     state.entities.checkins.checkins :
     state.entities.checkins;

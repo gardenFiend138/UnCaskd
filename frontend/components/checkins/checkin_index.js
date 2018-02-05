@@ -53,9 +53,9 @@ class CheckinIndex extends React.Component {
 
   render() {
     // debugger
-    console.log('checkins in the render of index:', this.props.checkins);
+    // console.log('checkins in the render of index:', this.props.checkins);
     let checkins = this.orderCheckins();
-console.log('checkins after calling order checkins:', checkins);
+// console.log('checkins after calling order checkins:', checkins);
     if (!checkins) {
       return <div>Loading...</div>;
     }

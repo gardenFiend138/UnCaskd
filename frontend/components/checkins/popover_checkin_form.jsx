@@ -63,7 +63,7 @@ class CheckinPopover extends React.Component {
         whiskey_id: this.state.whiskeyId,
         id: this.props.checkin.id
       };
-console.log('checkin in the popover', checkin);
+// console.log('checkin in the popover', checkin);
       this.props.updateCheckin(checkin);
       // this.setState({popupVisible: false});
       this.handleClick();
@@ -75,7 +75,7 @@ console.log('checkin in the popover', checkin);
         rating: this.state.rating,
         whiskey_id: this.state.whiskeyId,
       };
-console.log('checkin in the popover', checkin);
+// console.log('checkin in the popover', checkin);
       this.props.createCheckin(checkin);
       // this.setState({popupVisible: false});
       this.handleClick();
