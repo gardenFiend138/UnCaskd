@@ -24,8 +24,8 @@ class Api::CheckinsController < ApplicationController
   end
 
   def index
-    @checkins = Checkin.all
-    @recent_checkins = Checkin.order(updated_at: :desc).limit(20)
+    @checkins = Checkin.all.includes(:cheers)
+    @recent_checkins = Checkin.order(updated_at: :desc).includes(:cheers).limit(20)
     render :index
   end
 

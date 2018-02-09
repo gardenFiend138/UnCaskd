@@ -41,11 +41,3 @@ export const checkinsByUser = userId => (
     url: `api/users/${userId}`
   })
 );
-
-// export const fetchUserCheckins = userId => (
-//   $.ajax({
-//     method: 'GET',
-//     url: `/api/users/${userId}`,
-//     data: {  }
-//   })
-// );

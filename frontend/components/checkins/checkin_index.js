@@ -8,13 +8,6 @@ class CheckinIndex extends React.Component {
 
   }
 
-// had as 'will mount' and was rendering nerw checkin then not rendering it again
-  // componentDidMount() {
-  //   this.props.fetchCheckins();
-  //   this.props.fetchAllUsers();
-  //   this.props.fetchAllCheers();
-  // }
-
 // WTF?! why is the fetch taking so long...new bug now...
   componentWillMount() {
     this.props.fetchCheckins();
@@ -22,17 +15,6 @@ class CheckinIndex extends React.Component {
     this.props.fetchAllCheers();
     this.props.fetchWhiskies();
   }
-
-  // componentWillReceiveProps() {
-  //   this.props.fetchCheckins();
-  //   this.props.fetchAllUsers();
-  //   this.props.fetchAllCheers();
-  //   this.props.fetchWhiskies();
-  // }
-
-  // shouldComponentUpdate(nextProps) {
-  //    return nextProps.checkins !== this.props.checkins;
-  // }
 
   orderCheckins() {
 

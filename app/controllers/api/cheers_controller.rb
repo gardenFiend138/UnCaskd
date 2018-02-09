@@ -20,7 +20,7 @@ class Api::CheersController < ApplicationController
   end
 
   def index
-    @cheers = Cheer.all
+    @cheers = Cheer.all.include(:checkin, :user)
     render :index
   end
 
@@ -31,7 +31,7 @@ class Api::CheersController < ApplicationController
 
   def destroy
     @cheer = Cheer.find(params[:id])
-    
+
     if @cheer.user_id == current_user.id
       @cheer.destroy
     else
