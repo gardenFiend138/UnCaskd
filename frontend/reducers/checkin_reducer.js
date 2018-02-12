@@ -31,10 +31,6 @@ const CheckinReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.checkinId];
       return newState;
-    case RECEIVE_ALL_CHEERS:
-      return state;
-    case RECEIVE_ALL_USERS:
-      return state;
     case RECEIVE_CHECKIN_ERRORS:
       return state;
     default:

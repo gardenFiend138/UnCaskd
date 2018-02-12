@@ -16,8 +16,9 @@ class CheckinIndex extends React.Component {
     this.props.fetchWhiskies();
   }
 
+// move this to a selector, along with others
   orderCheckins() {
-
+// debugger
     if (this.props.checkins.length > 0) {
       let checkins = this.props.checkins[0];
       let order = this.props.recentCheckins;
