@@ -11,7 +11,7 @@ class Api::CheckinsController < ApplicationController
     @checkin.user_id = current_user.id
 
     if @checkin.save!
-      index
+      render :show
     else
 
       render json: @checkin.errors.full_messages, status: 422
@@ -53,9 +53,7 @@ class Api::CheckinsController < ApplicationController
   def destroy
     checkin = Checkin.find(params[:id])
     checkin.destroy
-    # render :show
-    index
-    # render "api/whiskey/#{@checkin.whiskey_id}"
+    render :show
   end
 
   private

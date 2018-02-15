@@ -49,7 +49,7 @@ class CheckinPopover extends React.Component {
   }
 
 // rethink this design here; weren't really taking full
-// advantage of the outside click for ppover, and not sure I really
+// advantage of the outside click for popover, and not sure I really
 // want that behavior anyway; have submit change state to model hidden,
 // and set the modal's className using the state instead
 
@@ -63,9 +63,7 @@ class CheckinPopover extends React.Component {
         whiskey_id: this.state.whiskeyId,
         id: this.props.checkin.id
       };
-// console.log('checkin in the popover', checkin);
       this.props.updateCheckin(checkin);
-      // this.setState({popupVisible: false});
       this.handleClick();
 
     } else {
@@ -116,16 +114,14 @@ class CheckinPopover extends React.Component {
     return(
       <ul className='errors'>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
+          <li key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
   }
 
   buttonText() {
-    return this.state.update? 'Update Checkin' : 'Check In!';
+    return this.state.update ? 'Update Checkin' : 'Check In!';
   }
 
   toggleButton() {
@@ -147,7 +143,6 @@ class CheckinPopover extends React.Component {
   render() {
     let { rating } = this.state.rating;
 
-    // console.log('here ua props', this.props)
     return (
       <div className="popover-container" ref={node => { this.node = node; }}>
         <button onClick={this.handleClick}>
@@ -159,7 +154,12 @@ class CheckinPopover extends React.Component {
             <div className="modal is-open">
               <form className="modal-form">
 
-                <span className="modal-close js-modal-close" onClick={this.handleClick}>&times;</span>
+                <span
+                  className="modal-close js-modal-close"
+                  onClick={this.handleClick}
+                >
+                  &times;
+                </span>
                   {this.renderErrors()}
 
                 <label></label>
@@ -168,7 +168,6 @@ class CheckinPopover extends React.Component {
                   onChange={this.update('body')}
                   placeholder='Tasting Notes: nose, palate, body, balance, finish, etc.'
                 />
-
 
                 <div className='rating-slider'>
                   <ReactSimpleRange
@@ -180,11 +179,15 @@ class CheckinPopover extends React.Component {
                     onChangeComplete={e => this.handleChange(e.value)}
                     sliderSize={6}
                     thumbSize={18}
-                   />
+                  />
                 </div>
 
                 <div className="checkin-buttons">
-                  <button to='/api/checkins' className='checkin-submit' onClick={this.handleSubmit}>
+                  <button
+                    to='/api/checkins'
+                    className='checkin-submit'
+                    onClick={this.handleSubmit}
+                  >
                     {this.buttonText()}
                   </button>
                   <div className='rating-preview-container'>

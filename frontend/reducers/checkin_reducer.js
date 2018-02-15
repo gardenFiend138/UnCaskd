@@ -18,13 +18,13 @@ const CheckinReducer = (state = {}, action) => {
   const recentCheckins = state.recentCheckins;
   switch (action.type) {
     case RECEIVE_CHECKIN:
+
       const checkin = {[action.checkin.id]: action.checkin};
-      const checkins = merge({}, state, checkin);
-      return merge({}, state, checkin);
-      // return {checkins, recentCheckins};
+      const checkins = merge({}, state.checkins, checkin);
+      return {checkins, recentCheckins};
     case RECEIVE_ALL_CHECKINS:
     // console.log('receive all checkins', action);
-      return merge({}, action.checkins);
+      return merge({}, state, action.checkins);
     case RECEIVE_USER_CHECKINS:
       return merge({}, action.checkins);
     case REMOVE_CHECKIN:

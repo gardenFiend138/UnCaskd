@@ -49,10 +49,6 @@ class CheckinIndexItem extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevState) {
-  //   prevState.deleteModal === this.state.deleteModal;
-  // }
-
   formatDateTime() {
 // console.log('why you break', this.props);
     let time = (this.props.checkin.time) ?
@@ -229,7 +225,9 @@ class CheckinIndexItem extends React.Component {
         <div className='checkin-review'>
           <div className='checkin-rating'>
             {this.userRatingDisplay()}
-            <span className='small-text'>Average Rating: {this.averageRating()} </span>
+            <span className='small-text'>
+              Average Rating: {this.averageRating()}
+            </span>
           </div>
 
           <div className='checkin-description'>
@@ -264,19 +262,3 @@ class CheckinIndexItem extends React.Component {
 }
 
 export default withRouter(CheckinIndexItem);
-
-// cheers button, once implemented
-// <div className='checkin-index-buttons'>
-//   <div>
-//     <button className='cheers-button'>CHEERS!</button>
-//   </div>
-// </div>
-// below cheers-button closing div tag
-// <div>
-//   <button className='delete-button' >
-//     <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-//   </button>
-//   <button className='edit-button'>
-//     <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-//   </button>
-// </div>

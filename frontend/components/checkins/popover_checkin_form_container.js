@@ -20,8 +20,8 @@ const mapDispatchToProps = (dispatch, { location }) => {
   return {
     createCheckin: (checkin) => dispatch(createCheckin(checkin))
       .then(dispatch(fetchCheckins())),
-    updateCheckin: (checkin) => dispatch(updateCheckin(checkin))
-      .then(dispatch(fetchCheckins())),
+    updateCheckin: (checkin) => dispatch(updateCheckin(checkin)),
+      // .then(dispatch(fetchCheckins())),
   };
 };
 

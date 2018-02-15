@@ -19,6 +19,7 @@ class WhiskeySearch extends React.Component {
   }
 
   resetSearch() {
+    this.props.searchResults = [];
     this.setState({query: '', firstKeyDown: true});
   }
 

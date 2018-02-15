@@ -8,7 +8,7 @@ class CheckinIndex extends React.Component {
 
   }
 
-// WTF?! why is the fetch taking so long...new bug now...
+// look more into if you should be doing this here, or in componentDidMount
   componentWillMount() {
     this.props.fetchCheckins();
     this.props.fetchAllUsers();

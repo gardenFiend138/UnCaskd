@@ -4,6 +4,8 @@ import {
   RECEIVE_SEARCH_RESULTS,
 } from '../actions/whiskey_actions';
 
+const _nullSearch = {};
+
 const SearchReducer = (state = {}, action) => {
   Object.freeze(state);
 
@@ -11,7 +13,7 @@ const SearchReducer = (state = {}, action) => {
     case RECEIVE_SEARCH_RESULTS:
       return action.searchResults;
     default:
-      return state;
+      return _nullSearch;
   }
 };
 
