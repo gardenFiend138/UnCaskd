@@ -14,12 +14,13 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
+// possibly comment back in fetchCheckins on reateCheckin; still laggy to render 
 const mapDispatchToProps = (dispatch, { location }) => {
   // const formType = location.pathname.slice(1);
   // const processForm = (formType === 'checkins/new') ? createCheckin : updateCheckin;
   return {
-    createCheckin: (checkin) => dispatch(createCheckin(checkin))
-      .then(dispatch(fetchCheckins())),
+    createCheckin: (checkin) => dispatch(createCheckin(checkin)),
+      // .then(dispatch(fetchCheckins())),
     updateCheckin: (checkin) => dispatch(updateCheckin(checkin)),
       // .then(dispatch(fetchCheckins())),
   };
