@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CircularProgressbar from 'react-circular-progressbar';
 import CheckinPopover from './popover_checkin_form_container';
+import CheckinButtons from './checkin_buttons_container';
 
 class CheckinIndexItem extends React.Component {
   constructor(props) {
@@ -255,6 +256,7 @@ class CheckinIndexItem extends React.Component {
               </button>
             </div>
           </div>
+
         </div>
       </div>
       );

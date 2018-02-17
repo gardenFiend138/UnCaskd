@@ -4,7 +4,13 @@ import CheckinPopover from './popover_checkin_form_container';
 
 class CheckinButtons extends React.Compoent {
   constructor(props) {
-    super(props);
+    // super(props);
+
+    this.state = {
+      cheer: {},
+      buttonClass: 'cheers-button',
+      deleteModal: 'delete-modal',
+    };
 
   }
 
@@ -61,5 +67,23 @@ class CheckinButtons extends React.Compoent {
 
   render() {
 
+    return(
+      <div className='checkin-index-buttons '>
+
+        <div className='checkin-index-buttons '>
+          {this.editButton()}
+          {this.deleteButton()}
+          <button
+            onClick={ this.toggleCheers.bind(this) }
+            className={ this.state.buttonClass }
+          >
+            <i className="fa fa-glass" aria-hidden="true"></i>
+            CHEERS!
+          </button>
+        </div>
+      </div>
+    );
   }
 }
+
+export default CheckinButtons;
