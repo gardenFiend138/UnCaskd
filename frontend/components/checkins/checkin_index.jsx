@@ -9,7 +9,7 @@ class CheckinIndex extends React.Component {
   }
 
 // look more into if you should be doing this here, or in componentDidMount
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchCheckins();
     this.props.fetchAllUsers();
     this.props.fetchAllCheers();

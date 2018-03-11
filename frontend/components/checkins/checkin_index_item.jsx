@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CircularProgressbar from 'react-circular-progressbar';
 import CheckinPopover from './popover_checkin_form_container';
-import CheckinButtons from './checkin_buttons_container';
+import CheckinButtons from './checkin_buttons';
 
 class CheckinIndexItem extends React.Component {
   constructor(props) {
@@ -264,3 +264,18 @@ class CheckinIndexItem extends React.Component {
 }
 
 export default withRouter(CheckinIndexItem);
+
+// <div className='checkin-index-buttons '>
+//
+//   <div className='checkin-index-buttons '>
+//     {this.editButton()}
+//     {this.deleteButton()}
+//     <button
+//       onClick={ this.toggleCheers.bind(this) }
+//       className={ this.state.buttonClass }
+//     >
+//       <i className="fa fa-glass" aria-hidden="true"></i>
+//       CHEERS!
+//     </button>
+//   </div>
+// </div>

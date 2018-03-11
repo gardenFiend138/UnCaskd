@@ -16,11 +16,11 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0,0);
+    this.props.fetchAllUsers();
+    this.getCurrentUserProfile(this.props);
   }
 
   componentWillMount() {
-    this.props.fetchAllUsers();
-    this.getCurrentUserProfile(this.props);
   }
 
   componentWillReceiveProps(nextProps) {

@@ -27,13 +27,13 @@ class WhiskeyShow extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0,0);
-  }
-
-  componentWillMount() {
     this.props.fetchAllCheers();
     this.props.fetchAllUsers();
     this.props.fetchCheckins();
     this.props.fetchWhiskey(this.props.match.params.id);
+  }
+
+  componentWillMount() {
   }
 
   averageRating() {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CheckinPopover from './popover_checkin_form_container';
 
-class CheckinButtons extends React.Compoent {
+class CheckinButtons extends React.Component {
   constructor(props) {
-    // super(props);
+    super(props);
 
     this.state = {
       cheer: {},
@@ -86,4 +86,4 @@ class CheckinButtons extends React.Compoent {
   }
 }
 
-export default CheckinButtons;
+export default withRouter(CheckinButtons);
