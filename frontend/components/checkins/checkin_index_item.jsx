@@ -28,22 +28,22 @@ class CheckinIndexItem extends React.Component {
   }
 
   componentWillMount() {
-    let cheeredUsers = this.props.checkin.cheered_users;
-    let userId = this.props.currentLoggedInUser.id;
+    this.checkIfCheered();
+  }
 
-     if (cheeredUsers && cheeredUsers.includes(userId)) {
-      this.setState({buttonClass: 'cheers-button cheers'});
-    } else {
-      this.setState({buttonClass: 'cheers-button'});
-    }
+  componentDidMount() {
+    this.checkIfCheered();
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log('heres the checkin', nextProps.checkin)
-    let cheeredUsers = nextProps.checkin.cheered_users;
-    let userId = nextProps.currentLoggedInUser.id;
+    this.checkIfCheered(nextProps);
+  }
 
-     if (cheeredUsers && cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
+  checkIfCheered(props = this.props) {
+    let cheeredUsers = props.checkin.cheered_users;
+    let userId = props.currentLoggedInUser.id;
+
+    if (cheeredUsers && cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
       this.setState({buttonClass: 'cheers-button cheers'});
     } else {
       this.setState({buttonClass: 'cheers-button'});
