@@ -71,7 +71,7 @@ class WhiskeyForm extends React.Component {
           />
         </div>
 
-        <div classnName='abv-style-row'>
+        <div className='abv-style-row'>
           <input type='text'
             onChange={this.update('abv')}
             value={this.state.abv}

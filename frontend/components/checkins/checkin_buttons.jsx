@@ -25,7 +25,6 @@ class CheckinButtons extends React.Component {
   }
 
   deleteButton() {
-    // debugger
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
       return(
         <div>

@@ -16,10 +16,10 @@ class WhiskeySearch extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
+    this.update = this.update.bind(this);
   }
 
   resetSearch() {
-    this.props.searchResults = [];
     this.setState({query: '', firstKeyDown: true});
   }
 
@@ -79,7 +79,7 @@ class WhiskeySearch extends React.Component {
                 ))
               }
               {
-                searchResults.length < 1 &&
+                searchResults.length < 1 && this.state.firstKeyDown &&
                 <li>
                   <Link to={'/whiskies/new'} onClick={this.resetSearch}>
                     <span>+ Add Whiskey</span>
