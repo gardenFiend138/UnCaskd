@@ -19,7 +19,7 @@ class CheckinIndexItem extends React.Component {
                       this.props.currentUser.checkins;
 
   window.checkState = this.checkState.bind(this);
-
+  this.checkIfCheered = this.checkIfCheered.bind(this);;
   }
 
   checkState() {
@@ -27,17 +27,21 @@ class CheckinIndexItem extends React.Component {
       this.state);
   }
 
-  componentWillMount() {
-    this.checkIfCheered();
+  shouldComponentUpdate() {
+    return this.checkIfCheered;
   }
 
-  componentDidMount() {
-    this.checkIfCheered();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.checkIfCheered(nextProps);
-  }
+  // componentWillMount() {
+  //   this.checkIfCheered();
+  // }
+  //
+  // componentDidMount() {
+  //   this.checkIfCheered();
+  // }
+  //
+  // componentWillReceiveProps(nextProps) {
+  //   this.checkIfCheered(nextProps);
+  // }
 
   checkIfCheered(props = this.props) {
     let cheeredUsers = props.checkin.cheered_users;
@@ -45,6 +49,7 @@ class CheckinIndexItem extends React.Component {
 
     if (cheeredUsers && cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
       this.setState({buttonClass: 'cheers-button cheers'});
+      return true;
     } else {
       this.setState({buttonClass: 'cheers-button'});
     }

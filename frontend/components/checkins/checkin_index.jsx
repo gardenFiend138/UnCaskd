@@ -8,7 +8,6 @@ class CheckinIndex extends React.Component {
 
   }
 
-// look more into if you should be doing this here, or in componentDidMount
   componentDidMount() {
     this.props.fetchCheckins();
     this.props.fetchAllUsers();
@@ -22,7 +21,6 @@ shouldComponentUpdate(nextProps) {
 
 // move this to a selector, along with others
   orderCheckins() {
-// debugger
     if (this.props.checkins.length > 0) {
       let checkins = this.props.checkins[0];
       let order = this.props.recentCheckins;
@@ -39,10 +37,8 @@ shouldComponentUpdate(nextProps) {
   }
 
   render() {
-    // debugger
-    // console.log('checkins in the render of index:', this.props.checkins);
     let checkins = this.orderCheckins();
-// console.log('checkins after calling order checkins:', checkins);
+    
     if (!checkins) {
       return <div>Loading...</div>;
     }
