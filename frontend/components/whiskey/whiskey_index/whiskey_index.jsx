@@ -9,6 +9,10 @@ class WhiskeyIndex extends React.Component {
 
   }
 
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+
   componentDidMount() {
     this.props.fetchWhiskies();
     // this.props.fetchTopRatedWhiskies();
