@@ -48,7 +48,6 @@ class UserProfile extends React.Component {
   }
 
   render() {
-// debugger
     if (!this.state.user) {
       return <div>Loading...</div>
     }
@@ -95,6 +94,7 @@ class UserProfile extends React.Component {
                   deleteCheer={this.props.deleteCheer}
                   deleteCheckin={this.props.deleteCheckin}
                   updateCheckin={this.props.updateCheckin}
+                  fetchCheckin={this.props.fetchCheckin}
                 />
               ))
             }

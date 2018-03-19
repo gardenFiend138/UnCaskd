@@ -20,7 +20,7 @@ class CheckinIndexItem extends React.Component {
 
   window.checkState = this.checkState.bind(this);
   this.checkIfCheered = this.checkIfCheered.bind(this);
-  this.fetchCheckin = this.props.fetchCheckin.bind(this);
+
   }
 
   checkState() {
@@ -34,7 +34,7 @@ class CheckinIndexItem extends React.Component {
   // }
 
   componentDidMount() {
-    this.fetchCheckin(this.props.checkin.id);
+    this.props.fetchCheckin(this.props.checkin.id);
     this.checkIfCheered();
   }
 
@@ -122,16 +122,15 @@ class CheckinIndexItem extends React.Component {
 
     if (cheered) {
       this.setState({buttonClass: 'cheers-button'}, () =>
-      this.props.deleteCheer(cheerId)
-    );
+        this.props.deleteCheer(cheerId));
 
     } else {
       this.setState({buttonClass: 'cheers-button cheers'}, () => {
           this.props.createCheer({
             user_id: this.props.currentLoggedInUser.id,
-            checkin_id: this.props.checkin.id});
-
+            checkin_id: this.props.checkin.id,
         });
+      });
     }
   }
 

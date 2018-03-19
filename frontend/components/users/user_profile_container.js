@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 import { fetchAllUsers, fetchUser } from '../../actions/users_actions';
 import {
   fetchCheckins,
+  fetchCheckin,
   checkinsByUser,
   deleteCheckin,
   updateCheckin,
@@ -25,6 +26,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
   fetchCheckins: () => dispatch(fetchCheckins()),
+  fetchCheckin: (checkinId) => dispatch(fetchCheckin(checkinId)),
   checkinsByUser: (userId) => dispatch(checkinsByUser(userId)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   fetchUser: (userId) => dispatch(fetchUser(userId)),
