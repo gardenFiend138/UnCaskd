@@ -141,7 +141,6 @@ class CheckinIndexItem extends React.Component {
   }
 
   deleteButton() {
-    // debugger
     if (this.props.currentLoggedInUser.id === this.props.checkin.user_id) {
       return(
         <div>
@@ -184,16 +183,12 @@ class CheckinIndexItem extends React.Component {
 
 // fix how checkins are passed from profile page to do away with ternaries
   render ()  {
-    // console.log('props in the checkin index item', this.props);
        const checkin = this.props.checkin;
        const username = checkin.username ? checkin.username : this.props.userName;
        const whiskey = checkin.whiskey ? checkin.whiskey : this.props.whiskey;
        // const whiskey = this.props.whiskies[checkin.whiskey_id];
     // const deleteCheckin = (this.props.deleteCheckin) ? this.props.deleteCheckin : this.deleteCheckin;
 
-    // maybe call toggleCheers with this.props.checkin as an argument?
-
-    // console.log('checkin in the index item: ', checkin);
     return(
       <div className='checkin-index-item'>
         <div className='checkin-info'>
