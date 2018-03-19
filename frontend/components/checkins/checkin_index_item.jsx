@@ -19,7 +19,8 @@ class CheckinIndexItem extends React.Component {
                       this.props.currentUser.checkins;
 
   window.checkState = this.checkState.bind(this);
-  this.checkIfCheered = this.checkIfCheered.bind(this);;
+  this.checkIfCheered = this.checkIfCheered.bind(this);
+  this.fetchCheckin = this.props.fetchCheckin.bind(this);
   }
 
   checkState() {
@@ -27,18 +28,20 @@ class CheckinIndexItem extends React.Component {
       this.state);
   }
 
-  shouldComponentUpdate() {
-    return this.checkIfCheered;
-  }
 
   // componentWillMount() {
   //   this.checkIfCheered();
   // }
-  //
-  // componentDidMount() {
-  //   this.checkIfCheered();
-  // }
-  //
+
+  componentDidMount() {
+    this.fetchCheckin(this.props.checkin.id);
+    this.checkIfCheered();
+  }
+
+  shouldComponentUpdate(nextState) {
+    return this.state.buttonClass !== nextState.buttonClass;
+  }
+
   // componentWillReceiveProps(nextProps) {
   //   this.checkIfCheered(nextProps);
   // }
@@ -49,14 +52,12 @@ class CheckinIndexItem extends React.Component {
 
     if (cheeredUsers && cheeredUsers.includes(this.props.currentLoggedInUser.id)) {
       this.setState({buttonClass: 'cheers-button cheers'});
-      return true;
     } else {
       this.setState({buttonClass: 'cheers-button'});
     }
   }
 
   formatDateTime() {
-// console.log('why you break', this.props);
     let time = (this.props.checkin.time) ?
                  this.props.checkin.time :
                  this.props.checkin.updated_at;
@@ -107,9 +108,8 @@ class CheckinIndexItem extends React.Component {
     let cheeredUsers = this.props.checkin.cheered_users;
     let userId = this.props.currentLoggedInUser.id;
     let cheered = false;
-    let cheerId = null;
-    // e.preventDefault();
-// debugger
+    let cheerId;
+
     this.props.checkin.cheers.forEach( cheer => {
 
       // check to see if the currentUser has liked a checkin;
@@ -121,10 +121,10 @@ class CheckinIndexItem extends React.Component {
     });
 
     if (cheered) {
-      this.setState({buttonClass: 'cheers-button'}, () => {
-        this.props.deleteCheer(cheerId);
+      this.setState({buttonClass: 'cheers-button'}, () =>
+      this.props.deleteCheer(cheerId)
+    );
 
-      });
     } else {
       this.setState({buttonClass: 'cheers-button cheers'}, () => {
           this.props.createCheer({

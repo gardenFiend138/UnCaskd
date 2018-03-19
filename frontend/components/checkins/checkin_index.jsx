@@ -38,7 +38,7 @@ shouldComponentUpdate(nextProps) {
 
   render() {
     let checkins = this.orderCheckins();
-    
+
     if (!checkins) {
       return <div>Loading...</div>;
     }
@@ -59,6 +59,7 @@ shouldComponentUpdate(nextProps) {
             deleteCheer={this.props.deleteCheer}
             currentLoggedInUser={this.props.currentLoggedInUser}
             fetchCheckins={this.props.fetchCheckins}
+            fetchCheckin={this.props.fetchCheckin}
           />
         ))
       }

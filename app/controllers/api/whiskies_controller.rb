@@ -21,10 +21,9 @@ class Api::WhiskiesController < ApplicationController
   end
 
   def index
-    @newest_whiskies = Whisky.order(created_at: :desc)
+    @newest_whiskies = Whisky.order(created_at: :desc).all
     @whiskies = Whisky.all
-    # @whiskey_search = Whisky.where(
-    #   'name LIKE ?', "%#{sanatize_sql_like(params[:query])}%" )
+
     render :index
   end
 
