@@ -79,7 +79,7 @@ class WhiskeySearch extends React.Component {
                 ))
               }
               {
-                searchResults.length < 1 && this.state.firstKeyDown &&
+                searchResults.length < 1 && !this.state.firstKeyDown &&
                 <li>
                   <Link to={'/whiskies/new'} onClick={this.resetSearch}>
                     <span>+ Add Whiskey</span>

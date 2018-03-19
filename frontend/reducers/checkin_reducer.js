@@ -18,7 +18,6 @@ const CheckinReducer = (state = {}, action) => {
   const recentCheckins = state.recentCheckins;
   switch (action.type) {
     case RECEIVE_CHECKIN:
-
       const checkin = {[action.checkin.id]: action.checkin};
       const checkins = merge({}, state.checkins, checkin);
       return {checkins, recentCheckins};
@@ -28,6 +27,7 @@ const CheckinReducer = (state = {}, action) => {
     case RECEIVE_USER_CHECKINS:
       return merge({}, action.checkins);
     case REMOVE_CHECKIN:
+    console.log(action)
       let newState = merge({}, state);
       delete newState[action.checkinId];
       return newState;

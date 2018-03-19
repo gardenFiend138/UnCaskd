@@ -245,7 +245,7 @@ class CheckinIndexItem extends React.Component {
 
             <div className='checkin-index-buttons '>
               {this.editButton()}
-              {this.deleteButton()}
+              
               <button
                 onClick={ this.toggleCheers.bind(this) }
                 className={ this.state.buttonClass }
