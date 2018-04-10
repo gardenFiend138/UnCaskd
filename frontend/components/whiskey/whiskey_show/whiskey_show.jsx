@@ -26,7 +26,6 @@ class WhiskeyShow extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0,0);
     this.props.fetchAllCheers();
     this.props.fetchAllUsers();
     this.props.fetchCheckins();
@@ -34,6 +33,7 @@ class WhiskeyShow extends React.Component {
   }
 
   componentWillMount() {
+    window.scrollTo(0,0);
   }
 
   averageRating() {
@@ -45,13 +45,12 @@ class WhiskeyShow extends React.Component {
       ratings = ratings.reduce( (prev, curr) => prev + curr);
       ratings = ratings / checkins.length;
       return Math.round(ratings);
-    } else {
-      return checkins.length;
     }
+
+    return checkins.length;
   }
 
   totalCheckins() {
-    // console.log('props in the whiskey show', this.props);
      const checkins = this.props.whiskey.checkins;
      return checkins.length;
   }

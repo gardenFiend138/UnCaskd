@@ -53,3 +53,8 @@
 .CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
   stroke: transparent;
 }
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+}

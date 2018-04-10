@@ -1,5 +1,4 @@
 import React from 'react';
-// import RatingSlider from './slider';
 import ReactSimpleRange from 'react-simple-range';
 
 import { Link, withRouter, Redirect } from 'react-router';

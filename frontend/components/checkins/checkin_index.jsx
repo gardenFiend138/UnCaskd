@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CheckinIndexItem from './checkin_index_item';
+import CircularProgressbar from 'react-circular-progressbar';
 
 class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.getLoadingPercentage = this.getLoadingPercentage.bind(this);
   }
 
   componentWillMount() {
@@ -40,35 +42,47 @@ shouldComponentUpdate(nextProps) {
     }
   }
 
+  getLoadingPercentage() {
+    return (
+      <CircularProgressbar
+        percentage={99}
+        initialAnimation={true}
+        textForPercentage={ (WAT) => `${WAT}`}
+        className="loading-spinner"
+      />
+    );
+  }
+
   render() {
     let checkins = this.orderCheckins();
 
-    if (!checkins) {
-      return <div>Loading...</div>;
-    }
-
     return(
-      <div className='index-container-checkins'>
-
-      {
-        checkins.map(checkin => (
-          <CheckinIndexItem
-            checkin={checkin}
-            checkins={checkins}
-            key={checkin.id}
-            whiskey={checkin.whiskey}
-            editCheckin={this.props.updateCheckin}
-            deleteCheckin={this.props.deleteCheckin}
-            createCheer={this.props.createCheer}
-            deleteCheer={this.props.deleteCheer}
-            currentLoggedInUser={this.props.currentLoggedInUser}
-            fetchCheckins={this.props.fetchCheckins}
-            fetchCheckin={this.props.fetchCheckin}
-          />
-        ))
+      <div>
+      {!checkins &&
+        <div className='rating'>
+          {this.getLoadingPercentage()}
+        </div>
       }
+        <div className='index-container-checkins'>
+          {checkins &&
+            checkins.map(checkin => (
+              <CheckinIndexItem
+                checkin={checkin}
+                checkins={checkins}
+                key={checkin.id}
+                whiskey={checkin.whiskey}
+                editCheckin={this.props.updateCheckin}
+                deleteCheckin={this.props.deleteCheckin}
+                createCheer={this.props.createCheer}
+                deleteCheer={this.props.deleteCheer}
+                currentLoggedInUser={this.props.currentLoggedInUser}
+                fetchCheckins={this.props.fetchCheckins}
+                fetchCheckin={this.props.fetchCheckin}
+              />
+            ))
+          }
+        </div>
       </div>
-
     );
   }
 }
