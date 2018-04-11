@@ -16,7 +16,6 @@ class WhiskeyIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchWhiskies();
-    // this.props.fetchTopRatedWhiskies();
   }
 
 
@@ -42,7 +41,7 @@ class WhiskeyIndex extends React.Component {
             </div>
           </div>
 
-          {!whiskies &&
+          {!whiskies.length &&
             <LoadingSpinner />
           }
           <ul className='whiskey-index-container'>

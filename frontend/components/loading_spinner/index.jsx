@@ -4,12 +4,14 @@ import CircularProgressbar from 'react-circular-progressbar';
 class LoadingSpinner extends React.Component {
   render() {
     return (
-      <div className='loading-spinner-container'>
-        <CircularProgressbar
-          percentage={99}
-          initialAnimation={true}
-          className="loading-spinner"
-        />
+      <div className='loading-spinner-wrapper'>
+        <div className='loading-spinner-container'>
+          <CircularProgressbar
+            percentage={100}
+            initialAnimation={true}
+            className="loading-spinner"
+          />
+        </div>
       </div>
     );
   }
