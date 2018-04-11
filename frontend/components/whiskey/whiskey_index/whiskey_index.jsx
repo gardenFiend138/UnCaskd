@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../../navbar/navbar_container';
 import WhiskeyIndexItem from './whiskey_index_item';
+import LoadingSpinner from '../../loading_spinner';
 
 class WhiskeyIndex extends React.Component {
   constructor(props) {
@@ -41,7 +42,11 @@ class WhiskeyIndex extends React.Component {
             </div>
           </div>
 
+          {!whiskies &&
+            <LoadingSpinner />
+          }
           <ul className='whiskey-index-container'>
+
             {
               whiskies.map(whiskey => (
                 <WhiskeyIndexItem

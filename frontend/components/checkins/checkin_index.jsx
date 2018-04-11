@@ -2,12 +2,11 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import CheckinIndexItem from './checkin_index_item';
 import CircularProgressbar from 'react-circular-progressbar';
+import LoadingSpinner from '../loading_spinner';
 
 class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
-
-    this.getLoadingPercentage = this.getLoadingPercentage.bind(this);
   }
 
   componentWillMount() {
@@ -42,28 +41,15 @@ shouldComponentUpdate(nextProps) {
     }
   }
 
-  getLoadingPercentage() {
-    return (
-      <CircularProgressbar
-        percentage={99}
-        initialAnimation={true}
-        textForPercentage={ (WAT) => `${WAT}`}
-        className="loading-spinner"
-      />
-    );
-  }
-
   render() {
     let checkins = this.orderCheckins();
 
     return(
-      <div>
+
+      <div className='index-container-checkins'>
       {!checkins &&
-        <div className='rating'>
-          {this.getLoadingPercentage()}
-        </div>
+          <LoadingSpinner />
       }
-        <div className='index-container-checkins'>
           {checkins &&
             checkins.map(checkin => (
               <CheckinIndexItem
@@ -81,7 +67,6 @@ shouldComponentUpdate(nextProps) {
               />
             ))
           }
-        </div>
       </div>
     );
   }

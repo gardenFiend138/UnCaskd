@@ -27,6 +27,11 @@ class Whisky < ApplicationRecord
       Whisky.where('lower(name) LIKE ?', param).limit(5)
   end
 
+  # function for top 5 rated; need to get the associated checkins,
+  # sum the ratings for those checkins, find the average, then sort
+  # by those ratings
+
+
   # has_many :users,
   #   through: :checkins,
   #   source: :user

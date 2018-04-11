@@ -62,7 +62,7 @@ class WhiskeySearch extends React.Component {
           value={this.state.query}
           onClick={this.handleClick}
         />
-        { this.state.query.length > 0 && !this.state.firstKeyDown &&
+      {this.state.query.length > 0 && !this.state.firstKeyDown &&
           <ul className='search-results'>
             {
               searchResults.map( result => (
