@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../navbar/navbar_container';
 import CheckinIndexItem from '../checkins/checkin_index_item';
 import CheckinIndex from '../checkins/checkin_index';
+import LoadingSpinner from '../loading_spinner';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -49,8 +50,9 @@ class UserProfile extends React.Component {
 
   render() {
     if (!this.state.user) {
-      return <div>Loading...</div>
+      return <LoadingSpinner />
     }
+
     const user = this.state.user;
     // const user = this.props.allUsers[this.state.user.id]
     const checkins = user.checkins;
@@ -78,7 +80,6 @@ class UserProfile extends React.Component {
             </ul>
           </div>
         </div>
-
           <div className='index-container-checkins-user-show'>
             {
               checkins.map(checkin => (

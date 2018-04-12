@@ -7,7 +7,7 @@ class LoadingSpinner extends React.Component {
       <div className='loading-spinner-wrapper'>
         <div className='loading-spinner-container'>
           <CircularProgressbar
-            percentage={100}
+            percentage={99}
             initialAnimation={true}
             className="loading-spinner"
           />
