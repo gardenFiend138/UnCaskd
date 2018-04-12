@@ -64,7 +64,6 @@ class UserProfile extends React.Component {
 
     return(
       <div className="user-profile-container" >
-
         <div className='user-profile-header'>
 
           <div className='user-personal-info'>
@@ -94,7 +93,7 @@ class UserProfile extends React.Component {
                   createCheer={this.props.createCheer}
                   deleteCheer={this.props.deleteCheer}
                   deleteCheckin={this.props.deleteCheckin}
-                  updateCheckin={this.props.updateCheckin}
+                  updateCheckin={() => this.props.updateCheckin}
                   fetchCheckin={this.props.fetchCheckin}
                 />
               ))

@@ -10,19 +10,18 @@ import{
 
 import { RECEIVE_ALL_CHEERS } from '../actions/cheers_actions';
 import { RECEIVE_ALL_USERS } from '../actions/users_actions';
-// import { RECEIVE_NEW_CHEERS } from '../actions/cheers_actions';
 
 const CheckinReducer = (state = {}, action) => {
   Object.freeze(state);
-// console.log('action in the checkin reducer', action);
+
   const recentCheckins = state.recentCheckins;
   switch (action.type) {
     case RECEIVE_CHECKIN:
       const checkin = {[action.checkin.id]: action.checkin};
-      const checkins = merge({}, state.checkins, checkin);
+      const checkins = Object.assign({}, state.checkins, checkin);
       return {checkins, recentCheckins};
     case RECEIVE_ALL_CHECKINS:
-    // console.log('receive all checkins', action);
+
       return merge({}, state, action.checkins);
     case RECEIVE_USER_CHECKINS:
       return merge({}, action.checkins);

@@ -71,8 +71,8 @@ export const fetchCheckins = () => dispatch => (
 );
 
 export const deleteCheckin = checkinId => dispatch => (
-  APIUtil.deleteCheckin(checkinId).then(checkin => (
-    dispatch(removeCheckin(checkin))
+  APIUtil.deleteCheckin(checkinId).then(checkinId => (
+    dispatch(removeCheckin(checkinId))
   ), err => (
     dispatch(receiveCheckinErrors(err.responseJSON))
   ))

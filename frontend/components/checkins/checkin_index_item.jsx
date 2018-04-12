@@ -151,13 +151,19 @@ class CheckinIndexItem extends React.Component {
           <button
             className='delete-button'
             onClick={ () => this.setState({deleteModal: 'delete-modal show'})}
-          >
+          >delete
             <i className="fa fa-trash" aria-hidden="true"></i>
           </button>
           {this.deleteModal()}
         </div>
       );
     }
+  }
+
+  handleClick() {
+    this.props.deleteCheckin(this.props.checkin.id)
+      .then(window.scrollTo(0,0))
+      .then(this.setState({deleteModal: 'delete-modal'}));
   }
 
   deleteModal() {
@@ -167,16 +173,13 @@ class CheckinIndexItem extends React.Component {
           <span>Are you sure you want to delete this checkin?</span>
           <span>This action can't be undone.</span>
           <button className='delete-button'
-            onClick={ () => this.props.deleteCheckin(this.props.checkin.id)
-              .then(window.scrollTo(0,0))
-              .then(this.setState({deleteModal: 'delete-modal'}))
-            }
+            onClick={ () => this.handleClick() }
               >
               DELETE
           </button>
-          <button onClick={
-            () => this.setState({deleteModal: 'delete-modal'})
-          }>
+          <button
+            onClick={ () => this.setState({deleteModal: 'delete-modal'}) }
+          >
             CANCEL
           </button>
         </div>
@@ -245,7 +248,7 @@ class CheckinIndexItem extends React.Component {
 
             <div className='checkin-index-buttons '>
               {this.editButton()}
-              
+              {this.deleteButton()}
               <button
                 onClick={ this.toggleCheers.bind(this) }
                 className={ this.state.buttonClass }
