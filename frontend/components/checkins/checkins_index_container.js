@@ -34,16 +34,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchCheckins: () => dispatch(fetchCheckins()),
-  fetchCheckin: id => dispatch(fetchCheckin(id)),
   updateCheckin: checkin => dispatch(updateCheckin(checkin)),
   deleteCheckin: id => dispatch(deleteCheckin(id)),
-  checkinsByUser: id => dispatch(checkinsByUser(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   createCheer: cheer => dispatch(createCheer(cheer)),
   deleteCheer: cheerId => dispatch(deleteCheer(cheerId)),
   fetchAllCheers: () => dispatch(fetchAllCheers()),
   fetchWhiskies: () => dispatch(fetchWhiskies()),
-
 });
 
 export default connect(

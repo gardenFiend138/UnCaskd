@@ -27,8 +27,8 @@ const CheckinReducer = (state = {}, action) => {
       return merge({}, action.checkins);
     case REMOVE_CHECKIN:
     console.log(action)
-      let newState = merge({}, state);
-      delete newState[action.checkinId];
+      let newState = Object.assign({}, state);
+      delete newState.checkins[action.checkinId];
       return newState;
     case RECEIVE_CHECKIN_ERRORS:
       return state;

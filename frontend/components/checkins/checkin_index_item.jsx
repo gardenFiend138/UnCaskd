@@ -14,12 +14,13 @@ class CheckinIndexItem extends React.Component {
       deleteModal: 'delete-modal',
     };
 
-    this.checkins = (this.props.checkins) ?
+    this.checkins = this.props.checkins ?
                       this.props.checkins :
                       this.props.currentUser.checkins;
 
   window.checkState = this.checkState.bind(this);
   this.checkIfCheered = this.checkIfCheered.bind(this);
+  this.handleClick = this.handleClick.bind(this);
 
   }
 
@@ -34,11 +35,11 @@ class CheckinIndexItem extends React.Component {
   // }
 
   componentDidMount() {
-    this.props.fetchCheckin(this.props.checkin.id);
+    // this.props.fetchCheckin(this.props.checkin.id);
     this.checkIfCheered();
   }
 
-  shouldComponentUpdate(nextState) {
+  shouldComponentUpdate(nextState, nextProps) {
     return this.state.buttonClass !== nextState.buttonClass;
   }
 

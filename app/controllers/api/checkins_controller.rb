@@ -51,8 +51,10 @@ class Api::CheckinsController < ApplicationController
   end
 
   def destroy
-    checkin = Checkin.find(params[:id])
-    checkin.destroy
+    @checkin = Checkin.find(params[:id])
+    @checkin.destroy
+
+    render :show
   end
 
   private
