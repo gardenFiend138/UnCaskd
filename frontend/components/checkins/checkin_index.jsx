@@ -8,7 +8,7 @@ class CheckinIndex extends React.Component {
   }
 
   componentWillMount() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }
 
   componentDidMount() {
