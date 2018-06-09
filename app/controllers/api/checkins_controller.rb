@@ -25,7 +25,7 @@ class Api::CheckinsController < ApplicationController
 
   def index
     @checkins = Checkin.all.includes(:cheers)
-    @recent_checkins = Checkin.order(updated_at: :desc).includes(:cheers).limit(20)
+    @recent_checkins = recent_checkins
     render :index
   end
 
@@ -44,10 +44,15 @@ class Api::CheckinsController < ApplicationController
     @checkin = Checkin.find(params[:id])
 
     if @checkin.update_attributes(checkin_params)
+      @recent_checkins = recent_checkins
       render :show
     else
       render json: @checkin.errors.full_messages, status: 422
     end
+  end
+
+  def recent_checkins
+    Checkin.order(updated_at: :desc).includes(:cheers).limit(20)
   end
 
   def destroy

@@ -22,10 +22,9 @@ const mapStateToProps = state => {
   const checkins = Object.values(state.entities.checkins)
                   .map(checkin => checkin);
   return ({
+    recentCheckins: recentCheckins,
     checkins: orderCheckins(checkins, recentCheckins),
     currentLoggedInUser: state.session.currentUser,
-    cheers: state.entities.cheers,
-    whiskies: state.entities.whiskies,
   });
 };
 

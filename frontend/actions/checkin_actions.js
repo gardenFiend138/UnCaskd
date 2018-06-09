@@ -13,7 +13,7 @@ export const clearCheckinErrors = () => ({
 
 export const receiveCheckin = checkin => ({
   type: RECEIVE_CHECKIN,
-  checkin
+  checkin,
 });
 
 export const receiveAllCheckins = checkins => ({

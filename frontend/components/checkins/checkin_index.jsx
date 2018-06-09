@@ -19,12 +19,14 @@ class CheckinIndex extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.checkins !== this.props.checkins;
+    const { checkins, recentCheckins } = this.props;
+
+    return nextProps.checkins !== checkins || nextProps.recentCheckins !== recentCheckins;
   }
 
   render() {
     const { checkins } = this.props;
-
+console.log(checkins);
     return(
       <div className='index-container-checkins'>
       { !checkins &&
