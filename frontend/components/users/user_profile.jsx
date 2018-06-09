@@ -4,6 +4,8 @@ import Navbar from '../navbar/navbar_container';
 import CheckinIndexItem from '../checkins/checkin_index_item';
 import CheckinIndex from '../checkins/checkin_index';
 import LoadingSpinner from '../loading_spinner';
+import { userCheckins } from '../checkins/helpers/checkin_helpers';
+import { uniqueCheckins } from './helpers/users_helpers';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -11,58 +13,54 @@ class UserProfile extends React.Component {
 
     this.state = {
       user: null,
+      allUserCheckinIds: [],
     };
-
   }
 
   componentDidMount() {
-    window.scrollTo(0,0);
+    this.props.fetchCheckins();
     this.props.fetchAllUsers();
-    this.getCurrentUserProfile(this.props);
+    this.props.fetchUser(this.props.match.params.id);
+    this.getCurrentUser(this.props);
   }
 
-  componentWillMount() {
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // this.props.fetchAllUsers();
-    this.getCurrentUserProfile(nextProps);
-  }
-
-  getCurrentUserProfile(someProps) {
-
-    this.setState(
-      {user: someProps.allUsers[this.props.match.params.id]}
+  shouldComponentUpdate(nextProps, nextState) {
+    return (this.props.match.params.id !== nextProps.match.params.id
+      || this.state.allUserCheckinIds !== nextState.allUserCheckinIds
+      || nextProps.checkins !== this.props.checkins
+      || nextProps.recentCheckins !== this.props.recentCheckins
     );
   }
 
-  uniqueCheckins() {
-    let result = [];
+  componentDidUpdate(prevState) {
+    if (prevState.user !== this.state.user) {
+      window.scrollTo(0,0);
+    }
+  }
 
-    this.state.user.checkins.forEach( checkin => {
-      if (!result.includes(checkin.whiskey_id)) {
-        result.push(checkin.whiskey_id);
-      }
+  componentWillReceiveProps(nextProps) {
+    this.getCurrentUser(nextProps);
+  }
+
+  componentWillUnmount() {
+    this.props.clearCurrentUserProfile();
+  }
+
+  getCurrentUser(props) {
+    const user = props.allUsers && props.allUsers[props.match.params.id];
+    user && this.setState({
+      user,
+      allUserCheckinIds: user.all_user_checkin_ids,
     });
-
-    return result.length;
   }
 
   render() {
-    if (!this.state.user) {
-      return <LoadingSpinner />
-    }
-
+    const { currentUserProfile, allUserCheckinIds, checkins } = this.props;
+    const profilePageLoaded = /* currentUserProfile && allUserCheckinIds && checkins && */ this.state.user && this.state.allUserCheckinIds;
     const user = this.state.user;
-    // const user = this.props.allUsers[this.state.user.id]
-    const checkins = user.checkins;
-    // do this in the jBuilder instead; send over an array of IDs in
-    // the order you want, and use that to get the order; just using
-    // order in controller doesn't carry over since jBuilder returns
-    // JSON object (order not preserved in hash -- duh);
-    checkins.reverse();
+    const allUserCheckins = userCheckins(this.state.allUserCheckinIds, checkins);
 
-    return(
+    return( !profilePageLoaded ? <LoadingSpinner /> :
       <div className="user-profile-container" >
         <div className='user-profile-header'>
 
@@ -74,21 +72,21 @@ class UserProfile extends React.Component {
 
           <div className="user-checkin-info">
             <ul>
-              <li>{checkins.length} Check Ins </li>
-              <li>{this.uniqueCheckins()} Unique</li>
+              <li>{allUserCheckins.length} Check Ins </li>
+              <li>{uniqueCheckins(this.props)} Unique</li>
             </ul>
           </div>
         </div>
           <div className='index-container-checkins-user-show'>
             {
-              checkins.map(checkin => (
+              allUserCheckins.map(checkin => (
                 <CheckinIndexItem
                   checkin={checkin}
-                  checkins={checkins}
+                  checkins={allUserCheckins}
                   currentUser={user}
-                  currentLoggedInUser={this.props.currentUser}
+                  currentLoggedInUser={this.props.currentLoggedInUser}
                   userName={user.username}
-                  whiskey={checkin.name}
+                  whiskey={checkin.whiskey}
                   key={checkin.id}
                   createCheer={this.props.createCheer}
                   deleteCheer={this.props.deleteCheer}
