@@ -6,7 +6,7 @@ import {
   fetchWhiskies,
   updateWhiskey
 } from '../../../actions/whiskey_actions';
-import { fetchCheckins, fetchCheckin } from '../../../actions/checkin_actions';
+import { fetchCheckins, fetchCheckin, deleteCheckin } from '../../../actions/checkin_actions';
 import { createCheer, deleteCheer } from '../../../actions/cheers_actions';
 import { fetchAllUsers } from '../../../actions/users_actions';
 import { fetchAllCheers } from '../../../actions/cheers_actions';
@@ -38,6 +38,7 @@ const mapDispatchToProps = dispatch => ({
   fetchAllCheers: () => dispatch(fetchAllCheers()),
   fetchCheckins: () => dispatch(fetchCheckins()),
   fetchCheckin: (checkinId) => dispatch(fetchCheckin(fetchCheckin)),
+  deleteCheckin: checkinId => dispatch(deleteCheckin(checkinId)),
 });
 
 export default connect(

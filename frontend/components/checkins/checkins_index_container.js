@@ -15,20 +15,17 @@ import {
 import { fetchAllUsers } from '../../actions/users_actions';
 import { fetchWhiskies } from '../../actions/whiskey_actions';
 import CheckinIndex from './checkin_index';
+import { orderCheckins } from './helpers/checkin_helpers';
 
 const mapStateToProps = state => {
-// console.log('in the checkins index contianer', state.entities)
-  const checkinsKey = state.entities.checkins.checkins ?
-    state.entities.checkins.checkins :
-    state.entities.checkins;
-
+  const recentCheckins = state.entities.checkins.recentCheckins
+  const checkins = Object.values(state.entities.checkins)
+                  .map(checkin => checkin);
   return ({
-  checkins: Object.values(state.entities.checkins)
-                  .map(checkin => checkin),
-  currentLoggedInUser: state.session.currentUser,
-  cheers: state.entities.cheers,
-  recentCheckins: state.entities.checkins.recentCheckins,
-  whiskies: state.entities.whiskies,
+    checkins: orderCheckins(checkins, recentCheckins),
+    currentLoggedInUser: state.session.currentUser,
+    cheers: state.entities.cheers,
+    whiskies: state.entities.whiskies,
   });
 };
 
