@@ -58,7 +58,7 @@ class Api::CheckinsController < ApplicationController
   def destroy
     @checkin = Checkin.find(params[:id])
     @checkin.destroy
-
+    @recent_checkins = recent_checkins
     render :show
   end
 
