@@ -1,6 +1,7 @@
 @users.each do |user|
   json.set! user.id do
     json.partial! 'user', user: user
+    json.set! :all_user_checkin_ids, User.user_checkins(user.id).pluck(:id)
     json.set! :checkins do
       json.array! user.checkins do |checkin|
         json.set! :name, checkin.whiskey.name

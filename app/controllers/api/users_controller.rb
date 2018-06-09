@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_checkins = User.user_checkins(params[:id]) || []
     render :show
   end
 
@@ -26,11 +27,6 @@ class Api::UsersController < ApplicationController
       render json: @user.errors.full_messages, status: 422
     end
   end
-
-  # def show_user_checkins
-  #   @checkins = Checkin.find_by(user_id: params[:id])
-  #   render :show_user_checkins
-  # end
 
   private
 

@@ -62,4 +62,8 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 
+  def self.user_checkins(user_id)
+    Checkin.where(user_id: user_id).order(updated_at: :desc)
+  end
+
 end
