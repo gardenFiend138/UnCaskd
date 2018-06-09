@@ -26,7 +26,7 @@ class CheckinIndex extends React.Component {
 
   render() {
     const { checkins } = this.props;
-console.log(checkins);
+
     return(
       <div className='index-container-checkins'>
       { !checkins &&

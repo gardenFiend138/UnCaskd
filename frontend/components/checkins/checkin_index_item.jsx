@@ -152,8 +152,8 @@ class CheckinIndexItem extends React.Component {
           <button
             className='delete-button'
             onClick={ () => this.setState({deleteModal: 'delete-modal show'})}
-          >delete
-            <i className="fa fa-trash" aria-hidden="true"></i>
+          >
+            <i className="fa fa-trash" aria-hidden="true" />
           </button>
           {this.deleteModal()}
         </div>

@@ -13,4 +13,15 @@ export const orderCheckins = (checkins, recentCheckins) => {
 
     return orderedCheckins;
   }
-}
+};
+
+export const userCheckins = (userCheckinIds, checkins) => {
+  if (!userCheckinIds || !checkins) return [];
+  const allUserCheckins = [];
+
+  userCheckinIds.forEach((id) => {
+    allUserCheckins.push(checkins[id]);
+  });
+
+  return allUserCheckins;
+};

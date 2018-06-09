@@ -20,7 +20,6 @@ class CheckinPopover extends React.Component {
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-    this.setState = this.setState.bind(this);
   }
 
   componentWillMount() {
