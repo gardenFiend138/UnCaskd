@@ -5,18 +5,32 @@
 }
 
 .checkin-button {
-  background-color: green;
-  padding: 23px;
   color: white;
-  border-radius: 37px;
-  margin: 23px;
   font-size: 18px;
-
-
+  width: 200px;
+  background: #34495e;
+  color: #fff;
+  // display: block;
+  line-height: 40px;
+  text-align: center;
+  padding: 0 7px;
+  margin-top: 66%;
+  // margin-top: 66%;
+  // margin-left: 20px;
+  // margin-top: 155px;
+  // background-color: #3A0505;
 }
 
-.checkin-button:hover {
-  background-color: limegreen;
+.index-container-checkins-whiskey-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.index-container-checkins-whiskey-show > div {
+  margin: 30px;
+  padding: 20px;
 }
 
 .whiskey-show {
@@ -28,11 +42,21 @@
 .whiskey-description {
   min-height: 100px;
   margin-top: 0;
-  padding: 23px 11px;
   flex-direction: column;
 }
 
 .whiskey-description span {
   padding-bottom: 5px;
   font-weight: 900;
+}
+
+.whiskey-description span:last-of-type {
+  font-weight: normal;
+  font-style: italic;
+  font-variant: small-caps;
+  font-size: 19px;
+}
+
+.whiskey-index-header {
+  // padding-top: 69px;
 }

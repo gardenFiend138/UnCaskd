@@ -6,7 +6,7 @@ class Api::WhiskiesController < ApplicationController
 
   def create
     @whiskey = Whisky.new(whiskey_params)
-    # @whiskey.image_url ||= "https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg"
+    @whiskey.image_url ||= "https://static.pexels.com/photos/8734/cold-light-alcohol-glass.jpg"
 
     if @whiskey.save
       render :show
@@ -21,7 +21,14 @@ class Api::WhiskiesController < ApplicationController
   end
 
   def index
+    @newest_whiskies = Whisky.order(created_at: :desc).all
     @whiskies = Whisky.all
+
+    render :index
+  end
+
+  def top_rated
+    @whiskies = Whisky.order(rating: :desc).limit(5)
     render :index
   end
 

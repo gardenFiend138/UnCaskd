@@ -2,15 +2,18 @@
   // background-color: #blue;
 }
 
-.popover-container button {
-  background: #34495e;
-  border: 0;
-  color: #fff;
-  display: block;
-  line-height: 40px;
-  text-align: center;
-  padding: 0 7px;
-}
+// .popover-container button {
+//   background: #34495e;
+//   border: 0;
+//   color: #fff;
+//   display: block;
+//   line-height: 40px;
+//   text-align: center;
+//   padding: 0 7px;
+//   border-radius: 0px;
+//   width: 100%;
+//   margin-top: 66%;
+// }
 
 .checkin-buttons {
   display: flex;
@@ -20,7 +23,10 @@
 
 .checkin-submit {
   width: 50%;
-  margin-right: 67px;
+  font-size: 18px;
+  background: #34495e;
+  color: #fff;
+  text-align: center;
 }
 
 .checkin-photo-upload {
@@ -47,6 +53,24 @@
   // background-color: yellow;
 }
 
+.rating-preview {
+  // width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 36px;
+  padding-top: 10px;
+}
+
+.rating-preview-container {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
 .popover {
   background: #fff;
   border-radius: 4px;
@@ -59,18 +83,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-// .checkin-popover-container {
-//   // width: 200px;
-//   // margin: 50px auto;
-//   // position: relative;
-//   margin-bottom: 138px;
-//   height: 19px;
+.checkin-popover-container {
+  display: flex;
+}
+
+// .popover-container {
 //   width: 200px;
 //   margin-left: 20px;
+//   margin-top: 155px;
 // }
-
-.popover-container {
-  width: 200px;
-  margin-left: 20px;
-  margin-top: 155px;
-}

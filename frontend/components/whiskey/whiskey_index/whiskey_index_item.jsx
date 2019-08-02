@@ -10,11 +10,10 @@ class WhiskeyIndexItem extends React.Component {
       averageRating: 0
     };
 
-
   }
 
   averageRating() {
-    const checkins = this.props.whiskey.total_checkins;
+    const checkins = this.props.whiskey.checkins;
     let ratings = [];
     checkins.map( checkin => ratings.push(checkin.rating));
 
@@ -28,7 +27,7 @@ class WhiskeyIndexItem extends React.Component {
   }
 
   totalCheckins() {
-     const checkins = this.props.whiskey.total_checkins;
+     const checkins = this.props.whiskey.checkins;
      return checkins.length;
   }
 
@@ -38,6 +37,7 @@ class WhiskeyIndexItem extends React.Component {
         <div className='rating checkin-rating-circle'>
           <CircularProgressbar
             percentage={this.averageRating()}
+            initialAnimation={true}
             textForPercentage={ (WAT) => `${WAT}`}
             />
         </div>
@@ -49,36 +49,32 @@ class WhiskeyIndexItem extends React.Component {
   }
 
   render() {
-    const whiskey = this.props.whiskey
+    const whiskey = this.props.whiskey;
 
     return (
-      <div className='whiskey-index-item'>
+      <Link to={`/whiskies/${whiskey.id}`}>
+        <div className='whiskey-index-item'>
 
-        <div className='whiskey-photo-checkins'>
-          <Link to={`/whiskies/${whiskey.id}`}>
+          <div className='whiskey-photo-checkins'>
             <img
               src={`${whiskey.image_url}`}
-              alt='whiskey_default_image'
+              alt='whiskey_image'
             />
-          </Link>
-          <span className='checkins'>
-            {this.totalCheckins()} Total Checkins
-          </span>
+            <span className='checkins'>
+              {this.totalCheckins()} Total Checkins
+            </span>
+          </div>
+
+          <div className='whiskey-info'>
+            <li>{whiskey.name}</li>
+            <li>{whiskey.style}</li>
+            <li>ABV: {whiskey.abv}%</li>
+          </div>
+
+          {this.ratingDisplay()}
+
         </div>
-
-        <div className='whiskey-info'>
-          <li>
-            <Link to={`/whiskies/${whiskey.id}`}>
-              {whiskey.name}
-            </Link>
-          </li>
-          <li>{whiskey.style}</li>
-          <li>ABV: {whiskey.abv}%</li>
-        </div>
-
-        {this.ratingDisplay()}
-
-      </div>
+      </Link>
     );
   }
 }

@@ -37,7 +37,7 @@ Whisky.create(
     White Oak barrels with the deepest char for more character.",
   abv: 50.5,
   style: 'Bourbon',
-  image_url: "https://seeklogo.com/images/J/Jim_Beam-logo-EEAE69F83E-seeklogo.com.png"
+  image_url: "https://upload.wikimedia.org/wikipedia/en/c/c7/Wild_Turkey_%28bourbon%29_logo.png"
 )
 
 Whisky.create(
@@ -135,6 +135,7 @@ Whisky.create(
   image_url: 'https://images-na.ssl-images-amazon.com/images/I/81bVvHPWE4L._SX355_.jpg'
 )
 
+# use for master when creating new whiskies
 # Whisky.create(
 #   name:
 #   description:
@@ -143,10 +144,39 @@ Whisky.create(
 #   image_url:
 # )
 
-20.times do
+all_users = []
 
+guest = User.create(
+  username: 'guest',
+  email: 'guest@gmail.com',
+  password: 'password',
+  image_url: "http://tinygraphs.com/squares/guest?theme=base&numcolors=4&size=220&fmt=svg"
+)
+
+all_users << guest
+
+10.times do
   theme = %w(frogideas sugarsweets heatwave daisygarden seascape summerwarmth
-            bythepool duskfalling berrypie base).sample
+    bythepool duskfalling berrypie base).sample
+
+  username = Faker::Name.unique.name
+  email = username.gsub(/\s+/, "") + '@gmail.com'
+  password = 'password'
+  image_url = "http://tinygraphs.com/squares/#{username}?theme=#{theme}&numcolors=4&size=220&fmt=svg"
+
+  user = User.create(
+    username: username,
+    email: email,
+    password: password,
+    image_url: image_url
+  )
+
+  all_users << user
+end
+
+
+10.times do
+
   whiskey_notes = %w(smokey sweet savory maple coffee oak strong burn smooth adaptable
     aged
     alcoholic
@@ -364,20 +394,9 @@ Whisky.create(
     well-structured
     zesty )
 
-  username = Faker::Name.unique.name
-  email = username.gsub(/\s+/, "") + '@gmail.com'
-  password = 'password'
-  image_url = "http://tinygraphs.com/squares/#{username}?theme=#{theme}&numcolors=4&size=220&fmt=svg"
+  all_users.shuffle!
+  all_users.each do |user|
 
-
-  user = User.create(
-    username: username,
-    email: email,
-    password: password,
-    image_url: image_url
-  )
-
-  5.times do
     num_description_words = Random.rand(4..8)
     body = []
     num_description_words.times do
@@ -389,6 +408,11 @@ Whisky.create(
       rating: Random.rand(50...100),
       user_id: user.id,
       whiskey_id: Random.rand(1..10)
+    )
+
+    Cheer.create(
+      checkin_id: Random.rand(1..100),
+      user_id: user.id
     )
   end
 end

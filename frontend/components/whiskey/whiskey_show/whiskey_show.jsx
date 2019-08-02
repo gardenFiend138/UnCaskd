@@ -7,6 +7,7 @@ import CheckinForm from '../../checkins/checkin_form_container';
 import CheckinPopover from '../../checkins/popover_checkin_form_container';
 import CircularProgressbar from 'react-circular-progressbar';
 import CheckinIndexItem from '../../checkins/checkin_index_item';
+import CheckinIndex from '../../checkins/checkin_index';
 
 class WhiskeyShow extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class WhiskeyShow extends React.Component {
     this.state = {
       activeModal: false
     };
+
     this.setState = this.setState.bind(this);
     this.toggleClass = this.toggleClass.bind(this);
   }
@@ -24,11 +26,18 @@ class WhiskeyShow extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchAllCheers();
+    this.props.fetchAllUsers();
+    this.props.fetchCheckins();
     this.props.fetchWhiskey(this.props.match.params.id);
   }
 
+  componentWillMount() {
+    window.scrollTo(0,0);
+  }
+
   averageRating() {
-    const checkins = this.props.whiskey.total_checkins;
+    const checkins = this.props.whiskey.checkins;
     let ratings = [];
     checkins.map( checkin => ratings.push(checkin.rating));
 
@@ -36,13 +45,13 @@ class WhiskeyShow extends React.Component {
       ratings = ratings.reduce( (prev, curr) => prev + curr);
       ratings = ratings / checkins.length;
       return Math.round(ratings);
-    } else {
-      return checkins.length;
     }
+
+    return checkins.length;
   }
 
   totalCheckins() {
-     const checkins = this.props.whiskey.total_checkins;
+     const checkins = this.props.whiskey.checkins;
      return checkins.length;
   }
 
@@ -52,6 +61,7 @@ class WhiskeyShow extends React.Component {
         <div className='rating'>
           <CircularProgressbar
             percentage={this.averageRating()}
+            initialAnimation={true}
             textForPercentage={ (WAT) => `${WAT}`}
             />
         </div>
@@ -62,6 +72,32 @@ class WhiskeyShow extends React.Component {
     );
   }
 
+  whiskeyCheckins() {
+// console.log('props in the whiskey show', this.props);
+    const checkins = this.props.whiskey.checkins;
+
+    return(
+      <div className='index-container-checkins-whiskey-show'>
+      {
+        checkins.map(checkin => (
+          <CheckinIndexItem
+            checkin={checkin}
+            checkins={checkins}
+            username={checkin.username}
+            currentLoggedInUser={this.props.currentLoggedInUser}
+            key={checkin.id}
+            whiskey={this.props.whiskey.name}
+            editCheckin={this.props.updateCheckin}
+            deleteCheckin={this.props.deleteCheckin}
+            createCheer={this.props.createCheer}
+            deleteCheer={this.props.deleteCheer}
+            fetchCheckin={this.props.fetchCheckin}
+          />
+        ))
+      }
+      </div>
+    );
+  }
 
   render() {
 
@@ -73,13 +109,13 @@ class WhiskeyShow extends React.Component {
 
     return(
       <div className='whiskey-show'>
-        <div className='whiskey-index-item'>
+        <div className='whiskey-overview'>
 
           <div className='whiskey-photo-checkins'>
             <Link to={`/whiskies/${whiskey.id}`}>
               <img
                 src={`${whiskey.image_url}`}
-                alt='whiskey_default_image'
+                alt='drink_img'
               />
             </Link>
             <span className='checkins'>
@@ -105,10 +141,13 @@ class WhiskeyShow extends React.Component {
             {this.ratingDisplay()}
 
         </div>
-        <div className='whiskey-description whiskey-index-item'>
-          <span>Description:*</span>
-          {whiskey.description}
+        <div className='whiskey-description whiskey-overview'>
+          <span>*From the Distiller:</span>
+          <span>"{whiskey.description}"</span>
         </div>
+        <div>
+        </div>
+        {this.whiskeyCheckins()}
       </div>
 
 

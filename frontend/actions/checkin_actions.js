@@ -2,6 +2,7 @@ import * as APIUtil from '../util/checkin_api_util';
 
 export const RECEIVE_CHECKIN = 'RECEIVE_CHECKIN';
 export const RECEIVE_ALL_CHECKINS = 'RECEIVE_ALL_CHECKINS';
+export const RECEIVE_USER_CHECKINS = 'RECEIVE_USER_CHECKINS';
 export const RECEIVE_CHECKIN_ERRORS = 'RECEIVE_CHECKIN_ERRORS';
 export const REMOVE_CHECKIN = 'REMOVE_CHECKIN';
 export const CLEAR_CHECKIN_ERRORS = 'CLEAR_CHECKIN_ERRORS';
@@ -12,11 +13,16 @@ export const clearCheckinErrors = () => ({
 
 export const receiveCheckin = checkin => ({
   type: RECEIVE_CHECKIN,
-  checkin
+  checkin,
 });
 
 export const receiveAllCheckins = checkins => ({
   type: RECEIVE_ALL_CHECKINS,
+  checkins
+});
+
+export const receiveUserCheckins = checkins => ({
+  type: RECEIVE_USER_CHECKINS,
   checkins
 });
 
@@ -57,16 +63,24 @@ export const fetchCheckin = checkinId => dispatch => (
 );
 
 export const fetchCheckins = () => dispatch => (
-  APIUtil.fetchCheckins().then(checkin => (
-    dispatch(receiveAllCheckins(checkin))
+  APIUtil.fetchCheckins().then(checkins => (
+    dispatch(receiveAllCheckins(checkins))
   ), err => (
     dispatch(receiveCheckinErrors(err.responseJSON))
   ))
 );
 
 export const deleteCheckin = checkinId => dispatch => (
-  APIUtil.deleteCheckin(checkinId).then(checkin => (
-    dispatch(removeCheckin(checkin))
+  APIUtil.deleteCheckin(checkinId).then(() => (
+    dispatch(removeCheckin(checkinId))
+  ), err => (
+    dispatch(receiveCheckinErrors(err.responseJSON))
+  ))
+);
+
+export const checkinsByUser = userId => dispatch => (
+  APIUtil.checkinsByUser(userId).then(checkins => (
+    dispatch(receiveUserCheckins(checkins))
   ), err => (
     dispatch(receiveCheckinErrors(err.responseJSON))
   ))

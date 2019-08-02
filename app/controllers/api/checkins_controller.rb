@@ -10,13 +10,10 @@ class Api::CheckinsController < ApplicationController
     @checkin = Checkin.new(checkin_params)
     @checkin.user_id = current_user.id
 
-
-    if @checkin.save
-      # render json: @checkin
+    if @checkin.save!
       render :show
-      #alternatively make a checkin json jbuilder file and render that.
-
     else
+
       render json: @checkin.errors.full_messages, status: 422
     end
   end
@@ -27,34 +24,47 @@ class Api::CheckinsController < ApplicationController
   end
 
   def index
-    @checkins = Checkin.all
+    @checkins = Checkin.all.includes(:cheers)
+    @recent_checkins = recent_checkins
     render :index
+  end
+
+  def checkins_by_user
+    @checkins_by_user = Checkin.where(user_id: params[:user_id])
+    # render json: @checkins_by_user
+    render :json
   end
 
   def edit
     @checkin = Checkin.find(params[:id])
-    render :edit
+    render :show
   end
 
   def update
     @checkin = Checkin.find(params[:id])
 
     if @checkin.update_attributes(checkin_params)
+      @recent_checkins = recent_checkins
       render :show
     else
       render json: @checkin.errors.full_messages, status: 422
     end
   end
 
+  def recent_checkins
+    Checkin.order(updated_at: :desc).includes(:cheers).limit(20)
+  end
+
   def destroy
-    checkin = Checkin.find(params[:id])
-    checkin.destroy
-    render "api/whiskey/#{@checkin.whiskey_id}"
+    @checkin = Checkin.find(params[:id])
+    @checkin.destroy
+    @recent_checkins = recent_checkins
+    render :show
   end
 
   private
 
   def checkin_params
-    params.require(:checkin).permit(:body, :rating, :whiskey_id)
+    params.require(:checkin).permit(:body, :rating, :whiskey_id, :id)
   end
 end

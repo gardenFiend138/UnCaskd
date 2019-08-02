@@ -13,9 +13,6 @@
 #
 
 class User < ApplicationRecord
-  # validates :username, :session_token, presence: true, uniqueness: true
-  # validates :password, length: { minimum: 6, allow_nil: true }
-  # validates :password_digest, presence: true
   validates :username, :password_digest, :email, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
@@ -32,6 +29,11 @@ class User < ApplicationRecord
   has_many :whiskey,
     through: :checkins,
     source: :whiskey
+
+  has_many :cheers,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Cheer'
 
 
   def self.find_by_credentials(username, password)
@@ -58,6 +60,10 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def self.user_checkins(user_id)
+    Checkin.where(user_id: user_id).order(updated_at: :desc)
   end
 
 end

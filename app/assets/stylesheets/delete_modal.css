@@ -1,0 +1,35 @@
+.delete-modal-container {
+  /* height: 100%;
+  width: 100%;
+  display: flex;
+  opacity: .5; */
+}
+
+.delete-modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  right: 0;
+  margin: auto;
+  z-index: 3;
+  height: 200px;
+  width: 300px;
+  margin-top: -100px;
+  text-align: center;
+}
+
+.show > span {
+  font-size: 16px;
+}
+
+.show > button:hover {
+  text-decoration: underline;
+}

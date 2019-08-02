@@ -15,7 +15,9 @@ export default (state = [], action) => {
     case RECEIVE_WHISKEY_ERRORS:
       return action.errors;
     case RECEIVE_WHISKEY:
+      return _nullErrors;
     case CLEAR_WHISKEY_ERRORS:
+    return _nullErrors;
     case RECEIVE_ALL_WHISKIES:
       return _nullErrors;
     default:

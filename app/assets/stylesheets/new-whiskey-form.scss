@@ -1,20 +1,25 @@
+.new-whiskey-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-top: 50px;
+}
+
 .new-whiskey-form {
  background-color: white;
  display: flex;
  justify-content: center;
  align-items: center;
- width: 369px;
- height: 443px;
- position: absolute;
- left: 36%;
- top: 17%;
+ width: 70%;
+ height: 80%;
  opacity: .95;
- border-radius: 29px;
+ border-radius: 7px;
+ margin-top: -137px;
 }
 
 .new-whiskey-form form {
    display: flex;
-   width: 350px;
+   width: 80%;
    flex-direction: column;
    background-color: white;
    border-radius: 5px;
@@ -30,12 +35,26 @@
 
 .new-whiskey-form input {
   autofill: 'off';
-  width: 279px;
+  width: 60%;
   text-align: center;
   font-size: 16px;
-  margin: 19px 0 19px 0;
+  margin: 13px 0 13px 0;
   height: 31px;
-  border-radius: 7px;
+}
+
+.new-whiskey-form textarea {
+  font-size: 16px;
+  min-width: 99%;
+  max-width: 99%;
+  min-height: 100px;
+  max-height: 100px;
+  border: 1px solid black;
+  margin: 17px 0;
+}
+
+.abv-style-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .add-whiskey-button {
@@ -47,9 +66,10 @@
   font-weight: 900;
   box-shadow: 0px 2px 2px black;
   transition: .3s;
+  margin-bottom: 30px;
 }
 
 .add-whiskey-button:active {
   box-shadow: none;
-  margin-top: 17px;
+  // margin-bottom: 28px;
 }

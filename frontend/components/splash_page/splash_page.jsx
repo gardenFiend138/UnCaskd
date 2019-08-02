@@ -6,8 +6,8 @@ import Footer from '../footer/footer';
   const motto = () => {
     return(
       <div className='motto'>
-        <h1>UnCaskd</h1>
-        <h5>DISCOVER THE BEST</h5>
+        <h1 className='logo'>UnCaskd</h1>
+        <span className='slogan'>DISCOVER, RATE, & REVIEW NEW WHISKIES</span>
       </div>
     );
   };
